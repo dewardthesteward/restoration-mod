@@ -1,8 +1,6 @@
 local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 
-bulldozer = ""
-
 	if tweak_data:difficulty_to_index(difficulty) <= 7 then
 		bulldozer = "units/pd2_mod_nypd/characters/ene_bulldozer_1/ene_bulldozer_1"
 	elseif tweak_data:difficulty_to_index(difficulty) == 8 then
@@ -43,8 +41,10 @@ return {
 	--PDTH's OVK 145+ Throwback (Fixes the special scaffolding spawn not using the zipline and replaces cloaker with bulldozer)
 	[101320] = {
 		values = {
-			enemy = bulldozer,	
-			on_executed = { id = 101521, delay = 3 }
+			enemy = bulldozer	
+		},
+		on_executed = {
+			{ id = 101521, delay = 3 }
 		}
 	},
 	-- Remove spawn groups closest to broken bridge part

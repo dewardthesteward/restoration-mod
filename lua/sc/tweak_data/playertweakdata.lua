@@ -598,7 +598,7 @@ function PlayerTweakData:_init_hk51b()
 	self.stances.hk51b.steelsight.shoulders.rotation = pivot_head_rotation * pivot_shoulder_rotation:inverse()
 end
 
--- HK51b
+-- AA12
 local default_init_aa12 = PlayerTweakData._init_aa12
 function PlayerTweakData:_init_aa12()
 	default_init_aa12(self)	
@@ -637,6 +637,50 @@ function PlayerTweakData:_init_breech()
 	self.stances.breech.steelsight.shoulders.translation = pivot_head_translation - pivot_shoulder_translation:rotate_with(pivot_shoulder_rotation:inverse()):rotate_with(pivot_head_rotation)
 	self.stances.breech.steelsight.shoulders.rotation = pivot_head_rotation * pivot_shoulder_rotation:inverse()
 	
+end
+
+-- ChainSAW
+local default_init_kacchainsaw = PlayerTweakData._init_kacchainsaw
+function PlayerTweakData:_init_kacchainsaw()
+	default_init_kacchainsaw(self)	
+	pivot_shoulder_translation = Vector3(10.7056, 4.38842, -0.747177)
+	pivot_shoulder_rotation = Rotation(0.106618, -0.084954, 0.62858)
+	pivot_head_translation = Vector3(11, 9, -3.5)
+	pivot_head_rotation = Rotation(-0.9, -3.4, 0)
+	self.stances.kacchainsaw.standard.shoulders.translation = pivot_head_translation - pivot_shoulder_translation:rotate_with(pivot_shoulder_rotation:inverse()):rotate_with(pivot_head_rotation)
+	self.stances.kacchainsaw.standard.shoulders.rotation = pivot_head_rotation * pivot_shoulder_rotation:inverse()
+	pivot_head_translation = Vector3(10, 5, -4.5)
+	pivot_head_rotation = Rotation(-0.9, -3.4, -5)
+	self.stances.kacchainsaw.crouched.shoulders.translation = pivot_head_translation - pivot_shoulder_translation:rotate_with(pivot_shoulder_rotation:inverse()):rotate_with(pivot_head_rotation)
+	self.stances.kacchainsaw.crouched.shoulders.rotation = pivot_head_rotation * pivot_shoulder_rotation:inverse()
+	pivot_head_translation = Vector3(7.5, 6, -2)
+	pivot_head_rotation = Rotation(-1, -3.4, -5)
+	self.stances.kacchainsaw.steelsight.shoulders.translation = pivot_head_translation - pivot_shoulder_translation:rotate_with(pivot_shoulder_rotation:inverse()):rotate_with(pivot_head_rotation)
+	self.stances.kacchainsaw.steelsight.shoulders.rotation = pivot_head_rotation * pivot_shoulder_rotation:inverse()
+end
+
+-- Supernova
+local default_init_supernova = PlayerTweakData._init_supernova
+function PlayerTweakData:_init_supernova()
+	default_init_supernova(self)	
+	pivot_shoulder_translation = Vector3(7.5, 16.5, -3.5)
+	pivot_shoulder_rotation = Rotation(0, 0, 0.35)
+	pivot_head_translation = Vector3(-0.84, 18, 1.392)
+	pivot_head_rotation = Rotation(-0.43, 0.21, 0)
+	self.stances.supernova.steelsight.shoulders.translation = pivot_head_translation - pivot_shoulder_translation:rotate_with(pivot_shoulder_rotation:inverse()):rotate_with(pivot_head_rotation)
+	self.stances.supernova.steelsight.shoulders.rotation = pivot_head_rotation * pivot_shoulder_rotation:inverse()
+end
+
+-- AWP
+local default_init_awp = PlayerTweakData._init_awp
+function PlayerTweakData:_init_awp()
+	default_init_awp(self)	
+	pivot_shoulder_translation = Vector3(8.66059, 40.8349, -3.2711)
+	pivot_shoulder_rotation = Rotation(0.106694, -0.0848914, -3)
+	pivot_head_translation = Vector3(-1.525, 3, -2.255)
+	pivot_head_rotation = Rotation(0.12, -0.07, 0)
+	self.stances.awp.steelsight.shoulders.translation = pivot_head_translation - pivot_shoulder_translation:rotate_with(pivot_shoulder_rotation:inverse()):rotate_with(pivot_head_rotation)
+	self.stances.awp.steelsight.shoulders.rotation = pivot_head_rotation * pivot_shoulder_rotation:inverse()
 end
 
 

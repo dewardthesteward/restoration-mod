@@ -1,8 +1,6 @@
 local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 
-jerome_dude = ""
-
 	if tweak_data:difficulty_to_index(difficulty) <= 6 then
 		jerome_dude = "units/payday2/characters/ene_security_3/ene_security_3"	
 	elseif tweak_data:difficulty_to_index(difficulty) == 7 then
@@ -38,11 +36,11 @@ end
 
 return {
 	--Pro Job PONR 
-	[104702] = {
+	[104701] = {
 		ponr = ponr_value,
 		enabled = ponr_toggle
 	},
-	[104701] = {
+	[104650] = {
 		ponr = ponr_value,
 		enabled = ponr_toggle
 	},

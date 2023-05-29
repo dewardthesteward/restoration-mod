@@ -137,8 +137,15 @@
 
 	<continent			path="levels/narratives/vlad/pines/world/world" force="true" unload="true"/> <!--removes the police lights-->
 	
-	<mission			path="levels/narratives/locke/des/world/world" force="true" unload="true"/> <!--delayed and balanced the spawns so they won't appear out of nowhere-->
+	<!--Henry's Cock edit - a bit more cover, some spawn tweaks, altered turret objective, pro job slightly more evil-->
+	<mission			path="levels/narratives/locke/des/world/world" force="true" unload="true"/> 
 	<continent			path="levels/narratives/locke/des/world/world" force="true" unload="true"/>
+	<mission			path="levels/narratives/locke/des/art/art" force="true" unload="true"/> 
+	<continent			path="levels/narratives/locke/des/art/art" force="true" unload="true"/>
+	<mission			path="levels/narratives/locke/des/props/props" force="true" unload="true"/> 
+	<continent			path="levels/narratives/locke/des/props/props" force="true" unload="true"/>
+	<cover_data			path="levels/narratives/locke/des/cover_data" force="true" unload="true"/>
+	<nav_data			path="levels/narratives/locke/des/nav_manager_data" force="true" unload="true"/>
 	
 	<mission			path="levels/instances/unique/pbr/pbr_mountain_surface/world/world" force="true" unload="true"/> <!--Replaces most of the scripted spawns to have more variety with Murkies-->
 	
@@ -885,7 +892,7 @@
 	<texture			path="units/pd2_mod_reapers/characters/shared_textures/cloaker_head_nm" load="true"/>
 	<texture			path="units/pd2_mod_reapers/characters/shared_textures/cloaker_body_df" load="true"/>
 	<texture			path="units/pd2_mod_reapers/characters/shared_textures/spook_il" />
-	<effect				path="units/pd2_mod_reapers/effects/character/cloaker_goggle" load="true"/>
+	<effect				path="units/pd2_mod_reapers/effects/particles/character/cloaker_goggle" load="true"/>
 	
 
 	<cooked_physics		path="units/pd2_dlc_vip/weapons/wpn_npc_mpx/wpn_npc_mpx"/>
@@ -1191,16 +1198,17 @@
 	<texture			path="units/pd2_dlc_usm1/characters/shared_textures/ene_marshal_equipment_merc_df" force="true"/>
 	
 	<!--Omnia Buff Effect-->
-	<object				path="units/pd2_mod_omnia/characters/ene_acc_omnia_buff/ene_acc_omnia_buff" force="false"/>
-	<cooked_physics		path="units/pd2_mod_omnia/characters/ene_acc_omnia_buff/ene_acc_omnia_buff" force="false"/>
-	<model				path="units/pd2_mod_omnia/characters/ene_acc_omnia_buff/ene_acc_omnia_buff" force="false"/>
-	<unit				path="units/pd2_mod_omnia/characters/ene_acc_omnia_buff/ene_acc_omnia_buff" force="false" load="false"/>
-	<material_config	path="units/pd2_mod_omnia/characters/ene_acc_omnia_buff/ene_acc_omnia_buff" force="false"/>
-	
-	<effect				path="effects/pd2_mod_omnia/particles/character/overkillpack/mega_rad_mutant_smoke_puff" load="false"/>
-	<effect				path="effects/pd2_mod_omnia/particles/character/overkillpack/parts/green_smoke_var_01" load="false"/>
-	<effect				path="effects/pd2_mod_omnia/particles/character/overkillpack/parts/green_smoke_var_02" load="false"/>
-	<effect				path="effects/pd2_mod_omnia/particles/character/overkillpack/parts/green_smoke_var_03" load="false"/>
+	<object path="units/pd2_mod_omnia/characters/ene_acc_omnia_buff/ene_acc_omnia_buff" force="false"/>
+	<cooked_physics path="units/pd2_mod_omnia/characters/ene_acc_omnia_buff/ene_acc_omnia_buff" force="false"/>
+	<model path="units/pd2_mod_omnia/characters/ene_acc_omnia_buff/ene_acc_omnia_buff" force="false"/>
+	<unit path="units/pd2_mod_omnia/characters/ene_acc_omnia_buff/ene_acc_omnia_buff" force="false" load="true"/>
+	<material_config path="units/pd2_mod_omnia/characters/ene_acc_omnia_buff/ene_acc_omnia_buff" force="false"/>
+
+	<effect path="effects/pd2_mod_omnia/particles/character/overkillpack/mega_rad_mutant_smoke_puff" load="false"/>
+	<effect path="effects/pd2_mod_omnia/particles/character/overkillpack/parts/green_smoke_var_01" load="false"/>
+	<effect path="effects/pd2_mod_omnia/particles/character/overkillpack/parts/green_smoke_var_02" load="false"/>
+	<effect path="effects/pd2_mod_omnia/particles/character/overkillpack/parts/green_smoke_var_03" load="false"/>
+	<effect path="effects/pd2_mod_omnia/particles/character/shadow_cloaker/smoke_trail/smoke_distorted" load = "true"/>
 	
 	<!--Loading Screen Tips-->
 	<texture			path="guis/textures/loading/hints/grenadier_load" force="false"/>	
@@ -1381,6 +1389,15 @@
 	<object				path="units/pd2_dlc_pxp1/weapons/wpn_fps_snp_scout_pts/wpn_fps_snp_scout_b_standard" load="false"/>
 	<object				path="units/pd2_dlc_pxp1/weapons/wpn_fps_snp_scout_pts/wpn_fps_snp_scout_body_standard" load="false"/>
 	<object				path="units/pd2_dlc_pxp1/weapons/wpn_fps_snp_scout_pts/wpn_fps_snp_scout_body_conversion" load="false"/>
+
+	<object				path="units/pd2_dlc_pxp4/weapons/wpn_fps_snp_awp_ck_1_pts/wpn_fps_snp_awp_ck_1_b_standard" load="false"/>
+	<object				path="units/pd2_dlc_pxp4/weapons/wpn_fps_snp_awp_ck_2_pts/wpn_fps_snp_awp_ck_2_b_long" load="false"/>
+	<object				path="units/pd2_dlc_pxp4/weapons/wpn_fps_snp_awp_pts/wpn_fps_snp_awp_b_standard" load="false"/>
+	<object				path="units/pd2_dlc_pxp4/weapons/wpn_fps_snp_awp_pts/wpn_fps_snp_awp_b_short" load="false"/>
+	<object				path="units/pd2_dlc_pxp4/weapons/wpn_fps_snp_awp_pts/wpn_fps_snp_awp_b_long" load="false"/>
+	<object				path="units/pd2_dlc_pxp4/weapons/wpn_fps_snp_awp_pts/wpn_fps_snp_awp_ns_muzzle" load="false"/>
+	<object				path="units/pd2_dlc_pxp4/weapons/wpn_fps_snp_awp_pts/wpn_fps_snp_awp_ns_muzzle_short" load="false"/>
+	<object				path="units/pd2_dlc_pxp4/weapons/wpn_fps_snp_awp_pts/wpn_fps_snp_awp_ns_muzzle_long" load="false"/>
 	
 	<!--PEW PEW PEW-->
 	<bnk				path="soundbanks/weapon_c96" force = "true"/>
@@ -1468,6 +1485,10 @@
 	
 	<!--NPC aa12-->
 	<unit_obj			path="units/payday2/weapons/wpn_npc_aa12/wpn_npc_aa12" force="true"/>
+	
+	<!--NPC Less Lethal Shotguns-->
+	<unit				path="units/payday2/weapons/wpn_npc_aa12_conc/wpn_npc_aa12_conc" load="true"/>
+	<unit				path="units/payday2/weapons/wpn_npc_saiga_conc/wpn_npc_saiga_conc" load="true"/>
 	
 	<!--Dozer NPC AA12-->
 	<unit_obj			path="units/payday2/weapons/wpn_npc_aa12_dozer/wpn_npc_aa12_dozer" load="false"/>		
@@ -1705,6 +1726,12 @@
 	<texture			path="guis/textures/pd2/blackmarket/icons/deployables/outline/armor_kit" force="true"/>	
 	<unit				path="units/payday2/equipment/gen_equipment_grenade_crate/gen_equipment_grenade_crate_dummy_unit" load="true" />	
 	<texture			path="units/payday2/characters/shared_textures/equipment_armor_bag_df" force="true"/>
+	<!--ordnance_bag icon; new hud icons for toxic, electric and semtex grenade-->
+	<texture			path="guis/dlcs/mxm/textures/pd2/ordnance_bag" />
+	<texture			path="guis/dlcs/mxm/textures/pd2/sticky_grenade" />
+	<texture			path="guis/dlcs/pxp1/textures/pd2/hud_poison_gas_grenade" />
+	<texture			path="guis/dlcs/sawp/textures/pd2/equipment_sawp" />
+	
 	
 	<!--suit inventory icons-->
 	<texture			path="guis/dlcs/mods/textures/pd2/blackmarket/icons/player_styles/loud_suit"/>

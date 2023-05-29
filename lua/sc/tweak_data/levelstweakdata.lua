@@ -237,6 +237,8 @@ Hooks:PostHook( LevelsTweakData, "init", "SC_levels", function(self)
 	
 	self.corp.ai_group_type = nypd
 	
+	--self.deep.ai_group_type = nypd
+	
 	self.nmh.ai_group_type = nypd
 	self.nmh.ghost_bonus = nil
 	
@@ -276,6 +278,13 @@ Hooks:PostHook( LevelsTweakData, "init", "SC_levels", function(self)
 		
 	self.ranc.ai_group_type = lapd
 	self.ranc.player_style = "fighterpilot"
+	
+	--//GENSEC STUFF\\--
+	self.arm_cro.package = {"packages/narr_arm_cro", "packages/gensecmisc"}
+	self.arm_fac.package = {"packages/narr_arm_fac", "packages/gensecmisc"}
+	self.arm_hcm.package = {"packages/narr_arm_hcm", "packages/gensecmisc"}
+	self.arm_par.package = {"packages/narr_arm_par", "packages/gensecmisc"}
+	self.arm_und.package = {"packages/narr_arm_und", "packages/gensecmisc"}
 
 	
 	--///NEW OUTFITS\\\--

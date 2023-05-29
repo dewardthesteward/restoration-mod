@@ -2,6 +2,7 @@ Hooks:PostHook(BlackMarketTweakData, "_init_gloves", "ResGloves", function(self,
 	table.insert(self.glove_adapter.player_style_exclude_list, "two_piece_suit")
 	table.insert(self.glove_adapter.player_style_exclude_list, "loud_suit")
 	table.insert(self.glove_adapter.player_style_exclude_list, "suit_sunny")
+	table.insert(self.glove_adapter.player_style_exclude_list, "suit_prison")
 	self.suit_default_gloves.suit_sunny = "heist_default"
 	self.suit_default_gloves.loud_suit = "heist_default"
 	self.suit_default_gloves.poggers = "esport"
@@ -332,7 +333,8 @@ Hooks:PostHook(BlackMarketTweakData, "_init_player_styles", "ResPlayerStyles", f
 		},
 		unit = "units/pd2_mod_suits/characters/res_acc_fps_loud_suit/res_acc_fps_loud_suit",
 		third_unit = "units/pd2_mod_suits/characters/res_acc_loud_suit/res_acc_loud_suit",
-		characters = {}
+		characters = {},
+		material_variations = {}
 	}
 	set_characters_data("loud_suit", characters_male_big, {
 		unit = "units/pd2_mod_suits/characters/res_acc_fps_loud_suit/res_acc_fps_loud_suit"
@@ -384,6 +386,452 @@ Hooks:PostHook(BlackMarketTweakData, "_init_player_styles", "ResPlayerStyles", f
 	
 	}
 	
+-- Color variations
+	self.player_styles.loud_suit.material_variations.default = {
+		name_id = "bm_suit_var_loud_suit_default",
+		desc_id = "bm_suit_var_loud_suit_default_desc"
+	}
+	
+	self.player_styles.loud_suit.material_variations.blue = {
+		name_id = "bm_suit_var_loud_suit_blue",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_loud_suit_blue_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_blue",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_blue",
+	}
+	
+	self.player_styles.loud_suit.material_variations.brown = {
+		name_id = "bm_suit_var_loud_suit_brown",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_loud_suit_brown_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_brown",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_brown",
+	}
+	
+	self.player_styles.loud_suit.material_variations.gorkaearth = {
+		name_id = "bm_suit_var_loud_suit_gorkaearth",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_loud_suit_gorkaearth_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkaearth",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkaearth",
+	}
+	
+	self.player_styles.loud_suit.material_variations.gorkagreen = {
+		name_id = "bm_suit_var_loud_suit_gorkagreen",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_loud_suit_gorkagreen_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagreen",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagreen",
+	}
+	
+	self.player_styles.loud_suit.material_variations.gorkagrey = {
+		name_id = "bm_suit_var_loud_suit_gorkagrey",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_loud_suit_gorkagrey_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagrey",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagrey",
+	}
+	
+	self.player_styles.loud_suit.material_variations.gorkapurple = {
+		name_id = "bm_suit_var_loud_suit_gorkapurple",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_loud_suit_gorkapurple_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkapurple",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkapurple",
+	}
+	
+	self.player_styles.loud_suit.material_variations.gorkasea = {
+		name_id = "bm_suit_var_loud_suit_gorkasea",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_loud_suit_gorkasea_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkasea",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkasea",
+	}
+	
+	self.player_styles.loud_suit.material_variations.green = {
+		name_id = "bm_suit_var_loud_suit_green",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_loud_suit_green_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_green",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_green",
+	}
+	
+	self.player_styles.loud_suit.material_variations.purple = {
+		name_id = "bm_suit_var_loud_suit_purple",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_loud_suit_purple_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_purple",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_purple",
+	}
+	
+	self.player_styles.loud_suit.material_variations.red = {
+		name_id = "bm_suit_var_loud_suit_red",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_loud_suit_red_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_red",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_red",
+	}
+	
+	self.player_styles.loud_suit.material_variations.white = {
+		name_id = "bm_suit_var_loud_suit_white",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_loud_suit_white_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_white",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_white",
+	}
+	
+	
+	self.player_styles.loud_suit.characters.chains.material_variations = {
+	blue = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_blue_chains",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_blue_chains"
+    },
+	brown = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_brown_chains",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_brown_chains"
+    },
+	gorkaearth = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkaearth_chains",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkaearth_chains"
+	},
+	gorkagreen = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagreen_chains",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagreen_chains"
+	},
+	gorkagrey = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagrey_chains",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagrey_chains"
+	},
+	gorkapurple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkapurple_chains",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkapurple_chains"
+	},
+	gorkasea = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkasea_chains",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkasea_chains"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_green_chains",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_green_chains"
+	},
+	purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_purple_chains",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_purple_chains"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_red_chains",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_red_chains"
+	},
+	white = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_white_chains",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_white_chains"
+	}
+	}
+	
+	self.player_styles.loud_suit.characters.bodhi.material_variations = {
+	blue = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_blue_bodhi",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_blue_bodhi"
+    },
+	brown = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_brown_bodhi",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_brown_bodhi"
+    },
+	gorkaearth = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkaearth_bodhi",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkaearth_bodhi"
+	},
+	gorkagreen = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagreen_bodhi",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagreen_bodhi"
+	},
+	gorkagrey = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagrey_bodhi",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagrey_bodhi"
+	},
+	gorkapurple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkapurple_bodhi",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkapurple_bodhi"
+	},
+	gorkasea = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkasea_bodhi",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkasea_bodhi"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_green_bodhi",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_green_bodhi"
+	},
+	purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_purple_bodhi",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_purple_bodhi"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_red_bodhi",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_red_bodhi"
+	},
+	white = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_white_bodhi",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_white_bodhi"
+	}
+	}
+	
+	self.player_styles.loud_suit.characters.max.material_variations = {
+	blue = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_blue_sangres",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_blue_sangres"
+    },
+	brown = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_brown_sangres",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_brown_sangres"
+    },
+	gorkaearth = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkaearth_sangres",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkaearth_sangres"
+	},
+	gorkagreen = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagreen_sangres",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagreen_sangres"
+	},
+	gorkagrey = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagrey_sangres",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagrey_sangres"
+	},
+	gorkapurple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkapurple_sangres",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkapurple_sangres"
+	},
+	gorkasea = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkasea_sangres",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkasea_sangres"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_green_sangres",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_green_sangres"
+	},
+	purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_purple_sangres",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_purple_sangres"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_red_sangres",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_red_sangres"
+	},
+	white = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_white_sangres",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_white_sangres"
+	}
+	}
+	
+	self.player_styles.loud_suit.characters.chico.material_variations = {
+	blue = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_blue_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_blue_02"
+    },
+	brown = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_brown_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_brown_02"
+    },
+	gorkaearth = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkaearth_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkaearth_02"
+	},
+	gorkagreen = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagreen_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagreen_02"
+	},
+	gorkagrey = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagrey_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagrey_02"
+	},
+	gorkapurple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkapurple_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkapurple_02"
+	},
+	gorkasea = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkasea_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkasea_02"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_green_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_green_02"
+	},
+	purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_purple_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_purple_02"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_red_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_red_02"
+	},
+	white = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_white_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_white_02"
+	}
+	}
+	
+	self.player_styles.loud_suit.characters.dragon.material_variations = {
+	blue = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_blue_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_blue_02"
+    },
+	brown = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_brown_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_brown_02"
+    },
+	gorkaearth = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkaearth_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkaearth_02"
+	},
+	gorkagreen = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagreen_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagreen_02"
+	},
+	gorkagrey = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagrey_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagrey_02"
+	},
+	gorkapurple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkapurple_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkapurple_02"
+	},
+	gorkasea = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkasea_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkasea_02"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_green_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_green_02"
+	},
+	purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_purple_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_purple_02"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_red_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_red_02"
+	},
+	white = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_white_02",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_white_02"
+	}
+	}
+	
+	self.player_styles.loud_suit.characters.joy.material_variations = {
+	blue = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_blue_joy",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_blue_joy"
+    },
+	brown = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_brown_joy",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_brown_joy"
+    },
+	gorkaearth = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkaearth_joy",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkaearth_joy"
+	},
+	gorkagreen = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagreen_joy",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagreen_joy"
+	},
+	gorkagrey = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagrey_joy",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagrey_joy"
+	},
+	gorkapurple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkapurple_joy",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkapurple_joy"
+	},
+	gorkasea = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkasea_joy",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkasea_joy"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_green_joy",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_green_joy"
+	},
+	purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_purple_joy",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_purple_joy"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_red_joy",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_red_joy"
+	},
+	white = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_white_joy",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_white_joy"
+	}
+	}
+	
+	self.player_styles.loud_suit.characters.sydney.material_variations = {
+	blue = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_blue_sydney",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_blue_sydney"
+    },
+	brown = {
+        third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_brown_sydney",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_brown_sydney"
+    },
+	gorkaearth = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkaearth_sydney",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkaearth_sydney"
+	},
+	gorkagreen = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagreen_sydney",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagreen_sydney"
+	},
+	gorkagrey = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkagrey_sydney",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkagrey_sydney"
+	},
+	gorkapurple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkapurple_sydney",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkapurple_sydney"
+	},
+	gorkasea = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_gorkasea_sydney",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_gorkasea_sydney"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_green_sydney",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_green_sydney"
+	},
+	purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_purple_sydney",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_purple_sydney"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_red_sydney",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_red_sydney"
+	},
+	white = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_loud_suit_white_sydney",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_loud_suit_white_sydney"
+	}
+	}
+	
 	--Resmod Sunny-Side Robber
 	self.player_styles.suit_sunny = {
 		name_id = "bm_suit_sunny",
@@ -395,7 +843,8 @@ Hooks:PostHook(BlackMarketTweakData, "_init_player_styles", "ResPlayerStyles", f
 		third_body_replacement = body_replacement_standard,
 		unit = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
 		third_unit = "units/pd2_mod_suits/characters/res_acc_sunny_suit/res_acc_sunny_suit",
-		characters = {}
+		characters = {},
+		material_variations = {}
 	}
 	set_characters_data("suit_sunny", characters_female_big, {
 		unit = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female",
@@ -441,6 +890,755 @@ Hooks:PostHook(BlackMarketTweakData, "_init_player_styles", "ResPlayerStyles", f
 		unit = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi",
 		third_material = "units/pd2_mod_suits/characters/res_acc_sunny_suit/bodhi/res_acc_sunny_suit_bodhi",	
 	}
+	
+	-- Color variations
+	self.player_styles.suit_sunny.material_variations.default = {
+		name_id = "bm_suit_var_suit_sunny_default",
+		desc_id = "bm_suit_var_suit_sunny_default_desc"
+	}
+	
+	self.player_styles.suit_sunny.material_variations.red = {
+		name_id = "bm_suit_var_suit_sunny_red",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_red_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_red",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.blue = {
+		name_id = "bm_suit_var_suit_sunny_blue",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_blue_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_blue",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.yellow = {
+		name_id = "bm_suit_var_suit_sunny_yellow",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_yellow_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_yellow",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.green = {
+		name_id = "bm_suit_var_suit_sunny_green",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_green_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_green",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.pink = {
+		name_id = "bm_suit_var_suit_sunny_pink",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_pink_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_pink",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.skull = {
+		name_id = "bm_suit_var_suit_sunny_skull",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_skull_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_skull",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.hawaii_black = {
+		name_id = "bm_suit_var_suit_sunny_hawaii_black",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_hawaii_black_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_black",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.hawaii_blue = {
+		name_id = "bm_suit_var_suit_sunny_hawaii_blue",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_hawaii_blue_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_blue",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.hawaii_red = {
+		name_id = "bm_suit_var_suit_sunny_hawaii_red",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_hawaii_red_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_red",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.hawaii_green = {
+		name_id = "bm_suit_var_suit_sunny_hawaii_green",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_hawaii_green_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_green",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.hawaii_orange = {
+		name_id = "bm_suit_var_suit_sunny_hawaii_orange",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_hawaii_orange_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_orange",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.hawaii_pink = {
+		name_id = "bm_suit_var_suit_sunny_hawaii_pink",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_hawaii_pink_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_pink",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.hawaii_cyan = {
+		name_id = "bm_suit_var_suit_sunny_hawaii_cyan",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_hawaii_cyan_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_cyan",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.payne = {
+		name_id = "bm_suit_var_suit_sunny_payne",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_payne_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_payne",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.vice = {
+		name_id = "bm_suit_var_suit_sunny_vice",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_vice_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_vice",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.security_red = {
+		name_id = "bm_suit_var_suit_sunny_security_red",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_security_red_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_red",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.security_purple = {
+		name_id = "bm_suit_var_suit_sunny_security_purple",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_security_purple_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_purple",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.soprano_green = {
+		name_id = "bm_suit_var_suit_sunny_soprano",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_soprano_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_green",
+	}
+	
+	self.player_styles.suit_sunny.material_variations.soprano_blue = {
+		name_id = "bm_suit_var_suit_sunny_soprano",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_sunny_soprano_desc",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_blue",
+	}
+	
+	self.player_styles.suit_sunny.characters.chains.material_variations = {
+	skull = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_skull_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_red_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_blue_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	yellow = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_yellow_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_green_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_pink_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	hawaii_black = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_black_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	hawaii_cyan = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_cyan_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	hawaii_pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_pink_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	hawaii_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_blue_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	hawaii_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_red_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	hawaii_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_green_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	hawaii_orange = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_orange_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	payne = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_payne_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	vice = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_vice_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	security_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_red_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	security_purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_purple_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	soprano_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_blue_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	},
+	soprano_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_green_chains",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_chains"
+	}
+	}
+	
+	self.player_styles.suit_sunny.characters.bodhi.material_variations = {
+	skull = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_skull_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_red_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_blue_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	yellow = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_yellow_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_green_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_pink_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	hawaii_black = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_black_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	hawaii_cyan = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_cyan_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	hawaii_pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_pink_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	hawaii_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_blue_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	hawaii_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_red_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	hawaii_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_green_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	hawaii_orange = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_orange_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	payne = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_payne_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	vice = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_vice_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	security_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_red_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	security_purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_purple_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	soprano_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_blue_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	},
+	soprano_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_green_bodhi",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_bodhi"
+	}
+	}
+	
+	self.player_styles.suit_sunny.characters.max.material_variations = {
+	skull = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_skull_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_red_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_blue_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	yellow = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_yellow_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_green_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_pink_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	hawaii_black = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_black_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	hawaii_cyan = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_cyan_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	hawaii_pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_pink_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	hawaii_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_blue_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	hawaii_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_red_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	hawaii_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_green_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	hawaii_orange = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_orange_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	payne = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_payne_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	vice = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_vice_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	security_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_red_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	security_purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_purple_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	soprano_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_blue_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	},
+	soprano_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_green_sangres",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_sangres"
+	}
+	}
+	
+	self.player_styles.suit_sunny.characters.dragon.material_variations = {
+	skull = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_skull_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_red_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_blue_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	yellow = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_yellow_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_green_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_pink_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_black = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_black_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_cyan = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_cyan_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_pink_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_blue_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_red_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_green_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_orange = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_orange_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	payne = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_payne_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	vice = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_vice_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	security_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_red_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	security_purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_purple_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	soprano_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_blue_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	soprano_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_green_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	}
+	}
+	
+	self.player_styles.suit_sunny.characters.chico.material_variations = {
+	skull = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_skull_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_red_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_blue_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	yellow = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_yellow_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_green_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_pink_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_black = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_black_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_cyan = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_cyan_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_pink_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_blue_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_red_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_green_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	hawaii_orange = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_orange_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	payne = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_payne_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	vice = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_vice_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	security_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_red_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	security_purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_purple_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	soprano_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_blue_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	},
+	soprano_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_green_dragon",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_02"
+	}
+	}
+	
+	self.player_styles.suit_sunny.characters.joy.material_variations = {
+	skull = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_skull_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_red_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_blue_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	yellow = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_yellow_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_green_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_pink_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	hawaii_black = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_black_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	hawaii_cyan = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_cyan_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	hawaii_pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_pink_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	hawaii_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_blue_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	hawaii_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_red_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	hawaii_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_green_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	hawaii_orange = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_orange_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	payne = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_payne_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	vice = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_vice_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	security_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_red_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	security_purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_purple_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	soprano_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_blue_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	},
+	soprano_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_green_joy",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_joy"
+	}
+	}
+	
+	self.player_styles.suit_sunny.characters.sydney.material_variations = {
+	skull = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_skull_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_red_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_blue_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	yellow = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_yellow_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_green_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_pink_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	hawaii_black = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_black_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	hawaii_cyan = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_cyan_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	hawaii_pink = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_pink_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	hawaii_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_blue_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	hawaii_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_red_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	hawaii_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_green_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	hawaii_orange = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_hawaii_orange_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	payne = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_payne_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	vice = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_vice_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	security_red = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_red_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	security_purple = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_security_purple_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	soprano_blue = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_blue_syndey",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_sydney"
+	},
+	soprano_green = {
+	    third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_suit_sunny_soprano_green_sydney",
+		material = "units/pd2_dlc_sus/characters/sus_acc_slaughterhouse/sus_acc_fps_slaughterhouse/sus_acc_fps_slaughterhouse_female_syndey"
+	}
+	}
 
 	--Resmod Prison Suit
 	self.player_styles.suit_prison = {
@@ -467,7 +1665,8 @@ Hooks:PostHook(BlackMarketTweakData, "_init_player_styles", "ResPlayerStyles", f
 		},
 		unit = "units/pd2_mod_suits/characters/res_acc_fps_prison_suit/res_acc_fps_prison_suit",
 		third_unit = "units/pd2_mod_suits/characters/res_acc_prison_suit/res_acc_prison_suit",
-		characters = {}
+		characters = {},
+		material_variations = {}
 	}
 	set_characters_data("suit_prison", characters_male_big, {
 		third_unit = "units/pd2_mod_suits/characters/res_acc_prison_suit_big/res_acc_prison_suit_big"
@@ -483,7 +1682,63 @@ Hooks:PostHook(BlackMarketTweakData, "_init_player_styles", "ResPlayerStyles", f
 	}	
 	self.player_styles.suit_prison.characters.jacket = {
 		third_material = "units/pd2_mod_suits/characters/res_acc_prison_suit/res_acc_prison_suit_jacket"
-	}	
+	}
+	
+	self.player_styles.suit_prison.material_variations.default = {
+		name_id = "bm_suit_var_suit_prison_default",
+		desc_id = "bm_suit_var_suit_prison_default_desc"
+	}
+	
+	self.player_styles.suit_prison.material_variations.repairman = {
+		name_id = "bm_suit_var_suit_prison_repairman",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_prison_repairman_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_prison_suit_repairman",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_prison_suit_repairman",
+	}
+	
+	self.player_styles.suit_prison.material_variations.comedy = {
+		name_id = "bm_suit_var_suit_prison_comedy",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_prison_comedy_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_prison_suit_comedy",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_prison_suit_comedy",
+	}
+	
+	self.player_styles.suit_prison.material_variations.janitor = {
+		name_id = "bm_suit_var_suit_prison_janitor",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_prison_janitor_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_prison_suit_janitor",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_prison_suit_janitor",
+	}
+	
+	self.player_styles.suit_prison.material_variations.subject = {
+		name_id = "bm_suit_var_suit_prison_subject",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_prison_subject_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_prison_suit_subject",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_prison_suit_subject",
+	}
+	
+	self.player_styles.suit_prison.material_variations.vaultboy = {
+		name_id = "bm_suit_var_suit_prison_vaultboy",
+		unlocked = true,
+		custom = true,
+		texture_bundle_folder = "mods",
+		desc_id = "bm_suit_var_suit_prison_vaultboy_desc",
+		material = "units/pd2_mod_suits/characters/shared_materials/res_acc_fps_prison_suit_vaultboy",
+		third_material = "units/pd2_mod_suits/characters/shared_materials/res_acc_prison_suit_vaultboy",
+	}
+	
 end)
 
 
@@ -567,6 +1822,7 @@ function BlackMarketTweakData:_init_projectiles(tweak_data)
 	self.projectiles.dada_com.no_cheat_count = true
 	self.projectiles.wpn_gre_electric.no_cheat_count = true
 	self.projectiles.poison_gas_grenade.no_cheat_count = true
+	self.projectiles.sticky_grenade.no_cheat_count = true
 
 	--Animation overrides for grenades so they aren't shitty. Like seriously, Javelin throw for grenades..?	
 	--HE
@@ -2818,7 +4074,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 
 	--Weapon butt--
 	self.melee_weapons.weapon.info_id = "bm_melee_weapon_info"
-	self.melee_weapons.weapon.stats.min_damage = 4.8
+	self.melee_weapons.weapon.stats.min_damage = 4.5
 	self.melee_weapons.weapon.stats.max_damage = 4.5
 	self.melee_weapons.weapon.stats.min_damage_effect = 4.5
 	self.melee_weapons.weapon.stats.max_damage_effect = 4.5
@@ -2831,7 +4087,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 	self.melee_weapons.weapon.stats.concealment = 30
 	--Remember the basics of CQC Snake--
 	self.melee_weapons.fists.stats.min_damage = 2.4
-	self.melee_weapons.fists.stats.max_damage = 4.801
+	self.melee_weapons.fists.stats.max_damage = 4.501
 	self.melee_weapons.fists.stats.min_damage_effect = 4.5
 	self.melee_weapons.fists.stats.max_damage_effect = 9.0
 	self.melee_weapons.fists.stats.charge_time = 0.5
@@ -2870,7 +4126,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 
 		--Fleshlight--
 		self.melee_weapons.aziz.stats.min_damage = 2.4
-		self.melee_weapons.aziz.stats.max_damage = 4.801
+		self.melee_weapons.aziz.stats.max_damage = 4.501
 		self.melee_weapons.aziz.stats.min_damage_effect = 4.5
 		self.melee_weapons.aziz.stats.max_damage_effect = 9.0
 		self.melee_weapons.aziz.stats.charge_time = 0.9
@@ -2899,7 +4155,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 
 		--Le Spatula--	
 		self.melee_weapons.spatula.stats.min_damage = 2.4
-		self.melee_weapons.spatula.stats.max_damage = 4.801
+		self.melee_weapons.spatula.stats.max_damage = 4.501
 		self.melee_weapons.spatula.stats.min_damage_effect = 6.0
 		self.melee_weapons.spatula.stats.max_damage_effect = 12.0
 		self.melee_weapons.spatula.stats.charge_time = 0.6
@@ -2908,7 +4164,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 			--For that you get the belt--
 			--Fitting name, because if you actually like Duke you're a sap
 			self.melee_weapons.sap.stats.min_damage = 2.4
-			self.melee_weapons.sap.stats.max_damage = 4.801
+			self.melee_weapons.sap.stats.max_damage = 4.501
 			self.melee_weapons.sap.stats.min_damage_effect = 6.0
 			self.melee_weapons.sap.stats.max_damage_effect = 12.0
 			self.melee_weapons.sap.stats.charge_time = 0.6
@@ -2916,7 +4172,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 			self.melee_weapons.sap.stats.concealment = 30
 			--Money money money--
 			self.melee_weapons.moneybundle.stats.min_damage = 2.4
-			self.melee_weapons.moneybundle.stats.max_damage = 4.801
+			self.melee_weapons.moneybundle.stats.max_damage = 4.501
 			self.melee_weapons.moneybundle.stats.min_damage_effect = 6.0
 			self.melee_weapons.moneybundle.stats.max_damage_effect = 12.0
 			self.melee_weapons.moneybundle.stats.charge_time = 0.6
@@ -2924,7 +4180,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 			self.melee_weapons.moneybundle.stats.concealment = 30
 			--Ay, qué lindo carnaval--	
 			self.melee_weapons.chac.stats.min_damage = 2.4
-			self.melee_weapons.chac.stats.max_damage = 4.801
+			self.melee_weapons.chac.stats.max_damage = 4.501
 			self.melee_weapons.chac.stats.min_damage_effect = 6.0
 			self.melee_weapons.chac.stats.max_damage_effect = 12.0
 			self.melee_weapons.chac.stats.charge_time = 0.6
@@ -2933,7 +4189,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 
 		--It's da hotline--
 		self.melee_weapons.brick.special_weapon = "talk"
-		self.melee_weapons.brick.stats.min_damage = 4.8
+		self.melee_weapons.brick.stats.min_damage = 4.5
 		self.melee_weapons.brick.stats.max_damage = 9.001
 		self.melee_weapons.brick.stats.min_damage_effect = 6.0
 		self.melee_weapons.brick.stats.max_damage_effect = 12.0
@@ -2941,7 +4197,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.brick.stats.range = 160
 		self.melee_weapons.brick.stats.concealment = 28
 			--BOOP BOOP--
-			self.melee_weapons.detector.stats.min_damage = 4.8
+			self.melee_weapons.detector.stats.min_damage = 4.5
 			self.melee_weapons.detector.stats.max_damage = 9.001
 			self.melee_weapons.detector.stats.min_damage_effect = 6.0
 			self.melee_weapons.detector.stats.max_damage_effect = 12.0
@@ -2950,7 +4206,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 			self.melee_weapons.detector.attack_allowed_expire_t = 0.1
 			self.melee_weapons.detector.stats.concealment = 28
 			--Cheers mate!--
-			self.melee_weapons.whiskey.stats.min_damage = 4.8
+			self.melee_weapons.whiskey.stats.min_damage = 4.5
 			self.melee_weapons.whiskey.stats.max_damage = 9.001
 			self.melee_weapons.whiskey.stats.min_damage_effect = 6.0
 			self.melee_weapons.whiskey.stats.max_damage_effect = 12.0
@@ -2960,7 +4216,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		--It's a 1% chance to win the slots asshats keep an eye on the fucking BFD--
 		self.melee_weapons.slot_lever.info_id = "bm_melee_slot_lever_info"
 		self.melee_weapons.slot_lever.special_weapon = "hyper_crit"
-		self.melee_weapons.slot_lever.stats.min_damage = 4.8
+		self.melee_weapons.slot_lever.stats.min_damage = 4.5
 		self.melee_weapons.slot_lever.stats.max_damage = 9.001
 		self.melee_weapons.slot_lever.stats.min_damage_effect = 6.0
 		self.melee_weapons.slot_lever.stats.max_damage_effect = 12.0
@@ -3018,7 +4274,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 			self.melee_weapons.croupier_rake.stats.concealment = 27
 
 		--shillelelelelelagh--	
-		self.melee_weapons.shillelagh.stats.min_damage = 4.8
+		self.melee_weapons.shillelagh.stats.min_damage = 4.5
 		self.melee_weapons.shillelagh.stats.max_damage = 9.001
 		self.melee_weapons.shillelagh.stats.min_damage_effect = 9.0
 		self.melee_weapons.shillelagh.stats.max_damage_effect = 18.0
@@ -3027,7 +4283,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.shillelagh.attack_allowed_expire_t = 0.1
 		self.melee_weapons.shillelagh.stats.concealment = 26
 			-- https://i.imgur.com/8IJSRPZ.jpg --
-			self.melee_weapons.shock.stats.min_damage = 4.8
+			self.melee_weapons.shock.stats.min_damage = 4.5
 			self.melee_weapons.shock.stats.max_damage = 9.001
 			self.melee_weapons.shock.stats.min_damage_effect = 9.0
 			self.melee_weapons.shock.stats.max_damage_effect = 18.0
@@ -3036,7 +4292,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 			self.melee_weapons.shock.attack_allowed_expire_t = 0.1
 			self.melee_weapons.shock.stats.concealment = 26
 			--Hammer Hammer Toilet Slammer--
-			self.melee_weapons.hammer.stats.min_damage = 4.8
+			self.melee_weapons.hammer.stats.min_damage = 4.5
 			self.melee_weapons.hammer.stats.max_damage = 9.001
 			self.melee_weapons.hammer.stats.min_damage_effect = 9.0
 			self.melee_weapons.hammer.stats.max_damage_effect = 18.0
@@ -3044,7 +4300,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 			self.melee_weapons.hammer.stats.range = 160
 			self.melee_weapons.hammer.stats.concealment = 26
 			--Tenderizing meat is my fetish--	
-			self.melee_weapons.tenderizer.stats.min_damage = 4.8
+			self.melee_weapons.tenderizer.stats.min_damage = 4.5
 			self.melee_weapons.tenderizer.stats.max_damage = 9.001
 			self.melee_weapons.tenderizer.stats.min_damage_effect = 9.0
 			self.melee_weapons.tenderizer.stats.max_damage_effect = 18.0
@@ -3053,7 +4309,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 			self.melee_weapons.tenderizer.stats.concealment = 26
 
 		--I'M GOIN'TA LIQUIFY YA!--
-		self.melee_weapons.model24.stats.min_damage = 4.8
+		self.melee_weapons.model24.stats.min_damage = 4.5
 		self.melee_weapons.model24.stats.max_damage = 9.001
 		self.melee_weapons.model24.stats.min_damage_effect = 9.0
 		self.melee_weapons.model24.stats.max_damage_effect = 18.0
@@ -3064,7 +4320,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		--Who's up for rockin the mic?--	
 		self.melee_weapons.microphone.special_weapon = "talk"
 		self.melee_weapons.microphone.stats.min_damage = 2.4
-		self.melee_weapons.microphone.stats.max_damage = 4.801
+		self.melee_weapons.microphone.stats.max_damage = 4.501
 		self.melee_weapons.microphone.stats.min_damage_effect = 6.0
 		self.melee_weapons.microphone.stats.max_damage_effect = 12.0
 		self.melee_weapons.microphone.stats.charge_time = 0.6
@@ -3072,7 +4328,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.microphone.stats.concealment = 30
 
 		--Angry Shovel Noises--
-		self.melee_weapons.shovel.stats.min_damage = 4.8
+		self.melee_weapons.shovel.stats.min_damage = 4.5
 		self.melee_weapons.shovel.stats.max_damage = 9.001
 		self.melee_weapons.shovel.stats.min_damage_effect = 9.0
 		self.melee_weapons.shovel.stats.max_damage_effect = 18.0
@@ -3081,7 +4337,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.shovel.attack_allowed_expire_t = 0.1
 		self.melee_weapons.shovel.stats.concealment = 25
 		--Slutshaming--	
-		self.melee_weapons.branding_iron.stats.min_damage = 4.8
+		self.melee_weapons.branding_iron.stats.min_damage = 4.5
 		self.melee_weapons.branding_iron.stats.max_damage = 9.001
 		self.melee_weapons.branding_iron.stats.min_damage_effect = 9.0
 		self.melee_weapons.branding_iron.stats.max_damage_effect = 18.0
@@ -3089,7 +4345,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.branding_iron.stats.range = 180
 		self.melee_weapons.branding_iron.stats.concealment = 25
 		--YEAH YEAH YEAH YEAH--
-		self.melee_weapons.road.stats.min_damage = 4.8
+		self.melee_weapons.road.stats.min_damage = 4.5
 		self.melee_weapons.road.stats.max_damage = 9.001
 		self.melee_weapons.road.stats.min_damage_effect = 9.0
 		self.melee_weapons.road.stats.max_damage_effect = 18.0
@@ -3098,7 +4354,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.road.stats.concealment = 25
 
 		--Mic stand--
-		self.melee_weapons.micstand.stats.min_damage = 4.8
+		self.melee_weapons.micstand.stats.min_damage = 4.5
 		self.melee_weapons.micstand.stats.max_damage = 6.001
 		self.melee_weapons.micstand.stats.min_damage_effect = 6.0
 		self.melee_weapons.micstand.stats.max_damage_effect = 12.0
@@ -3106,7 +4362,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.micstand.stats.range = 200
 		self.melee_weapons.micstand.stats.concealment = 25
 			--We'll put you in the hospital for free eh?--
-			self.melee_weapons.hockey.stats.min_damage = 4.8
+			self.melee_weapons.hockey.stats.min_damage = 4.5
 			self.melee_weapons.hockey.stats.max_damage = 6.001
 			self.melee_weapons.hockey.stats.min_damage_effect = 6.0
 			self.melee_weapons.hockey.stats.max_damage_effect = 12.0
@@ -3114,7 +4370,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 			self.melee_weapons.hockey.stats.range = 200
 			self.melee_weapons.hockey.stats.concealment = 25
 			--Binary Ruler--
-			self.melee_weapons.meter.stats.min_damage = 4.8
+			self.melee_weapons.meter.stats.min_damage = 4.5
 			self.melee_weapons.meter.stats.max_damage = 6.001
 			self.melee_weapons.meter.stats.min_damage_effect = 6.0
 			self.melee_weapons.meter.stats.max_damage_effect = 12.0
@@ -3224,7 +4480,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 			--The target is a briefcase. Discretion is of the essence.--
 			self.melee_weapons.briefcase.info_id = "bm_melee_briefcase_info"	
 			self.melee_weapons.briefcase.stats.min_damage = 2.4
-			self.melee_weapons.briefcase.stats.max_damage = 4.801
+			self.melee_weapons.briefcase.stats.max_damage = 4.501
 			self.melee_weapons.briefcase.stats.min_damage_effect = 6.0
 			self.melee_weapons.briefcase.stats.max_damage_effect = 12.0
 			self.melee_weapons.briefcase.stats.charge_time = 1.5
@@ -3250,7 +4506,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		--Not one but TWO pokers--
 		self.melee_weapons.push.info_id = "bm_melee_specialist_info"
 		self.melee_weapons.push.special_weapon = "repeat_hitter"
-		self.melee_weapons.push.stats.min_damage = 4.8
+		self.melee_weapons.push.stats.min_damage = 4.5
 		self.melee_weapons.push.stats.max_damage = 9.001
 		self.melee_weapons.push.stats.min_damage_effect = 1.0
 		self.melee_weapons.push.stats.max_damage_effect = 2.0
@@ -3265,7 +4521,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.ballistic.sounds.hit_gen = "knife_hit_gen"
 		self.melee_weapons.ballistic.sounds.hit_body = "knife_hit_body"
 		self.melee_weapons.ballistic.sounds.charge = "knife_charge"
-		self.melee_weapons.ballistic.stats.min_damage = 4.8
+		self.melee_weapons.ballistic.stats.min_damage = 4.5
 		self.melee_weapons.ballistic.stats.max_damage = 9.001
 		self.melee_weapons.ballistic.stats.min_damage_effect = 1.0
 		self.melee_weapons.ballistic.stats.max_damage_effect = 2.0
@@ -3275,7 +4531,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		--Unlike Sonic I don't chuckle
 		self.melee_weapons.grip.info_id = "bm_melee_specialist_info"
 		self.melee_weapons.grip.special_weapon = "repeat_hitter"
-		self.melee_weapons.grip.stats.min_damage = 4.8
+		self.melee_weapons.grip.stats.min_damage = 4.5
 		self.melee_weapons.grip.stats.max_damage = 9.001
 		self.melee_weapons.grip.stats.min_damage_effect = 1.0
 		self.melee_weapons.grip.stats.max_damage_effect = 2.0
@@ -3283,7 +4539,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.grip.stats.range = 160
 		self.melee_weapons.grip.stats.concealment = 28
 		--Can't fight nature jack--	
-		self.melee_weapons.twins.stats.min_damage = 4.8
+		self.melee_weapons.twins.stats.min_damage = 4.5
 		self.melee_weapons.twins.stats.max_damage = 9.001
 		self.melee_weapons.twins.stats.min_damage_effect = 3.0
 		self.melee_weapons.twins.stats.max_damage_effect = 6.0
@@ -3309,7 +4565,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 			self.melee_weapons.toothbrush.stats.range = 150
 			self.melee_weapons.toothbrush.stats.concealment = 30
 		--This looks like a boxcutter too, but whatever--
-		self.melee_weapons.gerber.stats.min_damage = 4.8
+		self.melee_weapons.gerber.stats.min_damage = 4.5
 		self.melee_weapons.gerber.stats.max_damage = 9.001
 		self.melee_weapons.gerber.stats.min_damage_effect = 0.6
 		self.melee_weapons.gerber.stats.max_damage_effect = 1.2
@@ -3354,7 +4610,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		--you got blood on my suit--
 		self.melee_weapons.wing.info_id = "bm_melee_wing_info"	
 		self.melee_weapons.wing.stats.min_damage = 2.4
-		self.melee_weapons.wing.stats.max_damage = 4.801
+		self.melee_weapons.wing.stats.max_damage = 4.501
 		self.melee_weapons.wing.stats.min_damage_effect = 0.5
 		self.melee_weapons.wing.stats.max_damage_effect = 1.0
 		self.melee_weapons.wing.stats.charge_time = 0.75
@@ -3372,12 +4628,12 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.chef.stats.concealment = 28
 		self.melee_weapons.chef.special_weapon = "panic"
 		--I wonder how many people caught that this is a Shawn the Sheep reference--
-		self.melee_weapons.shawn.stats.min_damage = 6
-		self.melee_weapons.shawn.stats.max_damage = 12.001
+		self.melee_weapons.shawn.stats.min_damage = 4.5
+		self.melee_weapons.shawn.stats.max_damage = 9.001
 		self.melee_weapons.shawn.stats.min_damage_effect = 0.5
 		self.melee_weapons.shawn.stats.max_damage_effect = 1.0
-		self.melee_weapons.shawn.stats.charge_time = 1.05
-		self.melee_weapons.shawn.stats.range = 160
+		self.melee_weapons.shawn.stats.charge_time = 0.7
+		self.melee_weapons.shawn.stats.range = 150
 		self.melee_weapons.shawn.stats.concealment = 29
 
 		--MotherFUCKER--	
@@ -3474,7 +4730,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.boxcutter.stats.range = 150
 		self.melee_weapons.boxcutter.stats.concealment = 29
 		--Tacticool Knife--
-		self.melee_weapons.x46.stats.min_damage = 4.8
+		self.melee_weapons.x46.stats.min_damage = 4.5
 		self.melee_weapons.x46.stats.max_damage = 9.001
 		self.melee_weapons.x46.stats.min_damage_effect = 1.5
 		self.melee_weapons.x46.stats.max_damage_effect = 3.0
@@ -3482,7 +4738,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.x46.stats.range = 175
 		self.melee_weapons.x46.stats.concealment = 27
 			--German Steel--
-			self.melee_weapons.kampfmesser.stats.min_damage = 4.8
+			self.melee_weapons.kampfmesser.stats.min_damage = 4.5
 			self.melee_weapons.kampfmesser.stats.max_damage = 9.001
 			self.melee_weapons.kampfmesser.stats.min_damage_effect = 1.5
 			self.melee_weapons.kampfmesser.stats.max_damage_effect = 3.0
@@ -3499,7 +4755,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.hauteur.stats.range = 160
 		self.melee_weapons.hauteur.stats.concealment = 30
 		--OG Kabar Knife--
-		self.melee_weapons.kabar.stats.min_damage = 4.8
+		self.melee_weapons.kabar.stats.min_damage = 4.5
 		self.melee_weapons.kabar.stats.max_damage = 9.001
 		self.melee_weapons.kabar.stats.min_damage_effect = 1.2
 		self.melee_weapons.kabar.stats.max_damage_effect = 2.4
@@ -3507,7 +4763,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.kabar.stats.range = 160
 		self.melee_weapons.kabar.stats.concealment = 29
 			--ONE Knife--
-			self.melee_weapons.kabartanto.stats.min_damage = 4.8
+			self.melee_weapons.kabartanto.stats.min_damage = 4.5
 			self.melee_weapons.kabartanto.stats.max_damage = 9.001
 			self.melee_weapons.kabartanto.stats.min_damage_effect = 1.2
 			self.melee_weapons.kabartanto.stats.max_damage_effect = 2.4
@@ -3532,7 +4788,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.bowie.stats.concealment = 27
 	
 		--Its' another god damn machete--
-		self.melee_weapons.becker.stats.min_damage = 4.8
+		self.melee_weapons.becker.stats.min_damage = 4.5
 		self.melee_weapons.becker.stats.max_damage = 9.001
 		self.melee_weapons.becker.stats.min_damage_effect = 1.8
 		self.melee_weapons.becker.stats.max_damage_effect = 3.6
@@ -3540,7 +4796,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 		self.melee_weapons.becker.stats.range = 170
 		self.melee_weapons.becker.stats.concealment = 28
 			--another machete--
-			self.melee_weapons.oxide.stats.min_damage = 4.8
+			self.melee_weapons.oxide.stats.min_damage = 4.5
 			self.melee_weapons.oxide.stats.max_damage = 9.001
 			self.melee_weapons.oxide.stats.min_damage_effect = 1.8
 			self.melee_weapons.oxide.stats.max_damage_effect = 3.6

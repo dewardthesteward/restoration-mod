@@ -100,6 +100,7 @@ Hooks:PostHook(UpgradesTweakData, "init", "ResLevelTableInit", function(self, tw
 					"bayonet",
 					"m1928",
 					"sparrow",
+					"x_sparrow",
 					"gator",
 					"pl14"
 				}
@@ -355,36 +356,36 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 	
 	--Armor Stats--
 	--Add 20 to the values in this table to get in game amounts.
-	--Things marked with --* don't follow the 1,1,1,1,2,1,2 step logic, maybe look into this?
-	self.values.player.body_armor.armor = { --*
+	--Things marked with * don't follow the x, x, x, x, x*y, x, x*y (y = 2, usually) increment logic
+	self.values.player.body_armor.armor = { --increments of 2
 		0, --Suit
 		2, --LBV
 		4, --BV
 		6, --HBV
-		11, --Flak
+		11, --Flak (2 increments + 1)
 		13, --CTV
-		18 --ICTV
+		18 --ICTV (2 increments + 1)
 	}
 	
-	self.values.player.body_armor.movement = { --*
-		1, 
-		0.95, 
-		0.9, 
-		0.85, 
-		0.75, 
-		0.7, 
-		0.6
+	self.values.player.body_armor.movement = { --increments of 0.04
+		1,
+		0.96,
+		0.92,
+		0.88,
+		0.76, --3 increments instead of 2
+		0.72,
+		0.6 --3 increments instead of 2
 	}
-	self.values.player.body_armor.dodge = { --*
+	self.values.player.body_armor.dodge = { --*increments of 0.1
 		0.2,
 		0.1,
 		0.0,
 		-0.1,
-		-0.15,
-		-0.2,
+		-0.15, --half increment
+		-0.2, --half increment
 		-0.3
 	}
-	self.values.player.body_armor.dodge_grace = {
+	self.values.player.body_armor.dodge_grace = { --increments of 0.075
 		1.50,
 		1.425,
 		1.35,
@@ -393,25 +394,25 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		1.05,
 		1.0
 	}
-	self.values.player.body_armor.concealment = { --*
+	self.values.player.body_armor.concealment = { --*increments of 2 (roughly)
 		30,
-		25,
+		25, --2.5 increments
 		23,
 		21,
-		15,
-		5,
-		0
+		15,	--3 increments
+		5, --5 increments
+		0 --2.5 increments
 	}
-	self.values.player.body_armor.damage_shake = { 
-		1.0, 
-		0.9, 
-		0.8, 
-		0.7, 
-		0.5, 
-		0.4, 
+	self.values.player.body_armor.damage_shake = { --increments of 0.1
+		1.0,
+		0.9,
+		0.8,
+		0.7,
+		0.5,
+		0.4,
 		0.2
 	}
-	self.values.player.body_armor.stamina = {
+	self.values.player.body_armor.stamina = { --increments of 0.05
 		1,
 		0.95,
 		0.9,
@@ -420,34 +421,33 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		0.7,
 		0.6
 	}
-	--Appears to be unused.
-	self.values.player.body_armor.skill_ammo_mul = {
+	self.values.player.body_armor.skill_ammo_mul = { --UNUSED, increments of 0.02
 		1,
 		1.02,
 		1.04,
 		1.06,
-		1.8,
 		1.1,
-		1.12
+		1.12,
+		1.16
 	}
 	self.max_deflection = 0.60
-	self.values.player.body_armor.deflection = { --*
+	self.values.player.body_armor.deflection = { --*increments of 0.05
 		0.00,
 		0.05,
 		0.10,
 		0.15,
-		0.20,
-		0.15,
-		0.10
+		0.20, --1 increment instead of 2
+		0.15, --subtract 1 increment instead of adding 1
+		0.10 --subtract 1 increment instead of adding 2
 	}
-	self.values.player.body_armor.regen_delay = {
+	self.values.player.body_armor.regen_delay = { --increments of 0.2
 		2.00,
-		2.25,
-		2.50,
-		2.75,
-		3.25,
-		3.50,
-		4.00
+		2.20,
+		2.40,
+		2.60,
+		3.20, --3 increments instead of 2
+		3.40,
+		4.00 --3 increments instead of 2
 	}
 
 	self.values.rep_upgrades.values = {0}
@@ -1120,7 +1120,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 					}
 				}
 				--Ace
-				self.values.player.run_dodge_chance = {0.12}
+				self.values.player.run_dodge_chance = {0.15}
 				self.values.player.zipline_dodge_chance = {0.3}				
 
 			--Shockproof
@@ -1129,10 +1129,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 							interval = 1,
 							chance_to_trigger = 0.15
 					}}
-					self.values.player.slowing_bullet_resistance = {{
-							duration = 0.5,
-							power = 0.5
-					}}
+					self.values.player.knockback_resistance = {0.7}
 				--Ace
 					self.values.player.taser_self_shock = {
 						true
@@ -1141,6 +1138,10 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 					self.values.player.escape_taser = {
 						2
 					}
+					self.values.player.slowing_bullet_resistance = {{
+							duration = 0.5,
+							power = 0.5
+					}}
 
 			--Sneaky Bastard
 				--Concealment stuff same as vanilla.
@@ -1257,26 +1258,27 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 					self.values.pistol.move_spread_multiplier = {0.6}
 				
 			--Akimbo
-				self.values.akimbo.recoil_index_addend = {
-					0,
-					10, --Basic
-					10,
-					10,
-					10
-				}
+				--Basic
+					self.values.akimbo.recoil_index_addend = {
+						0,
+						10,
+						10,
+						10,
+						10
+					}
 
 				--Ace
-					self.values.akimbo.extra_ammo_multiplier = {1.25}
-					self.values.akimbo.pick_up_multiplier = {1.25}
+					self.values.akimbo.spread_index_addend = {
+						0,
+						10,
+						10,
+						10,
+						10
+					}
+					--self.values.akimbo.extra_ammo_multiplier = {1.25}
+					--self.values.akimbo.pick_up_multiplier = {1.25}
 
 				--Reserved for future use.
-				self.values.akimbo.spread_index_addend = {
-					0,
-					0,
-					0,
-					0,
-					0
-				}
 
 			--Desperado
 				self.values.pistol.stacked_accuracy_bonus = {
@@ -1702,7 +1704,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 	self.on_killshot_cooldown_reduction_melee = 1.5
 
 	--Anarchist stuff--
-	self.values.player.armor_grinding = {
+	self.values.player.armor_grinding = { --increments of 0.2/0.25
 		{
 			{3.2, 4.0},
 			{3.4, 4.25},
@@ -1722,15 +1724,15 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		1.50
 	}
 
-	self.values.player.damage_to_armor = {
+	self.values.player.damage_to_armor = { --increments of 0.7
 		{
-			{3.5, 5},
-			{4.0, 5},
+			{2.4, 5},
+			{3.1, 5},
+			{3.8, 5},
 			{4.5, 5},
-			{5.0, 5},
-			{6.0, 5},
-			{6.5, 5},
-			{7.5, 5}
+			{5.9, 5},
+			{6.6, 5},
+			{8.0, 5}
 		}
 	}
 	
@@ -1744,7 +1746,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		1.25
 	}
 
-	self.values.player.body_armor.skill_max_health_store = {
+	self.values.player.body_armor.skill_max_health_store = { --increments of 0.4
 		4.0,
 		3.6,
 		3.2,
@@ -1754,7 +1756,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		0.8
 	}
 	self.kill_change_regenerate_speed_percentage = true
-	self.values.player.body_armor.skill_kill_change_regenerate_speed = {
+	self.values.player.body_armor.skill_kill_change_regenerate_speed = { --increments of 0.02
 		1.20,
 		1.18,
 		1.16,
@@ -1834,8 +1836,8 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 	}
 
 	self.values.player.damage_control_cooldown_drain = {
-		{ 0, 2},
-		{50, 4}
+		{ 0, 2.5},
+		{50, 5}
 	}
 	
 	--Yakuza--
@@ -3519,6 +3521,15 @@ function UpgradesTweakData:_player_definitions()
 		upgrade = {
 			value = 1,
 			upgrade = "slowing_bullet_resistance",
+			category = "player"
+		}
+	}
+	self.definitions.player_knockback_resistance = {
+		name_id = "menu_player_knockback_resistance",
+		category = "feature",
+		upgrade = {
+			value = 1,
+			upgrade = "knockback_resistance",
 			category = "player"
 		}
 	}

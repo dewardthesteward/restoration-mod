@@ -195,6 +195,12 @@ function restoration:Init()
 	restoration.disco_inferno = false
 	restoration.force_halloween = false
 	restoration.always_bravos = false
+	
+	--Disable Bravos spawning on PONRs for these heists, usually for heists that have PONRs that go on/off. Also kills forced 1 diff and music changes on Pro Job
+	restoration.alternate_ponr_behavior = {
+		"sand", --The Ukrainian Prisoner
+		"trai" --Lost in Transit	
+	}	
 		
 	--Increased spawns, should only be reserved for larger maps.
 	restoration.very_large_levels = {
@@ -223,6 +229,8 @@ function restoration:Init()
 		"constantine_bank_lvl", --Pacific Bank 
 		"anlh", --An End To Liang
 		"bluewave", --res map bluewave
+		"ruswl", --Scorched Earth
+		"hunter_departure", --Hunter and Hunted d2
 		"tj_af22_kitteh_level", --The Greatest Bank Of All time
 		"constantine_butcher_lvl", --Butcher's Bay
 		"glb", --Golden Lotus Bank 
@@ -235,6 +243,7 @@ function restoration:Init()
 		"ascension_III", --Ascension (project eclipse 3)
 		"RogueCompany", --Rogue Company
 		"battlearena", --Five-G
+		"constantine_train_lvl",
 		"constantine_penthouse_lvl", --Penthouse Crashers (Constantine Scores)
 		"constantine_resort_lvl", --Scarlett Resort (Constantine Scores)
 		"constantine_murkyairport_lvl", --Murky Airport (Constantine Scores)
@@ -279,6 +288,7 @@ function restoration:Init()
 		"bookmakers_office", --Bookmaker's Office
 		"constantine_mobsterclub_lvl", --Aurora (Borealis?!) Club
 		"constantine_clubhouse_lvl", --Smuggler's Den 
+		"crimepunishlvl", --Crime And Punshiment
 		"nft_heist", --EN EF TEE HEIST
 		"branchbank_meth", --Bank Heist: Meth
 		"tj_htsb", --Harvest and Trustee: Southern Branch 
@@ -300,9 +310,11 @@ function restoration:Init()
 		"rvd2", --Reservoir Dogs 2, has very aggressive scripted spawns.
 		"vit", --White House
 		"nmh", --No Mercy
+		"des",	--Henry's Rock	
 		"bph", --Hell's Island
 		"born", --Biker 1		
-		"fex", --Buluc's Mansion	
+		"fex", --Buluc's Mansion
+		"sah", --Shacklethorne
 		--Skirmish heists below
 		"skmc_mad",
 		"skm_red2",
@@ -313,7 +325,6 @@ function restoration:Init()
 		"trop", --Tropical Treasure 
 		"constantine_apartment_lvl", --Concrete Jungle 
 		"constantine_harbor_lvl", --Harboring a Grudge
-		"crimepunishlvl", --Crime And Punshiment
 		"amsdeal1", --Armsdeal Alleyway
 		"constantine_smackdown_lvl", --Smackdown
 		"constantine_restaurant_lvl", --Blood in the Water (Constantine Scores)
@@ -324,8 +335,6 @@ function restoration:Init()
 		"hvh", --CKR
 		"peta2", --Goats day 2. Fuck this heist too	
 		"mia_2", --Hotline Miami 2	
-		"sah", --Shacklethorne	
-		"des",	--Henry's Rock		
 		"help", --Prison Nightmare		
 		"nail",	--Lab Rats. Fuck this heist		
 		"chill_combat",	--Safehouse Raid	
@@ -377,6 +386,7 @@ function restoration:Init()
 		"dinner",
 		"trai",
 		"corp",
+		"deep",
 		--Custom Heists--
 		"tonmapjam22l"
 	}	
@@ -386,6 +396,25 @@ function restoration:Init()
 		"sand",
 		"chca",
 		"pent"
+	}
+	--FSB (custom heists)
+	restoration.fsb = {
+		"flatline_lvl",
+		"ahopl",
+		"rusdl",
+		"crimepunishlvl",
+		"hunter_party",
+		"hunter_departure",
+		"hunter_fall",
+		"ruswl"
+	}
+	--GenSec (custom heists)
+	restoration.gensec = {
+		"constantine_penthouse_lvl"
+	}
+	--Cartel (custom heists)
+	restoration.cartel = {
+		"constantine_train_lvl"
 	}
 	
 	restoration.Environment_Settings_Table = {} --leave blank, it will generate contents based on the table below
@@ -707,7 +736,7 @@ function restoration:mission_script_patches()
 	if self._mission_script_patches == nil then
 		local level_id = Global.game_settings and Global.game_settings.level_id
 		if level_id then
-			self._mission_script_patches = self:require("mission_script/" .. level_id:gsub("_night$", ""):gsub("_day$", "")) or false
+			self._mission_script_patches = self:require("mission_script/" .. level_id:gsub('_skip1$', ''):gsub('_skip2$', ''):gsub("_night$", ""):gsub("_day$", "")) or false
 		end
 	end
 	return self._mission_script_patches

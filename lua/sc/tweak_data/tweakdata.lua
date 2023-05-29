@@ -21,7 +21,7 @@ tweak_data.ammo.ricochet.autohit = {
 --Swap Speed Multipliers
 --TODO: Move to stat_info
 tweak_data.pistol = {
-	swap_bonus = 1.75,
+	swap_bonus = 1.8,
 	ads_move_speed_mult = 0.8,
 	moving_spread_mult = 0.5,
 	hipfire_spread_mult = 0.75
@@ -37,7 +37,7 @@ tweak_data.crossbow = {
 }
 	tweak_data.crossbow_pistol = {
 		ads_move_speed_mult = 1.6,
-		swap_bonus = 1.75
+		swap_bonus = 1.8
 	}
 
 tweak_data.grenade_launcher = {
@@ -45,7 +45,7 @@ tweak_data.grenade_launcher = {
 }
 	tweak_data.gl_pistol = {
 		ads_move_speed_mult = 1.6,
-		swap_bonus = 1.75
+		swap_bonus = 1.8
 	}
 	tweak_data.rocket_launcher = {
 		ads_move_speed_mult = 0.4, --lowered to 0.2
@@ -61,9 +61,12 @@ tweak_data.shotgun = {
 	tweak_data.flamethrower = {
 		ads_move_speed_mult = 1,
 	}
+		tweak_data.flamethrower_lmg = {
+			ads_move_speed_mult = 0.58333,
+		}
 
 tweak_data.smg = {
-	swap_bonus = 1.25,
+	swap_bonus = 1.2,
 	ads_move_speed_mult = 0.7,
 	moving_spread_mult = 0.6,
 	hipfire_spread_mult = 0.9
@@ -72,19 +75,19 @@ tweak_data.smg = {
 		ads_move_speed_mult = 0.7142857, --lowered to 0.5
 	}
 	tweak_data.lmg = {
-		swap_bonus = 0.8,
+		swap_bonus = 0.83334,
 		ads_move_speed_mult = 0.5, --lowered to 0.35
-		moving_spread_mult = 8.3333,
-		hipfire_spread_mult = 4.4444
+		moving_spread_mult = 10,
+		hipfire_spread_mult = 3.8889
 	}
 		tweak_data.wolf_brigade = {
-			hipfire_spread_mult = 0.5
+			hipfire_spread_mult = 0.55
 		}
 	tweak_data.minigun = {
-		swap_bonus = 0.8,
+		swap_bonus = 0.83334,
 		ads_move_speed_mult = 0.428571, --lowered to 0.3
 		moving_spread_mult = 8.3333,
-		hipfire_spread_mult = 4.4444
+		hipfire_spread_mult = 3.8889
 	}
 
 tweak_data.snp = {
@@ -95,33 +98,35 @@ tweak_data.snp = {
 	tweak_data.semi_snp = {
 		hipfire_spread_mult = 2,
 		hipfire_moving_spread_mult = 1.5,
-		ads_move_speed_mult = 0.6 --lowered to 0.3
+		ads_move_speed_mult = 0.8 --lowered to 0.4
 	}
 		tweak_data.s7 = {
-			hipfire_spread_mult = 0.2,
+			hipfire_spread_mult = 0.15,
 			hipfire_moving_spread_mult = 0.33334,
 		}
 	tweak_data.amr = {
 		hipfire_spread_mult = 2.5,
-		ads_move_speed_mult = 0.5
+		ads_move_speed_mult = 0.6
 	}
 
 tweak_data.assault_rifle = {
 	swap_bonus = 1,
-	ads_move_speed_mult = 0.5
+	ads_move_speed_mult = 0.5,
+	hipfire_spread_mult = 1.15
 }
 	tweak_data.crb = {
+		hipfire_spread_mult = 0.86956,
 		swap_bonus = 1.1,
 		ads_move_speed_mult = 1.2 --raised to 0.6
 	}
 	tweak_data.dmr = {
-		hipfire_spread_mult = 1.2,
+		hipfire_spread_mult = 1.391304,
 		hipfire_moving_spread_mult = 1.5,
 		ads_move_speed_mult = 0.7 --lowered to 0.4
 	}
 
 tweak_data.akimbo = {
-	swap_bonus = 0.8,
+	swap_bonus = 0.85,
 	ads_move_speed_mult = 0.8,
 	hipfire_spread_mult = 1.5
 }
@@ -426,7 +431,7 @@ tweak_data.projectiles.sticky_grenade.player_damage = 40
 tweak_data.projectiles.sticky_grenade.curve_pow = 0.5
 tweak_data.projectiles.sticky_grenade.range = 400
 tweak_data.projectiles.sticky_grenade.in_air_timer = 3
-tweak_data.projectiles.sticky_grenade.detonate_timer = 3
+tweak_data.projectiles.sticky_grenade.detonate_timer = 3 --unused
 tweak_data.projectiles.sticky_grenade.warning_data = {
 	play_when_attached = true,
 	beep_speeds = {
@@ -445,7 +450,7 @@ tweak_data.projectiles.sticky_grenade.warning_data = {
 		beep_fade_speed = 3.5,
 		specular_mul = 0.05,
 		link_to_unit = true,
-		color = Vector3(255, 0, 0)
+		color = Vector3(255, 255, 0)
 	}
 }
 

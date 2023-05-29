@@ -471,6 +471,7 @@ function PlayerDamage:_mrwick_ricochet_bullets(attack_data, armor_break)
 	end
 end
 
+
 --All damage_x functions have been rewritten.
 function PlayerDamage:damage_bullet(attack_data)
 	local attacker_unit = attack_data.attacker_unit
@@ -558,14 +559,65 @@ function PlayerDamage:damage_bullet(attack_data)
 
     managers.game_play_central:sync_play_impact_flesh(hit_pos, attack_dir)
 	
-	--Apply slow debuff if bullet has one.
-	if alive(attacker_unit) and tweak_data.character[attacker_unit:base()._tweak_table] and tweak_data.character[attacker_unit:base()._tweak_table].slowing_bullets and alive(self._unit) and not self._unit:movement():current_state().driving then
-		local slow_data = tweak_data.character[attacker_unit:base()._tweak_table].slowing_bullets
-		if slow_data.taunt then
-			attacker_unit:sound():say("post_tasing_taunt")
+	if alive(attacker_unit) and tweak_data.character[attacker_unit:base()._tweak_table] then
+
+		local driving = self._unit:movement():current_state().driving
+		local in_air = self._unit:movement():current_state():in_air()
+		local hit_in_air = self._unit:movement():current_state()._hit_in_air
+		local on_ladder = self._unit:movement():current_state():on_ladder() 
+
+		--Apply slow debuff if bullet has one.
+		if tweak_data.character[attacker_unit:base()._tweak_table].slowing_bullets and alive(self._unit) and not driving then
+			local slow_data = tweak_data.character[attacker_unit:base()._tweak_table].slowing_bullets
+			if slow_data.taunt then
+				attacker_unit:sound():say("post_tasing_taunt")
+			end
+			managers.player:apply_slow_debuff(slow_data.duration, slow_data.power, true)
 		end
-		managers.player:apply_slow_debuff(slow_data.duration, slow_data.power, true)
-	end
+
+		local distance = attacker_unit and hit_pos and mvector3.distance(attacker_unit:position(), hit_pos)
+		local range = nil
+		local knockback_resistance = pm:upgrade_value("player", "knockback_resistance", 1) or 1
+		--Pain and suffering
+		if distance then
+			--Scab Gunner
+			if tweak_data.character[attacker_unit:base()._tweak_table].dt_suppress and alive(self._unit) and not driving then
+				range = tweak_data.character[attacker_unit:base()._tweak_table].dt_suppress.range
+				if distance < range and not on_ladder and not hit_in_air then
+					local attack_vec = attack_dir:with_z(0.1):normalized() * 600
+					mvector3.multiply(attack_vec, 0.5 * knockback_resistance)
+					self._unit:movement():current_state():push(attack_vec, true, 0.2, true)
+					if in_air then
+						self._unit:movement():current_state()._hit_in_air = true
+					end
+				end
+				local vars = {
+					"melee_hit",
+					"melee_hit_var2"
+				}
+				self._unit:camera():play_shaker(vars[math.random(#vars)], 0.02)
+				self._unit:movement():current_state()._spread_stun_t = 0.5
+				managers.hud:activate_effect_screen(0.5, {0.6, 0.3, 0.1})
+			end
+
+			--Shotgunner
+			if tweak_data.character[attacker_unit:base()._tweak_table].dt_sgunner and alive(self._unit) and not driving then
+				range = tweak_data.character[attacker_unit:base()._tweak_table].dt_sgunner.range
+				if distance < range then
+					local vars = {
+						"melee_hit",
+						"melee_hit_var2"
+					}
+					self._unit:camera():play_shaker(vars[math.random(#vars)], 0.25, 0.5)
+					self._unit:movement():current_state()._d_scope_t = 0.5
+					managers.hud:activate_effect_screen(0.7, {0.35, 0.25, 0.1})
+				end
+			end
+
+		end
+
+	end	
+	--]]
 	
 	return 
 end
@@ -756,12 +808,13 @@ function PlayerDamage:damage_melee(attack_data)
 		"melee_hit",
 		"melee_hit_var2"
 	}
-	self._unit:camera():play_shaker(vars[math.random(#vars)], math.max(shake_multiplier * self._melee_push_multiplier, 0.2))
+	self._unit:camera():play_shaker(vars[math.random(#vars)], math.max(shake_multiplier * self._melee_push_multiplier, 0.25))
+	self._unit:movement():current_state()._d_scope_t = 0.6
 	
 	--Apply changes to actual melee push, this *can* be reduced to 0. Also don't allow players in bleedout to be pushed.
 	if not self._bleed_out then
 		mvector3.multiply(attack_data.push_vel, self._melee_push_multiplier)
-		self._unit:movement():push(attack_data.push_vel)
+		self._unit:movement():push(attack_data.push_vel * 1.25, true, 0.2, true)
 	end
 	
 	return

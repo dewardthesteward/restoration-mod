@@ -1109,7 +1109,7 @@ end
 
 --Slows the player by a % that decays linearly over a duration, along with a visual.
 --Power should be between 1 and 0. Corresponds to % speed is slowed on start.
-function PlayerManager:apply_slow_debuff(duration, power, was_from_enemy)
+function PlayerManager:apply_slow_debuff(duration, power, was_from_enemy, ignore_hud)
 	if was_from_enemy and self:has_category_upgrade("player", "slowing_bullet_resistance") then
 		duration = duration * (self:upgrade_value("player", "slowing_bullet_resistance", 0).duration)
 		power = (1 + power) * (self:upgrade_value("player", "slowing_bullet_resistance", 0).power)
@@ -1120,7 +1120,9 @@ function PlayerManager:apply_slow_debuff(duration, power, was_from_enemy)
 			power = power,
 			start_time = Application:time()
 		}
-		managers.hud:activate_effect_screen(duration, {0.0, 0.2, power})
+		if not ignore_hud then
+			managers.hud:activate_effect_screen(duration, {0.0, 0.2, power})
+		end
 	end
 end
 
@@ -1163,7 +1165,7 @@ function PlayerManager:check_selected_equipment_placement_valid(player)
 	end
 end
 
---Professional aced extra ammo when killing specials.
+--Professional aced extra ammo when killing specials and elites.
 function PlayerManager:_on_spawn_special_ammo_event(equipped_unit, variant, killed_unit)
 	if killed_unit.base and tweak_data.character[killed_unit:base()._tweak_table].priority_shout and variant and variant == "bullet" then
 		local tracker = killed_unit.movement and killed_unit:movement():nav_tracker()
