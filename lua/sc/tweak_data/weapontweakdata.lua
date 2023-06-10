@@ -3118,7 +3118,7 @@ function WeaponTweakData:_init_stats()
 	self.stat_info.shotgun_spread_increase = 3.5
 
 	--Multiplier for spread on weapons that are still hipfired even while aiming (goes against the steelsight spread mult)
-	self.stat_info.hipfire_only_spread_increase = 6.66667
+	self.stat_info.hipfire_only_spread_increase = 4.4
 
 	self.stat_info.base_spread = 10.1 --How much spread area you have at 0 accuracy.
 	self.stat_info.spread_per_accuracy = -0.1 --How much each point of accuracy reduces spread area.
@@ -3282,222 +3282,225 @@ function WeaponTweakData:_init_stats()
 				0,
 				0,
 				0
-			}
+			},
+			min_h_recoil = 0
 		},
 
-		--Big, low damage bullet hoses will be around here.
-		horizontal_recoil = {
-			standing = {
-				0.5 * self.stat_info.stance_recoil_mults.standing,
-				0.4 * self.stat_info.stance_recoil_mults.standing,
-				-0.55 * self.stat_info.stance_recoil_mults.standing,
-				0.55 * self.stat_info.stance_recoil_mults.standing
+		--Bullet hoses will be around here.
+			horizontal_recoil = {
+				standing = {
+					0.5 * self.stat_info.stance_recoil_mults.standing,
+					0.45 * self.stat_info.stance_recoil_mults.standing,
+					-0.525 * self.stat_info.stance_recoil_mults.standing,
+					0.525 * self.stat_info.stance_recoil_mults.standing
+				},
+				crouching = {
+					0.5 * self.stat_info.stance_recoil_mults.crouching,
+					0.45 * self.stat_info.stance_recoil_mults.crouching,
+					-0.525 * self.stat_info.stance_recoil_mults.crouching,
+					0.525 * self.stat_info.stance_recoil_mults.crouching
+				},
+				steelsight = {
+					0.5 * self.stat_info.stance_recoil_mults.steelsight,
+					0.45 * self.stat_info.stance_recoil_mults.steelsight,
+					-0.525 * self.stat_info.stance_recoil_mults.steelsight,
+					0.525 * self.stat_info.stance_recoil_mults.steelsight
+				},
+				min_h_recoil = 0.65
 			},
-			crouching = {
-				0.5 * self.stat_info.stance_recoil_mults.crouching,
-				0.4 * self.stat_info.stance_recoil_mults.crouching,
-				-0.55 * self.stat_info.stance_recoil_mults.crouching,
-				0.55 * self.stat_info.stance_recoil_mults.crouching
+			horizontal_left_recoil = {
+				standing = {
+					0.5 * self.stat_info.stance_recoil_mults.standing,
+					0.45 * self.stat_info.stance_recoil_mults.standing,
+					-0.625 * self.stat_info.stance_recoil_mults.standing,
+					0.425 * self.stat_info.stance_recoil_mults.standing
+				},
+				crouching = {
+					0.5 * self.stat_info.stance_recoil_mults.crouching,
+					0.45 * self.stat_info.stance_recoil_mults.crouching,
+					-0.625 * self.stat_info.stance_recoil_mults.crouching,
+					0.425 * self.stat_info.stance_recoil_mults.crouching
+				},
+				steelsight = {
+					0.5 * self.stat_info.stance_recoil_mults.steelsight,
+					0.45 * self.stat_info.stance_recoil_mults.steelsight,
+					-0.625 * self.stat_info.stance_recoil_mults.steelsight,
+					0.425 * self.stat_info.stance_recoil_mults.steelsight
+				},
+				min_h_recoil = 0.65
 			},
-			steelsight = {
-				0.5 * self.stat_info.stance_recoil_mults.steelsight,
-				0.4 * self.stat_info.stance_recoil_mults.steelsight,
-				-0.55 * self.stat_info.stance_recoil_mults.steelsight,
-				0.55 * self.stat_info.stance_recoil_mults.steelsight
-			}
-		},
-
-		horizontal_left_recoil = {
-			standing = {
-				0.5 * self.stat_info.stance_recoil_mults.standing,
-				0.4 * self.stat_info.stance_recoil_mults.standing,
-				-0.65 * self.stat_info.stance_recoil_mults.standing,
-				0.45 * self.stat_info.stance_recoil_mults.standing
+			horizontal_right_recoil = {
+				standing = {
+					0.5 * self.stat_info.stance_recoil_mults.standing,
+					0.45 * self.stat_info.stance_recoil_mults.standing,
+					-0.425 * self.stat_info.stance_recoil_mults.standing,
+					0.625 * self.stat_info.stance_recoil_mults.standing
+				},
+				crouching = {
+					0.5 * self.stat_info.stance_recoil_mults.crouching,
+					0.45 * self.stat_info.stance_recoil_mults.crouching,
+					-0.425 * self.stat_info.stance_recoil_mults.crouching,
+					0.625 * self.stat_info.stance_recoil_mults.crouching
+				},
+				steelsight = {
+					0.5 * self.stat_info.stance_recoil_mults.steelsight,
+					0.45 * self.stat_info.stance_recoil_mults.steelsight,
+					-0.425 * self.stat_info.stance_recoil_mults.steelsight,
+					0.625 * self.stat_info.stance_recoil_mults.steelsight
+				},
+				min_h_recoil = 0.65
 			},
-			crouching = {
-				0.5 * self.stat_info.stance_recoil_mults.crouching,
-				0.4 * self.stat_info.stance_recoil_mults.crouching,
-				-0.65 * self.stat_info.stance_recoil_mults.crouching,
-				0.45 * self.stat_info.stance_recoil_mults.crouching
-			},
-			steelsight = {
-				0.5 * self.stat_info.stance_recoil_mults.steelsight,
-				0.4 * self.stat_info.stance_recoil_mults.steelsight,
-				-0.65 * self.stat_info.stance_recoil_mults.steelsight,
-				0.45 * self.stat_info.stance_recoil_mults.steelsight
-			}
-		},
-
-		horizontal_right_recoil = {
-			standing = {
-				0.5 * self.stat_info.stance_recoil_mults.standing,
-				0.4 * self.stat_info.stance_recoil_mults.standing,
-				-0.45 * self.stat_info.stance_recoil_mults.standing,
-				0.65 * self.stat_info.stance_recoil_mults.standing
-			},
-			crouching = {
-				0.5 * self.stat_info.stance_recoil_mults.crouching,
-				0.4 * self.stat_info.stance_recoil_mults.crouching,
-				-0.45 * self.stat_info.stance_recoil_mults.crouching,
-				0.65 * self.stat_info.stance_recoil_mults.crouching
-			},
-			steelsight = {
-				0.5 * self.stat_info.stance_recoil_mults.steelsight,
-				0.4 * self.stat_info.stance_recoil_mults.steelsight,
-				-0.45 * self.stat_info.stance_recoil_mults.steelsight,
-				0.65 * self.stat_info.stance_recoil_mults.steelsight
-			}
-		},
-
 
 		--Your average SMG and Pistol will be around here.
-		even_recoil = {
-			standing = {
-				0.55 * self.stat_info.stance_recoil_mults.standing,
-				0.45 * self.stat_info.stance_recoil_mults.standing,
-				-0.45 * self.stat_info.stance_recoil_mults.standing,
-				0.45 * self.stat_info.stance_recoil_mults.standing
+			even_recoil = {
+				standing = {
+					0.625 * self.stat_info.stance_recoil_mults.standing,
+					0.475 * self.stat_info.stance_recoil_mults.standing,
+					-0.45 * self.stat_info.stance_recoil_mults.standing,
+					0.45 * self.stat_info.stance_recoil_mults.standing
+				},
+				crouching = {
+					0.625 * self.stat_info.stance_recoil_mults.crouching,
+					0.475 * self.stat_info.stance_recoil_mults.crouching,
+					-0.45 * self.stat_info.stance_recoil_mults.crouching,
+					0.45 * self.stat_info.stance_recoil_mults.crouching
+				},
+				steelsight = {
+					0.625 * self.stat_info.stance_recoil_mults.steelsight,
+					0.475 * self.stat_info.stance_recoil_mults.steelsight,
+					-0.45 * self.stat_info.stance_recoil_mults.steelsight,
+					0.45 * self.stat_info.stance_recoil_mults.steelsight
+				},
+				min_h_recoil = 0.4
 			},
-			crouching = {
-				0.55 * self.stat_info.stance_recoil_mults.crouching,
-				0.4 * self.stat_info.stance_recoil_mults.crouching,
-				-0.475 * self.stat_info.stance_recoil_mults.crouching,
-				0.475 * self.stat_info.stance_recoil_mults.crouching
+			left_recoil = {
+				standing = {
+					0.625 * self.stat_info.stance_recoil_mults.standing,
+					0.475 * self.stat_info.stance_recoil_mults.standing,
+					-0.6  * self.stat_info.stance_recoil_mults.standing,
+					0.3 * self.stat_info.stance_recoil_mults.standing
+				},
+				crouching = {
+					0.625 * self.stat_info.stance_recoil_mults.crouching,
+					0.475 * self.stat_info.stance_recoil_mults.crouching,
+					-0.6  * self.stat_info.stance_recoil_mults.crouching,
+					0.3 * self.stat_info.stance_recoil_mults.crouching
+				},
+				steelsight = {
+					0.625 * self.stat_info.stance_recoil_mults.steelsight,
+					0.475 * self.stat_info.stance_recoil_mults.steelsight,
+					-0.6 * self.stat_info.stance_recoil_mults.steelsight,
+					0.3 * self.stat_info.stance_recoil_mults.steelsight
+				},
+				min_h_recoil = 0.4
 			},
-			steelsight = {
-				0.55 * self.stat_info.stance_recoil_mults.steelsight,
-				0.45 * self.stat_info.stance_recoil_mults.steelsight,
-				-0.45 * self.stat_info.stance_recoil_mults.steelsight,
-				0.45 * self.stat_info.stance_recoil_mults.steelsight
-			}
-		},
-
-		left_recoil = {
-			standing = {
-				0.55 * self.stat_info.stance_recoil_mults.standing,
-				0.45 * self.stat_info.stance_recoil_mults.standing,
-				-0.7  * self.stat_info.stance_recoil_mults.standing,
-				0.3 * self.stat_info.stance_recoil_mults.standing
+			right_recoil = {
+				standing = {
+					0.625 * self.stat_info.stance_recoil_mults.standing,
+					0.475 * self.stat_info.stance_recoil_mults.standing,
+					-0.3 * self.stat_info.stance_recoil_mults.standing,
+					0.6 * self.stat_info.stance_recoil_mults.standing
+				},
+				crouching = {
+					0.625 * self.stat_info.stance_recoil_mults.crouching,
+					0.475 * self.stat_info.stance_recoil_mults.crouching,
+					-0.3 * self.stat_info.stance_recoil_mults.crouching,
+					0.6 * self.stat_info.stance_recoil_mults.crouching
+				},
+				steelsight = {
+					0.625 * self.stat_info.stance_recoil_mults.steelsight,
+					0.475 * self.stat_info.stance_recoil_mults.steelsight,
+					-0.3 * self.stat_info.stance_recoil_mults.steelsight,
+					0.6 * self.stat_info.stance_recoil_mults.steelsight
+				},
+				min_h_recoil = 0.4
 			},
-			crouching = {
-				0.55 * self.stat_info.stance_recoil_mults.crouching,
-				0.45 * self.stat_info.stance_recoil_mults.crouching,
-				-0.7  * self.stat_info.stance_recoil_mults.crouching,
-				0.3 * self.stat_info.stance_recoil_mults.crouching
-			},
-			steelsight = {
-				0.55 * self.stat_info.stance_recoil_mults.steelsight,
-				0.45 * self.stat_info.stance_recoil_mults.steelsight,
-				-0.7 * self.stat_info.stance_recoil_mults.steelsight,
-				0.3 * self.stat_info.stance_recoil_mults.steelsight
-			}
-		},
-
-		right_recoil = {
-			standing = {
-				0.55 * self.stat_info.stance_recoil_mults.standing,
-				0.45 * self.stat_info.stance_recoil_mults.standing,
-				-0.3 * self.stat_info.stance_recoil_mults.standing,
-				0.7 * self.stat_info.stance_recoil_mults.standing
-			},
-			crouching = {
-				0.55 * self.stat_info.stance_recoil_mults.crouching,
-				0.45 * self.stat_info.stance_recoil_mults.crouching,
-				-0.3 * self.stat_info.stance_recoil_mults.crouching,
-				0.7 * self.stat_info.stance_recoil_mults.crouching
-			},
-			steelsight = {
-				0.55 * self.stat_info.stance_recoil_mults.steelsight,
-				0.45 * self.stat_info.stance_recoil_mults.steelsight,
-				-0.3 * self.stat_info.stance_recoil_mults.steelsight,
-				0.7 * self.stat_info.stance_recoil_mults.steelsight
-			}
-		},
 
 		--Your average heavy pistol, light shotguns, or ARs will be around here.
-		moderate_kick = {
-			standing = {
-				0.7 * self.stat_info.stance_recoil_mults.standing,
-				0.55 * self.stat_info.stance_recoil_mults.standing,
-				-0.375 * self.stat_info.stance_recoil_mults.standing,
-				0.375 * self.stat_info.stance_recoil_mults.standing
+			moderate_kick = {
+				standing = {
+					0.7 * self.stat_info.stance_recoil_mults.standing,
+					0.55 * self.stat_info.stance_recoil_mults.standing,
+					-0.375 * self.stat_info.stance_recoil_mults.standing,
+					0.375 * self.stat_info.stance_recoil_mults.standing
+				},
+				crouching = {
+					0.7 * self.stat_info.stance_recoil_mults.crouching,
+					0.55 * self.stat_info.stance_recoil_mults.crouching,
+					-0.375 * self.stat_info.stance_recoil_mults.crouching,
+					0.375 * self.stat_info.stance_recoil_mults.crouching
+				},
+				steelsight = {
+					0.7 * self.stat_info.stance_recoil_mults.steelsight,
+					0.55 * self.stat_info.stance_recoil_mults.steelsight,
+					-0.375 * self.stat_info.stance_recoil_mults.steelsight,
+					0.375 * self.stat_info.stance_recoil_mults.steelsight
+				},
+				min_h_recoil = 0.2
 			},
-			crouching = {
-				0.7 * self.stat_info.stance_recoil_mults.crouching,
-				0.55 * self.stat_info.stance_recoil_mults.crouching,
-				-0.375 * self.stat_info.stance_recoil_mults.crouching,
-				0.375 * self.stat_info.stance_recoil_mults.crouching
+			moderate_left_kick = {
+				standing = {
+					0.7 * self.stat_info.stance_recoil_mults.standing,
+					0.55 * self.stat_info.stance_recoil_mults.standing,
+					-0.6 * self.stat_info.stance_recoil_mults.standing,
+					0.2 * self.stat_info.stance_recoil_mults.standing
+				},
+				crouching = {
+					0.7 * self.stat_info.stance_recoil_mults.crouching,
+					0.55 * self.stat_info.stance_recoil_mults.crouching,
+					-0.6 * self.stat_info.stance_recoil_mults.crouching,
+					0.2 * self.stat_info.stance_recoil_mults.crouching
+				},
+				steelsight = {
+					0.7 * self.stat_info.stance_recoil_mults.steelsight,
+					0.55 * self.stat_info.stance_recoil_mults.steelsight,
+					-0.6 * self.stat_info.stance_recoil_mults.steelsight,
+					0.2 * self.stat_info.stance_recoil_mults.steelsight
+				},
+				min_h_recoil = 0.2
 			},
-			steelsight = {
-				0.7 * self.stat_info.stance_recoil_mults.steelsight,
-				0.55 * self.stat_info.stance_recoil_mults.steelsight,
-				-0.375 * self.stat_info.stance_recoil_mults.steelsight,
-				0.375 * self.stat_info.stance_recoil_mults.steelsight
-			}
-		},
-
-		moderate_left_kick = {
-			standing = {
-				0.7 * self.stat_info.stance_recoil_mults.standing,
-				0.5 * self.stat_info.stance_recoil_mults.standing,
-				-0.6 * self.stat_info.stance_recoil_mults.standing,
-				0.2 * self.stat_info.stance_recoil_mults.standing
+			moderate_right_kick = {
+				standing = {
+					0.7 * self.stat_info.stance_recoil_mults.standing,
+					0.55 * self.stat_info.stance_recoil_mults.standing,
+					-0.2 * self.stat_info.stance_recoil_mults.standing,
+					0.6 * self.stat_info.stance_recoil_mults.standing
+				},
+				crouching = {
+					0.7 * self.stat_info.stance_recoil_mults.crouching,
+					0.55 * self.stat_info.stance_recoil_mults.crouching,
+					-0.2 * self.stat_info.stance_recoil_mults.crouching,
+					0.6 * self.stat_info.stance_recoil_mults.crouching
+				},
+				steelsight = {
+					0.7 * self.stat_info.stance_recoil_mults.steelsight,
+					0.55 * self.stat_info.stance_recoil_mults.steelsight,
+					-0.2 * self.stat_info.stance_recoil_mults.steelsight,
+					0.6 * self.stat_info.stance_recoil_mults.steelsight
+				},
+				min_h_recoil = 0.2
 			},
-			crouching = {
-				0.7 * self.stat_info.stance_recoil_mults.crouching,
-				0.5 * self.stat_info.stance_recoil_mults.crouching,
-				-0.6 * self.stat_info.stance_recoil_mults.crouching,
-				0.2 * self.stat_info.stance_recoil_mults.crouching
+			the_wolf_brigade = {
+				standing = {
+					0.7 * self.stat_info.stance_recoil_mults_wolf_brigade.standing,
+					0.55 * self.stat_info.stance_recoil_mults_wolf_brigade.standing,
+					-0.2 * self.stat_info.stance_recoil_mults_wolf_brigade.standing,
+					0.6 * self.stat_info.stance_recoil_mults_wolf_brigade.standing
+				},
+				crouching = {
+					0.7 * self.stat_info.stance_recoil_mults_wolf_brigade.crouching,
+					0.55 * self.stat_info.stance_recoil_mults_wolf_brigade.crouching,
+					-0.2 * self.stat_info.stance_recoil_mults_wolf_brigade.crouching,
+					0.6 * self.stat_info.stance_recoil_mults_wolf_brigade.crouching
+				},
+				steelsight = {
+					0.7 * self.stat_info.stance_recoil_mults_wolf_brigade.steelsight,
+					0.55 * self.stat_info.stance_recoil_mults_wolf_brigade.steelsight,
+					-0.2 * self.stat_info.stance_recoil_mults_wolf_brigade.steelsight,
+					0.6 * self.stat_info.stance_recoil_mults_wolf_brigade.steelsight
+				},
+				min_h_recoil = 0.2
 			},
-			steelsight = {
-				0.7 * self.stat_info.stance_recoil_mults.steelsight,
-				0.5 * self.stat_info.stance_recoil_mults.steelsight,
-				-0.6 * self.stat_info.stance_recoil_mults.steelsight,
-				0.2 * self.stat_info.stance_recoil_mults.steelsight
-			}
-		},
-
-		moderate_right_kick = {
-			standing = {
-				0.7 * self.stat_info.stance_recoil_mults.standing,
-				0.5 * self.stat_info.stance_recoil_mults.standing,
-				-0.2 * self.stat_info.stance_recoil_mults.standing,
-				0.6 * self.stat_info.stance_recoil_mults.standing
-			},
-			crouching = {
-				0.7 * self.stat_info.stance_recoil_mults.crouching,
-				0.5 * self.stat_info.stance_recoil_mults.crouching,
-				-0.2 * self.stat_info.stance_recoil_mults.crouching,
-				0.6 * self.stat_info.stance_recoil_mults.crouching
-			},
-			steelsight = {
-				0.7 * self.stat_info.stance_recoil_mults.steelsight,
-				0.5 * self.stat_info.stance_recoil_mults.steelsight,
-				-0.2 * self.stat_info.stance_recoil_mults.steelsight,
-				0.6 * self.stat_info.stance_recoil_mults.steelsight
-			}
-		},
-		
-		the_wolf_brigade = {
-			standing = {
-				0.7 * self.stat_info.stance_recoil_mults_wolf_brigade.standing,
-				0.5 * self.stat_info.stance_recoil_mults_wolf_brigade.standing,
-				-0.2 * self.stat_info.stance_recoil_mults_wolf_brigade.standing,
-				0.6 * self.stat_info.stance_recoil_mults_wolf_brigade.standing
-			},
-			crouching = {
-				0.7 * self.stat_info.stance_recoil_mults_wolf_brigade.crouching,
-				0.5 * self.stat_info.stance_recoil_mults_wolf_brigade.crouching,
-				-0.2 * self.stat_info.stance_recoil_mults_wolf_brigade.crouching,
-				0.6 * self.stat_info.stance_recoil_mults_wolf_brigade.crouching
-			},
-			steelsight = {
-				0.7 * self.stat_info.stance_recoil_mults_wolf_brigade.steelsight,
-				0.5 * self.stat_info.stance_recoil_mults_wolf_brigade.steelsight,
-				-0.2 * self.stat_info.stance_recoil_mults_wolf_brigade.steelsight,
-				0.6 * self.stat_info.stance_recoil_mults_wolf_brigade.steelsight
-			}
-		},
 
 		--DMRs, Sniper Rifles, and heavy shotguns will be around here.
 		vertical_kick = {
@@ -3518,7 +3521,8 @@ function WeaponTweakData:_init_stats()
 				0.7 * self.stat_info.stance_recoil_mults.steelsight,
 				-0.225 * self.stat_info.stance_recoil_mults.steelsight,
 				0.225 * self.stat_info.stance_recoil_mults.steelsight
-			}
+			},
+			min_h_recoil = 0.05
 		},
 
 		left_kick = {
@@ -3539,7 +3543,8 @@ function WeaponTweakData:_init_stats()
 				0.7 * self.stat_info.stance_recoil_mults.steelsight,
 				-0.4 * self.stat_info.stance_recoil_mults.steelsight,
 				-0.05 * self.stat_info.stance_recoil_mults.steelsight
-			}
+			},
+			min_h_recoil = 0.05
 		},
 
 		right_kick = {
@@ -3560,7 +3565,8 @@ function WeaponTweakData:_init_stats()
 				0.7 * self.stat_info.stance_recoil_mults.steelsight,
 				0.05 * self.stat_info.stance_recoil_mults.steelsight,
 				0.4 * self.stat_info.stance_recoil_mults.steelsight
-			}
+			},
+			min_h_recoil = 0.05
 		},
 
 		kick_m2 = { --Why the recoil is multiplied by x10 in playerturret vs just making the kick values 0.2 instead of 0.02 I will never understand
@@ -3581,7 +3587,8 @@ function WeaponTweakData:_init_stats()
 				(0.7 * self.stat_info.stance_recoil_mults.steelsight) / 10,
 				(-0.225 * self.stat_info.stance_recoil_mults.steelsight) / 10,
 				(0.225 * self.stat_info.stance_recoil_mults.steelsight) / 10
-			}
+			},
+			min_h_recoil = 0.1
 		},
 
 		metalstorm_kick = {
@@ -3602,7 +3609,8 @@ function WeaponTweakData:_init_stats()
 				0.7 * self.stat_info.stance_recoil_mults.steelsight * 6,
 				-0.225 * self.stat_info.stance_recoil_mults.steelsight * 6,
 				0.225 * self.stat_info.stance_recoil_mults.steelsight * 6
-			}
+			},
+			min_h_recoil = 0.1
 		}
 	}
 
@@ -3625,7 +3633,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 
 	if self.osipr then
 	else
-		self["Resmod's custom assets aren't loading. Please check your install of Beardlib."]() --force a crash on boot if custom assets aren't loading. Better to have an early tell vs crashing on failed enemy unit spawns mid-game, right?
+		self["Resmod's custom assets aren't loading. Your copy of Resmod my be corrupt or Beardlib may not be installed correctly."]() --force a crash on boot if custom assets aren't loading. Better to have an early tell vs crashing on failed enemy unit spawns mid-game, right?
 	end
 
 	--self:_init_new_weapon_sync(weapon_data)
@@ -6738,7 +6746,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.p90.can_shoot_through_wall = false
 				self.p90.panic_suppression_chance = 0.05
 				self.p90.hs_mult = 1.33333
-				self.p90.kick = self.stat_info.kick_tables.horizontal_recoil
+				self.p90.kick = self.stat_info.kick_tables.even_recoil
 				self.p90.supported = true
 				self.p90.ads_speed = 0.220
 				self.p90.damage_falloff = {
@@ -7037,7 +7045,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.erma.fire_mode_data.fire_rate = 0.10909090909
 				self.erma.auto.fire_rate = 0.10909090909
 				self.erma.CAN_TOGGLE_FIREMODE = true
-				self.erma.kick = self.stat_info.kick_tables.horizontal_recoil
+				self.erma.kick = self.stat_info.kick_tables.even_recoil
 				self.erma.supported = true
 				self.erma.ads_speed = 0.200
 				self.erma.damage_falloff = {
@@ -7146,7 +7154,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.polymer.CAN_TOGGLE_FIREMODE = true
 				self.polymer.BURST_FIRE = 2
 				self.polymer.ADAPTIVE_BURST_SIZE = false													
-				self.polymer.kick = self.stat_info.kick_tables.horizontal_recoil
+				self.polymer.kick = self.stat_info.kick_tables.even_recoil
 				self.polymer.supported = true
 				self.polymer.ads_speed = 0.220
 				self.polymer.damage_falloff = {
@@ -7455,8 +7463,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.tecci.supported = true
 			self.tecci.ads_speed = 0.400
 			self.tecci.damage_falloff = {
-				start_dist = 1800,
-				end_dist = 6000,
+				start_dist = 1600,
+				end_dist = 5800,
 				min_mult = 0.5
 			}
 			self.tecci.stats = {
@@ -7494,6 +7502,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.m249.AMMO_MAX = 300
 			self.m249.fire_mode_data.fire_rate = 0.075
 			self.m249.kick = self.stat_info.kick_tables.even_recoil
+			self.m249.always_use_standing = true
 			self.m249.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
 			self.m249.supported = true
 			self.m249.ads_speed = 0.500
@@ -7524,7 +7533,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.m249.panic_suppression_chance = 0.05
 			self.m249.reload_speed_multiplier = 0.75
 	
-		--IM AT SOUP (XXX)
+		--IM AT SOUP (KAC ChainSAW)
 			self.kacchainsaw.categories = {
 				"lmg",
 				"smg",
@@ -7582,7 +7591,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.kacchainsaw_flamethrower.can_shoot_through_enemy = false
 			self.kacchainsaw_flamethrower.can_shoot_through_shield = false
 			self.kacchainsaw_flamethrower.can_shoot_through_wall = false
-			self.kacchainsaw_flamethrower.kick = self.stat_info.kick_tables.horizontal_recoil
+			self.kacchainsaw_flamethrower.kick = self.stat_info.kick_tables.even_recoil
 			self.kacchainsaw_flamethrower.fire_dot_data = {
 				dot_damage = 1.6,
 				dot_trigger_chance = 50,
@@ -7633,18 +7642,19 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.rpk.fire_mode_data.fire_rate = 0.1
 			self.rpk.CAN_TOGGLE_FIREMODE = true
 			self.rpk.BURST_FIRE = false
-			self.rpk.kick = self.stat_info.kick_tables.even_recoil
+			self.rpk.kick = self.stat_info.kick_tables.horizontal_recoil
+			self.rpk.always_use_standing = true
 			self.rpk.supported = true
 			self.rpk.ads_speed = 0.520
 			self.rpk.damage_falloff = {
 				start_dist = 2900,
-				end_dist = 5200,
+				end_dist = 5800,
 				min_mult = 0.6
 			}
 			self.rpk.stats = {
 				damage = 30,
-				spread = 66,
-				recoil = 73,
+				spread = 68,
+				recoil = 71,
 				spread_moving = 5,
 				zoom = 1,
 				concealment = 20,
@@ -7660,7 +7670,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.rpk.bipod_req_scope = true
 			self.rpk.timers.reload_exit_empty = 1.45
 			self.rpk.timers.reload_exit_not_empty = 0.85
-			self.rpk.reload_speed_multiplier = 0.92
+			self.rpk.reload_speed_multiplier = 0.9
 		
 		--Minigun
 			self.m134.categories = {
@@ -7732,22 +7742,23 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.m60.AMMO_MAX = 120
 				self.m60.fire_mode_data.fire_rate = 0.10909090909
 				self.m60.kick = self.stat_info.kick_tables.even_recoil
+				self.m60.always_use_standing = true
 				self.m60.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps"
 				self.m60.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
 				self.m60.supported = true
 				self.m60.ads_speed = 0.640
 				self.m60.damage_falloff = {
-					start_dist = 1000,
+					start_dist = 800,
 					end_dist = 6000,
 					min_mult = 0.4
 				}
 				self.m60.stats = {
 					damage = 60,
 					spread = 64,
-					recoil = 61,
+					recoil = 57,
 					spread_moving = 5,
 					zoom = 1,
-					concealment = 16,
+					concealment = 15,
 					suppression = 5,
 					alert_size = 2,
 					extra_ammo = 101,
@@ -7756,6 +7767,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					reload = 20
 				}
 				self.m60.stats_modifiers = nil
+				self.m60.bipod_req_scope = true
 				self.m60.panic_suppression_chance = 0.05
 				self.m60.reload_speed_multiplier = 0.75
 				self.m60.obd = 1
@@ -7777,23 +7789,24 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.par.AMMO_MAX = 120
 				self.par.kick = {}
 				self.par.kick = self.stat_info.kick_tables.horizontal_right_recoil
+				self.par.always_use_standing = true
 				self.par.panic_suppression_chance = 0.05
 				self.par.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps"
 				self.par.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
 				self.par.supported = true
 				self.par.ads_speed = 0.620
 				self.par.damage_falloff = {
-					start_dist = 600,
+					start_dist = 500,
 					end_dist = 4800,
 					min_mult = 0.4
 				}
 				self.par.stats = {
 					damage = 60,
 					spread = 61,
-					recoil = 57,
+					recoil = 53,
 					spread_moving = 5,
 					zoom = 1,
-					concealment = 17,
+					concealment = 16,
 					suppression = 5,
 					alert_size = 2,
 					extra_ammo = 101,
@@ -7866,7 +7879,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.hk21.fire_mode_data.fire_rate = 0.075
 				self.hk21.CAN_TOGGLE_FIREMODE = true
 				self.hk21.fake_semi_anims = true
-				self.hk21.kick = self.stat_info.kick_tables.right_kick
+				self.hk21.kick = self.stat_info.kick_tables.right_recoil
+				self.hk21.always_use_standing = true
 				self.hk21.panic_suppression_chance = 0.05
 				self.hk21.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
 				self.hk21.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
@@ -7874,7 +7888,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.hk21.ads_speed = 0.620
 				self.hk21.damage_falloff = {
 					start_dist = 2200,
-					end_dist = 6500,
+					end_dist = 6000,
 					min_mult = 0.53333
 				}
 				self.hk21.stats = {
@@ -9092,7 +9106,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.contraband.FIRE_MODE = "auto"
 				self.contraband.fire_mode_data.fire_rate = 0.1
 				self.contraband.CAN_TOGGLE_FIREMODE = true
-				self.contraband.kick = self.stat_info.kick_tables.moderate_kick
+				self.contraband.kick = self.stat_info.kick_tables.moderate_right_kick
 				self.contraband.muzzleflash = "effects/payday2/particles/weapons/big_762_auto_fps"
 				self.contraband.supported = true
 				self.contraband.ads_speed = 0.420
@@ -14096,6 +14110,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.lewis.CLIP_AMMO_MAX = 47
 		self.lewis.AMMO_MAX = 120
 		self.lewis.kick = self.stat_info.kick_tables.horizontal_recoil
+		self.lewis.always_use_standing = true
 		self.lewis.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps"
 		self.lewis.supported = true
 		self.lewis.ads_speed = 0.580
@@ -15547,7 +15562,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.tommy.AMMO_MAX = 120
 		self.tommy.CLIP_AMMO_MAX = 20
 		self.tommy.BURST_FIRE = false									
-		self.tommy.kick = self.stat_info.kick_tables.horizontal_recoil
+		self.tommy.kick = self.stat_info.kick_tables.even_recoil
 		self.tommy.panic_suppression_chance = 0.05
 		self.tommy.supported = true
 		self.tommy.ads_speed = 0.280
@@ -16369,6 +16384,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.stoner63a.fire_mode_data.fire_rate = 0.08
 			self.stoner63a.AMMO_MAX = 300
 			self.stoner63a.kick = self.stat_info.kick_tables.even_recoil
+			self.stoner63a.always_use_standing = true
 			self.stoner63a.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
 			self.stoner63a.supported = true
 			self.stoner63a.ads_speed = 0.480
@@ -16989,6 +17005,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.mg34.fire_mode_data.fire_rate = 0.06666666
 		self.mg34.AMMO_MAX = 160
 		self.mg34.kick = self.stat_info.kick_tables.vertical_kick
+		self.mg34.always_use_standing = true
 		self.mg34.muzzleflash = "effects/payday2/particles/weapons/big_762_auto_fps"
 		self.mg34.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
 		self.mg34.supported = true
@@ -17293,10 +17310,11 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				if category == "shotgun" then
 					weap.trail_effect = "effects/payday2/particles/weapons/hailstorm_streak"
 				end
-				if category == "lmg" then
+				if category == "lmg" or category == "minigun" then
 					if weap.weapon_movement_penalty then
 						weap.rms = (1 + weap.weapon_movement_penalty) / 2
 					end
+					weap.zoom_recoil_reduction = 0.01
 				end
 			end
 

@@ -410,7 +410,7 @@ function PlayerStandard:_check_use_item(t, input)
 
 	--Here!
 	if action_wanted then
-		local action_forbidden = self._use_item_expire_t or self:_interacting() and not managers.player:has_category_upgrade("player", "no_interrupt_interaction") or self:_changing_weapon() or self:_is_throwing_projectile() or self:_is_meleeing()
+		local action_forbidden = self._use_item_expire_t or self:_interacting() or self:_changing_weapon() or self:_is_throwing_projectile() or self:_is_meleeing()
 
 		if not action_forbidden and managers.player:can_use_selected_equipment(self._unit) then
 			self:_start_action_use_item(t)
@@ -836,9 +836,10 @@ function PlayerStandard:_check_action_primary_attack(t, input)
 						cat_print("jansve", "[PlayerStandard] Weapon Recoil Multiplier: " .. tostring(recoil_multiplier))
 
 						local kick_tweak_data = weap_tweak_data.kick[fire_mode] or weap_tweak_data.kick
-						local up, down, left, right = unpack(kick_tweak_data[self._state_data.in_steelsight and "steelsight" or self._state_data.ducking and "crouching" or "standing"])
-
-						self._camera_unit:base():recoil_kick(up * recoil_multiplier, down * recoil_multiplier, left * recoil_multiplier, right * recoil_multiplier)
+						local always_standing = weap_tweak_data.always_use_standing
+						local up, down, left, right = unpack(kick_tweak_data[always_standing and "standing" or self._state_data.in_steelsight and "steelsight" or self._state_data.ducking and "crouching" or "standing"])
+						local min_h_recoil = kick_tweak_data.min_h_recoil
+						self._camera_unit:base():recoil_kick(up * recoil_multiplier, down * recoil_multiplier, left * recoil_multiplier, right * recoil_multiplier, min_h_recoil)
 
 						if self._shooting_t then
 							local time_shooting = t - self._shooting_t
@@ -983,7 +984,7 @@ function PlayerStandard:_check_action_interact(t, input)
 			if (not deploy_cancel and input.btn_interact_press) or (deploy_cancel and input.btn_use_item_press) then
 				self:_interupt_action_interact()
 				return false
-			elseif input.btn_interact_release then
+			else
 				return false
 			end
 		end
@@ -1858,7 +1859,7 @@ function PlayerStandard:_do_action_melee(t, input, skip_damage)
 		bayonet_melee = true
 	end
 	
-	self._melee_charge_bonus_range = false
+	self._melee_charge_bonus_range = nil
 	if charge_lerp_value and charge_lerp_value > charge_bonus_start then
 		self._melee_charge_bonus_range = true
 		speed = math.max(speed, speed * (charge_lerp_value * charge_bonus_speed))
@@ -1901,6 +1902,8 @@ function PlayerStandard:_do_action_melee(t, input, skip_damage)
 	end
 
 	self._melee_attack_var = 0
+	self._melee_attack_var_h = nil
+	self._melee_attack_var_charge_h = nil
 
 	if instant_hit then
 		local hit = skip_damage or self:_do_melee_damage(t, bayonet_melee)
@@ -1941,17 +1944,21 @@ function PlayerStandard:_do_action_melee(t, input, skip_damage)
 			self._melee_attack_var = anim_attack_charged_vars and math.random(#anim_attack_charged_vars)
 			anim_attack_param = anim_attack_charged_vars and anim_attack_charged_vars[self._melee_attack_var]
 			if anim_attack_charged_left_vars and angle and (angle <= 181) and (angle >= 134) then
+				self._melee_attack_var_charge_h = true
 				self._melee_attack_var = anim_attack_charged_left_vars and math.random(#anim_attack_charged_left_vars)
 				anim_attack_param = anim_attack_charged_left_vars and anim_attack_charged_left_vars[self._melee_attack_var]
 			elseif anim_attack_charged_right_vars and angle and (angle <= 45) and (angle >= 0) then
+				self._melee_attack_var_charge_h = true
 				self._melee_attack_var = anim_attack_charged_right_vars and math.random(#anim_attack_charged_right_vars)
 				anim_attack_param = anim_attack_charged_right_vars and anim_attack_charged_right_vars[self._melee_attack_var]
 			end
 		elseif self._stick_move then
 			if anim_attack_left_vars and angle and (angle <= 181) and (angle >= 134) then
+				self._melee_attack_var_h = true
 				self._melee_attack_var = anim_attack_left_vars and math.random(#anim_attack_left_vars)
 				anim_attack_param = anim_attack_left_vars and anim_attack_left_vars[self._melee_attack_var]
 			elseif anim_attack_right_vars and angle and (angle <= 45) and (angle >= 0) then
+				self._melee_attack_var_h = true
 				self._melee_attack_var = anim_attack_right_vars and math.random(#anim_attack_right_vars)
 				anim_attack_param = anim_attack_right_vars and anim_attack_right_vars[self._melee_attack_var]
 			end
@@ -2675,23 +2682,29 @@ end
 
 function PlayerStandard:_calc_melee_hit_ray(t, sphere_cast_radius)
 	local melee_entry = managers.blackmarket:equipped_melee_weapon()
+	local melee_tweak_data = tweak_data.blackmarket.melee_weapons[melee_entry]
+	local range = melee_tweak_data.stats.range or 150
+
 	local weap_base = self._equipped_unit:base()
 	local wtd = weap_base:weapon_tweak_data()
 	local wtd_base_range = wtd and math.max(wtd.jab_range or 0, 0)
 	local active_weapon = self._unit:inventory():equipped_selection() == 1 and managers.blackmarket:equipped_secondary() or managers.blackmarket:equipped_primary()
 	local active_weapon_stats = active_weapon and melee_entry == "weapon" and managers.weapon_factory:get_stats(active_weapon.factory_id, active_weapon.blueprint)
 	local active_weapon_range = active_weapon_stats and math.max((active_weapon_stats and active_weapon_stats.jab_range or active_weapon_stats.bayonet_range) or 0, 0) or 0
-	local range = tweak_data.blackmarket.melee_weapons[melee_entry].stats.range or 150
-	local sphere_cast_radius_add = tweak_data.blackmarket.melee_weapons[melee_entry].sphere_cast_radius_add
+	range = range + wtd_base_range + active_weapon_range
+
+	local has_charged_range = self._melee_charge_bonus_range and self._melee_charge_bonus_range == true
+	local charge_bonus_range = melee_tweak_data.stats.charge_bonus_range or 0
+	if has_charged_range then
+		range = range + charge_bonus_range
+	end
+
+	local sphere_cast_radius_add = (has_charged_range and self._melee_attack_var_charge_h and melee_tweak_data.sphere_cast_radius_add_charged_h) or (self._melee_attack_var_h and melee_tweak_data.sphere_cast_radius_add_h) or melee_tweak_data.sphere_cast_radius_add
 	if sphere_cast_radius_add then
 		sphere_cast_radius = sphere_cast_radius + sphere_cast_radius_add
 		range = range - sphere_cast_radius_add
 	end
-	range = range + wtd_base_range + active_weapon_range
-	local charge_bonus_range = tweak_data.blackmarket.melee_weapons[melee_entry].stats.charge_bonus_range or 0
-	if self._melee_charge_bonus_range and self._melee_charge_bonus_range == true then
-		range = range + charge_bonus_range
-	end
+
 	local from = self._unit:movement():m_head_pos()
 	local to = from + self._unit:movement():m_head_rot():y() * range
 
@@ -2844,7 +2857,37 @@ function PlayerStandard:_do_melee_damage(t, bayonet_melee, melee_hit_ray, melee_
 			end
 			
 			if charge_lerp_value >= 0.99 then
-				if special_weapon == "taser" then
+				if special_weapon == "caber" then
+					if character_unit:character_damage().dead and not character_unit:character_damage():dead() and managers.enemy:is_enemy(character_unit) then
+						local explosion_chance = melee_weapon.explosion_chance or 0.05
+						if math.random() <= explosion_chance then
+							local curve_pow = melee_weapon.explosion_curve_pow or 0.5
+							local exp_dmg = melee_weapon.explosion_damage or 60
+							local exp_range = melee_weapon.explosion_range or 500
+							local effect_params = {
+								sound_event = "trip_mine_explode",
+								effect = "effects/payday2/particles/explosions/shapecharger_explosion",
+								on_unit = true,
+								sound_muffle_effect = true,
+								feedback_range = exp_range,
+								camera_shake_max_mul = 2
+							}
+							managers.explosion:play_sound_and_effects(col_ray.position, col_ray.normal, exp_range, effect_params)
+							managers.explosion:give_local_player_dmg(col_ray.position, exp_range, exp_dmg, self._unit, curve_pow)						
+							managers.explosion:detect_and_give_dmg({
+								hit_pos = col_ray.position,
+								range = exp_range,
+								collision_slotmask = managers.slot:get_mask("explosion_targets"),
+								curve_pow = curve_pow,
+								damage = exp_dmg,
+								player_damage = 0,
+								alert_radius = 2500,
+								ignore_unit = self._unit,
+								user = self._unit
+							})
+						end
+					end
+				elseif special_weapon == "taser" then
 					action_data.variant = "taser_tased"
 				elseif special_weapon == "panic" then
 					managers.player:spread_psycho_knife_panic()

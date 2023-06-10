@@ -271,6 +271,10 @@ function NewRaycastWeaponBase:_get_spread(user_unit)
 			if self._ads_moving_mult then
 				ads_moving_spread_mult = ads_moving_spread_mult * self._ads_moving_mult
 			end
+			for _, category in ipairs(self:weapon_tweak_data().categories) do
+				local adsms_mult = tweak_data[category] and tweak_data[category].ads_moving_spread_mult or 1
+				ads_moving_spread_mult = ads_moving_spread_mult * adsms_mult
+			end
 			moving_spread = moving_spread * ads_moving_spread_mult
 		end
 		--Add moving spread penalty reduction.
@@ -421,7 +425,7 @@ function NewRaycastWeaponBase:recoil_multiplier(...)
 		local weapon_stats = tweak_data.weapon.stats
 		local base_zoom = weapon_stats.zoom and weapon_stats.zoom[1]
 		local current_zoom = self:zoom()
-		local percent_reduction = 0.05
+		local percent_reduction = self:weapon_tweak_data().zoom_recoil_reduction or 0.05
 		local zoom_mult = base_zoom and current_zoom and (1 + (((base_zoom / current_zoom) - 1) * percent_reduction))
 		if zoom_mult then
 			mult = mult / zoom_mult

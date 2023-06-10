@@ -48,6 +48,14 @@
 				<file :name="ene_fbi_hvh_3.unit"/>
 				<file :name="ene_fbi_hvh_3_husk.unit"/>
 			</group>
+			<group :name="payday2/characters/ene_fbi_boss_1/">
+				<file :name="ene_fbi_boss_1.unit"/>
+				<file :name="ene_fbi_boss_1_husk.unit"/>
+			</group>
+			<group :name="units/pd2_dlc_flat/characters/">
+				<file :name="npc_chavez/npc_chavez.object"/>
+				<file :name="npc_jamaican/npc_jamaican.object"/>
+			</group>
 			<group :name="pd2_dlc_pent/characters/">
 				<file :name="ene_male_security_penthouse_1/ene_male_security_penthouse_1.unit"/>
 				<file :name="ene_male_security_penthouse_1/ene_male_security_penthouse_1_husk.unit"/>
@@ -62,6 +70,7 @@
 				<file :name="dentist/hox/stage_2/nav_manager_data.nav_data"/>
 				<file :name="e_framing_frame/stage_1/nav_manager_data.nav_data"/>
 				<file :name="e_framing_frame/stage_3/nav_manager_data.nav_data"/>
+				<file :name="skm/skm_big2/nav_manager_data.nav_data"/>
 			</group>
 		<!--
 			<group :name="payday2/equipment/gen_interactable_sec_safe_1x1_titan/">

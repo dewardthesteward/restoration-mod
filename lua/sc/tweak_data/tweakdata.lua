@@ -77,7 +77,8 @@ tweak_data.smg = {
 	tweak_data.lmg = {
 		swap_bonus = 0.83334,
 		ads_move_speed_mult = 0.5, --lowered to 0.35
-		moving_spread_mult = 10,
+		moving_spread_mult = 8.3333,
+		ads_moving_spread_mult = 1.8,
 		hipfire_spread_mult = 3.8889
 	}
 		tweak_data.wolf_brigade = {
@@ -85,8 +86,9 @@ tweak_data.smg = {
 		}
 	tweak_data.minigun = {
 		swap_bonus = 0.83334,
-		ads_move_speed_mult = 0.428571, --lowered to 0.3
+		ads_move_speed_mult = 0.5, --lowered to 0.35
 		moving_spread_mult = 8.3333,
+		ads_moving_spread_mult = 1.8,
 		hipfire_spread_mult = 3.8889
 	}
 
@@ -474,27 +476,22 @@ tweak_data.blackmarket.projectiles.fir_com.impact_detonation = false
 
 --Throwing Card--
 tweak_data.projectiles.wpn_prj_ace.damage = 24
-tweak_data.projectiles.wpn_prj_ace.launch_speed = 1800
 tweak_data.projectiles.wpn_prj_ace.adjust_z = 0
 
 --Shuriken
 tweak_data.projectiles.wpn_prj_four.damage = 20
-tweak_data.projectiles.wpn_prj_four.launch_speed = 1800
 tweak_data.projectiles.wpn_prj_four.adjust_z = 0
 
 --Throwing Knife--
 tweak_data.projectiles.wpn_prj_target.damage = 24
-tweak_data.projectiles.wpn_prj_target.launch_speed = 1800
 tweak_data.projectiles.wpn_prj_target.adjust_z = 0
 
 --Javelin--
 tweak_data.projectiles.wpn_prj_jav.damage = 36
-tweak_data.projectiles.wpn_prj_jav.launch_speed = 1800
 tweak_data.projectiles.wpn_prj_jav.adjust_z = 0
 
 --Throwing axe--
 tweak_data.projectiles.wpn_prj_hur.damage = 36
-tweak_data.projectiles.wpn_prj_hur.launch_speed = 1800
 tweak_data.projectiles.wpn_prj_hur.adjust_z = 0
 
 --Balled Snow--
@@ -505,7 +502,6 @@ if tweak_data.projectiles.xmas_snowball then
 	tweak_data.projectiles.xmas_snowball.feedback_range = -100
 	tweak_data.projectiles.xmas_snowball.curve_pow = 0.05
 	tweak_data.projectiles.xmas_snowball.range = 100
-	tweak_data.projectiles.xmas_snowball.launch_speed = 1250
 	tweak_data.projectiles.xmas_snowball.adjust_z = 0
 end
 
@@ -677,7 +673,7 @@ velocity = {
 	'frankish_arrow'
 }
 for i, proj_id in ipairs(velocity) do
-	tweak_data.projectiles[proj_id].launch_speed = 3000 * velocity_mult
+	tweak_data.projectiles[proj_id].launch_speed = 3500 * velocity_mult
 	tweak_data.projectiles[proj_id].adjust_z = tweak_data.projectiles[proj_id].launch_speed / 100 * velocity_mult
 	tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
 end
@@ -687,7 +683,7 @@ end
 		'frankish_poison_arrow'
 	}
 	for i, proj_id in ipairs(velocity) do
-		tweak_data.projectiles[proj_id].launch_speed = 3000 * velocity_mult * 0.85
+		tweak_data.projectiles[proj_id].launch_speed = 3500 * velocity_mult * 0.85
 		tweak_data.projectiles[proj_id].adjust_z = tweak_data.projectiles[proj_id].launch_speed / 100 * velocity_mult
 		tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
 	end
@@ -697,7 +693,7 @@ end
 		'frankish_arrow_exp'
 	}
 	for i, proj_id in ipairs(velocity) do
-		tweak_data.projectiles[proj_id].launch_speed = 3000 * velocity_mult * 0.45
+		tweak_data.projectiles[proj_id].launch_speed = 3500 * velocity_mult * 0.45
 		tweak_data.projectiles[proj_id].adjust_z = tweak_data.projectiles[proj_id].launch_speed / 100 * velocity_mult
 		tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
 	end
@@ -707,7 +703,7 @@ velocity = {
 	'arblast_arrow'
 }
 for i, proj_id in ipairs(velocity) do
-	tweak_data.projectiles[proj_id].launch_speed = 6000 * velocity_mult
+	tweak_data.projectiles[proj_id].launch_speed = 6500 * velocity_mult
 	tweak_data.projectiles[proj_id].adjust_z = tweak_data.projectiles[proj_id].launch_speed / 100 * velocity_mult
 	tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
 end
@@ -716,7 +712,7 @@ end
 		'arblast_poison_arrow'
 	}
 	for i, proj_id in ipairs(velocity) do
-		tweak_data.projectiles[proj_id].launch_speed = 6000 * velocity_mult * 0.85
+		tweak_data.projectiles[proj_id].launch_speed = 6500 * velocity_mult * 0.85
 		tweak_data.projectiles[proj_id].adjust_z = tweak_data.projectiles[proj_id].launch_speed / 100 * velocity_mult
 		tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
 	end
@@ -725,7 +721,7 @@ end
 		'arblast_arrow_exp'
 	}
 	for i, proj_id in ipairs(velocity) do
-		tweak_data.projectiles[proj_id].launch_speed = 6000 * velocity_mult * 0.45
+		tweak_data.projectiles[proj_id].launch_speed = 6500 * velocity_mult * 0.45
 		tweak_data.projectiles[proj_id].adjust_z = tweak_data.projectiles[proj_id].launch_speed / 100 * velocity_mult
 		tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
 	end
@@ -735,7 +731,7 @@ velocity = {
 	'ecp_arrow'
 }
 for i, proj_id in ipairs(velocity) do
-	tweak_data.projectiles[proj_id].launch_speed = 9000 * velocity_mult
+	tweak_data.projectiles[proj_id].launch_speed = 9500 * velocity_mult
 	tweak_data.projectiles[proj_id].adjust_z = tweak_data.projectiles[proj_id].launch_speed / 100 * velocity_mult
 	tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
 end
@@ -744,7 +740,7 @@ end
 		'ecp_arrow_poison'
 	}
 	for i, proj_id in ipairs(velocity) do
-		tweak_data.projectiles[proj_id].launch_speed = 9000 * velocity_mult * 0.85
+		tweak_data.projectiles[proj_id].launch_speed = 9500 * velocity_mult * 0.85
 		tweak_data.projectiles[proj_id].adjust_z = tweak_data.projectiles[proj_id].launch_speed / 100 * velocity_mult
 		tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
 	end
@@ -753,7 +749,7 @@ end
 		'ecp_arrow_exp'
 	}
 	for i, proj_id in ipairs(velocity) do
-		tweak_data.projectiles[proj_id].launch_speed = 9000 * velocity_mult * 0.45
+		tweak_data.projectiles[proj_id].launch_speed = 9500 * velocity_mult * 0.45
 		tweak_data.projectiles[proj_id].adjust_z = tweak_data.projectiles[proj_id].launch_speed / 100 * velocity_mult
 		tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
 	end
@@ -780,12 +776,51 @@ tweak_data.projectiles.dynamite.launch_speed = 150
 tweak_data.projectiles.sticky_grenade.launch_speed = 225
 tweak_data.projectiles.molotov.launch_speed = 200
 velocity = {
-	'wpn_prj_ace','wpn_prj_four','wpn_prj_target',
-	'wpn_prj_hur','wpn_prj_jav','xmas_snowball'
+	'wpn_prj_ace','wpn_prj_four',
+}
+for i, proj_id in ipairs(velocity) do
+	if tweak_data.projectiles[proj_id] then
+		tweak_data.projectiles[proj_id].launch_speed = 1500
+		tweak_data.projectiles[proj_id].adjust_z = 50
+		tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
+	end
+end
+velocity = {
+	'wpn_prj_target'
+}
+for i, proj_id in ipairs(velocity) do
+	if tweak_data.projectiles[proj_id] then
+		tweak_data.projectiles[proj_id].launch_speed = 2500
+		tweak_data.projectiles[proj_id].adjust_z = 50
+		tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
+	end
+end
+velocity = {
+	'wpn_prj_hur'
 }
 for i, proj_id in ipairs(velocity) do
 	if tweak_data.projectiles[proj_id] then
 		tweak_data.projectiles[proj_id].launch_speed = 1800
+		tweak_data.projectiles[proj_id].adjust_z = 50
+		tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
+	end
+end
+velocity = {
+	'wpn_prj_jav'
+}
+for i, proj_id in ipairs(velocity) do
+	if tweak_data.projectiles[proj_id] then
+		tweak_data.projectiles[proj_id].launch_speed = 2500
+		tweak_data.projectiles[proj_id].adjust_z = 50
+		tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
+	end
+end
+velocity = {
+	'xmas_snowball'
+}
+for i, proj_id in ipairs(velocity) do
+	if tweak_data.projectiles[proj_id] then
+		tweak_data.projectiles[proj_id].launch_speed = 1000
 		tweak_data.projectiles[proj_id].adjust_z = 50
 		tweak_data.projectiles[proj_id].mass_look_up_modifier = 0
 	end
