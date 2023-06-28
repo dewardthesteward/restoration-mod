@@ -1236,6 +1236,7 @@
 	<!--Sniper Trails-->
 	<effect				path="effects/particles/weapons/sniper_trail_sc" force="false"/>
 	<effect				path="effects/particles/weapons/titan_trail_sc" force="false"/>
+	<effect				path="effects/particles/weapons/akan_titan_trail_sc" force="false"/>
 	
 	<!--Weapon Mod Trails-->
 	<!--M249/240 casings-->
@@ -1374,6 +1375,8 @@
 	
 	<!--Weapon Unit Overrides-->
 	<unit				path="units/pd2_dlc_tawp/weapons/wpn_fps_pis_rsh12/wpn_fps_pis_rsh12" load="false"/>
+	<unit				path="units/pd2_dlc_osa/weapons/wpn_fps_sho_x_judge/wpn_fps_pis_x_judge" load="false"/>
+	<unit				path="units/pd2_dlc_osa/weapons/wpn_fps_pis_x_rage/wpn_fps_pis_x_rage" load="false"/>
 	
 	<object				path="units/pd2_dlc_pxp1/weapons/wpn_fps_snp_scout_pts/wpn_fps_snp_scout_b_standard" load="false"/>
 	<object				path="units/pd2_dlc_pxp1/weapons/wpn_fps_snp_scout_pts/wpn_fps_snp_scout_body_standard" load="false"/>

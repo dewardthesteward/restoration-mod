@@ -95,6 +95,8 @@ Hooks:PostHook( LevelsTweakData, "init", "SC_levels", function(self)
 	self.kosugi.ai_group_type = murkywater	
 	self.kosugi.player_style = "sneak_suit"
 	
+	self.deep.ai_group_type = murkywater
+	
 	--///FBI LEVELS\\\--
 	self.hox_2.player_style = "slaughterhouse"
 	self.hox_2.ai_group_type = fbi
@@ -236,8 +238,6 @@ Hooks:PostHook( LevelsTweakData, "init", "SC_levels", function(self)
     self.trai.player_style = "railroad"
 	
 	self.corp.ai_group_type = nypd
-	
-	--self.deep.ai_group_type = nypd
 	
 	self.nmh.ai_group_type = nypd
 	self.nmh.ghost_bonus = nil
@@ -538,6 +538,7 @@ Hooks:PostHook( LevelsTweakData, "init", "SC_levels", function(self)
 	self.trai.ghost_bonus = 0.25
 	--Blaine's Heists goes here--
 	self.corp.ghost_bonus = 0.20
+	self.deep.ghost_bonus = 0.20
 	
 	--///SKIRMISH shit\\\--
 	self.skm_cas.package = {"packages/dlcs/skm/job_skm", "packages/skm_sc_lapd"}

@@ -357,7 +357,7 @@ function PlayerStandard:_check_action_melee(t, input)
 	end
 
 	--Here!
-	local action_forbidden = not self:_melee_repeat_allowed() or self._use_item_expire_t or self:_changing_weapon() or self:_interacting() and not managers.player:has_category_upgrade("player", "no_interrupt_interaction") or self:_is_throwing_projectile() or self:_is_using_bipod() or self:is_shooting_count() or self:_in_burst()
+	local action_forbidden = not self:_melee_repeat_allowed() or self._use_item_expire_t or self:_changing_weapon() or self:_interacting() and not managers.player:has_category_upgrade("player", "no_interrupt_interaction") or self:_is_throwing_projectile() or self:_is_using_bipod() or self:is_shooting_count() or self:_in_burst() or self._spin_up_shoot
 
 	if action_forbidden then
 		return
@@ -610,7 +610,7 @@ end
 
 function PlayerStandard:_check_action_primary_attack(t, input)
 	local new_action = nil
-	local action_wanted = input.btn_primary_attack_state or input.btn_primary_attack_release or self._queue_fire
+	local action_wanted = input.btn_primary_attack_state or input.btn_primary_attack_release or self._queue_fire or self._spin_up_shoot
 
 	action_wanted = action_wanted or self:is_shooting_count()
 	action_wanted = action_wanted or self:_is_charging_weapon()
@@ -749,8 +749,9 @@ function PlayerStandard:_check_action_primary_attack(t, input)
 							end
 						end
 					elseif fire_mode == "auto" then
-						if input.btn_primary_attack_state then
-							fired = weap_base:trigger_held(self:get_fire_weapon_position(), self:get_fire_weapon_direction(), dmg_mul, nil, spread_mul, autohit_mul, suppression_mul)
+						if self._spin_up_shoot or input.btn_primary_attack_state then
+							fired = weap_base:trigger_held(self:get_fire_weapon_position(), self:get_fire_weapon_direction(), dmg_mul, nil, spread_mul, autohit_mul, suppression_mul)		
+							self._spin_up_shoot = not self._already_fired and weap_base:weapon_tweak_data().spin_up_shoot
 						end
 					elseif fire_mode == "burst" then
 						fired = weap_base:trigger_held(self:get_fire_weapon_position(), self:get_fire_weapon_direction(), dmg_mul, nil, spread_mul, autohit_mul, suppression_mul)
@@ -781,6 +782,8 @@ function PlayerStandard:_check_action_primary_attack(t, input)
 
 					if fired then
 						self._queue_fire = nil
+						self._spin_up_shoot = nil
+						self._already_fired = true
 
 						if weap_base._descope_on_fire then
 							self._d_scope_t = (weap_base._next_fire_allowed - t) * 0.7
@@ -902,12 +905,15 @@ function PlayerStandard:_check_action_primary_attack(t, input)
 			self._queue_reload_interupt = true
 		end
 		self._queue_fire = nil
+		if not self._equipped_unit:base():weapon_tweak_data().spin_up_shoot then
+			self._spin_up_shoot = nil
+		end
 	end
 
 	if not new_action then
+		self._already_fired = nil
 		self:_check_stop_shooting()
 	end
-
 	return new_action
 end
 
@@ -1377,7 +1383,7 @@ function PlayerStandard:_start_action_running(t)
 		return
 	end
 
-	if self._shooting and not self._equipped_unit:base():run_and_shoot_allowed() or (self:_is_charging_weapon() and not self._equipped_unit:base():run_and_shoot_allowed()) or --[[self:_changing_weapon() or]] self._use_item_expire_t or self._state_data.in_air or self:_is_throwing_projectile() or self:_in_burst() or self._state_data.ducking and not self:_can_stand()then
+	if (self._shooting or self._spin_up_shoot) and not self._equipped_unit:base():run_and_shoot_allowed() or (self:_is_charging_weapon() and not self._equipped_unit:base():run_and_shoot_allowed()) or --[[self:_changing_weapon() or]] self._use_item_expire_t or self._state_data.in_air or self:_is_throwing_projectile() or self:_in_burst() or self._state_data.ducking and not self:_can_stand()then
 		self._running_wanted = true
 		return
 	end
@@ -1994,7 +2000,7 @@ Hooks:PreHook(PlayerStandard, "update", "ResWeaponUpdate", function(self, t, dt)
 	local weapon = self._equipped_unit and self._equipped_unit:base()
 	local secondary = self._unit and self._unit:inventory():unit_by_selection(1):base()
 	local primary = self._unit and self._unit:inventory():unit_by_selection(2):base()
-	if weapon:get_name_id() == "m134" or weapon:get_name_id() == "shuno" then
+	if weapon:weapon_tweak_data().ads_spool then
 		weapon:update_spin()
 	end
 	if primary then
@@ -2079,8 +2085,12 @@ end
 
 function PlayerStandard:_shooting_move_speed_timer(t, dt)
 	local weapon = self._equipped_unit and self._equipped_unit:base()
+	if not weapon then
+		return
+	end
+	local smt_range = weapon and weapon:weapon_tweak_data().smt_range or { 0.3, 0.8 }
 	if self._shooting and weapon._sms and (not self._is_sliding and not self._is_wallrunning and not self._is_wallkicking and not self:on_ladder()) then
-		self._shooting_move_speed_t = math.min(0.75, weapon._smt)
+		self._shooting_move_speed_t = math.clamp(weapon._smt, smt_range[1], smt_range[2])
 		--self._shooting_move_speed_wait = weapon._smt * 0.15
 		self._shooting_move_speed_mult = weapon._sms
 	end
@@ -2543,7 +2553,7 @@ function PlayerStandard:_start_action_steelsight(t, gadget_state)
 
 	if self._state_data.in_steelsight --[[or self._steelsight_wanted]] then
 		local weapon = self._unit:inventory():equipped_unit():base()
-		if weapon:get_name_id() == "m134" or weapon:get_name_id() == "shuno" then
+		if weapon:weapon_tweak_data().ads_spool then
 			weapon:vulcan_enter_steelsight()
 		end
 	end
@@ -2602,7 +2612,7 @@ end
 Hooks:PostHook(PlayerStandard, "_end_action_steelsight", "ResMinigunExitSteelsight", function(self, t, gadget_state)
 	if not self._state_data.in_steelsight then
 		local weapon = self._unit:inventory():equipped_unit():base()
-		if weapon:get_name_id() == "m134" or weapon:get_name_id() == "shuno" then
+		if weapon:weapon_tweak_data().ads_spool then
 			weapon:vulcan_exit_steelsight()
 		end
 	end
@@ -3208,6 +3218,20 @@ function PlayerStandard:_get_swap_speed_multiplier()
 
 	multiplier = managers.modifiers:modify_value("PlayerStandard:GetSwapSpeedMultiplier", multiplier)
 	multiplier = multiplier * managers.player:upgrade_value("weapon", "mrwi_swap_speed_multiplier", 1)
+
+	--MERCENARY DECK
+	if managers.player:has_category_upgrade("player","kmerc_swap_speed_per_max_armor") then
+		local dmg_ext = self._unit:character_damage() 
+		if dmg_ext then
+			local rate_bonus = managers.player:upgrade_value("player","kmerc_swap_speed_per_max_armor",0)
+			local rate_armor = tweak_data.upgrades.values.player.kmerc_generic_bonus_per_max_armor_rate
+			local max_armor = dmg_ext:_max_armor()
+			local bonus = math.floor(max_armor / rate_armor) * rate_bonus
+
+			multiplier = multiplier + bonus
+		end
+	end
+
 	return multiplier
 end
 
