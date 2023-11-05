@@ -7,7 +7,7 @@
         <class file="ChallengesTweakData.lua"/>
 		<!-- <class file="radialmousemenu.lua"/>-->
     </Classes>
-	<!-- AssetUpdates id="428" version="12.1" provider="modworkshop" use_local_dir="true" use_local_path="true"/>-->
+	<!-- AssetUpdates id="428" version="12.2.4" provider="modworkshop" use_local_dir="true" use_local_path="true"/>-->
 	<ScriptMods directory="scriptdata/menus">
 		<mod file="start_menu.xml" type="custom_xml" target_file="gamedata/menus/start_menu" target_type="menu" merge_mode="script_merge"/>
 		<mod file="pause_menu.xml" type="custom_xml" target_file="gamedata/menus/pause_menu" target_type="menu" merge_mode="script_merge"/>
@@ -23,6 +23,10 @@
 		<mod file="str_swat_vans.xml" type="custom_xml" target_file="units/payday2/vehicles/bnk_vehicle_truck_police_anim_1/bnk_vehicle_truck_police_anim_1" target_type="sequence_manager" merge_mode="script_merge"/>				
 		<mod file="str_swat_vans.xml" type="custom_xml" target_file="units/payday2/vehicles/bnk_vehicle_truck_police_anim_2/bnk_vehicle_truck_police_anim_2" target_type="sequence_manager" merge_mode="script_merge"/>			
 		<mod file="swat_vans.xml" type="custom_xml" target_file="units/payday2/vehicles/anim_vehicle_van_swat/anim_vehicle_van_swat" target_type="sequence_manager" merge_mode="script_merge"/>
+		<mod file="swat_vans.xml" type="custom_xml" target_file="units/pd2_dlc_cro/vehicles/veh_truck_police/veh_truck_police_anim_01_stage_02" target_type="sequence_manager" merge_mode="script_merge"/>
+		<mod file="swat_vans.xml" type="custom_xml" target_file="units/pd2_dlc_cro/vehicles/veh_truck_police/veh_truck_police_anim_01_stage_03" target_type="sequence_manager" merge_mode="script_merge"/>
+		<mod file="swat_vans.xml" type="custom_xml" target_file="units/pd2_dlc_cro/vehicles/veh_truck_police/veh_truck_police_anim_02_stage_03" target_type="sequence_manager" merge_mode="script_merge"/>
+		
 		<mod file="blackhawks.xml" type="custom_xml" target_file="units/payday2/vehicles/air_vehicle_blackhawk/vehicle_blackhawk" target_type="sequence_manager" merge_mode="script_merge"/>
 	</ScriptMods>	
 	
@@ -87,8 +91,6 @@
 		<hook file="sc/managers/mission/elementspecialobjective.lua" source_file="lib/managers/mission/elementspecialobjective"/>
 		<hook file="sc/managers/mission/elementpointofnoreturn.lua" source_file="lib/managers/mission/elementpointofnoreturn"/>
 		<hook file="sc/tweak_data/charactertweakdata.lua" source_file="lib/tweak_data/charactertweakdata"/>
-		<hook file="sc/network/matchmaking/networkmatchmakingsteam.lua" source_file="lib/network/matchmaking/networkmatchmakingsteam"/>
-		<hook file="sc/network/matchmaking/networkmatchmakingepic.lua" source_file="lib/network/matchmaking/networkmatchmakingepic"/>
 		<hook file="sc/tweak_data/tweakdata.lua" source_file="lib/tweak_data/tweakdata"/>
 		<hook file="sc/tweak_data/tweakdatapd2.lua" source_file="lib/tweak_data/tweakdatapd2"/>		
 		<hook file="sc/tweak_data/equipmentstweakdata.lua" source_file="lib/tweak_data/equipmentstweakdata"/>
@@ -111,6 +113,7 @@
 		<hook file="sc/managers/explosionmanager.lua" source_file="lib/managers/explosionmanager"/>
 		<hook file="sc/managers/moneymanager.lua" source_file="lib/managers/moneymanager"/>
 		<hook file="sc/managers/poisongaseffect.lua" source_file="lib/managers/player/poisongaseffect"/>
+		<hook file="sc/managers/smokescreeneffect.lua" source_file="lib/managers/player/smokescreeneffect"/>
 		<hook file="sc/managers/firemanager.lua" source_file="lib/managers/firemanager"/>
 		<hook file="sc/managers/statisticsmanager.lua" source_file="lib/managers/statisticsmanager"/>
 		<hook file="sc/managers/playermanager.lua" source_file="lib/managers/playermanager"/>
@@ -158,6 +161,7 @@
 		<hook file="sc/units/player/playerinventory.lua" source_file="lib/units/beings/player/playerinventory"/>
 	    <hook file="sc/units/player/playersound.lua" source_file="lib/units/beings/player/playersound"/>
 		<hook file="sc/units/player/playerstandard.lua" source_file="lib/units/beings/player/states/playerstandard"/>
+		<hook file="sc/units/player/playermaskoff.lua" source_file="lib/units/beings/player/states/playermaskoff"/>
 		<hook file="sc/units/player/playerturret.lua" source_file="lib/units/beings/player/states/playerturret"/>
 		<hook file="sc/units/player/playerdriving.lua" source_file="lib/units/beings/player/states/playerdriving"/>
 		<hook file="sc/units/player/playerclean.lua" source_file="lib/units/beings/player/states/playerclean"/>
@@ -186,6 +190,7 @@
 		<hook file="sc/units/enemies/logics/coplogicinactive.lua" source_file="lib/units/enemies/cop/logics/coplogicinactive"/>
 		<hook file="sc/units/enemies/logics/coplogicintimidated.lua" source_file="lib/units/enemies/cop/logics/coplogicintimidated"/>
 		<hook file="sc/units/enemies/logics/coplogictravel.lua" source_file="lib/units/enemies/cop/logics/coplogictravel"/>
+		<hook file="sc/units/enemies/logics/coplogictrade.lua" source_file="lib/units/enemies/cop/logics/coplogictrade"/>
 		<hook file="sc/units/enemies/logics/taserlogicattack.lua" source_file="lib/units/enemies/taser/logics/taserlogicattack"/>
 		<hook file="sc/units/enemies/logics/coplogicbase.lua" source_file="lib/units/enemies/cop/logics/coplogicbase"/>
 		<hook file="sc/units/enemies/logics/coplogicidle.lua" source_file="lib/units/enemies/cop/logics/coplogicidle"/>
@@ -203,11 +208,11 @@
 		<hook file="sc/tweak_data/enveffecttweakdata.lua" source_file="lib/tweak_data/enveffecttweakdata"/>
 		<hook file="sc/tweak_data/weapontweakdata.lua" source_file="lib/tweak_data/weapontweakdata"/>
 		<hook file="sc/units/enemies/copdamage.lua" source_file="lib/units/enemies/cop/copdamage"/>
-	    	<hook file="sc/units/enemies/copinventory.lua" source_file="lib/units/enemies/cop/copinventory"/>
+	    <hook file="sc/units/enemies/copinventory.lua" source_file="lib/units/enemies/cop/copinventory"/>
 		<hook file="sc/units/enemies/copmovement.lua" source_file="lib/units/enemies/cop/copmovement"/>
 		<hook file="sc/units/enemies/copbrain.lua" source_file="lib/units/enemies/cop/copbrain"/>
 		<hook file="sc/units/enemies/huskcopbrain.lua" source_file="lib/units/enemies/cop/huskcopbrain"/>
-	    	<hook file="sc/units/civilians/actions/lower_body/escortwithsuitcaseactionwalk.lua" source_file="lib/units/civilians/actions/lower_body/escortwithsuitcaseactionwalk"/>
+	    <hook file="sc/units/civilians/actions/lower_body/escortwithsuitcaseactionwalk.lua" source_file="lib/units/civilians/actions/lower_body/escortwithsuitcaseactionwalk"/>
 		<hook file="sc/units/civilians/civilianbase.lua" source_file="lib/units/civilians/civilianbase"/>
 		<hook file="sc/units/civilians/civilianbrain.lua" source_file="lib/units/civilians/civilianbrain"/>
 		<hook file="sc/units/civilians/civiliandamage.lua" source_file="lib/units/civilians/civiliandamage"/>
@@ -217,7 +222,7 @@
 		<hook file="sc/units/props/timergui.lua" source_file="lib/units/props/timergui"/>
 		<hook file="sc/units/props/texttemplatebase.lua" source_file="lib/units/props/texttemplatebase"/>		
 		<hook file="sc/units/pickups/ammoclip.lua" source_file="lib/units/pickups/ammoclip"/>
-	    	<hook file="sc/units/pickups/gageassignmentbase.lua" source_file="lib/units/pickups/gageassignmentbase"/>
+	    <hook file="sc/units/pickups/gageassignmentbase.lua" source_file="lib/units/pickups/gageassignmentbase"/>
 		<hook file="sc/player_actions/skills/playeractiondamagecontrol.lua" source_file="lib/player_actions/skills/playeractiondamagecontrol"/>
 		<hook file="sc/player_actions/skills/playeractiontriggerhappy.lua" source_file="lib/player_actions/skills/playeractiontriggerhappy"/>
 		<hook file="sc/player_actions/skills/playeractionexperthandling.lua" source_file="lib/player_actions/skills/playeractionexperthandling"/>
@@ -230,7 +235,6 @@
 		<hook file="sc/units/equipment/sentrygunequipment.lua" source_file="lib/units/equipment/sentry_gun/sentrygunequipment"/>
 		<hook file="sc/units/enemies/securitycamera.lua" source_file="lib/units/props/securitycamera"/>
 		<hook file="sc/managers/hud/hudassaultcorner.lua" source_file="lib/managers/hud/hudassaultcorner"/>
-		<hook file="sc/managers/hud/hudmutator.lua" source_file="lib/managers/hudmanagerpd2"/>
 		<hook file="sc/tweak_data/dramatweakdata.lua" source_file="lib/tweak_data/dramatweakdata"/>
 		<hook file="sc/managers/mission/elementspawnenemydummy.lua" source_file="lib/managers/mission/elementspawnenemydummy"/>
 		<hook file="sc/managers/mission/elementareatrigger.lua" source_file="lib/managers/mission/elementareatrigger"/>
@@ -316,6 +320,7 @@
 		<hook file="sc/units/enemies/zombie/zombielogicattack.lua" source_file="lib/units/enemies/cop/copbrain"/>
 		<hook file="sc/units/enemies/zombie/zombieactionshoot.lua" source_file="lib/units/enemies/cop/copmovement"/>
 		<hook file="sc/managers/menu/items/contractbrokerheistitem.lua" source_file="lib/managers/menu/items/contractbrokerheistitem"/>
+		<hook file="sc/managers/perpetualeventmanager.lua" source_file="lib/managers/perpetualeventmanager"/>
 		<!--///CRIMESPREE\\\-->
 		<hook file="sc/modifiers/modifierheavies.lua" source_file="lib/modifiers/modifierheavies"/>
 		<hook file="sc/modifiers/modifierdozermedic.lua" source_file="lib/modifiers/modifierdozermedic"/>
@@ -343,6 +348,8 @@
 		<hook file="sc/modifiers/new/modifierfriendlyfire.lua" source_file="lib/modifiers/modifierenemyhealthanddamage"/>
 		<hook file="sc/modifiers/new/modifier10secondsresponsetime.lua" source_file="lib/modifiers/modifierenemyhealthanddamage"/>
 		<hook file="sc/modifiers/new/modifierbravosniper.lua" source_file="lib/modifiers/basemodifier"/>
+		<hook file="sc/modifiers/new/modifierdozerpairs.lua" source_file="lib/modifiers/basemodifier"/>
+		<hook file="sc/modifiers/new/modifieruberchargeshields.lua" source_file="lib/modifiers/modifierenemyhealthanddamage"/>
 		<!--///MUTATORS\\\-->
 		<hook file="sc/managers/mutatorsmanager.lua" source_file="lib/managers/mutatorsmanager"/>
 		<hook file="sc/mutators/mutatorcloakereffect.lua" source_file="lib/mutators/mutatorcloakereffect"/>
@@ -359,6 +366,7 @@
 		<hook file="sc/mutators/mutatorbirthday.lua" source_file="lib/mutators/basemutator"/>
 		<hook file="sc/mutators/mutatorpiggybank.lua" source_file="lib/mutators/mutatorpiggybank"/>
 		<hook file="sc/mutators/mutatorcg22.lua" source_file="lib/mutators/mutatorcg22"/>
+		<hook file="sc/mutators/mutatorpiggyrevenge.lua" source_file="lib/mutators/mutatorpiggyrevenge"/>
 		<!--///NEW MUTATORS GO HERE\\\-->
 		<hook file="sc/mutators/new/mutatornotitans.lua" source_file="lib/mutators/basemutator"/>
 		<hook file="sc/mutators/new/mutatorfatroll.lua" source_file="lib/mutators/basemutator"/>
@@ -369,6 +377,17 @@
 		<hook file="sc/mutators/new/mutatoronlybravos.lua" source_file="lib/mutators/basemutator"/>
 		<hook file="sc/mutators/new/mutatorjungleinferno.lua" source_file="lib/mutators/basemutator"/>
 		<hook file="sc/mutators/new/mutatormoredonutsplus.lua" source_file="lib/mutators/basemutator"/>
+		<hook file="sc/mutators/new/mutatorkaboom.lua" source_file="lib/mutators/basemutator"/>
+		<hook file="sc/mutators/new/mutatorfartsmella.lua" source_file="lib/mutators/basemutator"/>
+		<hook file="sc/mutators/new/mutatorcloakerflashbang.lua" source_file="lib/mutators/basemutator"/>
+		<hook file="sc/mutators/new/mutatorcloakercuff.lua" source_file="lib/mutators/basemutator"/>
+		<hook file="sc/mutators/new/mutatorfastresponse.lua" source_file="lib/mutators/basemutator"/>
+		<hook file="sc/mutators/new/mutatorquickscope360.lua" source_file="lib/mutators/basemutator"/>
+		<hook file="sc/mutators/new/mutatorcrazytaser.lua" source_file="lib/mutators/basemutator"/>
+		<hook file="sc/mutators/new/mutatormasterdodger.lua" source_file="lib/mutators/basemutator"/>
+		<hook file="sc/mutators/new/mutatorfullautoinbuilding.lua" source_file="lib/mutators/basemutator"/>
+		<hook file="sc/mutators/new/mutatorgoldfarbdozers.lua" source_file="lib/mutators/basemutator"/>
+		<!--<hook file="sc/mutators/new/mutatorfactionsreplacer.lua" source_file="lib/mutators/basemutator"/>-->
 		<!--///NETWORKING\\\-->
 		<hook file="sc/network/base/handlers/connectionnetworkhandler.lua" source_file="lib/network/base/handlers/connectionnetworkhandler"/>
 		<hook file="sc/network/base/networkmanager.lua" source_file="lib/network/base/networkmanager"/>
@@ -422,6 +441,11 @@
 					<option type="color" default_value="Color.white" name="TimerText" desc_id="RestorationModColorOption"/>
 					<option type="color" default_value="Color.white" name="HintText" desc_id="RestorationModColorOption"/>
 					<option type="color" default_value="Color.white" name="MaskOnText" desc_id="RestorationModColorOption"/>
+					
+					<option type="color" default_value="Color.white" name="DownsThreePlus" desc_id="RestorationModColorOption"/>
+					<option type="color" default_value="Color.yellow" name="DownsTwo" desc_id="RestorationModColorOption"/>
+					<option type="color" default_value="Color(1, 0.37, 0)" name="DownsOne" desc_id="RestorationModColorOption"/>
+					<option type="color" default_value="Color.red" name="DownsZero" desc_id="RestorationModColorOption"/>
 				</option_group>
 				<option_group name="Extra">
 					<merge_data area_bg="half"/>
@@ -509,6 +533,7 @@
 					<option type="bool" default_value="false" name="QueuedShooting"/>
 					<option type="number" default_value="0.5" min="0.01" max="1" step="0.01" show_value="true" name="QueuedShootingWindow"/>
 					<option type="number" default_value="100" min="1" max="800" step="1" show_value="true" name="QueuedShootingExclude"/>
+					<option type="bool" default_value="true" name="QueuedShootingMidBurst"/>
 					<divider name="tod_divider" size="15"/>
 					<option type="multichoice" default_value="1" name="ADSTransitionStyle" values_tbl="restoration.ads_transition_style"/>
 					<option type="bool" default_value="false" name="NoADSRecoilAnims"/>
@@ -527,22 +552,28 @@
 					<divider name="tod_divider" size="15"/>
 					<option type="bool" default_value="false" name="AutoDMRs"/>
 				</option_group>
+				<option type="bool" default_value="false" name="GOTTAGETAGRIP"/>
+				<option type="bool" default_value="false" name="GCGPYPMMSAC"/>
 				<divider name="tod_divider" size="15"/>
 				<option type="multichoice" default_value="1" name="WepNames" values_tbl="restoration.wepnames"/>
+				<option type="bool" default_value="false" name="GCGPYPMMSACText"/>
+				<option_group name="ForceEggs">
+					<option type="bool" default_value="false" name="Upotte"/>
+					<option type="bool" default_value="false" name="CrabBattle"/>
+					<option type="bool" default_value="false" name="EmberMyBeloved"/>
+					<option type="bool" default_value="false" name="BigMan"/>
+				</option_group>
 				<divider name="tod_divider" size="15"/>
 				<option type="bool" default_value="false" name="AltLastDownColor"/>
 				<option type="bool" default_value="false" name="NoBleedoutTilt"/>
+				<option type="bool" default_value="false" name="CloakerTurn"/>
+				<option type="bool" default_value="false" name="DisableMutatorColors"/>
 				<!--<option type="bool" default_value="false" name="RestoreHitFlash"/>-->
-				<divider name="tod_divider" size="15"/>
-				<option type="bool" default_value="false" name="SevenHold"/>
-				<option type="bool" default_value="false" name="SevenHoldDeployCancel"/>
 				<divider name="tod_divider" size="15"/>
 				<option type="bool" default_value="false" name="StopAllBots"/>
 				<option type="bool" default_value="false" name="BotsNoDrop"/>
 				<divider name="tod_divider" size="15"/>
 				<option type="bool" default_value="true" name="Holiday"/>
-				<option type="bool" default_value="false" name="CloakerTurn"/>
-				<option type="bool" default_value="false" name="GCGPYPMMSAC"/>
 				<divider name="tod_divider" size="15"/>
 				<option type="multichoice" default_value="1" name="WpnCat" values_tbl="restoration.weapon_categories"/>
 				<option type="bool" default_value="false" name="ClassicMovies"/>
@@ -586,6 +617,7 @@
 	<Package id="packages/murkywatermisc" file="packages/murkywater_diff/murkywater_misc.xml" use_clbk="self:DebugLoadAssets"/>
 	<Package id="packages/omniamisc" file="packages/omnia_diff/omnia_misc.xml" use_clbk="self:DebugLoadAssets"/>
 	<Package id="packages/gensecmisc" file="packages/america_diff/gensec_misc.xml" use_clbk="self:DebugLoadAssets"/>
+	<Package id="packages/americamisc" file="packages/america_diff/america_misc.xml" use_clbk="self:DebugLoadAssets"/>
 	<Package id="packages/miscassetsmutators" file="addMISCMutators.xml" use_clbk="self:DebugLoadAssets"/>
 	<Package id="packages/outfitassets" file="addoutfit.xml" use_clbk="self:DebugLoadAssets"/>
 	<Package id="packages/addbdu" file="addbdu.xml" use_clbk="self:DebugLoadAssets"/> 

@@ -32,6 +32,10 @@
 			<group :name="pd2_dlc_bph/characters/civ_male_locke_escort/">
 				<file :name="civ_male_locke_escort_contour.material_config"/>
 			</group>
+			<!-- consistent casino guard's face -->
+			<group :name="pd2_dlc_casino/props/cas_secret_service_1_casino_poses/">
+				<file :name="cas_secret_service_1_casino_dead_poses.material_config"/>
+			</group>
 			<group :name="pd2_dlc_spa/characters/ene_sniper_3/">
 				<file :name="ene_sniper_3.unit"/>
 				<file :name="ene_sniper_3_husk.unit"/>
@@ -52,7 +56,7 @@
 				<file :name="ene_fbi_boss_1.unit"/>
 				<file :name="ene_fbi_boss_1_husk.unit"/>
 			</group>
-			<group :name="units/pd2_dlc_flat/characters/">
+			<group :name="pd2_dlc_flat/characters/">
 				<file :name="npc_chavez/npc_chavez.object"/>
 				<file :name="npc_jamaican/npc_jamaican.object"/>
 			</group>

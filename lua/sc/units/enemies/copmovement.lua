@@ -42,12 +42,9 @@ action_variants.enforcer_assault = clone(security_variant)
 action_variants.enforcer_assault.walk = TankCopActionWalk
 action_variants.summers = clone(security_variant)
 action_variants.boom_summers = clone(security_variant)
-action_variants.boom_summers.heal = MedicActionHeal
 action_variants.taser_summers = clone(security_variant)
-action_variants.taser_summers.heal = MedicActionHeal
 action_variants.omnia_lpf = security_variant
 action_variants.medic_summers = clone(security_variant)
-action_variants.medic_summers.heal = MedicActionHeal
 action_variants.tank_hw_black = clone(security_variant)
 action_variants.tank_hw_black.walk = TankCopActionWalk
 action_variants.tank_titan = clone(security_variant)
@@ -56,7 +53,12 @@ action_variants.tank_titan_assault = clone(security_variant)
 action_variants.tank_titan_assault.walk = TankCopActionWalk
 action_variants.tank_biker = clone(security_variant)
 action_variants.tank_biker.walk = TankCopActionWalk
+action_variants.tank_black = clone(security_variant)
+action_variants.tank_black.walk = TankCopActionWalk
+action_variants.tank_skull = clone(security_variant)
+action_variants.tank_skull.walk = TankCopActionWalk
 action_variants.biker_guard = security_variant
+action_variants.phalanx_vip_break = security_variant
 action_variants.phalanx_minion_assault = clone(security_variant)
 action_variants.phalanx_minion_assault.hurt = ShieldActionHurt
 action_variants.phalanx_minion_assault.walk = ShieldCopActionWalk
@@ -324,7 +326,7 @@ function CopMovement:do_omnia(self)
 					"summers"
 				}				
 				heal_range = 1600
-			elseif self._unit:base()._tweak_table == "phalanx_vip" then
+			elseif self._unit:base()._tweak_table == "phalanx_vip" or self._unit:base()._tweak_table == "phalanx_vip_break" then
 				heal_range = 2000
 				heal_vo = "heal_chatter_winters"
 			end
@@ -347,10 +349,18 @@ function CopMovement:do_omnia(self)
 							end
 						end
 					end
-					if enemy_found then
+					local team = enemy:brain() and enemy:brain()._logic_data and enemy:brain()._logic_data.team
+					local my_team = self._unit:brain() and self._unit:brain()._logic_data and self._unit:brain()._logic_data.team
+					
+					if enemy_found and my_team == team then
 						local health_left = enemy:character_damage()._health
 						local max_health = enemy:character_damage()._HEALTH_INIT
 						local overheal_mult = enemy_tweak_data.overheal_mult or 1
+						local convert = enemy:brain() and enemy:brain()._logic_data and enemy:brain()._logic_data.is_converted
+						
+						if convert then
+							return
+						end
 						
 						max_health = enemy:character_damage()._HEALTH_INIT * overheal_mult
 						
@@ -410,10 +420,20 @@ function CopMovement:do_asu(self)
 							end
 						end
 					end
-					if enemy_found then
+					
+					local team = enemy:brain() and enemy:brain()._logic_data and enemy:brain()._logic_data.team
+					local my_team = self._unit:brain() and self._unit:brain()._logic_data and self._unit:brain()._logic_data.team
+					
+					if enemy_found and my_team == team then		
+						local convert = enemy:brain() and enemy:brain()._logic_data and enemy:brain()._logic_data.is_converted
+						if convert then
+							return
+						end	
+					
 						if enemy:base():get_total_buff("base_damage") > 0 then
 							return
 						end
+																		
 						managers.groupai:state():chk_say_enemy_chatter(self._unit, self._m_pos, asu_vo)		
 														
 						enemy:base():enable_asu_laser(true)
@@ -1333,7 +1353,47 @@ function CopMovement:damage_clbk(my_unit, damage_info)
 		allow_network = true
 	}
 
+
 	if Network:is_server() or not self:chk_action_forbidden(action_data) then
 		self:action_request(action_data)
+	end
+end
+
+
+function CopMovement:anim_clbk_police_called(unit)
+	local group_state = managers.groupai:state()
+	local job = Global.level_data and Global.level_data.level_id
+
+
+	if Network:is_server() then
+		if not group_state:is_ecm_jammer_active("call") then
+			local cop_type = tostring(group_state.blame_triggers[self._ext_base._tweak_table])
+
+
+			group_state:on_criminal_suspicion_progress(nil, self._unit, "called")
+
+
+			--Instant failure on the relevant tutorial heists
+			if job == "short1_stage1" or job == "short1_stage2" then 
+				group_state:on_police_called(self:coolness_giveaway())
+			else
+				--If it's actually in stealth, have it make people uber suspicious! 
+				if group_state:whisper_mode() then
+					group_state._old_guard_detection_mul_raw = managers.groupai:state()._old_guard_detection_mul_raw + 1
+					group_state._guard_detection_mul_raw = managers.groupai:state()._old_guard_detection_mul_raw
+					group_state._decay_target = managers.groupai:state()._old_guard_detection_mul_raw * 0.75
+					group_state._guard_delay_deduction = managers.groupai:state()._guard_delay_deduction + 1
+					group_state:_delay_whisper_suspicion_mul_decay()		
+					
+					--Maybe one day
+					--self:set_cool(true, nil, false)
+				else
+				--Otherwise, have it sound the alarm immediately. Mostly for maps that do the 'fake alarm trigger' that doesn't actually call the cops for whatever reason
+					group_state:on_police_called(self:coolness_giveaway())
+				end
+			end
+		else
+			group_state:on_criminal_suspicion_progress(nil, self._unit, "call_interrupted")
+		end
 	end
 end

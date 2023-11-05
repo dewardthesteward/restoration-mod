@@ -201,6 +201,7 @@ logic_variants.weekend_guard = security_variant
 logic_variants.weekend_elite_guard = security_variant
 logic_variants.boom_summers = security_variant
 logic_variants.taser_summers = clone(security_variant)
+logic_variants.taser_summers.attack = TaserLogicAttack
 logic_variants.medic_summers = security_variant
 logic_variants.fbi_vet = security_variant
 logic_variants.spooc_gangster = clone(security_variant)
@@ -222,7 +223,6 @@ logic_variants.enforcer_assault.attack = TankCopLogicAttack
 logic_variants.headless_hatman = clone(security_variant)
 logic_variants.headless_hatman.attack = TankCopLogicAttack	
 logic_variants.summers = clone(security_variant)
-logic_variants.summers.attack = TankCopLogicAttack
 logic_variants.tank_hw_black = clone(security_variant)
 logic_variants.tank_hw_black.attack = TankCopLogicAttack	
 logic_variants.tank_titan = clone(security_variant)
@@ -231,11 +231,14 @@ logic_variants.tank_titan_assault = clone(security_variant)
 logic_variants.tank_titan_assault.attack = TankCopLogicAttack
 logic_variants.spring.phalanx = CopLogicPhalanxVip
 logic_variants.headless_hatman.phalanx = CopLogicPhalanxVip
-logic_variants.summers.phalanx = CopLogicPhalanxVip
-logic_variants.taser_summers.attack = TaserLogicAttack
 logic_variants.tank_biker = clone(security_variant)
 logic_variants.tank_biker.attack = TankCopLogicAttack
+logic_variants.tank_black = clone(security_variant)
+logic_variants.tank_black.attack = TankCopLogicAttack
+logic_variants.tank_skull = clone(security_variant)
+logic_variants.tank_skull.attack = TankCopLogicAttack
 logic_variants.biker_guard = security_variant
+logic_variants.phalanx_vip_break = security_variant
 logic_variants.phalanx_minion_assault = clone(security_variant)
 logic_variants.phalanx_minion_assault.attack = ShieldLogicAttack
 logic_variants.phalanx_minion_assault.intimidated = nil
@@ -704,4 +707,11 @@ function CopBrain:_chk_use_cover_grenade(unit)
 	if grenade_was_used then
 		self._nr_flashbang_covers_used = (self._nr_flashbang_covers_used or 0) + 1
 	end
+end
+
+-- Don't trigger damage callback from poison damage as it would make enemies go into shoot action
+-- when they stand inside a poison cloud, regardless of any targets being visible or not
+local clbk_damage_original = CopBrain.clbk_damage
+function CopBrain:clbk_damage(my_unit, damage_info, ...)
+	return damage_info.variant ~= "poison" and clbk_damage_original(self, my_unit, damage_info, ...)
 end

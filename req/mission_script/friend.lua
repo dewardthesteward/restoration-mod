@@ -1,26 +1,30 @@
 local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 local difficulty_index = tweak_data:difficulty_to_index(difficulty)
+local amount_guards = 8
 
-if Global.game_settings and Global.game_settings.one_down then
-	if tweak_data:difficulty_to_index(difficulty) <= 2 then
-		ponr_value = 750
-	elseif tweak_data:difficulty_to_index(difficulty) == 3 then
-		ponr_value = 720	
-	elseif tweak_data:difficulty_to_index(difficulty) == 4 then
-		ponr_value = 690
-	elseif tweak_data:difficulty_to_index(difficulty) == 5 then
+	if difficulty_index <= 5 then
 		ponr_value = 660	
-	elseif tweak_data:difficulty_to_index(difficulty) == 6 or tweak_data:difficulty_to_index(difficulty) == 7 then
+	elseif difficulty_index == 6 or difficulty_index == 7 then
 		ponr_value = 630	
-	elseif tweak_data:difficulty_to_index(difficulty) == 8 then
+	else
 		ponr_value = 600		
 	end
-end
 
+	if difficulty_index == 8 then	
+		amount_guards = 12
+	end
+	
+	if Global.game_settings and Global.game_settings.one_down then	
+		enforcer_guard = "units/pd2_dlc_flat/characters/ene_gang_colombian_enforcer/ene_gang_colombian_enforcer"
+	end
+	
 return {
-	--Pro Job PONR 
-	[101726] = {
-		ponr = ponr_value
+	--Pro Job PONR + Players now can steal paintings when boat escape triggered
+	[100216] = {
+		ponr = ponr_value,
+		on_executed = {
+			{ id = 101070, delay = 0 }
+		}
 	},
 	-- Enter main hall
 	[103594] = {
@@ -34,10 +38,16 @@ return {
 	[101169] = {
 		difficulty = 1
 	},
-	 -- Disable Sosa retreat spot SO selection
-	[101612] = {
+	-- Disable Sosa retreat on low health during boss fight
+	[101596] = {
 		values = {
 			enabled = false
+		}
+	},
+	-- Fallback to make Sosa retreat when house is accessible
+	[102653] = {
+		on_executed = {
+			{ id = 102692, delay = 0 }
 		}
 	},
 	 --forcing boat escape
@@ -54,6 +64,23 @@ return {
 	[103446] = {
 		values = {
 			enabled = false --don't even try.....
+		}
+	},
+	--Force spawn all possible guards during Sosa fight (DS only)
+	[101725] = {
+		values = {
+			amount = amount_guards
+		}
+	},
+	--Spawn enforcers during Sosa fight on PJ
+	[101845] = {
+		values = {
+            enemy = enforcer_guard
+		}
+	},
+	[101868] = {
+		values = {
+            enemy = enforcer_guard
 		}
 	},
 	--You're Sosa's men, not undercover cops

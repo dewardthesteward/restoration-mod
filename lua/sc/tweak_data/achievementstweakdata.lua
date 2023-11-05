@@ -99,7 +99,10 @@ function AchievementsTweakData:init(tweak_data)
 	
 	--Makes Not Hard Enough actually work
 	self.complete_heist_achievements.farm_1 = {
-		spring_alive = true,
+		killed = {
+			spring = 0,
+			headless_hatman = 0
+		},
 		award = "farm_1",
 		job = "dinner",
 		difficulty = overkill_and_above
@@ -110,6 +113,8 @@ function AchievementsTweakData:init(tweak_data)
 		weapon_category = "bow",
 		enemies = {
 			"tank",
+			"tank_black",
+			"tank_skull",
 			"tank_medic",
 			"tank_mini",
 			"tank_titan",
@@ -201,6 +206,8 @@ function AchievementsTweakData:init(tweak_data)
 		challenge_stat = "any_tank_kills",
 		enemies = {
 			"tank",
+			"tank_black",
+			"tank_skull",
 			"tank_medic",
 			"tank_mini",
 			"tank_titan",
@@ -248,6 +255,7 @@ function AchievementsTweakData:init(tweak_data)
 			"sniper",
 			"phalanx_minion",
 			"phalanx_vip",
+			"phalanx_vip_break",
 			"heavy_swat_sniper",
 			"weekend_dmr",
 			"weekend_lmg",
@@ -336,6 +344,8 @@ function AchievementsTweakData:init(tweak_data)
 		stat = "gage3_12_stats",
 		enemies = {
 			"tank",
+			"tank_black",
+			"tank_skull",
 			"tank_medic",
 			"tank_mini",
 			"tank_titan",
@@ -352,8 +362,7 @@ function AchievementsTweakData:init(tweak_data)
 	self.enemy_kill_achievements.man_with_golden_gun = {
 		weapon = "akm_gold",
 		stat = "gage3_2_stats",
-		enemy = "tank",
-		enemy_weapon = "m249_dozer"
+		enemy = "tank_skull"
 	}
 	
 	self.enemy_kill_achievements.dodge_this = {
@@ -432,6 +441,8 @@ function AchievementsTweakData:init(tweak_data)
 		stat = "gage5_1_stats",
 		enemies = {
 			"tank",
+			"tank_black",
+			"tank_skull",
 			"tank_medic",
 			"tank_mini",
 			"tank_titan",
@@ -491,6 +502,8 @@ function AchievementsTweakData:init(tweak_data)
 	self.enemy_kill_achievements.any_tank_kills = {
 		enemies = {
 			"tank",
+			"tank_black",
+			"tank_skull",
 			"tank_medic",
 			"tank_mini",
 			"tank_titan",
@@ -535,6 +548,7 @@ function AchievementsTweakData:init(tweak_data)
 			"sniper",
 			"phalanx_minion",
 			"phalanx_vip",
+			"phalanx_vip_break",
 			"heavy_swat_sniper",
 			"weekend_dmr",
 			"weekend_lmg",
@@ -603,6 +617,8 @@ function AchievementsTweakData:init(tweak_data)
 		"weekend_dmr",
 		"weekend_lmg",
 		"tank",
+		"tank_black",
+		"tank_skull",
 		"tank_titan",
 		"tank_titan_assault",
 		"tank_mini",
@@ -640,6 +656,7 @@ function AchievementsTweakData:init(tweak_data)
 		"sniper",
 		"phalanx_minion",
 		"phalanx_vip",
+		"phalanx_vip_break",
 		"heavy_swat_sniper",
 		"weekend_dmr",
 		"weekend_lmg",
@@ -690,6 +707,45 @@ function AchievementsTweakData:init(tweak_data)
 		stat = "cg22_post_objective_5",
 		enemies = {
 			"tank",
+			"tank_black",
+			"tank_skull",
+			"tank_medic",
+			"tank_mini",
+			"tank_titan",
+			"tank_titan_assault",
+			"spring", --why not?
+			"headless_hatman",
+			"tank_hw",
+			"tank_hw_black",
+			"tank_biker"
+		},
+		difficulty = overkill_and_above
+	}
+	
+	self.enemy_kill_achievements.pda10_dozer_post_objective = {
+		enemies = {
+			"tank",
+			"tank_black",
+			"tank_skull",
+			"tank_medic",
+			"tank_mini",
+			"tank_titan",
+			"tank_titan_assault",
+			"spring", --why not?
+			"headless_hatman",
+			"tank_hw",
+			"tank_hw_black",
+			"tank_biker"
+		},
+		stat = "pda10_dozer_post_objective"
+	}
+	
+	self.enemy_kill_achievements.cg22_post_objective_5 = {
+		stat = "cg22_post_objective_5",
+		enemies = {
+			"tank",
+			"tank_black",
+			"tank_skull",
 			"tank_medic",
 			"tank_mini",
 			"tank_titan",
@@ -719,6 +775,8 @@ function AchievementsTweakData:init(tweak_data)
 	self.enemy_melee_hit_achievements.are_you_kidding_me = {
 		enemies = {
 			"tank",
+			"tank_black",
+			"tank_skull",
 			"tank_medic",
 			"tank_mini",
 			"tank_titan",
@@ -757,6 +815,8 @@ function AchievementsTweakData:init(tweak_data)
 	self.enemy_melee_hit_achievements.knockout = {
 		enemies = {
 			"tank",
+			"tank_black",
+			"tank_skull",
 			"tank_medic",
 			"tank_mini",
 			"tank_titan",
@@ -794,11 +854,32 @@ function AchievementsTweakData:init(tweak_data)
 	}
 	
 	self.enemy_melee_hit_achievements.steel_4 = {
-		enemy = "tank",
-		enemy_weapon = "saiga_dozer",
+		enemies = {
+			"tank_black",
+			"tank_hw_black"
+		},
 		award = "steel_4",
 		result = "death",
 		melee_id = "great"
+	}
+	
+	self.enemy_melee_hit_achievements.pda10_dozer_post_objective = {
+		enemies = {
+			"tank",
+			"tank_black",
+			"tank_skull",
+			"tank_medic",
+			"tank_mini",
+			"tank_titan",
+			"tank_titan_assault",
+			"spring", --why not?
+			"headless_hatman",
+			"tank_hw",
+			"tank_hw_black",
+			"tank_biker"
+		},
+		stat = "pda10_dozer_post_objective",
+		result = "death"
 	}
 	
 	self.enemy_melee_hit_achievements.any_sniper_kills = {
@@ -843,6 +924,8 @@ function AchievementsTweakData:init(tweak_data)
 		is_not_civilian = true,
 		enemies = {
 			"tank",
+			"tank_black",
+			"tank_skull",
 			"tank_medic",
 			"tank_mini",
 			"tank_titan",
@@ -870,6 +953,8 @@ function AchievementsTweakData:init(tweak_data)
 	
 	self.enemy_melee_hit_achievements.trophy_knockouts.enemies = {
 		"tank",
+		"tank_black",
+		"tank_skull",
 		"tank_medic",
 		"tank_mini",
 		"tank_titan",
@@ -915,6 +1000,7 @@ function AchievementsTweakData:init(tweak_data)
 			"sniper",
 			"phalanx_minion",
 			"phalanx_vip",
+			"phalanx_vip_break",
 			"heavy_swat_sniper",
 			"weekend_dmr",
 			"weekend_lmg",

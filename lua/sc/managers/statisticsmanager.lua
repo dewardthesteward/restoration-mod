@@ -28,6 +28,7 @@ StatisticsManager.special_unit_ids = {
 	"headless_hatman",
 	"summers",
 	"omnia_lpf",
+	"phalanx_vip_break",
 	"hrt_titan",
 	"fbi_vet",
 	"city_swat_titan",
@@ -102,6 +103,20 @@ function StatisticsManager:init()
 			explosion = 0,
 			tied = 0
 		}
+	self._defaults.killed.tank_black = {
+			count = 0,
+			head_shots = 0,
+			melee = 0,
+			explosion = 0,
+			tied = 0
+		}
+	self._defaults.killed.tank_skull = {
+			count = 0,
+			head_shots = 0,
+			melee = 0,
+			explosion = 0,
+			tied = 0
+		}	
 	self._defaults.killed.tank_medic = {
 			count = 0,
 			head_shots = 0,
@@ -248,7 +263,14 @@ function StatisticsManager:init()
 			melee = 0,
 			explosion = 0,
 			tied = 0
-		}		
+		}
+	self._defaults.killed.phalanx_vip_break = {
+			count = 0,
+			head_shots = 0,
+			melee = 0,
+			explosion = 0,
+			tied = 0
+		}	
 	self._defaults.killed.city_swat_guard = {
 			count = 0,
 			head_shots = 0,

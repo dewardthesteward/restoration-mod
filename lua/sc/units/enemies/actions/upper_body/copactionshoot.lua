@@ -418,6 +418,7 @@ function CopActionShoot:on_attention(attention, old_attention)
 			if shoot_hist then
 				if self._use_sniper_focus then
 					aim_delay_minmax = managers.modifiers:modify_value("CopActionShoot:ModifierSniperAim", aim_delay_minmax)
+					aim_delay_minmax = managers.mutators:modify_value("CopActionShoot:ModifierSniperAim", aim_delay_minmax)
 
 					if self._draw_focus_displacement then
 						local line_1 = Draw:brush(Color.blue:with_alpha(0.5), 2)
@@ -678,32 +679,33 @@ function CopActionShoot:update(t)
 			
 			if self._throw_frag and self._ext_brain._throw_frag_t < t and 2000 >= target_dis and 500 <= target_dis then
                 local is_spring = self._ext_base._tweak_table == "spring"
+				local is_senator_armstrong = self._ext_base._tweak_table == "phalanx_vip_break"
                 local is_tank_mini = self._ext_base._tweak_table == "tank_mini"
-                local frag_cooldown = 6 --This stuff should really be defined via tweakdata in the future.
-                if is_spring then
-                    frag_cooldown = 12
-                end
+                local frag_cooldown = self._common_data.char_tweak.grenade_cooldown or 6 --About time
                 
-                local frag_roll_chance = is_spring and 1 or 0.1
-                if is_tank_mini then
-                    frag_roll_chance = 0.4
-                end            
+                local frag_roll_chance = self._common_data.char_tweak.grenade_toss_chance or 0.1      
                 local frag_roll = math_random() <= frag_roll_chance    
                 local grenade_type = is_spring and "cluster_fuck" or "bravo_frag"
-									
-				
+													
 				self._ext_brain._throw_frag_t = t + frag_cooldown
 
 				if frag_roll then
 					if self:throw_grenade(mvec3_copy(shoot_from_pos) + projectile_throw_pos_offset, mvec3_copy(target_vec), mvec3_copy(target_pos), grenade_type, target_dis) then
 						self._ext_movement:play_redirect("throw_grenade")
-						self._unit:sound():say("use_gas", true, nil, true)
 						managers.network:session():send_to_peers_synched("play_distance_interact_redirect", self._unit, "throw_grenade")
-
+						
 						proceed_as_usual = nil
+						
+					if is_tank_mini then	
+						self._unit:sound():say("g90", true, nil, true)
+					elseif is_senator_armstrong then	
+						self._unit:sound():say("a01", true, nil, true)	
+					else
+						self._unit:sound():say("use_gas", true, nil, true)	
 					end
 				end
 			end
+		end	
 
 			if proceed_as_usual and self._throw_molotov and self._ext_brain._throw_molotov_t < t and 2000 >= target_dis and 500 <= target_dis then
 				self._ext_brain._throw_molotov_t = t + 10
@@ -925,6 +927,7 @@ function CopActionShoot:update(t)
 
 							local aim_delay = 0
 							local aim_delay_minmax = managers.modifiers:modify_value("CopActionShoot:ModifierSniperAim", self._aim_delay_minmax)
+							aim_delay_minmax = managers.mutators:modify_value("CopActionShoot:ModifierSniperAim", self._aim_delay_minmax)
 
 							if aim_delay_minmax[1] ~= 0 or aim_delay_minmax[2] ~= 0 then
 								if aim_delay_minmax[1] == aim_delay_minmax[2] then
@@ -1493,6 +1496,25 @@ function CopActionShoot:anim_clbk_melee_strike()
 				end
 			end
 		end
+		
+	local melee_tweak_npc = tweak_data.weapon.npc_melee[self._unit:base():melee_weapon()]
+	if melee_tweak_npc and melee_tweak_npc.tase_data then
+		if self._attention.unit:character_damage().on_non_lethal_electrocution then
+			if not self._attention.unit:character_damage().can_be_tased or self._attention.unit:character_damage():can_be_tased() then
+				self._attention.unit:character_damage():on_non_lethal_electrocution(melee_tweak_npc.tase_data.electrocution_time_mul)
+			end
+		elseif self._attention.unit:character_damage().damage_tase then
+			self._attention.unit:character_damage():damage_tase({
+				variant = melee_tweak_npc.tase_data.tase_strength or "light",
+				damage = 0,
+				attacker_unit = self._unit,
+				col_ray = {
+					position = shoot_from_pos + fwd * 50,
+					ray = mvector3.copy(target_vec)
+				}
+			})
+		end
+	end
 
 		if defense_data and defense_data ~= "friendly_fire" then
 			if defense_data == "countered" then
@@ -1568,4 +1590,5 @@ function CopActionShoot:anim_clbk_melee_strike()
 			end
 		end
 	end
+	self._melee_unit = nil
 end

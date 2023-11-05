@@ -15,7 +15,7 @@ function TipsTweakData:init()
 		},	
 		{
 			cat_index = 3,
-			image = "enemy_zeal_sc",
+			image = "weapon_primary_secondary",
 			consoles = true,
 			category = "gameplay_res"
 		},
@@ -189,7 +189,7 @@ function TipsTweakData:init()
 		},	
 		{
 			cat_index = 4,
-			image = "enemy_tpsook",
+			image = "enemy_tspook",
 			consoles = true,
 			category = "new_units_res"
 		},	
@@ -284,6 +284,12 @@ function TipsTweakData:init()
 			category = "new_units_res"
 		},	
 		{
+			cat_index = 20,
+			image = "enemy_tshield",
+			consoles = true,
+			category = "new_units_res"
+		},
+		{
 			cat_index = 1,
 			image = "enemy_summers",
 			consoles = true,
@@ -351,6 +357,12 @@ function TipsTweakData:init()
 		},	
 		{
 			cat_index = 12,
+			image = "enemy_winters_sc",
+			consoles = true,
+			category = "captains_res"
+		},	
+		{
+			cat_index = 13,
 			image = "enemy_winters_sc",
 			consoles = true,
 			category = "captains_res"
@@ -777,7 +789,7 @@ function TipsTweakData:init()
 		},	
 		{
 			cat_index = 11,
-			image = "enemy_tpsook",
+			image = "enemy_tspook",
 			consoles = true,
 			category = "fluff_res"
 		},	

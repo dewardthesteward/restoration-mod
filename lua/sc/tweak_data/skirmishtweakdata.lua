@@ -1,8 +1,29 @@
 Month = os.date("%m")
-Day = os.date("%d")	
+Day = os.date("%d")
+
+local job = Global.level_data and Global.level_data.level_id
+--Different ransom per wave
+function SkirmishTweakData:_init_ransom_amounts()
+	self.ransom_amounts = {
+		1000000,
+		1250000,
+		1750000,
+		2000000,
+		2500000,
+		3000000,
+		3000000,
+		3500000,
+		10000000
+	}
+
+	for i, ransom in ipairs(self.ransom_amounts) do
+		self.ransom_amounts[i] = ransom + (self.ransom_amounts[i - 1] or 0)
+	end
+end
 --This is probs unused, but setting to scaled (for the average skirmish map size) DS values to be on the safe side.
 function SkirmishTweakData:_init_special_unit_spawn_limits()
 local map_scale_factor = 1
+
 	for _,vl in pairs(restoration.very_large_levels) do
 		if job == vl then
 			map_scale_factor = 1.3
@@ -28,7 +49,7 @@ local map_scale_factor = 1
 			map_scale_factor = 0.55
 		end
 	end
-	
+
 	--Reduced spawns if playing in Solo offline
 	if Global and Global.game_settings and Global.game_settings.single_player then
 		map_scale_factor = map_scale_factor * 0.75
@@ -56,20 +77,21 @@ function SkirmishTweakData:_init_group_ai_data(tweak_data)
 	tweak_data.group_ai.skirmish = skirmish_data
 
 	self.required_kills = {
-		40,
-		40,
-		44,
-		48,
-		52,
-		56,
 		60,
-		64,
-		68,
+		60,
+		66,
 		72,
-		80,
-		120
+		78,
+		84,
+		90,
+		96,
+		102,
+		108,
+		120,
+		180
 	}
 
+	-- Need to made scalable multiplier depends of the map size
 	self.required_kills_balance_mul = {
 		0.55,
 		0.7,
@@ -619,7 +641,6 @@ function SkirmishTweakData:_init_spawn_group_weights(tweak_data)
 	--This portion of the code will need to be cut and reworked once infinite is in progress.
 	--Might be ideal to use/abuse lua virtual tables and vary them based on captain type.
 	local wave_9_captain = math.random()
-	local job = Global.level_data and Global.level_data.level_id
 	
 	--Always force the big scary halloween guy, maybe look into a faction check down the line?
 	if job == "skm_nightmare_lvl" then
@@ -636,7 +657,23 @@ function SkirmishTweakData:_init_spawn_group_weights(tweak_data)
 		assault_groups.SKM_GREEN_Tank[10] = 0.0
 		assault_groups.SKM_SKULL_Tank[10] = 0.0
 		assault_groups.SKM_TIT_Tank[10] = 0.0
-		assault_groups.SKM_FBI_spoocs[10] = 0.05	
+		assault_groups.SKM_FBI_spoocs[10] = 0.05
+	--- Winters is sick today so Autumn is replacing him on duty 
+	elseif job == "skm_firestarter_2" then
+		self.captain = "SKM_Cap_Autumn_W9"
+				assault_groups.SKM_Cap_Autumn[10] = 5
+				assault_groups.SKM_Light_Swat[10] = 0.35
+				assault_groups.SKM_Heavy_Swat[10] = 0.25
+				assault_groups.SKM_Shields[10] = 0.14
+				assault_groups.SKM_Shields_Booms[10] = 0.01
+				assault_groups.SKM_Tazers[10] = 0.09
+				assault_groups.SKM_Booms[10] = 0.01
+				assault_groups.SKM_HRTs[10] = 0.1
+				assault_groups.SKM_BLACK_Tank[10] = 0.015
+				assault_groups.SKM_GREEN_Tank[10] = 0.015
+				assault_groups.SKM_SKULL_Tank[10] = 0.015
+				assault_groups.SKM_TIT_Tank[10] = 0.005
+				assault_groups.SKM_FBI_spoocs[10] = 0.0	
 	else
 		if Month == "10" and restoration.Options:GetValue("OTHER/Holiday") then
 			if wave_9_captain < 0.24 then --Spooky halloween boss.
@@ -824,27 +861,39 @@ end
 function SkirmishTweakData:_init_wave_modifiers()
 	self.wave_modifiers = {}
 	local health_damage_multipliers = {
-		{
+		{--OVK 1 wave
 			damage = 0.75,
-			health = 0.5
+			health = 0.572
 		},
-		{
+		{--OVK+ 2 wave
 			damage = 0.8,
-			health = 0.6
+			health = 0.715
 		},
-		{
+		{-- Mayhem 3 wave
 			damage = 0.85,
-			health = 0.7
+			health = 0.8572
 		},
-		{
-			damage = 0.9,
-			health = 0.8
+		{--DW 4 wave
+			damage = 1.0,
+			health = 1.0
 		},
-		{
-			damage = 0.95,
-			health = 0.9
+		{--DS 5 wave
+			damage = 1.0,
+			health = 1.0
 		},
-		{
+		{--DS 6 wave
+			damage = 1.0,
+			health = 1.0
+		},
+		{--DS 7 wave
+			damage = 1.0,
+			health = 1.0
+		},
+		{--DS 8 wave
+			damage = 1.0,
+			health = 1.0
+		},
+		{--DS 9 wave
 			damage = 1.0,
 			health = 1.0
 		}
@@ -856,6 +905,7 @@ function SkirmishTweakData:_init_wave_modifiers()
 		}
 	}
 	self.wave_modifiers[2] = {{class = "ModifierNoHurtAnims"}}
+	self.wave_modifiers[3] = {{class = "ModifierCloakerKick"}}
 	self.wave_modifiers[4] = {
 		{
 			class = "ModifierHealSpeed",
@@ -866,6 +916,9 @@ function SkirmishTweakData:_init_wave_modifiers()
 		{
 			class = "ModifierSniperAim",
 			data = {speed = 2}
+		},
+		{
+			class = "ModifierUberChargeShields"
 		}
 	}
 	self.wave_modifiers[7] = {{class = "ModifierBravoSniper"}}

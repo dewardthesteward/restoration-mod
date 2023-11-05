@@ -5,3 +5,10 @@
 -- 		self:register_handler("RestorationMod__unit", RestorationMod__UnitNetworkHandler)
 -- 	end
 -- end)
+NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = "restoration_12.2.4"
+NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = "restoration_12.2.4"
+--Compatibility for BeardLib Editor just in case.
+if BLE and BLE:RunningFix() then
+	NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY  = NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY .. "_editor"
+	NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY .. "_editor"
+end

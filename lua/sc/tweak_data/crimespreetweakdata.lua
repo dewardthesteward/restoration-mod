@@ -834,6 +834,13 @@ function CrimeSpreeTweakData:init_modifiers(tweak_data)
 					explosive_resist = {50, "add"}
 				}
 			},
+			--Dozers can now always spawn in pairs
+			{
+				id = "dozer_pairs",
+				class = "ModifierDozerPairs",
+				icon = "crime_spree_more_dozers",
+				data = {}
+			},
 			--MedicDozers have a 50% chance to replace other dozer types
 			{
 				id = "dozer_medic",
@@ -852,6 +859,13 @@ function CrimeSpreeTweakData:init_modifiers(tweak_data)
 					deduction = {8, "add"},
 					max_hostages = {4, "none"}
 				}
+			},
+			--All assaults starts at diff 1
+			{
+				id = "max_assault_diff",
+				class = "Modifier10SecondsResponseTime",
+				icon = "crime_spree_assault_extender",
+				data = {}
 			},
 			--Cloaker melee cuffs players
 			{

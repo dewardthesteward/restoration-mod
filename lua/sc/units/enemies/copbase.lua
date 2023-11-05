@@ -46,7 +46,21 @@ Hooks:PostHook(CopBase, "post_init", "postinithooksex", function(self)
 	elseif self._tweak_table == "phalanx_vip" or self._tweak_table == "spring" or self._tweak_table == "summers" or self._tweak_table == "headless_hatman" or managers.skirmish:is_skirmish() and self._tweak_table == "autumn" then
 		GroupAIStateBesiege:set_assault_endless(true)
 		managers.hud:set_buff_enabled("vip", true)
+		
+		--managers.groupai:state():set_fake_assault_mode(true)
+		--managers.groupai:state():set_wave_mode(besiege)
+		--managers.groupai:state():set_assault_mode(true)			
+		
+		if managers.skirmish:is_skirmish() then
+			managers.skirmish:set_captain_active()
+		end
+		
 	end
+	
+	--Just in case Summers decides to spawn again, his DR is back
+	if self._unit:base()._tweak_table == "summers" then
+		managers.groupai:state():_reset_summers_dr()	
+	end		
 
 	self._unit:character_damage():add_listener("asu_laser_state" .. tostring(self._unit:key()), {
 		"death"
@@ -54,11 +68,9 @@ Hooks:PostHook(CopBase, "post_init", "postinithooksex", function(self)
 	
 	self._unit:character_damage():add_listener("lpf_buff_state" .. tostring(self._unit:key()), {
 		"death"
-	}, callback(self, self, "disable_lpf_buff"))		
-end)
+	}, callback(self, self, "disable_lpf_buff"))	
 
---Yufu Wang Hitbox fix
-Hooks:PostHook(CopBase, "post_init", "hitbox_fix_post_init", function(self)
+	--Yufu Wang Hitbox fix
 	if self._tweak_table == "triad_boss" then
 		self._unit:body("head"--[[self._unit:character_damage()._head_body_name--]]):set_sphere_radius(16)
 		self._unit:body("body"):set_sphere_radius(22)	
@@ -85,8 +97,7 @@ Hooks:PostHook(CopBase, "post_init", "hitbox_fix_post_init", function(self)
 		if head then
 			head:set_sphere_radius(16)
 		end
-	end
-	
+	end	
 end)
 
 function CopBase:random_mat_seq_initialization()
@@ -396,12 +407,12 @@ local weapons_map = {
 
 	--Security Guards
 	["trai"] = {
-		[Idstring("units/payday2/characters/ene_security_1/ene_security_1"):key()] = {"c45", "mp5", "m4"},
-		[Idstring("units/payday2/characters/ene_security_2/ene_security_2"):key()] = {"c45", "mp5", "m4"},
+		[Idstring("units/pd2_mod_nypd/characters/ene_security_1/ene_security_1"):key()] = {"c45", "mp5", "m4"},
+		[Idstring("units/pd2_mod_nypd/characters/ene_security_2/ene_security_2"):key()] = {"c45", "mp5", "m4"},
 		[Idstring("units/payday2/characters/ene_city_guard_1/ene_city_guard_1"):key()] = {"deagle_guard", "ump", "g36"},
 		[Idstring("units/payday2/characters/ene_city_guard_2/ene_city_guard_2"):key()] = {"deagle_guard", "ump", "g36"},
-		[Idstring("units/pd2_dlc1/characters/ene_security_gensec_guard_1/ene_security_gensec_guard_1"):key()] = {"m1911_npc", "mp5", "m4", "g36"},
-		[Idstring("units/pd2_dlc1/characters/ene_security_gensec_guard_2/ene_security_gensec_guard_2"):key()] = {"m1911_npc", "mp5", "m4", "g36"},
+		[Idstring("units/pd2_mod_nypd/characters/ene_security_gensec_1/ene_security_gensec_1"):key()] = {"m1911_npc", "mp5", "g36"},
+		[Idstring("units/pd2_mod_nypd/characters/ene_security_gensec_2/ene_security_gensec_2"):key()] = {"m1911_npc", "mp5", "g36"},
 	},
 	[Idstring("units/payday2/characters/ene_security_1/ene_security_1"):key()] = {"c45", "mp5"},
 	[Idstring("units/payday2/characters/ene_security_2/ene_security_2"):key()] = {"c45", "mp5"},
@@ -476,14 +487,21 @@ local weapons_map = {
 	[Idstring("units/payday2/characters/ene_hoxton_breakout_responder_1/ene_hoxton_breakout_responder_1"):key()] = {"ump", "r870", "m416_npc"},
 	[Idstring("units/payday2/characters/ene_hoxton_breakout_responder_2/ene_hoxton_breakout_responder_2"):key()] = {"ump", "r870", "m416_npc"},
 	
-	[Idstring("units/pd2_dlc_deep/characters/ene_deep_security_1/ene_deep_security_1"):key()] = {"m1911_npc", "mp5", "m4"},
-	[Idstring("units/pd2_dlc_deep/characters/ene_deep_security_2/ene_deep_security_2"):key()] = {"m1911_npc", "mp5", "m4"},
-	[Idstring("units/pd2_dlc_deep/characters/ene_deep_security_3/ene_deep_security_3"):key()] = {"m1911_npc", "r870", "m4"},
+	[Idstring("units/pd2_dlc_deep/characters/ene_deep_security_1/ene_deep_security_1"):key()] = {"m1911_npc", "deagle_guard", "mp5", "m4"},
+	[Idstring("units/pd2_dlc_deep/characters/ene_deep_security_2/ene_deep_security_2"):key()] = {"m1911_npc", "deagle_guard", "mp5", "m4"},
+	[Idstring("units/pd2_dlc_deep/characters/ene_deep_security_3/ene_deep_security_3"):key()] = "r870",
 	
-	--Vanilla Murkies with varierty weapons
-	[Idstring("units/payday2/characters/ene_murkywater_1/ene_murkywater_1"):key()] = {"ump", "m4", "r870", "scar_murky"},
-	[Idstring("units/payday2/characters/ene_murkywater_2/ene_murkywater_2"):key()] = {"ump", "m4", "r870", "scar_murky"},
-	[Idstring("units/pd2_dlc_berry/characters/ene_murkywater_no_light/ene_murkywater_no_light"):key()] = {"m4", "r870", "mp5", "scar_murky"},
+	[Idstring("units/pd2_mod_friday/characters/ene_security_fri_1/ene_security_fri_1"):key()] = {"m1911_npc", "mp5"},
+	[Idstring("units/pd2_mod_friday/characters/ene_security_fri_2/ene_security_fri_2"):key()] = {"m1911_npc", "mp5"},
+	[Idstring("units/pd2_mod_friday/characters/ene_security_fri_3/ene_security_fri_3"):key()] = {"m1911_npc", "mp5"},
+	
+	--Vanilla Murkies with variety weapons
+	[Idstring("units/payday2/characters/ene_murkywater_1/ene_murkywater_1"):key()] = {"ump", "r870", "scar_murky"},
+	[Idstring("units/payday2/characters/ene_murkywater_2/ene_murkywater_2"):key()] = {"ump", "r870", "scar_murky"},
+	[Idstring("units/pd2_dlc_berry/characters/ene_murkywater_no_light/ene_murkywater_no_light"):key()] = {"r870", "ump", "scar_murky"},
+	
+	--Commissar gets his precious RPK back from Russia
+	[Idstring("units/payday2/characters/ene_gang_mobster_boss/ene_gang_mobster_boss"):key()] = "rpk_lmg",
 
 	--Giving Friendly AI silenced pistols
 	[Idstring("units/pd2_dlc_spa/characters/npc_spa/npc_spa"):key()] = "beretta92",
@@ -494,12 +512,19 @@ local weapons_map = {
 local default_weapon_name_orig = CopBase.default_weapon_name
 function CopBase:default_weapon_name(...)
 	local job = Global.level_data and Global.level_data.level_id or ""
+	local faction = tweak_data.levels:get_ai_group_type()
 	local weapon_override = weapons_map[job] and weapons_map[job][self._unit:name():key()] or weapons_map[self._unit:name():key()]
 	
 	--For Jungle Inferno Mutator
 	if not self._weapon_set and restoration and restoration.disco_inferno and not self._char_tweak.no_mutator_weapon_override then
 		self._default_weapon_id = "flamethrower"
 		self._weapon_set = true		
+	end
+	
+	--Have White Titandozers use Grenade Launchers like their Reaper counterparts in Russia/Mexico heists (mostly for Holiday Effects and consistency with factions)
+	if self._tweak_table == "tank_hw" and faction == "russia" or self._tweak_table == "tank_hw" and faction == "federales" then
+		self._default_weapon_id = "m32_large"
+		self._weapon_set = true
 	end
 	
 	if not self._weapon_set and weapon_override then

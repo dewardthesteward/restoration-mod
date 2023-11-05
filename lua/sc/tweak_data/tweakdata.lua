@@ -3,6 +3,13 @@ if not tweak_data then
 end
 
 tweak_data.accessibility_colors.screenflash.hit_flash.default = Color(255, 255, 250, 180) / 255
+tweak_data.hud.revive_colors_resmod = {
+	restoration.Options:GetValue("HUD/Colors/DownsZero"),
+	restoration.Options:GetValue("HUD/Colors/DownsOne"),
+	restoration.Options:GetValue("HUD/Colors/DownsTwo"),
+	restoration.Options:GetValue("HUD/Colors/DownsThreePlus"),
+	restoration.Options:GetValue("HUD/Colors/DownsThreePlus")
+}
 
 tweak_data.ammo = {}
 tweak_data.ammo.ricochet = {}
@@ -17,6 +24,16 @@ tweak_data.ammo.ricochet.autohit = {
 	far_angle = 60,
 	near_angle = 60
 }
+
+tweak_data.scene_pose_items.husk_bessy = {
+	"primary"
+}
+
+tweak_data.scene_poses.weapon.bessy = {
+	"husk_bessy",
+	required_pose = true
+}
+
 
 --Swap Speed Multipliers
 --TODO: Move to stat_info
@@ -52,18 +69,31 @@ tweak_data.grenade_launcher = {
 	}
 
 tweak_data.shotgun = {
-	ads_move_speed_mult = 0.45,
-	ads_moving_spread_mult = 3.33333
+	ads_move_speed_mult = 0.5,
+	ads_moving_spread_mult = 1.25
 }
+	tweak_data.shotgun_light = {
+		hipfire_spread_mult = 1.25,
+		--ads_multishot_spread_mult = 4,
+		moving_spread_mult = 1.5
+	}
+	tweak_data.shotgun_heavy = {
+		hipfire_spread_mult = 0.45,
+		--ads_multishot_spread_mult = 0.9
+	}
+	tweak_data.shotgun_break = {
+		hipfire_spread_mult = 1.15,
+		--ads_multishot_spread_mult = 1
+	}
 	tweak_data.shotgun_pistol = {
-		ads_move_speed_mult = 1.777778,
-		swap_bonus = 1.75
+		ads_move_speed_mult = 1.6,
+		swap_bonus = 1.8
 	}
 	tweak_data.flamethrower = {
 		ads_move_speed_mult = 1,
 	}
 		tweak_data.flamethrower_lmg = {
-			ads_move_speed_mult = 0.77778,
+			ads_move_speed_mult = 0.7,
 		}
 
 tweak_data.smg = {
@@ -76,33 +106,46 @@ tweak_data.smg = {
 		ads_move_speed_mult = 0.7142857, --lowered to 0.5
 	}
 	tweak_data.lmg = {
+		ads_moving_recoil = 1.25,
 		swap_bonus = 0.83334,
 		ads_move_speed_mult = 0.5, --lowered to 0.35
 		moving_spread_mult = 8.3333,
-		ads_moving_spread_mult = 2.6667,
-		hipfire_spread_mult = 3.8889
+		ads_moving_spread_mult = 3,
+		hipfire_spread_mult = 3.3333
 	}
+		tweak_data.lmg_moving = {
+			ads_moving_recoil = 0.8
+		}
+		tweak_data.rambo = {
+			hipfire_spread_mult = 0.5
+		}
 		tweak_data.wolf_brigade = {
-			hipfire_spread_mult = 0.55
+			ads_moving_recoil = 0.8,
+			moving_spread_mult = 0.2,
+			hipfire_spread_mult = 0.5
 		}
 	tweak_data.minigun = {
 		swap_bonus = 0.83334,
 		ads_move_speed_mult = 0.5, --lowered to 0.35
 		moving_spread_mult = 8.3333,
-		hipfire_spread_mult = 3.8889
+		hipfire_spread_mult = 3.3333
 	}
 		tweak_data.sasha = {
-			hipfire_spread_mult = 0.65
+			hipfire_spread_mult = 0.6
 		}
 
 tweak_data.snp = {
 	swap_bonus = 1,
 	ads_move_speed_mult = 0.45,
-	hipfire_moving_spread_mult = 2
+	ads_stationary_spread_mult = 0.25,
+	hipfire_spread_mult = 1.5,
+	hipfire_moving_spread_mult = 1.5
 }
 	tweak_data.semi_snp = {
-		hipfire_spread_mult = 2,
+		hipfire_spread_mult = 2.5,
+		ads_moving_recoil = 1.1,
 		hipfire_moving_spread_mult = 1.5,
+		ads_moving_spread_mult = 1.1,
 		ads_move_speed_mult = 0.888889 --lowered to 0.4
 	}
 		tweak_data.s7 = {
@@ -110,30 +153,39 @@ tweak_data.snp = {
 			hipfire_moving_spread_mult = 0.33334,
 		}
 	tweak_data.amr = {
-		hipfire_spread_mult = 2.5,
+		hipfire_spread_mult = 2,
 		ads_move_speed_mult = 0.6
 	}
 
 tweak_data.assault_rifle = {
 	swap_bonus = 1,
+	ads_moving_recoil = 1.05,
 	ads_move_speed_mult = 0.45,
 	hipfire_spread_mult = 1.15
 }
 	tweak_data.crb = {
+		ads_moving_recoil = 0.95238,
 		hipfire_spread_mult = 0.86956,
 		swap_bonus = 1.1,
 		ads_move_speed_mult = 1.11111 --raised to 0.5
 	}
 	tweak_data.dmr = {
-		hipfire_spread_mult = 1.391304,
-		hipfire_moving_spread_mult = 1.5,
+		hipfire_spread_mult = 1.7391304,
+		moving_spread_mult = 1.5,
 		ads_move_speed_mult = 0.888889 --lowered to 0.4
 	}
 
 tweak_data.akimbo = {
-	swap_bonus = 0.85,
-	ads_move_speed_mult = 0.8,
-	hipfire_spread_mult = 1.5
+	swap_bonus = 0.8,
+	ads_move_speed_mult = 0.75,
+	ads_moving_spread_mult = 3,
+	hipfire_spread_mult = 2,
+	moving_spread_mult = 3
+}
+
+tweak_data.cs_spread = {
+	hipfire_spread_mult = 0.1,
+	hipfire_moving_spread_mult = 50
 }
 
 --Max concealment for guns.
@@ -219,7 +271,7 @@ end
 --Arbiter--
 tweak_data.projectiles.launcher_frag_arbiter.damage = 60
 tweak_data.projectiles.launcher_frag_arbiter.player_damage = 30
-tweak_data.projectiles.launcher_frag_arbiter.range = 250
+tweak_data.projectiles.launcher_frag_arbiter.range = 300
 tweak_data.projectiles.launcher_frag_arbiter.curve_pow = 0.75
 tweak_data.projectiles.launcher_frag_arbiter.init_timer = nil
 tweak_data.projectiles.launcher_frag_arbiter.effect_name = "effects/payday2/particles/explosions/shapecharger_explosion"
@@ -236,7 +288,7 @@ tweak_data.projectiles.launcher_incendiary_arbiter.fire_dot_data = {
 }
 tweak_data.projectiles.launcher_electric_arbiter.damage = 30
 tweak_data.projectiles.launcher_electric_arbiter.player_damage = 15
-tweak_data.projectiles.launcher_electric_arbiter.range = 250
+tweak_data.projectiles.launcher_electric_arbiter.range = 300
 tweak_data.projectiles.launcher_electric_arbiter.curve_pow = 0.75
 tweak_data.projectiles.launcher_electric_arbiter.init_timer = nil
 tweak_data.projectiles.launcher_poison_arbiter.damage = 0
@@ -260,7 +312,7 @@ tweak_data.projectiles.launcher_frag_osipr = {
 	launch_speed = 2500,
 	curve_pow = 0.75,
 	player_damage = 30,
-	range = 250,
+	range = 300,
 	init_timer = nil,
 	mass_look_up_modifier = 0,
 	sound_event = "gl_explode",
@@ -293,7 +345,7 @@ tweak_data.projectiles.launcher_electric_osipr = {
 	launch_speed = 2500,
 	curve_pow = 0.75,
 	player_damage = 15,
-	range = 250,
+	range = 300,
 	init_timer = nil,
 	mass_look_up_modifier = 0,
 	sound_event = "gl_explode",
@@ -499,7 +551,7 @@ tweak_data.projectiles.wpn_prj_hur.adjust_z = 0
 
 --Balled Snow--
 if tweak_data.projectiles.xmas_snowball then
-	tweak_data.projectiles.xmas_snowball.damage = 24
+	tweak_data.projectiles.xmas_snowball.damage = 18
 	tweak_data.projectiles.xmas_snowball.player_dmg_mul = 0
 	tweak_data.projectiles.xmas_snowball.camera_shake_max_mul = 0
 	tweak_data.projectiles.xmas_snowball.feedback_range = -100
@@ -869,6 +921,7 @@ end
 
 tweak_data.medic.disabled_units = {
 	"phalanx_vip",
+	"phalanx_vip_break",
 	"spring",
 	"headless_hatman",
 	"taser_summers",
@@ -1277,7 +1330,7 @@ function WeaponFactoryTweakData:_clone_part_type_for_weapon_resmod(part_type, fa
 	for _, part_id in ipairs(factory_data.uses_parts) do
 		part_data = twf.parts[part_id]
 
-		if part_data.type == part_type then
+		if part_data.type and part_data.type == part_type then
 			table.insert(parts, part_id)
 		end
 	end

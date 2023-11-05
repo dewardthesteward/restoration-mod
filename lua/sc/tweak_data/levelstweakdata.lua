@@ -249,6 +249,7 @@ Hooks:PostHook( LevelsTweakData, "init", "SC_levels", function(self)
 	self.pal.ai_group_type = lapd
 	
 	self.friend.ai_group_type = lapd
+	self.friend.package = {"packages/lvl_friend", "packages/miscassets"}
 	self.friend.player_style = "suit_sunny"
 	
 	self.kenaz.ai_group_type = lapd
@@ -285,7 +286,6 @@ Hooks:PostHook( LevelsTweakData, "init", "SC_levels", function(self)
 	self.arm_hcm.package = {"packages/narr_arm_hcm", "packages/gensecmisc"}
 	self.arm_par.package = {"packages/narr_arm_par", "packages/gensecmisc"}
 	self.arm_und.package = {"packages/narr_arm_und", "packages/gensecmisc"}
-
 	
 	--///NEW OUTFITS\\\--
 	
@@ -507,10 +507,12 @@ Hooks:PostHook( LevelsTweakData, "init", "SC_levels", function(self)
 	--Bomb: Forest--
 	self.crojob3.ai_group_type = russia			
 	self.crojob3.player_style = "loud_suit"
+	self.crojob3.package = {"packages/dlcs/the_bomb/crojob_stage_3", "packages/murkywatermisc"}
 
 	self.crojob3_night.ai_group_type = russia				
 	self.crojob3_night.player_style = "loud_suit"		
-	self.crojob3_night.flashlights_on = true	
+	self.crojob3_night.flashlights_on = true
+	self.crojob3_night.package = {"packages/dlcs/the_bomb/crojob_stage_3_night", "packages/murkywatermisc"}
 	
 	--///BAG FIXES\\\--
 	self.pbr2.max_bags = 20

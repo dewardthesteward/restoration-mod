@@ -270,7 +270,7 @@ elseif ai_type == ny then
 		["units/pd2_dlc_vip/characters/ene_titan_sniper/ene_titan_sniper"] = "units/pd2_mod_bravo/characters/ene_bravo_dmr/ene_bravo_dmr",
 		["units/pd2_dlc_usm1/characters/ene_male_marshal_marksman_1/ene_male_marshal_marksman_1"] = "units/pd2_mod_bravo/characters/ene_bravo_dmr/ene_bravo_dmr",
 		["units/pd2_dlc_usm1/characters/ene_male_marshal_marksman_2/ene_male_marshal_marksman_2"] = "units/pd2_mod_bravo/characters/ene_bravo_dmr/ene_bravo_dmr"
-	}
+	}	
 else
 	replacement_table = {
 		--Bulldozers
@@ -299,6 +299,7 @@ else
 		["units/pd2_dlc_ranc/characters/ene_cop_2/ene_cop_2"] = "units/pd2_mod_lapd/characters/ene_lapd_veteran_cop_2/ene_lapd_veteran_cop_2",
 		["units/pd2_dlc_ranc/characters/ene_cop_3/ene_cop_3"] = "units/pd2_mod_lapd/characters/ene_fbi_2/ene_fbi_2",
 		["units/pd2_dlc_ranc/characters/ene_cop_4/ene_cop_4"] = "units/pd2_mod_lapd/characters/ene_fbi_3/ene_fbi_3",
+		
 		
 		--FBI Rifle
 		["units/payday2/characters/ene_swat_1_sc/ene_swat_1_sc"] = "units/payday2/characters/ene_fbi_swat_1_sc/ene_fbi_swat_1_sc",
