@@ -4244,14 +4244,14 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self[ wep_id ].damage_type = "machine_gun"
 	end
 	
-	recat = { "amcar", "s552", "g36", "olympic", "x_olympic" }
+	recat = { "amcar", "s552", "g36", "olympic", "x_olympic", "vhs", "famas" }
 	for i, wep_id in ipairs(recat) do
 		table.insert(self[ wep_id ].categories, "crb")
 		self[ wep_id ].recategorize = { "light_ar" }
 		self[ wep_id ].damage_type = "assault_rifle"
 	end
 
-	recat = { "new_m4", "ak5", "aug", "flint", "ak74", "corgi", "vhs", "famas", "komodo", "hajk" }
+	recat = { "new_m4", "ak5", "aug", "flint", "ak74", "corgi", "komodo", "hajk" }
 	for i, wep_id in ipairs(recat) do
 		self[ wep_id ].recategorize = { "light_ar" }
 		self[ wep_id ].damage_type = "assault_rifle"
@@ -4299,7 +4299,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self[ wep_id ].weapon_movement_penalty = sms_preset.lmg_48
 	end
 
-	recat = { "rpk" }
+	recat = { "rpk", "hk51b" }
 	for i, wep_id in ipairs(recat) do
 		self[ wep_id ].recategorize = { "light_mg" }
 		self[ wep_id ].damage_type = "machine_gun"
@@ -4307,7 +4307,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self[ wep_id ].weapon_movement_penalty = sms_preset.lmg_60
 	end
 	
-	recat = { "mg42", "hk21", "hk51b" }
+	recat = { "mg42", "hk21" }
 	for i, wep_id in ipairs(recat) do
 		table.insert(self[ wep_id ].categories, "mmg")
 		self[ wep_id ].recategorize = { "heavy_mg" }
@@ -8242,7 +8242,52 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.rpk.bipod_req_scope = true
 			self.rpk.timers.reload_exit_empty = 1.45
 			self.rpk.timers.reload_exit_not_empty = 0.85
-			self.rpk.reload_speed_multiplier = 0.85
+			self.rpk.reload_speed_multiplier = 0.875
+
+		--Versteckt-51 (HK51B)
+			self.hk51b.categories = {
+				"lmg",
+				"smg",
+				"lmg_moving"
+			}
+			self.hk51b.desc_id = "bm_hk51b_sc_desc"
+			self.hk51b.has_description = true
+			self.hk51b.CLIP_AMMO_MAX = 40
+			self.hk51b.AMMO_MAX = 240
+			self.hk51b.fire_mode_data.fire_rate = 0.063157
+			self.hk51b.CAN_TOGGLE_FIREMODE = true
+			self.hk51b.BURST_FIRE = 3
+			self.hk51b.kick = self.stat_info.kick_tables.right_kick
+			self.hk51b.panic_suppression_chance = 0.05
+			self.hk51b.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+			self.hk51b.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
+			self.hk51b.supported = true
+			self.hk51b.ads_speed = 0.420
+			self.hk51b.damage_falloff = {
+				start_dist = 1200,
+				end_dist = 4800,
+				min_mult = 0.66667
+			}
+			self.hk51b.stats = {
+				damage = 30,
+				spread = 61,
+				recoil = 67,
+				spread_moving = 7,
+				zoom = 1,
+				concealment = 20,
+				suppression = 6,
+				alert_size = 2,
+				extra_ammo = 101,
+				total_ammo_mod = 200,
+				value = 9,
+				reload = 20
+			}
+			self.hk51b.stats_modifiers = nil
+			self.hk51b.timers.reload_empty = 3.3
+			self.hk51b.timers.reload_not_empty = 3
+			self.hk51b.timers.reload_exit_empty = 0.8
+			self.hk51b.timers.reload_exit_not_empty = 0.5
+			self.hk51b.reload_speed_multiplier = 0.85
 		
 	--[[     HEAVY MGs     ]]
 
@@ -8439,53 +8484,6 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.hk21.timers.reload_not_empty = self.hk21.timers.reload_empty
 				self.hk21.timers.reload_exit_empty = 1.3
 				self.hk21.timers.reload_exit_not_empty = 1.3
-		
-			--Versteckt-51 (HK51B)
-				--HK21 nerfs have made this more viable as a primary
-				self.hk51b.categories = {
-					"lmg",
-					"smg",
-					"lmg_moving",
-					"mmg"
-				}
-				self.hk51b.desc_id = "bm_hk51b_sc_desc"
-				self.hk51b.has_description = true
-				self.hk51b.CLIP_AMMO_MAX = 40
-				self.hk51b.AMMO_MAX = 160
-				self.hk51b.fire_mode_data.fire_rate = 0.063157
-				self.hk51b.CAN_TOGGLE_FIREMODE = true
-				self.hk51b.BURST_FIRE = 3
-				self.hk51b.kick = self.stat_info.kick_tables.right_kick
-				self.hk51b.panic_suppression_chance = 0.05
-				self.hk51b.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
-				self.hk51b.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
-				self.hk51b.supported = true
-				self.hk51b.ads_speed = 0.440
-				self.hk51b.damage_falloff = {
-					start_dist = 800,
-					end_dist = 4800,
-					min_mult = 0.44444
-				}
-				self.hk51b.stats = {
-					damage = 45,
-					spread = 57,
-					recoil = 67,
-					spread_moving = 7,
-					zoom = 1,
-					concealment = 20,
-					suppression = 6,
-					alert_size = 2,
-					extra_ammo = 101,
-					total_ammo_mod = 200,
-					value = 9,
-					reload = 20
-				}
-				self.hk51b.stats_modifiers = nil
-				self.hk51b.timers.reload_empty = 3.3
-				self.hk51b.timers.reload_not_empty = 3
-				self.hk51b.timers.reload_exit_empty = 0.8
-				self.hk51b.timers.reload_exit_not_empty = 0.5
-				self.hk51b.reload_speed_multiplier = 0.85
 
 		--EMPLACEMENTS
 
@@ -13918,6 +13916,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 	end
 
 	if self.tingledingle then --Zdanns's TBP
+		table.insert(self.tingledingle.categories, "crb")
 		self.tingledingle.bmp = 999999
 		self.tingledingle.no_auto_anims = true		
 		self.tingledingle.recategorize = { "light_ar" }
@@ -14823,6 +14822,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 	end
 
 	if self.fazertron then --Pawcio's Calico M960
+		table.insert(self.fazertron.categories, "crb")
 		self.fazertron.recategorize = { "light_ar" }
 		self.fazertron.damage_type = "assault_rifle"
 		self.fazertron.FIRE_MODE = "auto"
@@ -15613,7 +15613,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.m107cq.desc_id = "bm_m107cq_sc_desc"
 		self.m107cq.tactical_reload = 1
 		self.m107cq.AMMO_MAX = 15
-		self.m107cq.fire_mode_data.fire_rate = 0.5454545
+		self.m107cq.fire_mode_data.fire_rate = 0.48
 		self.m107cq.sms = sms_preset.semi_snp_amr
 		self.m107cq.kick = deep_clone(self.stat_info.kick_tables.right_kick)
 		self.m107cq.kick.crouching = self.m107cq.kick.standing
@@ -17342,11 +17342,13 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.pd3_lynx.recategorize = { "antim_snp" }
 		self.pd3_lynx.hs_mult = 2
 		self.pd3_lynx.damage_type = "anti_materiel"
+		self.pd3_lynx.is_bullpup = true
 		self.pd3_lynx.upgrade_blocks = nil
 		self.pd3_lynx.CLIP_AMMO_MAX = 5
 		self.pd3_lynx.AMMO_MAX = 15
 		self.pd3_lynx.tactical_reload = 1
-		self.pd3_lynx.fire_mode_data.fire_rate = 0.66666667
+		self.pd3_lynx.muzzleflash = "effects/payday2/particles/weapons/50cal_auto_fps"
+		self.pd3_lynx.fire_mode_data.fire_rate = 0.545454
 		self.pd3_lynx.sms = sms_preset.semi_snp_amr
 		self.pd3_lynx.kick = deep_clone(self.stat_info.kick_tables.vertical_kick)
 		self.pd3_lynx.supported = true
@@ -17375,7 +17377,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.pd3_lynx.stats_modifiers = nil
 		self.pd3_lynx.reload_speed_multiplier = 0.8
 		self.pd3_lynx.panic_suppression_chance = 0.05
-		self.pd3_lynx.timers.equip = 1.1
+		self.pd3_lynx.timers.equip = 1.3
 		self.pd3_lynx.timers.reload_not_empty = 3.2
 		self.pd3_lynx.timers.reload_exit_not_empty = 0.5
 		self.pd3_lynx.timers.reload_empty = 3.5
