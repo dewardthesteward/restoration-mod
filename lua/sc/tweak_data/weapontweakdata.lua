@@ -16887,7 +16887,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.malorian_3516.lock_slide = nil
 		self.malorian_3516.sounds.magazine_empty = nil
 		self.malorian_3516.sounds.stop_fire = "judge_x_fire"
-		self.malorian_3516.swap_speed_multiplier = 0.5
+		self.malorian_3516.swap_speed_multiplier = 0.4
 	end
 
 	if self.swhiskey then --RJC9000 and PlayBONK's MW2022 SW500
@@ -17331,6 +17331,57 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.srs99_s7.panic_suppression_chance = 0.05
 		self.srs99_s7.timers.reload_exit_empty = 0.75
 		self.srs99_s7.timers.reload_exit_not_empty = 0.75
+	end
+
+	if self.br55 then --RJC9000's PD3 GM6 Lynx
+		self.br55.recategorize = { "dmr_ar" }
+		self.br55.damage_type = "sniper"
+		self.br55.is_bullpup = true
+		self.br55.upgrade_blocks = nil
+		self.br55.CLIP_AMMO_MAX = 36
+		self.br55.AMMO_MAX = 90
+		self.br55.fire_mode_data.fire_rate = 0.171428
+		self.br55.fire_mode_data.burst_cooldown = nil
+		self.br55.FIRE_MODE = "single"		
+		self.br55.CAN_TOGGLE_FIREMODE = false
+		self.br55.BURST_COUNT = nil
+		self.br55.burst = nil
+		self.br55.BURST_FIRE_DEFAULT = true
+		self.br55.BURST_FIRE = 3
+		self.br55.BURST_DELAY = 0.1
+		self.br55.BURST_FIRE_RATE_MULTIPLIER = 2.571428
+		self.br55.BURST_FIRE_RECOIL_MULTIPLIER = 0.5
+		self.br55.BURST_FIRE_LAST_RECOIL_MULTIPLIER = 1.05
+		self.br55.lock_slide = true
+		self.br55.kick = deep_clone(self.stat_info.kick_tables.vertical_kick)
+		self.br55.supported = true
+		self.br55.ads_speed = 0.300
+		self.br55.damage_falloff = {
+			start_dist = 900,
+			end_dist = 7000,
+			min_mult = 0.53333
+		}
+		self.br55.stats = {
+			damage = 45,
+			spread = 91,
+			recoil = 76,
+			spread_moving = 8,
+			zoom = 1,
+			concealment = 22,
+			suppression = 4,
+			alert_size = 2,
+			extra_ammo = 101,
+			total_ammo_mod = 200,
+			value = 9,
+			reload = 20
+		}
+		self.br55.armor_piercing_chance = 0.25
+		self.br55.stats_modifiers = nil
+		self.br55.panic_suppression_chance = 0.05
+		self.br55.sounds.magazine_empty = "wp_rifle_slide_lock"
+		self.br55.reload_speed_multiplier = 0.85
+		self.br55.timers.reload_exit_not_empty = 0.4
+		self.br55.timers.reload_exit_empty = 0.4
 	end
 
 	if self.pd3_lynx then --RJC9000's PD3 GM6 Lynx
@@ -18549,11 +18600,15 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					weap.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
 					weap.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
 					weap.rms = (1 + weap.weapon_movement_penalty) / 2
+					if not table.contains(weap.categories, "lmg_moving") and not table.contains(weap.categories, "wolf_brigade") and not table.contains(weap.categories, "minigun") then
+						weap.sms = weap.sms / 1.5
+						weap.rms = weap.weapon_movement_penalty
+						weap.zoom_recoil_reduction = 0.02
+					end
 					weap.smt_mult = 5
-					weap.smt_range = { 0.75, 1.75 }
+					weap.smt_range = { 0.75, 1.35 }
 				end
 				weap.ene_hs_mult = 0.5
-				weap.zoom_recoil_reduction = 0.02
 			end
 
 			if weap.recategorize and not weap.recoil_values then

@@ -340,7 +340,7 @@ function restoration:Init()
 		"constantine_policestation_lvl", -- Precint Raid (Constantine Scores)
 		"constantine_murkyairport",		 -- Murky Airport (Consantine Scores) 
 		"hogar",-- The House Robbery
-		"icing"	--Roag Rage	
+		"icing"	--Road Rage	
 
 	}
 	--For levels that have aggressive scripted spawns, or spawn placement such that enemies are constantly spawned next to players.
@@ -719,6 +719,9 @@ restoration.wepnames = {
 	"dmcwo_reelnames",
 	"resmod_no_renames"
 }
+
+-- Detect if ResMod is active to disable PDTH Challenges Standalone
+DisablePDTHChallengeStandalone = DisablePDTHChallengeStandalone or {}
 
 -- restoration.environments_choice_shadow_raid = {
 -- 	"default",

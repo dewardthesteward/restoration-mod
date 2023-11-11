@@ -891,12 +891,12 @@ Hooks:Add("LocalizationManagerPostInit", "ResMod_english_Localization", function
 
 		["bm_menu_amount_locked"] = "NONE IN STOCK",
 
-		["pdth_hud_challenges"] = "Challenges",
-		["pdth_hud_challenges_hint"] = "View completed and active challenges.",
-		["pdth_hud_active_challenges"] = "Active Challenges",
-		["pdth_hud_active_challenges_hint"] = "Current and active challenges.",
-		["pdth_hud_completed_challenges"] = "Completed Challenges",
-		["pdth_hud_completed_challenges_hint"] = "Completed and rewarded challenges.",
+		["resmod_challenges"] = "Challenges",
+		["resmod_challenges_hint"] = "View completed and active challenges.",
+		["resmod_active_challenges"] = "Active Challenges",
+		["resmod_active_challenges_hint"] = "Current and active challenges.",
+		["resmod_completed_challenges"] = "Completed Challenges",
+		["resmod_completed_challenges_hint"] = "Completed and rewarded challenges.",
 
 		["ch_vs_desc"] = "Using a $weapon, defeat $count $eneType. Using melee does not contribute to this challenge.",
 		["ch_vs_head_shots_desc"] = "Using a $weapon, defeat $count $eneType with Headshots.",
@@ -1297,8 +1297,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_menu_weapon_movement_penalty_info"] = "Slows move speed by ",
 		["bm_menu_weapon_movement_bonus_info"] = "Raises move speed by ",
 		["bm_menu_weapon_movement_penalty_info_2"] = " while drawn",
-		["bm_menu_sms_info_cont"] = "penalty is doubled while shooting.",
-		["bm_menu_sms_info_cont_2"] = "penalty is doubled while shooting due to current attachments.",
+		["bm_menu_sms_info_cont"] = "penalty is increased while shooting.",
+		["bm_menu_sms_info_cont_2"] = "penalty is increased while shooting due to current attachments.",
 		["bm_menu_sms_info_2"] = " while shooting.",
 		["bm_menu_stat_sms_info_2"] = " while shooting due to current attachments.",
 		["bm_menu_weapon_slot_search_empty"] = "\n##NO RESULTS FOUND FOR## ##\"$search\"##",
@@ -2222,7 +2222,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				--Versteckt-51/HK51B
 				["bm_hk51b_sc_desc"] = "Aftermarket conversion of the Brenner-21, shrinking this MG down to Compact-5 sizes and increasing its rate of fire even further than the Brenner's.",
 				--Buzzsaw/Mg42
-				["bm_wolf_brigade_sc_desc"] = "\"We are not men disguised as mere dogs.\nWe are #{important_1}#wolves## disguised as mere men.\"\n\n#{skill_color}#Has improved hipfire spread and recoil.##",
+				["bm_wolf_brigade_sc_desc"] = "\"We are not men disguised as mere dogs.\nWe are #{important_1}#wolves## disguised as mere men.\"\n\n#{skill_color}#Has improved spread and recoil while hipfired.##",
 				["bm_wp_mg42_b_vg38"] = "BlasTech DLT-19 Barrel",
 				["bm_wp_mg42_b_vg38_desc_sc"] = "Tech said to have come from #{skill_color}#a galaxy far, far away## converts this weapon to #{risk}#fire bolts of plasma## and utilize a #{skill_color}#recharging magazine.##\n\nRecharge delay: #{skill_color}#3s##\nRecharge rate: #{skill_color}#9/s## #{important_1}#(Halved while overheated)##\nOverheat penalty: #{important_1}#4s##",
 				--M134
@@ -2905,8 +2905,10 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					--Custom Snipers
 						--Guerilla
 						["bm_w_sgs"] = "Guerilla 542",	
-						--M107
-						["bm_w_m107cq"] = "Northwest AM-2",
+						--PD3 Lynx
+						["bm_w_pd3_lynx"] = "HET-5 Red Fox",
+						--AMR2
+						["bm_w_amr2"] = "Northwest AM-2",
 						--M107
 						["bm_w_m107cq"] = "Thanatos 107",
 						--M200
@@ -3591,6 +3593,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_m95"] = "Barrett M95",
 					["bm_wp_m95_b_barrel_long"] = "Long Barrel w/AW50F Muzzle Brake",
 					--Custom Snipers
+						--PD3 Lynx
+						["bm_w_pd3_lynx"] = "SERO Gepard M6",
 						--M107
 						["bm_m107cq_sc_desc"] = "If the M95 wasn't up to speed, then the M107 will deliver what you want as a fine, red mist.\n\n#{skill_color}#Headshots deal 100% more damage to non-captain enemies.\nCan pierce multiple enemies, their body armor, shields, titan-shields and thin walls.##",
 

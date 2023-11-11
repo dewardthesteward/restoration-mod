@@ -2326,7 +2326,7 @@ function CharacterTweakData:_init_tank(presets)
 	}
 	self.tank_skull.HEALTH_INIT = 625
 	self.tank_skull.marshal_logic = true
-	self.tank_skull.headshot_dmg_mul = 9.5
+	self.tank_skull.headshot_dmg_mul = 8.5
 	self.tank_skull.move_speed = presets.move_speed.very_slow
 	table.insert(self._enemy_list, "tank_skull")
 	
@@ -2818,11 +2818,7 @@ function CharacterTweakData:_init_phalanx_vip(presets)
 	self.phalanx_vip.die_sound_event_2 = "l2n_x01a_any_3p"
 	self.phalanx_vip.kill_taunt = "a02"
 	self.phalanx_vip.must_headshot = true
-	if job == "crojob3" or job == "crojob3_night" then
-		self.phalanx_vip.ends_assault_on_death = false --the Reaper assault is still going after dealing with Winters
-	else
-		self.phalanx_vip.ends_assault_on_death = true
-	end
+	self.phalanx_vip.ends_assault_on_death = true
 	self.phalanx_vip.do_omnia = true
 	self.phalanx_vip.suppression = nil
 	self.phalanx_vip.ecm_hurts = {}
