@@ -1407,6 +1407,7 @@ function CharacterTweakData:_init_marshal_shield(presets)
 	self.marshal_shield_break.use_animation_on_fire_damage = nil
 	self.marshal_shield_break.damage.shield_knocked = nil
 	self.marshal_shield_break.modify_health_on_tweak_change = true
+	self.marshal_shield_break.tmp_invulnerable_on_tweak_change = 1.5 --still better than 3 seconds
 	self.marshal_shield_break.no_mutator_weapon_override = true
 	self.marshal_shield_break.unintimidateable = true
 	self.marshal_shield_break.no_asu = true
@@ -2326,7 +2327,7 @@ function CharacterTweakData:_init_tank(presets)
 	}
 	self.tank_skull.HEALTH_INIT = 625
 	self.tank_skull.marshal_logic = true
-	self.tank_skull.headshot_dmg_mul = 8.5
+	self.tank_skull.headshot_dmg_mul = 9.5
 	self.tank_skull.move_speed = presets.move_speed.very_slow
 	table.insert(self._enemy_list, "tank_skull")
 	
@@ -16937,6 +16938,65 @@ function CharacterTweakData:_presets(tweak_data)
 					}
 				}
 			}
+		},
+		fast_dozer = {
+			stand = {
+				walk = {
+					ntl = {
+						fwd = 150,
+						strafe = 120,
+						bwd = 110
+					},
+					hos = {
+						fwd = 488,
+						strafe = 297,
+						bwd = 297
+					},
+					cbt = {
+						fwd = 488,
+						strafe = 297,
+						bwd = 297
+					}
+				},
+				run = {
+					hos = {
+						fwd = 488,
+						strafe = 297,
+						bwd = 297
+					},
+					cbt = {
+						fwd = 488,
+						strafe = 297,
+						bwd = 297
+					}
+				}
+			},
+			crouch = {
+				walk = {
+					hos = {
+						fwd = 191,
+						strafe = 191,
+						bwd = 191
+					},
+					cbt = {
+						fwd = 191,
+						strafe = 191,
+						bwd = 191
+					}
+				},
+				run = {
+					hos = {
+						fwd = 305,
+						strafe = 191,
+						bwd = 191
+					},
+					cbt = {
+						fwd = 305,
+						strafe = 191,
+						bwd = 191
+					}
+				}
+			}
 		},	
 		very_fast = {
 			stand = {
@@ -17842,6 +17902,10 @@ function CharacterTweakData:_set_overkill_290()
 	--Tankier Dozer Armor
 	self.tank_armor_damage_mul = 0.5
 	self.tank_glass_damage_mul = 0.5
+	
+	--Speed boost on BlackDozers/MedicDozers
+	self.tank_black.move_speed = self.presets.move_speed.fast
+	self.tank_medic.move_speed = self.presets.move_speed.fast
 			
 	--Set damage dealt for false downs.
 	self.spooc.kick_damage = 6.0
@@ -17919,7 +17983,11 @@ function CharacterTweakData:_set_sm_wish()
 	
 	--Tankier Dozer Armor
 	self.tank_armor_damage_mul = 0.5
-	self.tank_glass_damage_mul = 0.5	
+	self.tank_glass_damage_mul = 0.5
+
+	--Speed boost on BlackDozers/MedicDozers, Blackdozers will also always run
+	self.tank_black.move_speed = self.presets.move_speed.fast_dozer
+	self.tank_medic.move_speed = self.presets.move_speed.fast	
 				
 	--Set damage dealt for false downs.
 	self.spooc.kick_damage = 8.0
@@ -17930,6 +17998,9 @@ function CharacterTweakData:_set_sm_wish()
 	self.marshal_shield.overheal_mult = 2
 	self.phalanx_minion.overheal_mult = 2
 	self.phalanx_minion_assault.overheal_mult = 2
+	
+	--Winters' shields are immune to ECM feedback effects :)
+	self.phalanx_minion.ecm_vulnerability = 0
 	
 	self.shield.weapon.is_pistol.melee_speed = nil
 	self.shield.weapon.is_pistol.melee_dmg = nil

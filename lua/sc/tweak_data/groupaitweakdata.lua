@@ -8507,11 +8507,11 @@ end
 		},
 		access = access_type_all,
 		special_type = "shield",
-		is_captain = true
+		ignore_spawn_cap = true
 	}	
 	--Titan Snipers that spawn with Winters on DS, clone the real one but set the captain flag
 	self.unit_categories.Phalanx_sniper = deep_clone(self.unit_categories.titan_sniper)
-	self.unit_categories.Phalanx_sniper.is_captain = true
+	self.unit_categories.Phalanx_sniper.ignore_spawn_cap = true
 
 	
 	--Captain Autumn
@@ -8576,7 +8576,7 @@ end
 		},
 		access = access_type_all,
 		special_type = "spooc",
-		is_captain = true
+		ignore_spawn_cap = true
 	}
 	--Titan Cloakers that spawn with Autumn on Death Sentence, ignores spawncaps 
 	self.unit_categories.Titan_Spooc = {
@@ -8608,7 +8608,7 @@ end
 		},
 		access = access_type_all,
 		special_type = "spooc",
-		is_captain = true
+		ignore_spawn_cap = true
 	}		
 	--Captain Summers
 	self.unit_categories.Cap_Summers = {
@@ -8795,7 +8795,7 @@ end
 			},
 			access = access_type_all,
 			special_type = "tank",
-			is_captain = true
+			ignore_spawn_cap = true
 		}
 	--OMNIA Saiga Dozers that spawn with Spring (Ignores spawncaps)
 		self.unit_categories.OMNIA_Tank = {
@@ -8827,7 +8827,7 @@ end
 			},
 			access = access_type_all,
 			special_type = "tank",
-			is_captain = true
+			ignore_spawn_cap = true
 		}	
 	--OMNIA Tasers that spawn with Spring on Death Wish	(Also ignores spawncaps)
 	self.unit_categories.OMNIA_Taser = {
@@ -8859,7 +8859,7 @@ end
 		},
 		access = access_type_all,
 		special_type = "taser",
-		is_captain = true
+		ignore_spawn_cap = true
 	}
 	--Titan Tasers that specifically spawn with Spring replacing OMNIA Tasers on Death Sentence (Also ignores spawncaps)
 	self.unit_categories.Taser_Titan = {
@@ -8891,7 +8891,7 @@ end
 		},
 		access = access_type_all,
 		special_type = "taser",
-		is_captain = true
+		ignore_spawn_cap = true
 	}
 	
 	--Headless Titandozer Boss
@@ -8956,7 +8956,7 @@ end
 		},
 		access = access_type_all,
 		special_type = "tank",
-		is_captain = true
+		ignore_spawn_cap = true
 	}
 	
 	--Cloakers that spawn with boss on Death Wish
@@ -8989,7 +8989,7 @@ end
 		},
 		access = access_type_all,
 		special_type = "spooc",
-		is_captain = true
+		ignore_spawn_cap = true
 	}
 	--Ghost Titancloakers that spawn with boss on Death Sentence
 	self.unit_categories.HVH_Boss_Spooc = {
@@ -9021,7 +9021,7 @@ end
 		},
 		access = access_type_all,
 		special_type = "spooc",
-		is_captain = true
+		ignore_spawn_cap = true
 	}
 
 	--mutator unit categories
@@ -12639,7 +12639,7 @@ end
 			}
 		},
 		access = access_type_all,
-		is_captain = true
+		ignore_spawn_cap = true
 	}
 	
 	self.unit_categories.piggydozer = {
@@ -12670,7 +12670,7 @@ end
 			}
 		},
 		access = access_type_all,
-		is_captain = true
+		ignore_spawn_cap = true
 	}
 	
 end
@@ -15720,6 +15720,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	if difficulty_index <= 5 then
 		self.enemy_spawn_groups.Cap_Winters = {
 			amount = {5, 5},
+			force = true,
 			spawn = {
 				{
 					unit = "Phalanx_vip_new",
@@ -15742,6 +15743,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	elseif difficulty_index == 6 then
 		self.enemy_spawn_groups.Cap_Winters = {
 			amount = {6, 6},
+			force = true,
 			spawn = {
 				{
 					unit = "Phalanx_vip_new",
@@ -15764,6 +15766,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	elseif difficulty_index == 7 then
 		self.enemy_spawn_groups.Cap_Winters = {
 			amount = {8, 8},
+			force = true,
 			spawn = {
 				{
 					unit = "Phalanx_vip_new",
@@ -15794,6 +15797,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	else
 		self.enemy_spawn_groups.Cap_Winters = {
 			amount = {10, 10},
+			force = true,
 			spawn = {
 				{
 					unit = "Phalanx_vip_new",
@@ -15827,6 +15831,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	if difficulty_index <= 5 then
 		self.enemy_spawn_groups.Cap_Spring = {
 			amount = {1, 1},
+			force = true,
 			spawn = {
 				{
 					unit = "Cap_Spring",
@@ -15841,6 +15846,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	elseif difficulty_index == 6 then
 		self.enemy_spawn_groups.Cap_Spring = {
 			amount = {3, 3},
+			force = true,
 			spawn = {
 				{
 					unit = "Cap_Spring",
@@ -15863,6 +15869,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	elseif difficulty_index == 7 then	
 		self.enemy_spawn_groups.Cap_Spring = {
 			amount = {5, 5},
+			force = true,
 			spawn = {
 				{
 					unit = "Cap_Spring",
@@ -15893,6 +15900,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	else
 		self.enemy_spawn_groups.Cap_Spring = {
 			amount = {7, 7},
+			force = true,
 			spawn = {
 				{
 					unit = "Cap_Spring",
@@ -15926,6 +15934,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	if difficulty_index <= 5 then
 		self.enemy_spawn_groups.HVH_Boss = {
 			amount = {1, 1},
+			force = true,
 			spawn = {
 				{
 					unit = "HVH_Boss",
@@ -15940,6 +15949,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	elseif difficulty_index == 6 then
 		self.enemy_spawn_groups.HVH_Boss = {
 			amount = {3, 3},
+			force = true,
 			spawn = {
 				{
 					unit = "HVH_Boss",
@@ -15962,6 +15972,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	elseif difficulty_index == 7 then
 		self.enemy_spawn_groups.HVH_Boss = {
 			amount = {5, 5},
+			force = true,
 			spawn = {
 				{
 					unit = "HVH_Boss",
@@ -15992,6 +16003,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	else
 		self.enemy_spawn_groups.HVH_Boss = {
 			amount = {7, 7},
+			force = true,
 			spawn = {
 				{
 					unit = "HVH_Boss",
@@ -16025,6 +16037,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	if difficulty_index <= 5 then
 		self.enemy_spawn_groups.Cap_Autumn = {
 			amount = {1, 1},
+			force = true,
 			spawn = {
 				{
 					unit = "Cap_Autumn",
@@ -16039,6 +16052,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	elseif difficulty_index == 6 then
 		self.enemy_spawn_groups.Cap_Autumn = {
 			amount = {3, 3},
+			force = true,
 			spawn = {
 				{
 					unit = "Cap_Autumn",
@@ -16061,6 +16075,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	elseif difficulty_index == 7 then
 		self.enemy_spawn_groups.Cap_Autumn = {
 			amount = {4, 4},
+			force = true,
 			spawn = {
 				{
 					unit = "Cap_Autumn",
@@ -16083,6 +16098,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	else
 		self.enemy_spawn_groups.Cap_Autumn = {
 			amount = {5, 5},
+			force = true,
 			spawn = {
 				{
 					unit = "Cap_Autumn",
@@ -16107,6 +16123,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	--Captain Summers
 	self.enemy_spawn_groups.Cap_Summers = {
 		amount = {4, 4},
+		force = true,
 		spawn = {
 			{
 				unit = "Cap_Summers",
@@ -18788,6 +18805,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	--Skirmish Captains, uses the DS spawngroups
 	self.enemy_spawn_groups.SKM_Cap_Winters_W9 = {
 			amount = {10, 10},
+			force = true,
 			spawn = {
 				{
 					unit = "Phalanx_vip_new",
@@ -18817,6 +18835,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}								
 		self.enemy_spawn_groups.SKM_Cap_Spring_W9 = {
 			amount = {7, 7},
+			force = true,
 			spawn = {
 				{
 					unit = "Cap_Spring",
@@ -18846,6 +18865,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}
 		self.enemy_spawn_groups.SKM_HVH_Boss_W9 = {
 			amount = {7, 7},
+			force = true,
 			spawn = {
 				{
 					unit = "HVH_Boss",
@@ -18875,6 +18895,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}
 		self.enemy_spawn_groups.SKM_Cap_Autumn_W9 = {
 			amount = {5, 5},
+			force = true,
 			spawn = {
 				{
 					unit = "Cap_Autumn",
@@ -19915,7 +19936,7 @@ function GroupAITweakData:_init_task_data(difficulty_index, difficulty)
 	--Add the relevant captain to the assault groups, if able to.
 	local captain_type = restoration.captain_spawns[job]
 	if captain_type and not table.contains(restoration.disable_natural_captain, job) then
-		self.besiege.assault.groups[captain_type.spawn_group] = {0, 0.5, 1}
+		self.besiege.assault.groups[captain_type.spawn_group] = {0, 0.2, 0.5}
 	end		
 	
 	if difficulty_index <= 7 then
@@ -20279,7 +20300,7 @@ function GroupAITweakData:_init_task_data(difficulty_index, difficulty)
 	}
 
 	local captain_cooldown = 2700
-	local captain_min_diff = 0.5
+	local captain_min_diff = 0.3
 	local dozer_cooldown = 90
 
 	if Global.game_settings and Global.game_settings.one_down then

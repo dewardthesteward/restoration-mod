@@ -3,6 +3,7 @@ local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 local ambush_doors_chance = 85
 local ambush_amount = 1
 local dozer_vault = 4
+local both_window_swats_only = true
 local chance_dozer_vault_1 = math.rand(1)
 local chance_dozer_vault_2 = math.rand(1)
 local chance_dozer_vault_3 = math.rand(1)
@@ -36,6 +37,10 @@ if Global.game_settings and Global.game_settings.one_down then
 		titan_swat_2 = "units/pd2_dlc_vip/characters/ene_titan_shotgun/ene_titan_shotgun"
 	end
 end
+
+	if difficulty_index >= 6 then
+		both_window_swats_only = false --disables tazer_only and cloaker_only scripts on higher difficulties
+	end	
 
 	--Setting up random vault dozers for Mayhem+
 	if difficulty_index == 6 or difficulty_index == 7 then
@@ -147,6 +152,27 @@ return {
 			enabled = false
 		}
 	},
+	--Higher diffs forces both scripted window cloaker and taser spawns
+	[100875] = {
+		values = {
+			enabled = both_window_swats_only
+		}
+	},
+	[102245] = {
+		values = {
+			enabled = both_window_swats_only
+		}
+	},
+	[102271] = {
+		values = {
+			enabled = both_window_swats_only
+		}
+	},
+	[102276] = {
+		values = {
+			enabled = both_window_swats_only
+		}
+	},
 	--Vault Spawn Stuff
 	--why there's a beat cop instead of guard? I dunno
 	[104001] = {
@@ -205,6 +231,11 @@ return {
 		}
 	},
 	[106858] = {
+		values = {
+            enemy = titan_taser
+		}
+	},
+	[106869] = {
 		values = {
             enemy = titan_taser
 		}

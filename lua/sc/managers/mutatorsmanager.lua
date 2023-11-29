@@ -47,6 +47,12 @@ function MutatorsManager:init()
 		MutatorCrazyTaser:new(self),
 		MutatorMasterDodger:new(self),
 		MutatorGoldfarbDozers:new(self),
+		MutatorOverheal:new(self),
+		MutatorASUBuff:new(self),
+		MutatorBoFlashbang:new(self),
+		MutatorGrenadeMayhem:new(self),
+		--MutatorNoOutlines:new(self),
+		MutatorCaptainReplacer:new(self),		
 		--MutatorFactionsReplacer:new(self),
 		MutatorBirthday:new(self)
 	}

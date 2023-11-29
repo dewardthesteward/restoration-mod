@@ -3228,8 +3228,8 @@ function WeaponTweakData:_init_stats()
 		standing = 3.5,
 		moving_crouching = 2.5,
 		crouching = 2.5,
-		moving_steelsight = 0.05,
-		steelsight = 0.05,
+		moving_steelsight = 0.075,
+		steelsight = 0.075,
 		bipod = 1,
 		player_turret = 1,
 	}
@@ -4365,11 +4365,6 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		table.insert(self[ wep_id ].categories, "amr")
 		self[ wep_id ].recategorize = { "antim_snp" }
 		self[ wep_id ].damage_type = "anti_materiel"
-	end
-	
-	recat = { "mp7", "p90", "x_p90", "lemming" }
-	for i, wep_id in ipairs(recat) do
-		self[ wep_id ].damage_type = "pdw"
 	end
 
 	recat = { "flamethrower_mk2", "system", "kacchainsaw_flamethrower" }
@@ -16605,13 +16600,62 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.m7caseless.panic_suppression_chance = 0.05
 	end
 
+	if self.x_m7caseless then
+		self.x_m7caseless.recategorize = { "light_smg" }		
+		self.x_m7caseless.damage_type = "machine_gun"
+		self.x_m7caseless.has_description = true
+		self.x_m7caseless.kick = self.stat_info.kick_tables.vertical_kick
+		self.x_m7caseless.FIRE_MODE = "auto"
+		self.x_m7caseless.CAN_TOGGLE_FIREMODE = false
+		self.x_m7caseless.BURST_FIRE = false
+		self.x_m7caseless.fire_mode_data.fire_rate = 0.06666666
+		self.x_m7caseless.CLIP_AMMO_MAX = 120
+		self.x_m7caseless.AMMO_MAX = 180
+		self.x_m7caseless.supported = true
+		self.x_m7caseless.ads_speed = 0.200
+		self.x_m7caseless.damage_falloff = {
+			start_dist = 900,
+			end_dist = 4700,
+			min_mult = 0.25
+		}
+		self.x_m7caseless.stats = {
+			damage = 20,
+			spread = 51,
+			recoil = 71,
+			spread_moving = 8,
+			zoom = 1,
+			concealment = 29,
+			suppression = 11,
+			alert_size = 2,
+			extra_ammo = 101,
+			total_ammo_mod = 200,
+			value = 1,
+			reload = 20
+		}
+		self.x_m7caseless.stats_modifiers = nil
+		self.x_m7caseless.weapon_hold = "x_akmsu"
+		self.x_m7caseless.animations.reload_name_id = "x_p90"
+		self.x_m7caseless.reload_speed_multiplier = 0.65
+		self.x_m7caseless.timers.reload_not_empty = 2.45
+		self.x_m7caseless.timers.reload_exit_not_empty = 1.1
+		self.x_m7caseless.timers.reload_empty = 3
+		self.x_m7caseless.timers.reload_exit_empty = 0.9
+		self.x_m7caseless.sounds.use_fix = nil
+		self.x_m7caseless.sounds.stop_fire = "judge_x_fire"
+		self.x_m7caseless.panic_suppression_chance = 0.05
+	end
+
+	if self.m7caseless_prim then
+		self.m7caseless_prim.use_data.selection_index = 5
+	end
+
 	if self.alpha57_prim then --RJC9000 and PlayBONK's MW2022 AR57
 		self.alpha57_prim.categories = {
 			"smg",
 			"pdw"
 		}	
 		self.alpha57_prim.recategorize = { "light_smg" }		
-		self.alpha57_prim.damage_type = "pdw"
+		self.alpha57_prim.damage_type = "machine_gun"
 		self.alpha57_prim.has_description = true
 		self.alpha57_prim.kick = self.stat_info.kick_tables.even_recoil
 		self.alpha57_prim.nato = true
@@ -16787,6 +16831,89 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.pd3_qbz191.panic_suppression_chance = 0.05
 	end
 
+	if self.lc10 then --RJC9000 and PlayBONK's port of 3arc's absolute sin of an L96/MPL
+		self.lc10.use_data.selection_index = 2
+		self.lc10.categories = { "smg" }
+		self.lc10.recategorize = { "heavy_smg" }
+		self.lc10.damage_type = "machine_gun"
+		self.lc10.fire_mode_data.fire_rate = 0.075
+		self.lc10.CAN_TOGGLE_FIREMODE = true
+		self.lc10.CLIP_AMMO_MAX = 30
+		self.lc10.AMMO_MAX = 120
+		self.lc10.kick = self.stat_info.kick_tables.even_recoil
+		self.lc10.panic_suppression_chance = 0.05
+		self.lc10.supported = true
+		self.lc10.ads_speed = 0.200
+		self.lc10.damage_falloff = {
+			start_dist = 2000,
+			end_dist = 3500,
+			min_mult = 0.3
+		}
+		self.lc10.stats = {
+			damage = 30,
+			spread = 66,
+			recoil = 81,
+			spread_moving = 6,
+			zoom = 1,
+			concealment = 24,
+			suppression = 9,
+			alert_size = 2,
+			extra_ammo = 101,
+			total_ammo_mod = 200,
+			value = 9,
+			reload = 20
+		}
+		self.lc10.stats_modifiers = nil
+		self.lc10.panic_suppression_chance = 0.05
+		self.lc10.timers.reload_not_empty = 2.11
+		self.lc10.timers.reload_exit_not_empty = 0.72
+		self.lc10.timers.reload_empty = 2.48
+		self.lc10.timers.reload_exit_empty = 0.52
+	end
+
+	if self.t9british then --RJC9000 and PlayBONK's port of 3arc's absolute sin of an EM2
+		self.t9british.categories = { "assault_rifle" }
+		self.t9british.recategorize = { "dmr_ar" }
+		self.t9british.damage_type = "assault_rifle"
+		self.t9british.has_description = true
+		self.t9british.CLIP_AMMO_MAX = 20
+		self.t9british.AMMO_MAX = 80
+		self.t9british.fire_mode_data.fire_rate = 0.112149532
+		self.t9british.kick = {}
+		self.t9british.kick = self.stat_info.kick_tables.vertical_kick
+		self.t9british.supported = true
+		self.t9british.ads_speed = 0.380
+		self.t9british.damage_falloff = {
+			start_dist = 2500,
+			end_dist = 7000,
+			min_mult = 0.4
+		}	
+		self.t9british.stats = {
+			damage = 45,
+			spread = 86,
+			recoil = 81,
+			spread_moving = 5,
+			zoom = 1,
+			concealment = 22,
+			suppression = 8,
+			alert_size = 2,
+			extra_ammo = 101,
+			total_ammo_mod = 200,
+			value = 1,
+			reload = 20
+		}
+		self.t9british.stats_modifiers = nil
+		self.t9british.is_bullpup = true
+		self.t9british.panic_suppression_chance = 0.05
+		self.t9british.sounds.use_fix = nil
+		self.t9british.timers.reload_empty = 3.1
+		self.t9british.timers.reload_exit_empty = 0.65
+		self.t9british.timers.reload_not_empty = 2.1
+		self.t9british.timers.reload_exit_not_empty = 0.75
+		self.t9british.lock_slide = true
+		self.t9british.sounds.magazine_empty = "wp_rifle_slide_lock"
+	end
+
 	if self.t9fastburst then --RJC9000 and PlayBONK's port of 3arc's absolute sin of a G11
 		self.t9fastburst.categories = { "assault_rifle" }
 		self.t9fastburst.recategorize = { "heavy_ar" }
@@ -16830,6 +16957,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			reload = 20
 		}
 		self.t9fastburst.stats_modifiers = nil
+		self.t9fastburst.is_bullpup = true
 		self.t9fastburst.panic_suppression_chance = 0.05
 		self.t9fastburst.sounds.fire = "t9fastburst_fire"
 		self.t9fastburst.sounds.fire_single = "t9fastburst_fire"
@@ -16839,6 +16967,96 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.t9fastburst.timers.reload_exit_empty = 0.9
 		self.t9fastburst.timers.reload_not_empty = 2.31
 		self.t9fastburst.timers.reload_exit_not_empty = 0.8
+	end
+
+	if self.stoner63a then --RJC9000 and PlayBONK's BOCW Stoner 63A LMG
+		self.stoner63a.recategorize = { "light_mg" }
+		self.stoner63a.categories = {
+			"lmg",
+			"smg"
+		}
+		self.stoner63a.damage_type = "machine_gun"
+		self.stoner63a.CLIP_AMMO_MAX = 75
+		self.stoner63a.BURST_FIRE = false
+		self.stoner63a.CAN_TOGGLE_FIREMODE = false
+		self.stoner63a.fire_mode_data.fire_rate = 0.0829875
+		self.stoner63a.AMMO_MAX = 300
+		self.stoner63a.kick = self.stat_info.kick_tables.horizontal_right_recoil_mg
+		self.stoner63a.always_use_standing = true
+		self.stoner63a.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+		self.stoner63a.supported = true
+		self.stoner63a.ads_speed = 0.400
+		self.stoner63a.damage_falloff = {
+			start_dist = 2100,
+			end_dist = 6800,
+			min_mult = 0.4166
+		}
+		self.stoner63a.stats = {
+			damage = 24,
+			spread = 61,
+			recoil = 79,
+			spread_moving = 5,
+			zoom = 1,
+			concealment = 19,
+			suppression = 8,
+			alert_size = 2,
+			extra_ammo = 101,
+			total_ammo_mod = 200,
+			value = 9,
+			reload = 20
+		}
+		self.stoner63a.stats_modifiers = nil
+		self.stoner63a.panic_suppression_chance = 0.05
+		self.stoner63a.sounds.spin_start = "wp_m60_reload_lever_release"
+		self.stoner63a.spin_up_shoot = true
+		self.stoner63a.spin_up_t = 0.07
+		self.stoner63a.spin_down_t = 0.00000001
+		self.stoner63a.reload_speed_multiplier = 0.98
+		self.stoner63a.sms = sms_preset.lmg_48
+		self.stoner63a.weapon_movement_penalty = sms_preset.lmg_48
+		self.stoner63a.timers.equip = 1.2
+		self.stoner63a.timers.reload_exit_empty = 0.42
+		self.stoner63a.timers.reload_empty = 6.95
+		self.stoner63a.timers.reload_exit_not_empty = 0.42
+		self.stoner63a.timers.reload_not_empty = 6.95
+	end
+
+	if self.stoner63a_rifle then --RJC9000 and PlayBONK's Stoner 63A AR (WIP)
+		self.stoner63a_rifle.recategorize = { "light_ar" }
+		self.stoner63a_rifle.damage_type = "assault_rifle"
+		self.stoner63a_rifle.CLIP_AMMO_MAX = 30
+		self.stoner63a_rifle.BURST_FIRE = false
+		self.stoner63a_rifle.CAN_TOGGLE_FIREMODE = false
+		self.stoner63a_rifle.fire_mode_data.fire_rate = 0.06666666
+		self.stoner63a_rifle.AMMO_MAX = 150
+		self.stoner63a_rifle.kick = self.stat_info.kick_tables.horizontal_recoil
+		self.stoner63a_rifle.supported = true
+		self.stoner63a_rifle.ads_speed = 0.340
+		self.stoner63a_rifle.damage_falloff = {
+			start_dist = 1700,
+			end_dist = 6500,
+			min_mult = 0.4166
+		}
+		self.stoner63a_rifle.stats = {
+			damage = 24,
+			spread = 71,
+			recoil = 75,
+			spread_moving = 5,
+			zoom = 1,
+			concealment = 21,
+			suppression = 8,
+			alert_size = 2,
+			extra_ammo = 101,
+			total_ammo_mod = 200,
+			value = 9,
+			reload = 20
+		}
+		self.stoner63a_rifle.stats_modifiers = nil
+		self.stoner63a_rifle.panic_suppression_chance = 0.05
+		self.stoner63a_rifle.timers.reload_not_empty = 2.01
+		self.stoner63a_rifle.timers.reload_exit_not_empty = 0.8
+		self.stoner63a_rifle.timers.reload_empty = 3.23
+		self.stoner63a_rifle.timers.reload_exit_empty = 0.8
 	end
 
 	if self.malorian_3516 then --RJC9000 and PlayBONK's 2077 Silverhand
@@ -17204,92 +17422,6 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.vk78_commando.timers.reload_not_empty = 1.75
 	end
 
-	if self.stoner63a then --RJC9000 and PlayBONK's Stoner 63A LMG (WIP)
-		self.stoner63a.recategorize = { "light_mg" }
-		self.stoner63a.categories = {
-			"lmg",
-			"smg"
-		}
-		self.stoner63a.damage_type = "machine_gun"
-		self.stoner63a.CLIP_AMMO_MAX = 100
-		self.stoner63a.BURST_FIRE = false
-		self.stoner63a.CAN_TOGGLE_FIREMODE = false
-		self.stoner63a.fire_mode_data.fire_rate = 0.08
-		self.stoner63a.AMMO_MAX = 300
-		self.stoner63a.kick = self.stat_info.kick_tables.even_recoil
-		self.stoner63a.always_use_standing = true
-		self.stoner63a.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
-		self.stoner63a.supported = true
-		self.stoner63a.ads_speed = 0.480
-		self.stoner63a.damage_falloff = {
-			start_dist = 2100,
-			end_dist = 6800,
-			min_mult = 0.4166
-		}
-		self.stoner63a.stats = {
-			damage = 24,
-			spread = 61,
-			recoil = 71,
-			spread_moving = 5,
-			zoom = 1,
-			concealment = 19,
-			suppression = 8,
-			alert_size = 2,
-			extra_ammo = 101,
-			total_ammo_mod = 200,
-			value = 9,
-			reload = 20
-		}
-		self.stoner63a.stats_modifiers = nil
-		self.stoner63a.panic_suppression_chance = 0.05
-		self.stoner63a.sounds.spin_start = "wp_m60_reload_lever_release"
-		self.stoner63a.spin_up_shoot = true
-		self.stoner63a.spin_up_t = 0.07
-		self.stoner63a.spin_down_t = 0.00000001
-		self.stoner63a.reload_speed_multiplier = 0.98
-		self.stoner63a.sms = sms_preset.lmg_48
-		self.stoner63a.weapon_movement_penalty = sms_preset.lmg_48
-		self.stoner63a.timers.equip = 1.2
-		self.stoner63a.timers.reload_exit_empty = 0.42
-		self.stoner63a.timers.reload_empty = 6.95
-		self.stoner63a.timers.reload_exit_not_empty = 0.42
-		self.stoner63a.timers.reload_not_empty = 6.95
-	end
-
-	if self.stoner63a_rifle then --RJC9000 and PlayBONK's Stoner 63A AR (WIP)
-		self.stoner63a_rifle.recategorize = { "light_ar" }
-		self.stoner63a_rifle.damage_type = "assault_rifle"
-		self.stoner63a_rifle.CLIP_AMMO_MAX = 30
-		self.stoner63a_rifle.BURST_FIRE = false
-		self.stoner63a_rifle.CAN_TOGGLE_FIREMODE = false
-		self.stoner63a_rifle.fire_mode_data.fire_rate = 0.06666666
-		self.stoner63a_rifle.AMMO_MAX = 150
-		self.stoner63a_rifle.kick = self.stat_info.kick_tables.even_recoil
-		self.stoner63a_rifle.supported = true
-		self.stoner63a_rifle.ads_speed = 0.320
-		self.stoner63a_rifle.damage_falloff = {
-			start_dist = 2000,
-			end_dist = 6500,
-			min_mult = 0.4166
-		}
-		self.stoner63a_rifle.stats = {
-			damage = 24,
-			spread = 71,
-			recoil = 77,
-			spread_moving = 5,
-			zoom = 1,
-			concealment = 22,
-			suppression = 8,
-			alert_size = 2,
-			extra_ammo = 101,
-			total_ammo_mod = 200,
-			value = 9,
-			reload = 20
-		}
-		self.stoner63a_rifle.stats_modifiers = nil
-		self.stoner63a_rifle.panic_suppression_chance = 0.05
-	end
-
 	if self.srs99_s7 then --RJC9000's Halo Infinite SRS99-S7 AMR
 		self.srs99_s7.categories = {
 			"snp",
@@ -17333,9 +17465,9 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.srs99_s7.timers.reload_exit_not_empty = 0.75
 	end
 
-	if self.br55 then --RJC9000's PD3 GM6 Lynx
+	if self.br55 then --RJC9000's Halo BR55
 		self.br55.recategorize = { "dmr_ar" }
-		self.br55.damage_type = "sniper"
+		self.br55.damage_type = "assault_rifle"
 		self.br55.is_bullpup = true
 		self.br55.upgrade_blocks = nil
 		self.br55.CLIP_AMMO_MAX = 36
@@ -18805,7 +18937,7 @@ function WeaponTweakData:calculate_ammo_pickup(weapon)
 	local category_pickup_muls = { --Different gun categories have different pickup mults to compensate for various factors.
 		akimbo = 1.1,
 		pistol = 1.25, --Compensate for low range.
-		smg = 1.1,
+		smg = 1.125,
 			pdw = 0.675,
 			typh = 0.82,
 			lmg = 0.61,
