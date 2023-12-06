@@ -1148,17 +1148,7 @@ local grips = {
 					bullet_class = "PoisonBulletBase",
 					ammo_pickup_max_mul = per_pellet and 0.85 or 1,
 					ammo_pickup_min_mul = per_pellet and 0.85 or 1,
-					dot_data = { 
-						type = "poison",
-						custom_data = {
-							dot_damage = 1.5,
-							dot_length = 2.1,
-							dot_tick_period = 0.5,
-							use_weapon_damage_falloff = true,
-							duration_falloff_end_mult = 0.5,
-							hurt_animation_chance = 0.1
-						}
-					}
+					dot_data_name = "ammo_rip_auto"
 				}
 			},
 		
@@ -1174,17 +1164,7 @@ local grips = {
 					bullet_class = "PoisonBulletBase",
 					ammo_pickup_max_mul = per_pellet and 0.85 or 1,
 					ammo_pickup_min_mul = per_pellet and 0.85 or 1,
-					dot_data = { 
-						type = "poison",
-						custom_data = {
-							dot_damage = 1.5,
-							dot_length = 4.1,
-							dot_tick_period = 0.5,
-							use_weapon_damage_falloff = true,
-							duration_falloff_end_mult = 0.5,
-							hurt_animation_chance = 0.2
-						}
-					}
+					dot_data_name = "ammo_rip"
 				}
 			},
 	
@@ -1200,17 +1180,7 @@ local grips = {
 					bullet_class = "PoisonBulletBase",
 					ammo_pickup_max_mul = per_pellet and 0.85 or 1,
 					ammo_pickup_min_mul = per_pellet and 0.85 or 1,
-					dot_data = { 
-						type = "poison",
-						custom_data = {
-							dot_damage = 1.5,
-							dot_length = 6.1,
-							dot_tick_period = 0.5,
-							use_weapon_damage_falloff = true,
-							duration_falloff_end_mult = 0.5,
-							hurt_animation_chance = 0.3
-						}
-					}
+					dot_data_name = "ammo_rip_pump"
 				}
 			},
 	
@@ -1225,17 +1195,7 @@ local grips = {
 					bullet_class = "PoisonBulletBase",
 					ammo_pickup_max_mul = per_pellet and 0.85 or 1,
 					ammo_pickup_min_mul = per_pellet and 0.85 or 1,
-					dot_data = { 
-						type = "poison",
-						custom_data = {
-							dot_damage = 1.5,
-							dot_length = 8.1,
-							dot_tick_period = 0.5,
-							use_weapon_damage_falloff = true,
-							duration_falloff_end_mult = 0.5,
-							hurt_animation_chance = 0.40
-						}
-					}
+					dot_data_name = "ammo_rip_heavy"
 				}
 			},
 	
@@ -1261,12 +1221,7 @@ local grips = {
 					rays = 16,
 					trail_effect = "",
 					muzzleflash = "effects/payday2/particles/weapons/shotgun/sho_muzzleflash_dragons_breath",
-					fire_dot_data = {
-						dot_damage = 2.25,
-						dot_trigger_chance = 30,
-						dot_length = 2.1,
-						dot_tick_period = 0.5
-					}
+					dot_data_name = "ammo_dragons_breath_auto"
 				}
 			},
 	
@@ -1291,12 +1246,7 @@ local grips = {
 					rays = 16,
 					trail_effect = "",
 					muzzleflash = "effects/payday2/particles/weapons/shotgun/sho_muzzleflash_dragons_breath",
-					fire_dot_data = {
-						dot_damage = 3,
-						dot_trigger_chance = 40,
-						dot_length = 2.1,
-						dot_tick_period = 0.5
-					}
+					dot_data_name = "ammo_dragons_breath"
 				}
 			},
 	
@@ -1319,12 +1269,7 @@ local grips = {
 					rays = 16,
 					trail_effect = "",
 					muzzleflash = "effects/payday2/particles/weapons/shotgun/sho_muzzleflash_dragons_breath",
-					fire_dot_data = {
-						dot_damage = 3,
-						dot_trigger_chance = 40,
-						dot_length = 2.1,
-						dot_tick_period = 0.5
-					}
+					dot_data_name = "ammo_dragons_breath"
 				}
 			},
 	
@@ -1349,12 +1294,7 @@ local grips = {
 					rays = 16,
 					trail_effect = "",
 					muzzleflash = "effects/payday2/particles/weapons/shotgun/sho_muzzleflash_dragons_breath",
-					fire_dot_data = {
-						dot_damage = 4.5,
-						dot_trigger_chance = 50,
-						dot_length = 2.1,
-						dot_tick_period = 0.5
-					}
+					dot_data_name = "ammo_dragons_breath_pump"
 				}
 			},
 	
@@ -1376,12 +1316,7 @@ local grips = {
 					rays = 16,
 					trail_effect = "",
 					muzzleflash = "effects/payday2/particles/weapons/shotgun/sho_muzzleflash_dragons_breath",
-					fire_dot_data = {
-						dot_damage = 6,
-						dot_trigger_chance = 80,
-						dot_length = 2.1,
-						dot_tick_period = 0.5
-					}
+					dot_data_name = "ammo_dragons_breath_heavy"
 				}
 			},
 	
@@ -11340,15 +11275,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_mosin", "resmod_mosin", function(s
 			alt_desc = "bm_mosin_tranq_desc",
 			trail_effect = "_dmc/effects/warsaw_trail",
 			bullet_class = "PoisonBulletBase",
-			dot_data = { 
-				type = "poison",
-				custom_data = {
-					dot_damage = 1.5,
-					dot_length = 6.1,
-					dot_tick_period = 0.5,
-					hurt_animation_chance = 1
-				}
-			},
+			dot_data_name = "weapon_tranq_heavy",
 			can_shoot_through_enemy = false
 		}
 	}
@@ -12801,11 +12728,23 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_flamethrower_mk2", "resmod_flameth
 	self.parts.wpn_fps_fla_mk2_mag_rare.desc_id = "bm_wp_fla_mk2_mag_rare_desc_sc"
 	self.parts.wpn_fps_fla_mk2_mag_rare.has_description = true
 	self.parts.wpn_fps_fla_mk2_mag_rare.supported = true
-	self.parts.wpn_fps_fla_mk2_mag_rare.stats = {
-		value = 5
-	}
-	self.parts.wpn_fps_fla_mk2_mag_rare.custom_stats = {
-		use_rare_dot = true
+	self.parts.wpn_fps_fla_mk2_mag_rare.stats = { value = 5 }
+	self.parts.wpn_fps_fla_mk2_mag_rare.adds = { "wpn_fps_fla_mk2_ammo_rare" }
+	self.parts.wpn_fps_fla_mk2_ammo_rare = {
+		a_obj = "a_body",
+		type = "ammo",
+		third_unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		internal_part = true,
+		name_id = "bm_wp_upg_a_fla_mk2_ammo_rare",
+		unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		pcs = {},
+		stats = {
+			value = 0
+		},
+		custom_stats = {
+			bullet_class = "FlameBulletBase",
+			dot_data_name = "ammo_flamethrower_mk2_rare"
+		}
 	}
 
 	--Well Done
@@ -12819,11 +12758,23 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_flamethrower_mk2", "resmod_flameth
 	self.parts.wpn_fps_fla_mk2_mag_welldone.name_id = "bm_wp_fla_mk2_mag_welldone"
 	self.parts.wpn_fps_fla_mk2_mag_welldone.desc_id = "bm_wp_fla_mk2_mag_well_desc_sc"
 	self.parts.wpn_fps_fla_mk2_mag_welldone.supported = true
-	self.parts.wpn_fps_fla_mk2_mag_welldone.stats = {
-		value = 5
-	}
-	self.parts.wpn_fps_fla_mk2_mag_welldone.custom_stats = {
-		use_well_done_dot = true
+	self.parts.wpn_fps_fla_mk2_mag_welldone.stats = { value = 5 }
+	self.parts.wpn_fps_fla_mk2_mag_welldone.adds = { "wpn_fps_fla_mk2_ammo_welldone" }
+	self.parts.wpn_fps_fla_mk2_ammo_welldone = {
+		a_obj = "a_body",
+		type = "ammo",
+		third_unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		internal_part = true,
+		name_id = "bm_wp_upg_a_fla_mk2_ammo_welldone",
+		unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		pcs = {},
+		stats = {
+			value = 0
+		},
+		custom_stats = {
+			bullet_class = "FlameBulletBase",
+			dot_data_name = "ammo_flamethrower_mk2_welldone"
+		}
 	}
 	
 	--Part Additions
@@ -13168,15 +13119,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_plainsrider", "resmod_plainsrider"
 	self.parts.wpn_fps_upg_a_bow_poison.stats = {damage = -15}
 	self.parts.wpn_fps_upg_a_bow_poison.custom_stats = {
 		launcher_grenade = "bow_poison_arrow",
-		dot_data = {
-			type = "poison",
-			custom_data = {
-				dot_damage = 1.5,
-				dot_length = 6.1, 
-				dot_tick_period = 0.5,
-				hurt_animation_chance = 0.6
-			}
-		}
+		dot_data_name = "ammo_proj_bow"
 	}
 
 end)
@@ -13728,15 +13671,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_hunter", "resmod_hunter", function
 	self.parts.wpn_fps_upg_a_crossbow_poison.is_a_unlockable = true
 	self.parts.wpn_fps_upg_a_crossbow_poison.custom_stats = {
 		launcher_grenade = "crossbow_poison_arrow",
-		dot_data = {
-			type = "poison",
-			custom_data = {
-				dot_damage = 1.5,
-				dot_length = 6.1, 
-				dot_tick_period = 0.5,
-				hurt_animation_chance = 0.6
-			}
-		}
+		dot_data_name = "ammo_proj_crossbow"
 	}
 	
 	--Explosive Bolts
@@ -13857,15 +13792,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_arblast", "resmod_arblast", functi
 	self.parts.wpn_fps_bow_arblast_m_poison.stats = {damage = -30}
 	self.parts.wpn_fps_bow_arblast_m_poison.custom_stats = {
 		launcher_grenade = "arblast_poison_arrow",
-		dot_data = {
-			type = "poison",
-			custom_data = {
-				dot_damage = 1.5,
-				dot_length = 8.1, 
-				dot_tick_period = 0.5,
-				hurt_animation_chance = 0.8
-			}
-		}
+		dot_data_name = "ammo_proj_arblast"
 	}
 	
 	--Explosive Bolt
@@ -13896,15 +13823,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_frankish", "resmod_frankish", func
 	self.parts.wpn_fps_bow_frankish_m_poison.stats = {damage = -15}
 	self.parts.wpn_fps_bow_frankish_m_poison.custom_stats = {
 		launcher_grenade = "frankish_poison_arrow",
-		dot_data = {
-			type = "poison",
-			custom_data = {
-				dot_damage = 1.5,
-				dot_length = 6.1, 
-				dot_tick_period = 0.5,
-				hurt_animation_chance = 0.6
-			}
-		}
+		dot_data_name = "ammo_proj_frankish"
 	}
 	
 	--Explosive Bolt
@@ -13950,15 +13869,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_long", "resmod_long", function(sel
 	self.parts.wpn_fps_bow_long_m_poison.stats = {damage = -30}
 	self.parts.wpn_fps_bow_long_m_poison.custom_stats = {
 		launcher_grenade = "long_poison_arrow",
-		dot_data = {
-			type = "poison",
-			custom_data = {
-				dot_damage = 1.5,
-				dot_length = 8.1, 
-				dot_tick_period = 0.5,
-				hurt_animation_chance = 0.8
-			}
-		}
+		dot_data_name = "ammo_proj_long"
 	}
 
 end)
@@ -16243,15 +16154,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_ecp", "resmod_ecp", function(self)
 	self.parts.wpn_fps_bow_ecp_m_arrows_poison.stats = {damage = -15}
 	self.parts.wpn_fps_bow_ecp_m_arrows_poison.custom_stats = {
 		launcher_grenade = "ecp_arrow_poison",
-		dot_data = {
-			type = "poison",
-			custom_data = {
-				dot_damage = 1.5,
-				dot_length = 4.1, 
-				dot_tick_period = 0.5,
-				hurt_animation_chance = 0.4
-			}
-		}
+		dot_data_name = "ammo_proj_ecp"
 	}
 
 	self.wpn_fps_bow_ecp.override = self.wpn_fps_bow_ecp.override or {}
@@ -17130,15 +17033,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_elastic", "resmod_elastic", functi
 	self.parts.wpn_fps_bow_elastic_m_poison.stats = {damage = -30}
 	self.parts.wpn_fps_bow_elastic_m_poison.custom_stats = {
 		launcher_grenade = "elastic_arrow_poison",
-		dot_data = {
-			type = "poison",
-			custom_data = {
-				dot_damage = 1.5,
-				dot_length = 8.1, 
-				dot_tick_period = 0.5,
-				hurt_animation_chance = 0.8
-			}
-		}
+		dot_data_name = "ammo_proj_bow"
 	}
 
 end)
@@ -19311,17 +19206,9 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_maxim9", "resmod_maxim9", function
 			value = 0
 		},
 		custom_stats = {
-			bullet_class = "PoisonBulletBase",
 			trail_effect = "_dmc/effects/warsaw_trail",
-			dot_data = { 
-				type = "poison",
-				custom_data = {
-					dot_damage = 1.5,
-					dot_length = 2.1,
-					dot_tick_period = 0.5,
-					hurt_animation_chance = 0.2
-				}
-			}
+			bullet_class = "PoisonBulletBase",
+			dot_data_name = "weapon_tranq"
 		}
 	}
 
@@ -19339,17 +19226,9 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_maxim9", "resmod_maxim9", function
 		override = {
 			wpn_fps_pis_maxim9_a_tranq = {
 				custom_stats = {
-					bullet_class = "PoisonBulletBase",
 					trail_effect = "_dmc/effects/warsaw_trail",
-					dot_data = { 
-						type = "poison",
-						custom_data = {
-							dot_damage = 1.5,
-							dot_length = 1.1,
-							dot_tick_period = 0.5,
-							hurt_animation_chance = 0
-						}
-					}
+					bullet_class = "PoisonBulletBase",
+					dot_data_name = "weapon_tranq_light"
 				}
 			}
 		}
@@ -23579,9 +23458,6 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 
 			self.wpn_fps_ass_t9british_npc.override = deep_clone(self.wpn_fps_ass_t9british.override)
 			self.wpn_fps_ass_t9british_npc.uses_parts = deep_clone(self.wpn_fps_ass_t9british.uses_parts)
-
-	
-
 		end
 
 		if self.parts.wpn_fps_smg_lc10_gadget_mount then
@@ -24039,6 +23915,35 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.parts.wpn_fps_ass_stoner63a_rifle_magazine_xmag.custom_stats = {
 				ads_speed_mult = 0.9
 			}
+		end
+
+		if self.parts.wpn_fps_pis_bf2042_ayylmao_barrel_claude then
+
+			self.parts.wpn_fps_pis_bf2042_ayylmao_slide.supported = true
+			self.parts.wpn_fps_pis_bf2042_ayylmao_slide.adds = {}
+			self.parts.wpn_fps_pis_bf2042_ayylmao_slide.stats = { value = 0 }
+			self.parts.wpn_fps_pis_bf2042_ayylmao_slide.custom_stats = {}
+			self.parts.wpn_fps_pis_bf2042_ayylmao_magazine.supported = true
+			self.parts.wpn_fps_pis_bf2042_ayylmao_magazine.stats = { value = 0 }
+			self.parts.wpn_fps_pis_bf2042_ayylmao_magazine.custom_stats = {}
+
+			self.parts.wpn_fps_pis_bf2042_ayylmao_barrel_claude.supported = true
+			self.parts.wpn_fps_pis_bf2042_ayylmao_barrel_claude.stats = { value = 0 }
+			self.parts.wpn_fps_pis_bf2042_ayylmao_barrel_claude.custom_stats = {}
+
+			self.parts.wpn_fps_pis_bf2042_ayylmao_rd6.supported = true
+			self.parts.wpn_fps_pis_bf2042_ayylmao_rd6.stats = { value = 2, zoom = 1 }
+
+			self.parts.wpn_fps_pis_bf2042_ayylmao_suppressor.supported = true
+			self.parts.wpn_fps_pis_bf2042_ayylmao_suppressor.has_description = true
+			self.parts.wpn_fps_pis_bf2042_ayylmao_suppressor.desc_id = "bm_wp_upg_suppressor"
+			self.parts.wpn_fps_pis_bf2042_ayylmao_suppressor.stats = {
+				value = 2,
+				suppression = 12,
+				alert_size = -1
+			}
+			self.parts.wpn_fps_pis_bf2042_ayylmao_suppressor.custom_stats = nil
+			self.parts.wpn_fps_pis_bf2042_ayylmao_suppressor.perks = {"silencer"}
 
 		end
 
@@ -30927,12 +30832,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			ignore_statistic = true,
 			armor_piercing_add = 0.01,
 			trail_effect = "_dmc/effects/nato_trail",
-			fire_dot_data = {
-				dot_damage = 3,
-				dot_trigger_chance = 80,
-				dot_length = 2.1,
-				dot_tick_period = 0.5
-			}
+			dot_data_name = "ammo_dragons_breath"
 		}
 	end
 
@@ -31987,15 +31887,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		self.parts.wpn_fps_snp_sierra458_bush_switch.custom_stats = {
 			trail_effect = "_dmc/effects/warsaw_trail",
 			bullet_class = "PoisonBulletBase",
-			dot_data = { 
-				type = "poison",
-				custom_data = {
-					dot_damage = 1.5,
-					dot_length = 4.1,
-					dot_tick_period = 0.5,
-					hurt_animation_chance = 0.6
-				}
-			},
+			dot_data_name = "weapon_tranq_medium",
 			can_shoot_through_shield = false,
 			can_shoot_through_enemy = false
 		}

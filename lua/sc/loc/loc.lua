@@ -1888,9 +1888,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 		["bm_grenade_sticky_grenade"] = "Semtex Grenade",
 		["bm_grenade_sticky_grenade_desc"] = "Damage: #{risk}#800## \nRadius: #{skill_color}#4m## \nFuse: #{skill_color}#2.5s## \n\nThrowable explosive compound that will stick to most surfaces, including people!",
 		--Molotov
-		["bm_grenade_molotov_desc"] = "Damage (Fire Pool): #{heat_warm_color}#1200 over 10s##\nDamage (Burn): #{heat_warm_color}#60 over 3 seconds## \nRadius: #{skill_color}#3.75m## \nDuration (Fire Pool): #{skill_color}#10s## \nFuse: #{skill_color}#Impact detonation## \n- Has a #{skill_color}#50%## chance to #{heat_warm_color}#ignite## enemies, causing most to panic. \n \nA breakable bottle of flammable liquid with a burning rag. It is cheap, simple and highly effective. Burn it all down.",
+		["bm_grenade_molotov_desc"] = "Damage (Fire Pool): #{heat_warm_color}#1200 over 10s##\nDamage (Burn): #{heat_warm_color}#60 over 3s## \nDamage (Blast): #{heat_warm_color}#30## \nRadius (Fire Pool): #{skill_color}#3.75m## \nRadius (Blast): #{skill_color}#3m## \nFuse: #{skill_color}#Impact detonation## \n- Has a #{skill_color}#50%## chance to #{heat_warm_color}#ignite## enemies, causing most to panic. \n \nA breakable bottle of flammable liquid with a burning rag. It is cheap, simple and highly effective. Burn it all down.",
 		--Incendiary
-		["bm_grenade_fir_com_desc"] = "Damage (Fire Pool): #{heat_warm_color}#1440 over 12s##\nDamage (Burn): #{heat_warm_color}#60 over 3s## \nRadius: #{skill_color}#3.75m## \nDuration (Fire Pool): #{skill_color}#12s## \nFuse: #{skill_color}#2.5s## \n- #{skill_color}#50%## chance to #{heat_warm_color}#ignite## enemies, causing most to panic.\n\nA self igniting phosphorus container. Perfect for bouncing off walls and around corners towards your enemies.",
+		["bm_grenade_fir_com_desc"] = "Damage (Fire Pool): #{heat_warm_color}#1440 over 12s##\nDamage (Burn): #{heat_warm_color}#120 over 6s## \nDamage (Blast): #{heat_warm_color}#30## \nRadius (Fire Pool): #{skill_color}#3.75m## \nRadius (Blast): #{skill_color}#4.5m## \nFuse: #{skill_color}#2.5s## \n- #{skill_color}#50%## chance to #{heat_warm_color}#ignite## enemies, causing most to panic.\n\nA self igniting phosphorus container. Perfect for bouncing off walls and around corners towards your enemies.",
 		--Concussion
 		["bm_concussion_desc"] = "Radius: #{skill_color}#10m## \n- Stuns enemies for up to #{skill_color}#4s##\n- Enemy accuracy reduced by #{skill_color}#50%## for #{skill_color}#7s## \n- #{important_1}#Titan-Shields, Titan-Bulldozers and Captains are immune to its stunning effects## \n\nThis stunning little beauty will take everyone's breath away, giving you that extra moment to kill them.",
 		--Gas
@@ -4434,7 +4434,10 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		["mutator_grenade_mayhem_longdesc"] = "Non-Bravo enemies can now throw frag grenades.\n\nNote: Enemies with flamethrowers will use molotovs instead of frags; Cloakers will use tear gas instead of frags.",
 		
 		["mutator_captain_replace"] = "Everlasting Season",	
-		["menu_mutator_captain_replace"] = "Captain",
+		["menu_mutator_captain_replace_1"] = "Captain (Day 1)",
+		["menu_mutator_captain_replace_2"] = "Captain (Day 2)",
+		["menu_mutator_captain_replace_3"] = "Captain (Day 3)",
+		["menu_mutator_captain_replace_no_captain_override"] = "No Changes",
 		["menu_mutator_captain_replace_winter"] = "Winters",
 		["menu_mutator_captain_replace_autumn"] = "Autumn",
 		["menu_mutator_captain_replace_spring"] = "Spring",
@@ -4827,9 +4830,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 				["menu_discipline_sc"] = "Sharpshooter",
 				["menu_discipline_desc_sc"] = "BASIC: #{owned}#$basic##\n#{skill_color}#Rifles## gain #{skill_color}#2## stability.\n\nACE: #{owned}#$pro##\nLethal headshots using #{skill_color}#rifles## set to semi-auto or burst increase your rate of fire by #{skill_color}#20%## for #{skill_color}#10## seconds.",
 
-				--Rifleman
+				--Rifleman--
 				["menu_rifleman_sc"] = "Rifleman",
-				["menu_rifleman_desc_sc"] = "BASIC: #{owned}#$basic##\n#{skill_color}#Rifles## gain #{skill_color}#15%## more accuracy and range while aiming down sights.\n\nACE: #{owned}#$pro##\n#{skill_color}#Rifles## gain an additional #{skill_color}#15%## more accuracy and range while aiming down sights.",
+				["menu_rifleman_desc_sc"] = "BASIC: #{owned}#$basic##\n#{skill_color}#Rifles## gain #{skill_color}#$skill_value_b1## more accuracy and range while aiming down sights.\n\nACE: #{owned}#$pro##\n#{skill_color}#Rifles## gain an additional #{skill_color}#$skill_value_p1## more accuracy and range while aiming down sights.\n\nYour aim down sights and sprint-to-fire speeds for #{skill_color}#rifles## are #{skill_color}#$skill_value_p2## faster.",
 
 				--Kilmer--
 				["menu_heavy_impact_beta_sc"] = "Kilmer",
@@ -4839,7 +4842,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 				["menu_single_shot_ammo_return_sc"] = "Ammo Efficiency",
 				["menu_single_shot_ammo_return_desc_sc"] = "BASIC: #{owned}#$basic##\nGetting #{skill_color}#3## lethal headshots with #{skill_color}#rifles## in less than #{skill_color}#8## seconds will grant #{skill_color}#3%## of your total ammo, to a minimum of #{skill_color}#1## round, back to the weapon.\n\nACE: #{owned}#$pro##\nThe effect is now triggered upon landing #{skill_color}#2## lethal headshots within #{skill_color}#12## seconds of each other.",
 
-				--Aggressive Reload
+				--Aggressive Reload--
 				["menu_engineering_beta_sc"] = "Aggressive Reload",
 				["menu_engineering_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nLethal headshots using #{skill_color}#rifles## set to semi-auto or burst will increase your reload speed by #{skill_color}#25%## for #{skill_color}#10## seconds.\n\nACE: #{owned}#$pro##\nThe reload speed bonus increases to #{skill_color}#50%## and can be triggered regardless of fire mode.",
 
@@ -4901,54 +4904,54 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 			--[[   SILENT KILLER SUBTREE   ]]--
 				--Second Wind
 				["menu_scavenger_beta_sc"] = "Second Wind",
-				["menu_scavenger_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nWhen your armor breaks you gain #{skill_color}#10%## speed for #{skill_color}#3## seconds.\n\nACE: #{owned}#$pro##\nWhen your armor is fully depleted, the first shot on every enemy will stagger them.\n\nThis effect persists for #{skill_color}#3## seconds after your armor has regenerated.",
+				["menu_scavenger_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nWhen your armor breaks you gain #{skill_color}#$skill_value_b1## speed for #{skill_color}#$skill_value_b2## seconds.\n\nACE: #{owned}#$pro##\nWhen your armor is fully depleted, the first shot on every enemy will stagger them.\n\nThis effect persists for #{skill_color}#$skill_value_p1## seconds after your armor has regenerated.",
 
 				--Optical Illusions--
 				["menu_optic_illusions_sc"] = "Optical Illusions",
-				["menu_optic_illusions_desc_sc"] = "BASIC: #{owned}#$basic##\nYou draw and holster weapons #{skill_color}#15%## faster.\n\nACE: #{owned}#$pro##\nIncreases the mobility of all guns by #{skill_color}#2.##",
+				["menu_optic_illusions_desc_sc"] = "BASIC: #{owned}#$basic##\nYou draw and holster weapons #{skill_color}#$skill_value_b1## faster.\n\nACE: #{owned}#$pro##\nIncreases the mobility of all guns by #{skill_color}#$skill_value_p1.##",
 
 				--The Professional--
 				["menu_silence_expert_beta_sc"] = "The Professional",
-				["menu_silence_expert_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nYour aim down sights and sprint-to-fire speeds are #{skill_color}#5%## faster.\n\nACE: #{owned}#$pro##\nYour aim down sights and sprint-to-fire speeds are an additional #{skill_color}#10%## faster.\n\nKilling special and elite enemies with non-explosive ranged weapons will make them #{skill_color}#drop an extra ammo box.##",
+				["menu_silence_expert_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nYour aim down sights and sprint-to-fire speeds are #{skill_color}#$skill_value_b1## faster.\n\nACE: #{owned}#$pro##\nYour aim down sights and sprint-to-fire speeds are an additional #{skill_color}#$skill_value_p1## faster.\n\nKilling special and elite enemies with non-explosive ranged weapons will make them #{skill_color}#drop an extra ammo box.##",
 
 				--Unseen Strike, formally Dire Need--
 				["menu_backstab_beta_sc"] = "Unseen Strike",
-				["menu_backstab_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nIf you do not take damage for #{skill_color}#3## seconds, you gain a #{skill_color}#15%## critical hit chance until you take damage.\n\nCritical hits deal #{skill_color}#50%## additional damage.\n\nACE: #{owned}#$pro##\nUnseen Strike's critical hit chance persists for #{skill_color}#4## seconds after taking damage.",
+				["menu_backstab_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nIf you do not take damage for #{skill_color}#$skill_value_b1## seconds, you gain a #{skill_color}#$skill_value_b2## critical hit chance until you take damage.\n\nCritical hits deal #{skill_color}#50%## additional damage.\n\nACE: #{owned}#$pro##\nUnseen Strike's critical hit chance persists for #{skill_color}#$skill_value_p1## seconds after taking damage.",
 
 				--Cleaner--
 				["menu_hitman_beta_sc"] = "Cleaner",
-				["menu_hitman_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nYou deal #{skill_color}#10%## more damage to special and elite enemies.\n\n#{risk}#NOTE: Does not apply to## #{important_1}#launchers.##\n\nACE: #{owned}#$pro##\nYou deal an additional #{skill_color}#15%## more damage to special and elite enemies.\n\nKilling an enemy with a headshot fills your dodge meter by #{skill_color}#12.5%## of your dodge.\n\nKilling an enemy from behind fills your dodge meter by #{skill_color}#75%## of your dodge; stacks in addition to dodge given through headshot kills.\n\n#{risk}#NOTE: Kills using## #{important_1}#explosives, fire or damage-over-time effects## #{risk}#will not grant you dodge.##\n ",
+				["menu_hitman_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nYou deal #{skill_color}#$skill_value_b1## more damage to special and elite enemies.\n\n#{risk}#NOTE: Does not apply to## #{important_1}#launchers.##\n\nACE: #{owned}#$pro##\nYou deal an additional #{skill_color}#$skill_value_p1## more damage to special and elite enemies.\n\nKilling an enemy with a headshot fills your dodge meter by #{skill_color}#$skill_value_p2## of your dodge.\n\nKilling an enemy from behind fills your dodge meter by #{skill_color}#$skill_value_p3## of your dodge; stacks in addition to dodge given through headshot kills.\n\n#{risk}#NOTE: Kills using## #{important_1}#explosives, fire or damage-over-time effects## #{risk}#will not grant you dodge.##\n ",
 
 				--Low Blow--
 				["menu_unseen_strike_beta_sc"] = "Low Blow",
-				["menu_unseen_strike_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nYou gain a #{skill_color}#3%## critical hit chance for every #{risk}#2## points of encumbrance under #{risk}#30##, up to a maximum of #{skill_color}#30%.##\n\nCritical hits deal #{skill_color}#50%## additional damage.\n\nACE: #{owned}#$pro##\nYou gain a #{skill_color}#3%## critical hit chance for every #{risk}#1## point of encumbrance under #{risk}#30##, up to a maximum of #{skill_color}#30%.##\n\nYour critical hit chance is increased by an additional #{skill_color}#50%## when attacking enemies from behind with guns or melee.",
+				["menu_unseen_strike_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nYou gain a #{skill_color}#$skill_value_b1## critical hit chance for every #{risk}#$skill_value_b2## points of encumbrance under #{risk}#$skill_value_b3##, up to a maximum of #{skill_color}#$skill_value_b4.##\n\nCritical hits deal #{skill_color}#50%## additional damage.\n\nACE: #{owned}#$pro##\nYou gain a #{skill_color}#$skill_value_p1## critical hit chance for every #{risk}#$skill_value_p2## point of encumbrance under #{risk}#$skill_value_p3##, up to a maximum of #{skill_color}#$skill_value_p4.##\n\nYour critical hit chance is increased by an additional #{skill_color}#$skill_value_p5## when attacking enemies from behind with guns or melee.",
 
 		--[[   FUGITIVE   ]]--
 
 			--[[   GUNSLINGER SUBTREE   ]]--
 				--Equilibrium--
 				["menu_equilibrium_beta_sc"] = "Equilibrium",
-				["menu_equilibrium_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nYou and your crew's weapon stability with #{skill_color}#pistols## is increased by #{skill_color}#2.##\n\nACE: #{owned}#$pro##\n#{skill_color}#Pistols## are drawn and holstered #{skill_color}#100%## faster.",
+				["menu_equilibrium_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nYou and your crew's weapon stability with #{skill_color}#pistols## is increased by #{skill_color}#$skill_value_b1.##\n\nACE: #{owned}#$pro##\n#{skill_color}#Pistols## are drawn and holstered #{skill_color}#$skill_value_p1## faster.",
 
 				--Gun Nut--
 				["menu_dance_instructor_sc"] = "Gun Nut",
-				["menu_dance_instructor_desc_sc"] = "BASIC: #{owned}#$basic##\nTightens the hipfire accuracy of #{skill_color}#pistols## by #{skill_color}#20%.##\n\nACE: #{owned}#$pro##\n#{skill_color}#Pistols## fire #{skill_color}#15%## faster.\n\n#{skill_color}#Pistols## deal #{skill_color}#100%## of their damage through armor.",
+				["menu_dance_instructor_desc_sc"] = "BASIC: #{owned}#$basic##\nTightens the hipfire accuracy of #{skill_color}#pistols## by #{skill_color}#$skill_value_b1.##\n\nACE: #{owned}#$pro##\n#{skill_color}#Pistols## fire #{skill_color}#$skill_value_p1## faster.\n\n#{skill_color}#Pistols## deal #{skill_color}#$skill_value_p2## of their damage through armor.",
 
 				--Over Pressurized/Gunfighter--
 				["menu_gun_fighter_sc"] = "Gunfighter",
-				["menu_gun_fighter_desc_sc"] = "BASIC: #{owned}#$basic##\n#{skill_color}#Pistols## reload #{skill_color}#5%## faster.\n\nThe movement penalty to accuracy is reduced by #{skill_color}#40%## for #{skill_color}#pistols.##\n\nThe movement penalty to accuracy is determined by stability.\n\nACE: #{owned}#$pro##\n#{skill_color}#Pistols## reload an additional #{skill_color}#25%## faster.",
+				["menu_gun_fighter_desc_sc"] = "BASIC: #{owned}#$basic##\n#{skill_color}#Pistols## reload #{skill_color}#$skill_value_b1## faster.\n\nThe movement penalty to accuracy is reduced by #{skill_color}#$skill_value_b2## for #{skill_color}#pistols.##\n\nThe movement penalty to accuracy is determined by stability.\n\nACE: #{owned}#$pro##\n#{skill_color}#Pistols## reload an additional #{skill_color}#$skill_value_p1## faster.",
 
 				--Akimbo--
 				["menu_akimbo_skill_sc"] = "Akimbo",
-				["menu_akimbo_skill_desc_sc"] = "BASIC: #{owned}#$basic##\n#{skill_color}#Akimbo## weapons gain #{skill_color}#10## stability.\n\nACE: #{owned}#$pro##\n#{skill_color}#Akimbo## weapons gain #{skill_color}#10## accuracy.",
+				["menu_akimbo_skill_desc_sc"] = "BASIC: #{owned}#$basic##\n#{skill_color}#Akimbo## weapons gain #{skill_color}#$skill_value_b1## stability.\n\nACE: #{owned}#$pro##\n#{skill_color}#Akimbo## weapons gain #{skill_color}#$skill_value_p1## accuracy.",
 
 				--Desperado--
 				["menu_expert_handling_sc"] = "Desperado",
-				["menu_expert_handling_desc_sc"] = "BASIC: #{owned}#$basic##\nHeadshots with #{skill_color}#pistols## grants them a #{skill_color}#8%## accuracy and range boost for #{skill_color}#4## seconds.\n\nThis effect can stack #{skill_color}#5## times; the duration of each stack is refreshed with each headshot.\n\nACE: #{owned}#$pro##\nIncreases the accuracy and range boost duration by an additional #{skill_color}#4## seconds.",
+				["menu_expert_handling_desc_sc"] = "BASIC: #{owned}#$basic##\nHeadshots with #{skill_color}#pistols## grants them an #{skill_color}#$skill_value_b1## accuracy and range boost for #{skill_color}#$skill_value_b2## seconds.\n\nThis effect can stack #{skill_color}#$skill_value_b3## times; the duration of each stack is refreshed with each headshot.\n\nACE: #{owned}#$pro##\nIncreases the accuracy and range boost duration by an additional #{skill_color}#$skill_value_p1## seconds.",
 
 				--Trigger Happy--
 				["menu_trigger_happy_beta_sc"] = "Trigger Happy",
-				["menu_trigger_happy_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nHeadshots with #{skill_color}#pistols## grants them a #{skill_color}#5%## damage boost for #{skill_color}#4## seconds.\n\nThis effect can stack #{skill_color}#5## times; the duration of each stack is refreshed with each headshot.\n\nACE: #{owned}#$pro##\nIncreases the damage boost duration by an additional #{skill_color}#4## seconds and the maximum stack count by an additional #{skill_color}#5## more times.",
+				["menu_trigger_happy_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nHeadshots with #{skill_color}#pistols## grants them a #{skill_color}#$skill_value_b1## damage boost for #{skill_color}#$skill_value_b2## seconds.\n\nThis effect can stack #{skill_color}#$skill_value_b3## times; the duration of each stack is refreshed with each headshot.\n\nACE: #{owned}#$pro##\nIncreases the damage boost duration by an additional #{skill_color}#$skill_value_p1## seconds and the maximum stack count by an additional #{skill_color}#$skill_value_p2## more times.",
 
 			--[[   REVENANT SUBTREE   ]]--
 				--Running From Death--
@@ -5175,9 +5178,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Perk_Decks", function(
 
 		--Yakuza--
 		["menu_deck12_1_desc_sc"] = "The lower your health, the faster your dodge meter will passively fill up.\n\nWhen your health is below ##100%##, your dodge meter fills by up to ##10%## of your dodge every second.\n\nYour dodge is increased by ##5## points.",
-		["menu_deck12_3_desc_sc"] = "The lower your health, the more your dodge meter is filled when you kill an enemy.\n\nWhen your health is below ##100%##, your meter fills by up to ##50%## of your dodge.",
+		["menu_deck12_3_desc_sc"] = "The lower your health, the more your dodge meter is filled when you kill an enemy.\n\nWhen your health is below ##100%##, your meter fills by up to ##50%## of your dodge when you kill an enemy.",
 		["menu_deck12_5_desc_sc"] = "The lower your health, the less damage you take. When your health is below ##100%##, you will take up to ##20%## less damage.\n\nYou bag corpses and interact with hostages ##75%## faster.",
-		["menu_deck12_7_desc_sc"] = "The lower your health, the more your effective your dodge becomes when you kill an enemy using melee.\n\nWhen your health is below ##100%##, melee kills fill your meter by up to ##125%## of your dodge as well as increasing the grace period of your next dodge by up to ##300%##, to a maximum of ##900ms.##\n\nYour dodge is increased by an additional ##5## points.",
+		["menu_deck12_7_desc_sc"] = "The lower your health, the more your effective your dodge becomes when you kill an enemy using melee.\n\nWhen your health is below ##100%##, melee kills fill your meter by up to ##50%## of your dodge, stacking with the effects of Hebi Irezumi (Card 3) as well as increasing the grace period of your next dodge by up to ##150%##, to a maximum of ##900ms.##\n\nYour dodge is increased by an additional ##5## points.",
 		["menu_deck12_9_desc_sc"] = "The maximum amount of deflection you can gain is raised to #{skill_color}#80%.##\n\nOnce per down, if you would be downed you instead survive with ##1## health and you regain ##50## armor.\n\n#{risk}#NOTE: This effect does not apply to, nor is it refreshed by, going down by cloaker kicks and taser shocks.##\n\nDeck Completion Bonus: Your chance of getting a higher quality item during a PAYDAY is increased by #{skill_color}#10%.##",
 		["menu_yakuza_deflection_add"] = "(Boosted by Yakuza)",
 

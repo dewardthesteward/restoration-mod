@@ -17,14 +17,16 @@ MutatorCaptainReplacer.icon_coords = {
 }
 
 function MutatorCaptainReplacer:register_values(mutator_manager)
-	self:register_value("captain_replace", "winter", "cr")
+	self:register_value("captain_replace_1", "winter", "cr1")
+	self:register_value("captain_replace_2", "winter", "cr2")
+	self:register_value("captain_replace_3", "winter", "cr3")
 end
 
 function MutatorCaptainReplacer:name(lobby_data)
 	local name = MutatorCaptainReplacer.super.name(self)
 
-	if self:_mutate_name("captain_replace") then
-		return string.format("%s - %s", name, managers.localization:text("menu_mutator_captain_replace_" .. tostring(self:value("captain_replace"))))
+	if self:_mutate_name("captain_replace_1") or self:_mutate_name("captain_replace_2") or self:_mutate_name("captain_replace_3") then
+		return string.format("%s - %s", name, managers.localization:text("menu_mutator_captain_replace_" .. tostring(self:get_captain_override())))
 	else
 		return name
 	end
@@ -52,17 +54,18 @@ end
 function MutatorCaptainReplacer:setup()
 	local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 	local difficulty_index = tweak_data:difficulty_to_index(difficulty)
+	
 	local winter_preset = nil
 	local spring_preset = nil
 	local summer_preset = nil
 	local autumn_preset = nil
 	local spooky_preset = nil
 	local new_captain = self:get_captain_override()
-	
+	if new_captain ~= "no_captain_override" then
 	--Winters 
 	if difficulty_index <= 5 then
 		winter_preset = {
-			amount = {5, 5},
+			amount = 5,
 			force = true,
 			spawn = {
 				{
@@ -85,7 +88,7 @@ function MutatorCaptainReplacer:setup()
 		}	
 	elseif difficulty_index == 6 then
 		winter_preset = {
-			amount = {6, 6},
+			amount = 6,
 			force = true,
 			spawn = {
 				{
@@ -108,7 +111,7 @@ function MutatorCaptainReplacer:setup()
 		}
 	elseif difficulty_index == 7 then
 		winter_preset = {
-			amount = {8, 8},
+			amount = 8,
 			force = true,
 			spawn = {
 				{
@@ -139,7 +142,7 @@ function MutatorCaptainReplacer:setup()
 		}
 	else
 		winter_preset = {
-			amount = {10, 10},
+			amount = 10,
 			force = true,
 			spawn = {
 				{
@@ -173,7 +176,7 @@ function MutatorCaptainReplacer:setup()
 	--Captain Spring
 	if difficulty_index <= 5 then
 		spring_preset = {
-			amount = {1, 1},
+			amount = 1,
 			force = true,
 			spawn = {
 				{
@@ -188,7 +191,7 @@ function MutatorCaptainReplacer:setup()
 		}	
 	elseif difficulty_index == 6 then
 		spring_preset = {
-			amount = {3, 3},
+			amount = 3,
 			force = true,
 			spawn = {
 				{
@@ -211,7 +214,7 @@ function MutatorCaptainReplacer:setup()
 		}
 	elseif difficulty_index == 7 then	
 		spring_preset = {
-			amount = {5, 5},
+			amount = 5,
 			force = true,
 			spawn = {
 				{
@@ -242,7 +245,7 @@ function MutatorCaptainReplacer:setup()
 		}
 	else
 		spring_preset = {
-			amount = {7, 7},
+			amount = 7,
 			force = true,
 			spawn = {
 				{
@@ -276,7 +279,7 @@ function MutatorCaptainReplacer:setup()
 	--HVH boss
 	if difficulty_index <= 5 then
 		spooky_preset = {
-			amount = {1, 1},
+			amount = 1,
 			force = true,
 			spawn = {
 				{
@@ -291,7 +294,7 @@ function MutatorCaptainReplacer:setup()
 		}	
 	elseif difficulty_index == 6 then
 		spooky_preset = {
-			amount = {3, 3},
+			amount = 3,
 			force = true,
 			spawn = {
 				{
@@ -314,7 +317,7 @@ function MutatorCaptainReplacer:setup()
 		}
 	elseif difficulty_index == 7 then
 		spooky_preset = {
-			amount = {5, 5},
+			amount = 5,
 			force = true,
 			spawn = {
 				{
@@ -345,7 +348,7 @@ function MutatorCaptainReplacer:setup()
 		}	
 	else
 		spooky_preset = {
-			amount = {7, 7},
+			amount = 7,
 			force = true,
 			spawn = {
 				{
@@ -379,7 +382,7 @@ function MutatorCaptainReplacer:setup()
 	--Captain Autumn 
 	if difficulty_index <= 5 then
 		autumn_preset = {
-			amount = {1, 1},
+			amount = 1,
 			force = true,
 			spawn = {
 				{
@@ -393,8 +396,8 @@ function MutatorCaptainReplacer:setup()
 			}
 		}
 	elseif difficulty_index == 6 then
-		spooky_preset = {
-			amount = {3, 3},
+		autumn_preset = {
+			amount = 3,
 			force = true,
 			spawn = {
 				{
@@ -416,8 +419,8 @@ function MutatorCaptainReplacer:setup()
 			}
 		}	
 	elseif difficulty_index == 7 then
-		spooky_preset = {
-			amount = {4, 4},
+		autumn_preset = {
+			amount = 4,
 			force = true,
 			spawn = {
 				{
@@ -439,8 +442,8 @@ function MutatorCaptainReplacer:setup()
 			}
 		}	
 	else
-		spooky_preset = {
-			amount = {5, 5},
+		autumn_preset = {
+			amount = 5,
 			force = true,
 			spawn = {
 				{
@@ -465,7 +468,7 @@ function MutatorCaptainReplacer:setup()
 	
 	--Captain Summers 
 	summer_preset = {
-		amount = {4, 4},
+		amount = 4,
 		force = true,
 		spawn = {
 			{
@@ -520,21 +523,42 @@ function MutatorCaptainReplacer:setup()
 	tweak_data.group_ai.enemy_spawn_groups.HVH_Boss = new_captain
 	tweak_data.group_ai.enemy_spawn_groups.Cap_Autumn = new_captain
 	tweak_data.group_ai.enemy_spawn_groups.Cap_Summers = new_captain
+	tweak_data.group_ai.enemy_spawn_groups.Fake_Captain = new_captain
+	tweak_data.group_ai.besiege.assault.groups.Fake_Captain = {0, 0.2, 0.3}
+	if new_captain == "autumn" then
+		tweak_data.group_ai.besiege.group_constraints.Fake_Captain.cooldown = tweak_data.group_ai.besiege.group_constraints.Fake_Captain.cooldown / 2
+	end
+	
+	end
 end
 
-function MutatorCaptainReplacer:get_captain_override()
-	return self:value("captain_replace")
+function MutatorCaptainReplacer:get_captain_override(specific_day)
+--specific_day need only for settings
+if specific_day == nil then
+	local current_heist_stage = 1
+	if #(managers.job:current_job_chain_data() or {}) > 1 then
+		current_heist_stage = managers.job:current_stage() or 1
+	end
+	return self:value("captain_replace_"..tostring(current_heist_stage))
+else
+	return self:value("captain_replace_"..tostring(specific_day))
+end
 end
 
 function MutatorCaptainReplacer:setup_options_gui(node)
 	local params = {
 		callback = "_update_mutator_value",
-		name = "captain_selector_choice",
-		text_id = "menu_mutator_captain_replace",
+		name = "captain_selector_choice_1",
+		text_id = "menu_mutator_captain_replace_1",
 		filter = true,
-		update_callback = callback(self, self, "_update_captain_override")
+		update_callback = callback(self, self, "_update_captain_override_1")
 	}
 	local data_node = {
+		{
+			value = "no_captain_override",
+			text_id = "menu_mutator_captain_replace_no_captain_override",
+			_meta = "option"
+		},
 		{
 			value = "winter",
 			text_id = "menu_mutator_captain_replace_winter",
@@ -564,16 +588,49 @@ function MutatorCaptainReplacer:setup_options_gui(node)
 	}
 	local new_item = node:create_item(data_node, params)
 
-	new_item:set_value(self:get_captain_override())
+	new_item:set_value(self:get_captain_override(1))
 	node:add_item(new_item)
+	
+	local params = {
+		callback = "_update_mutator_value",
+		name = "captain_selector_choice_2",
+		text_id = "menu_mutator_captain_replace_2",
+		filter = true,
+		update_callback = callback(self, self, "_update_captain_override_2")
+	}
+	local new_item = node:create_item(data_node, params)
 
+	new_item:set_value(self:get_captain_override(2))
+	node:add_item(new_item)
+	
+	local params = {
+		callback = "_update_mutator_value",
+		name = "captain_selector_choice_3",
+		text_id = "menu_mutator_captain_replace_3",
+		filter = true,
+		update_callback = callback(self, self, "_update_captain_override_3")
+	}
+	local new_item = node:create_item(data_node, params)
+
+	new_item:set_value(self:get_captain_override(3))
+	node:add_item(new_item)
+	
+	
 	self._node = node
 
 	return new_item
 end
 
-function MutatorCaptainReplacer:_update_captain_override(item)
-	self:set_value("captain_replace", item:value())
+function MutatorCaptainReplacer:_update_captain_override_1(item)
+	self:set_value("captain_replace_1", item:value())
+end
+
+function MutatorCaptainReplacer:_update_captain_override_2(item)
+	self:set_value("captain_replace_2", item:value())
+end
+
+function MutatorCaptainReplacer:_update_captain_override_3(item)
+	self:set_value("captain_replace_3", item:value())
 end
 
 function MutatorCaptainReplacer:reset_to_default()

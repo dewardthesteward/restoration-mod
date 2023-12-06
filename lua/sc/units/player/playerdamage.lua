@@ -252,7 +252,7 @@ function PlayerDamage:can_take_damage(attack_data, damage_info)
 	if not self:_chk_can_take_dmg() then
 		return false
 	elseif self._god_mode then
-		if attack_data.damage > 0 then
+		if attack_data.damage and attack_data.damage > 0 then
 			self:_send_damage_drama(attack_data, attack_data.damage)
 		end
 		self:_call_listeners(damage_info)
@@ -303,6 +303,8 @@ function PlayerDamage:_apply_damage(attack_data, damage_info, variant, t)
 	--Get hit direction and display it on hud.
 	local attacker_unit = attack_data.attacker_unit
 	local self_damage = attacker_unit and alive(attacker_unit) and attacker_unit == self._unit
+
+	log(tostring( self_damage ))
 	if alive(attacker_unit) then
 		self:_hit_direction(attack_data.attacker_unit:position(), attack_data.col_ray and attack_data.col_ray.ray or damage_info.attack_dir)
 	end
@@ -361,7 +363,7 @@ function PlayerDamage:_apply_damage(attack_data, damage_info, variant, t)
 	local health_subtracted = self:_calc_armor_damage(attack_data)
 
 	--Apply health damage.
-	if ((attack_data.armor_piercing or variant == "explosion") and not self._unpierceable) or self_damage then
+	if ((attack_data.armor_piercing or variant == "explosion" or variant == "fire") and not self._unpierceable) or self_damage then
 		attack_data.damage = attack_data.damage - health_subtracted
 		if not _G.IS_VR then --Add screen effect to signify armor piercing attack.
 			managers.hud:activate_effect_screen(0.75, {1, 0.2, 0})
@@ -497,7 +499,7 @@ function PlayerDamage:damage_bullet(attack_data)
 	local grace_bonus = self._dmg_interval + self._dodge_interval
 	if self._yakuza_bonus_grace then
 		self._yakuza_bonus_grace = nil
-		local yakuza_grace_ratio = 3 * (1 - self:health_ratio())
+		local yakuza_grace_ratio = 2.5 * (1 - self:health_ratio())
 		if grace_bonus then
 			grace_bonus = math.min(grace_bonus * yakuza_grace_ratio, 0.9)
 		else 
@@ -640,7 +642,7 @@ function PlayerDamage:damage_fire_hit(attack_data)
 	local grace_bonus = self._dmg_interval + self._dodge_interval
 	if self._yakuza_bonus_grace then
 		self._yakuza_bonus_grace = nil
-		local yakuza_grace_ratio = 3 * (1 - self:health_ratio())
+		local yakuza_grace_ratio = 2.5 * (1 - self:health_ratio())
 		if grace_bonus then
 			grace_bonus = math.min(grace_bonus * yakuza_grace_ratio, 0.9)
 		else

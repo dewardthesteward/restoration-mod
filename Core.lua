@@ -60,6 +60,7 @@ function restoration:Init()
 		watchdogs_1 = restoration.captain_types.winter, --Watchdogs Day 1
 		crojob3 = restoration.captain_types.winter, --The Bomb: Forest
 		crojob3_night = restoration.captain_types.winter, --The Bomb: Forest Night
+		rvd2 = restoration.captain_types.winter, --Garnet Group Boutique
 		brb = restoration.captain_types.winter, --brookyn ten-ten benk
 		--Custom Heists--
 		office_strike = restoration.captain_types.winter, --office strike
@@ -98,6 +99,7 @@ function restoration:Init()
 		constantine_mobsterclub_lvl = restoration.captain_types.summer, --Aurora (Borealis?!) Club
 		constantine_harbor_lvl = restoration.captain_types.summer, --Harboring a Grudge
 		firestarter_1_res = restoration.captain_types.summer, --firestarter day 1 res edit version
+		constantine_murkyairport_lvl = restoration.captain_types.summer, --Murky Airport (Constantine Scores)
 		bag_sim_2 = restoration.captain_types.summer, --Bag Simulator 2
 		RogueCompany = restoration.captain_types.summer, --Rogue Company
 		Security_Avenue = restoration.captain_types.summer, --Gensec HQ Raid day 1
@@ -129,7 +131,6 @@ function restoration:Init()
 		sh_raiders = restoration.captain_types.spring, --Safehouse Raiders
 		bluewave = restoration.captain_types.spring,  --res map bluewave
 		dwn1 = restoration.captain_types.spring, --Deep Inside
-		constantine_murkyairport_lvl = restoration.captain_types.spring, --Murky Airport (Constantine Scores)
 		jambank = restoration.captain_types.spring, --Botched Bank
 		arena_club30 = restoration.captain_types.spring, -- Arena Orange 
 

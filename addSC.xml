@@ -435,6 +435,11 @@
 	
 	<!--epic hd cloaker eyes thanks jarey-->
 	<texture			path="units/payday2/characters/shared_textures/spook_il"/>
+	<model				path="units/payday2/characters/ene_spook_1/ene_spook_1" />	
+	<sequence_manager	path="units/payday2/characters/ene_spook_1/ene_spook_1" force="true" />	
+	<object				path="units/payday2/characters/ene_spook_1/ene_spook_1" force="true"/>	
+	<material_config	path="units/payday2/characters/ene_swat_1_sc/ene_swat_1_sc" />	
+	<material_config	path="units/payday2/characters/ene_swat_1_sc/ene_swat_1_sc_contour" />	
 
 	<!--More Cop Facial Variety (Thanks AGAIN Wekk!!!!)-->	
 	<object				path="units/payday2/characters/ene_fbi_1/ene_fbi_1" />	
@@ -1298,26 +1303,45 @@
 	<!--NATO Tracer-->
     <effect				path="_dmc/effects/nato_trail" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/parts/nato_streak" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/parts/nato_light_streak" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/parts/nato_big_light_streak" force="false" load="true" unload="true" reload="true"/>
 	<!--Warsaw Tracer-->
     <effect				path="_dmc/effects/warsaw_trail" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/parts/warsaw_streak" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/parts/warsaw_light_streak" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/parts/warsaw_big_light_streak" force="false" load="true" unload="true" reload="true"/>
 	<!--STERWERS Tracer-->
     <effect				path="_dmc/effects/sterwers_trail" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/sterwers_trail_npc" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/parts/sw_sterwers_streak" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/parts/sw_sterwers_streak_round" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/sterwers_trail_r" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/sterwers_trail_r_npc" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/parts/sw_republic_streak" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/parts/sw_republic_streak_round" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/sterwers_trail_e" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/sterwers_trail_e_npc" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/parts/sw_empire_streak" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/parts/sw_empire_streak_round" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/sterwers_trail_t" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/sterwers_trail_t_npc" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/parts/sw_techno_streak" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/parts/sw_techno_streak_round" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/sterwers_trail_m" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/sterwers_trail_m_npc" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/parts/sw_mando_streak" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/parts/sw_mando_streak_round" force="false" load="true" unload="true" reload="true"/>
 	<!--Large Tracer-->
     <effect				path="_dmc/effects/large_trail" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/parts/large_streak" force="false" load="true" unload="true" reload="true"/>
 	<!--Plasma Tracer-->
     <effect				path="_dmc/effects/plasma_b_trail" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/parts/plasma_b_streak" force="false" load="true" unload="true" reload="true"/>
+	<!--Other Tracers-->
+    <effect				path="_dmc/effects/knockback_trail" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/parts/knockback_streak" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/concussion_trail" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/parts/concussion_streak" force="false" load="true" unload="true" reload="true"/>
 	<!--Cloud-->
 	<effect				path="effects/payday2/particles/explosions/red_mist" load="false"/>
 	

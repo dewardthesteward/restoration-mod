@@ -98,6 +98,26 @@ Hooks:PostHook(CopBase, "post_init", "postinithooksex", function(self)
 			head:set_sphere_radius(16)
 		end
 	end	
+	
+	--Faction appropriate colors for Cloaker NVGs
+	local faction = tweak_data.levels:get_ai_group_type()
+    local lights = self._unit:get_objects_by_type(Idstring("light"))
+	if faction == "russia" then
+		if self._tweak_table == "spooc" or self._tweak_table == "spooc_titan" then
+			for k, v in pairs(lights) do
+				v:set_color(Color(hsv_to_rgb(200, 1, 1)))
+			end
+		end
+	end
+	
+	if faction == "federales" then
+		if self._tweak_table == "spooc_titan" then
+			for k, v in pairs(lights) do
+				v:set_color(Color(hsv_to_rgb(200, 1, 1)))
+			end
+		end
+	end	
+	
 end)
 
 function CopBase:random_mat_seq_initialization()
@@ -105,6 +125,85 @@ function CopBase:random_mat_seq_initialization()
  	local faction = tweak_data.levels:get_ai_group_type()
 	local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 	local difficulty_index = tweak_data:difficulty_to_index(difficulty)
+
+    local lvl_tweak_data = tweak_data.levels[job]
+    local flashlights_on = lvl_tweak_data and lvl_tweak_data.flashlights_on
+	
+	-- BLUE TEAM
+	local swat_1 = unit_name == Idstring("units/payday2/characters/ene_swat_1_sc/ene_swat_1_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_swat_1_sc/ene_swat_1_sc_husk")
+	or unit_name == Idstring("units/payday2/characters/ene_fbi_swat_3/ene_fbi_swat_3")
+	or unit_name == Idstring("units/payday2/characters/ene_fbi_swat_3/ene_fbi_swat_3_husk")
+	or unit_name == Idstring("units/payday2/characters/ene_city_swat_3_sc/ene_city_swat_3_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_city_swat_3_sc/ene_city_swat_3_sc_husk")
+
+
+	local swat_2 = unit_name == Idstring("units/payday2/characters/ene_swat_2_sc/ene_swat_2_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_swat_2_sc/ene_swat_2_sc_husk")
+	or unit_name == Idstring("units/payday2/characters/ene_fbi_swat_2_sc/ene_fbi_swat_2_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_fbi_swat_2_sc/ene_fbi_swat_2_sc_husk")
+	or unit_name == Idstring("units/payday2/characters/ene_city_swat_2_sc/ene_city_swat_2_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_city_swat_2_sc/ene_city_swat_2_sc_husk")
+	
+	local swat_heavy_r870 = unit_name == Idstring("units/payday2/characters/ene_swat_heavy_r870_sc/ene_swat_heavy_r870_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_swat_heavy_r870_sc/ene_swat_heavy_r870_sc_husk")
+	or unit_name == Idstring("units/payday2/characters/ene_fbi_heavy_r870_sc/ene_fbi_heavy_r870_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_fbi_heavy_r870_sc/ene_fbi_heavy_r870_sc_husk")
+	or unit_name == Idstring("units/payday2/characters/ene_city_heavy_r870_sc/ene_city_heavy_r870_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_city_heavy_r870_sc/ene_city_heavy_r870_sc_husk")
+	
+	local swat_heavy_1 = unit_name == Idstring("units/payday2/characters/ene_swat_heavy_1_sc/ene_swat_heavy_1_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_swat_heavy_1_sc/ene_swat_heavy_1_sc_husk")
+	or unit_name == Idstring("units/payday2/characters/ene_fbi_heavy_1_sc/ene_fbi_heavy_1_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_fbi_heavy_1_sc/ene_fbi_heavy_1_sc_husk")
+	or unit_name == Idstring("units/payday2/characters/ene_city_heavy_g36_sc/ene_city_heavy_g36_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_city_heavy_g36_sc/ene_city_heavy_g36_sc_husk")
+
+	local swat_3 = unit_name == Idstring("units/payday2/characters/ene_swat_3/ene_swat_3")
+	or unit_name == Idstring("units/payday2/characters/ene_swat_3/ene_swat_3_husk") 
+	or unit_name == Idstring("units/payday2/characters/ene_fbi_swat_1_sc/ene_fbi_swat_1_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_fbi_swat_1_sc/ene_fbi_swat_1_sc_husk")
+	or unit_name == Idstring("units/payday2/characters/ene_city_swat_1_sc/ene_city_swat_1_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_city_swat_1_sc/ene_city_swat_1_sc_husk")
+
+	local swat_sniper = unit_name == Idstring("units/payday2/characters/ene_sniper_1_sc/ene_sniper_1_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_sniper_1_sc/ene_sniper_1_sc_husk")
+	or unit_name == Idstring("units/payday2/characters/ene_sniper_2_sc/ene_sniper_2_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_sniper_2_sc/ene_sniper_2_sc_husk")
+	or unit_name == Idstring("units/payday2/characters/ene_sniper_3/ene_sniper_3")
+	or unit_name == Idstring("units/payday2/characters/ene_sniper_3/ene_sniper_3_husk")
+	
+	local swat_shield = unit_name == Idstring("units/payday2/characters/ene_shield_2_sc/ene_shield_2_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_shield_2_sc/ene_shield_2_sc_husk") 
+	or unit_name == Idstring("units/payday2/characters/ene_shield_1_sc/ene_shield_1_sc")
+	or unit_name == Idstring("units/payday2/characters/ene_shield_1_sc/ene_shield_1_sc_husk")
+	or unit_name == Idstring("units/payday2/characters/ene_shield_gensec/ene_shield_gensec")
+	or unit_name == Idstring("units/payday2/characters/ene_shield_gensec/ene_shield_gensec_husk")
+	
+    if self._unit:damage() and self._unit:damage():has_sequence("swat_smg") and swat_1 then
+        self._unit:damage():run_sequence_simple("swat_smg") 		
+    elseif self._unit:damage() and self._unit:damage():has_sequence("swat_sg") and swat_2 and not flashlights_on then
+        self._unit:damage():run_sequence_simple("swat_sg")    
+	elseif flashlights_on and self._unit:damage() and self._unit:damage():has_sequence("swat_sg_nvg") and swat_2 then
+		self._unit:damage():run_sequence_simple("swat_sg_nvg")
+	elseif self._unit:damage() and self._unit:damage():has_sequence("heavy_swat_sg") and swat_heavy_r870 then
+		self._unit:damage():run_sequence_simple("heavy_swat_sg")	
+	elseif flashlights_on and self._unit:damage() and self._unit:damage():has_sequence("swat_sg_helmetlight") and swat_heavy_r870 then
+		self._unit:damage():run_sequence_simple("swat_sg_helmetlight")				
+	elseif self._unit:damage() and self._unit:damage():has_sequence("heavy_swat_ar") and swat_heavy_1 then
+		self._unit:damage():run_sequence_simple("heavy_swat_ar")	
+	elseif flashlights_on and self._unit:damage() and self._unit:damage():has_sequence("swat_ar_helmetlight") and swat_heavy_1 then
+		self._unit:damage():run_sequence_simple("swat_ar_helmetlight")		
+	elseif self._unit:damage() and self._unit:damage():has_sequence("swat_ar") and swat_3 and not flashlights_on then
+		self._unit:damage():run_sequence_simple("swat_ar")	
+	elseif flashlights_on and self._unit:damage() and self._unit:damage():has_sequence("swat_ar_helmetlight") and swat_3 then
+		self._unit:damage():run_sequence_simple("swat_ar_helmetlight")
+	elseif self._unit:damage() and self._unit:damage():has_sequence("swat_sniper") and swat_sniper then
+		self._unit:damage():run_sequence_simple("swat_sniper")	
+	elseif self._unit:damage() and self._unit:damage():has_sequence("swat_shield") and swat_shield then
+		self._unit:damage():run_sequence_simple("swat_shield")	
+	end
+
        	
 	--BEAT COP FACE STUFF STARTS HERE	
 	local cop1_4 = unit_name == Idstring("units/payday2/characters/ene_cop_1/ene_cop_1")
@@ -131,10 +230,7 @@ function CopBase:random_mat_seq_initialization()
 	-- sniper nonsense (don't trust this being executed every time a common unit spawns tbh)
 	local sniper_fbi = unit_name == Idstring("units/payday2/characters/ene_sniper_2_sc/ene_sniper_2_sc") 
 	or unit_name == Idstring("units/payday2/characters/ene_sniper_2_sc/ene_sniper_2_sc_husk")
-	
-	local sniper_blue = unit_name == Idstring("units/payday2/characters/ene_sniper_1_sc/ene_sniper_1_sc") 
-	or unit_name == Idstring("units/payday2/characters/ene_sniper_1_sc/ene_sniper_1_sc_husk")
-	
+		
 	local sniper_gensec = unit_name == Idstring("units/payday2/characters/ene_sniper_3/ene_sniper_3") 
 	or unit_name == Idstring("units/payday2/characters/ene_sniper_3/ene_sniper_3_husk")
 
@@ -260,27 +356,7 @@ function CopBase:_chk_spawn_gear()
 	if restoration and restoration.Options:GetValue("OTHER/Holiday") then
 		for _,x in pairs(restoration.christmas_heists) do
 			if job == x or Month == "12" then
-				if self._tweak_table == "tank_hw" or self._tweak_table == "spooc_titan" or self._tweak_table == "autumn" then
-					--In case we decide to give these guys a unique hat that has some crazy seq manager stuff
-				elseif self._tweak_table == "tank_medic" or self._tweak_table == "tank_mini" or self._tweak_table == "spring" then
-					--self._headwear_unit = safe_spawn_unit("units/pd2_dlc_xm20/characters/ene_acc_dozer_zeal_santa_hat_sc/ene_acc_dozer_zeal_santa_hat_sc", Vector3(), Rotation())
-				elseif self._unit:name() == Idstring("units/pd2_mod_reapers/characters/ene_vip_2/ene_vip_2") or self._unit:name() == Idstring("units/pd2_mod_reapers/characters/ene_vip_2/ene_vip_2_husk") then
-					--These guys need a unique hat shifted down, can be done whenever				
-				elseif self._tweak_table == "tank_titan" or self._tweak_table == "tank_titan_assault" then
-					if region == "russia" or region == "federales" then
-						--self._headwear_unit = safe_spawn_unit("units/payday2/characters/ene_acc_spook_santa_hat_sc/ene_acc_spook_santa_hat_sc", Vector3(), Rotation())					
-					else
-						--self._headwear_unit = safe_spawn_unit("units/pd2_dlc_xm20/characters/ene_acc_dozer_zeal_santa_hat_sc/ene_acc_dozer_zeal_santa_hat_sc", Vector3(), Rotation())
-					end
-				elseif self._tweak_table == "tank" then
-					if region == "russia" or region == "federales" then
-						--self._headwear_unit = safe_spawn_unit("units/pd2_dlc_xm20/characters/ene_acc_dozer_akan_santa_hat_sc/ene_acc_dozer_akan_santa_hat_sc", Vector3(), Rotation())
-					elseif difficulty_index == 8 then
-						--self._headwear_unit = safe_spawn_unit("units/pd2_dlc_xm20/characters/ene_acc_dozer_zeal_santa_hat_sc/ene_acc_dozer_zeal_santa_hat_sc", Vector3(), Rotation())
-					else
-						--self._headwear_unit = safe_spawn_unit("units/pd2_dlc_xm20/characters/ene_acc_dozer_santa_hat_sc/ene_acc_dozer_santa_hat_sc", Vector3(), Rotation())
-					end			
-				elseif self:char_tweak().is_special then
+				if self:char_tweak().is_special and not self._char_tweak.no_xmas_hat then
 					self._headwear_unit = safe_spawn_unit("units/payday2/characters/ene_acc_spook_santa_hat_sc/ene_acc_spook_santa_hat_sc", Vector3(), Rotation())					
 				end
 
@@ -294,25 +370,6 @@ function CopBase:_chk_spawn_gear()
 		end
 	end
 end
-
-Hooks:PostHook(CopBase, "post_init", "cloker_blue_night_vision", function (self)
-	local faction = tweak_data.levels:get_ai_group_type()
-    local lights = self._unit:get_objects_by_type(Idstring("light"))
-	if faction == "russia" then
-	if self._tweak_table == "spooc" or self._tweak_table == "spooc_titan" then
-    for k, v in pairs(lights) do
-        v:set_color(Color(hsv_to_rgb(200, 1, 1)))
-		end
-	end
-end
-	if faction == "federales" then
-	if self._tweak_table == "spooc_titan" then
-    for k, v in pairs(lights) do
-        v:set_color(Color(hsv_to_rgb(200, 1, 1)))
-		end
-	end
-end
-end)
 
 local weapons_map = {
 	--Secret Service Bois--
@@ -533,80 +590,4 @@ function CopBase:default_weapon_name(...)
 	end
 
 	return default_weapon_name_orig(self, ...)
-end
-
-local ids_lod = Idstring("lod")
-local ids_lod1 = Idstring("lod1")
-local ids_ik_aim = Idstring("ik_aim")
-
-function CopBase:set_visibility_state(stage)
-	local state = stage and true
-	if not state and not self._allow_invisible then
-		state = true
-		stage = 3 -- lowest lod stage since the only time this gets called with stage as false is if the unit is not in sight
-	end
-
-	if self._lod_stage == stage then
-		return
-	end
-
-	local inventory = self._unit:inventory()
-	local weapon = inventory and inventory.get_weapon and inventory:get_weapon()
-
-	if weapon then
-		-- flashlight enables if the unit is visible and in LOD stage 1/2 instead of only LOD stage 2
-		weapon:base():set_flashlight_light_lod_enabled(stage and stage <= 2)
-	end
-
-	if self._visibility_state ~= state then
-		local unit = self._unit
-
-		if inventory then
-			inventory:set_visibility_state(state)
-		end
-
-		unit:set_visible(state)
-
-		if self._headwear_unit then
-			self._headwear_unit:set_visible(state)
-		end
-
-		if state or self._ext_anim.can_freeze and (not self._ext_anim.upper_body_active or self._ext_anim.upper_body_empty) then
-			unit:set_animatable_enabled(ids_lod, state)
-			unit:set_animatable_enabled(ids_ik_aim, state)
-		end
-
-		self._visibility_state = state
-	end
-
-	if state then
-		self:set_anim_lod(stage)
-		self._unit:movement():enable_update(true)
-
-		if stage == 1 then
-			self._unit:set_animatable_enabled(ids_lod1, true)
-		elseif self._lod_stage == 1 then
-			self._unit:set_animatable_enabled(ids_lod1, false)
-		end
-	end
-
-	self._lod_stage = stage
-
-	self:chk_freeze_anims()
-end
-
-function CopBase:chk_freeze_anims()
-	if (not self._lod_stage or self._lod_stage > 1) and self._ext_anim.can_freeze and (not self._ext_anim.upper_body_active or self._ext_anim.upper_body_empty) then
-		if not self._anims_frozen then
-			self._anims_frozen = true
-
-			self._unit:set_animations_enabled(false)
-			self._ext_movement:on_anim_freeze(true)
-		end
-	elseif self._anims_frozen then
-		self._anims_frozen = nil
-
-		self._unit:set_animations_enabled(true)
-		self._ext_movement:on_anim_freeze(false)
-	end
 end

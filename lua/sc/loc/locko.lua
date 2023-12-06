@@ -2553,9 +2553,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 		["bm_grenade_sticky_grenade"] = "셈텍스 수류탄",
 		["bm_grenade_sticky_grenade_desc"] = "대미지: #{risk}#800## \n범위: #{skill_color}#4m## \n기폭: #{skill_color}#2.5초## \n\n사람을 포함한 대부분의 물체 표면에 들러붙는 투척용 폭발물입니다!",
 		--Molotov
-		["bm_grenade_molotov_desc"] = "대미지 (화염 지대): #{heat_warm_color}#10초당 1200까지##\n대미지 (화염): #{heat_warm_color}#3초 동안 60씩## \n범위: #{skill_color}#3.75m## \n지속 시간 (화염 지대): #{skill_color}#10초## \n기폭: #{skill_color}#충격 시 폭발## \n- #{skill_color}#50%## 확률로 적들을 #{heat_warm_color}#점화##시켜 대부분의 적들을 패닉 상태로 만듭니다.\n\n부서지는 병과 인화성 액체와 불붙은 천으로 이루어져 있습니다. 간단하고, 저렴하지만, 매우 효과적입니다. 이걸로 전부 불태워 버리십시오.",
+		["bm_grenade_molotov_desc"] = "대미지 (화염 지대): #{heat_warm_color}#10초당 1200까지##\n대미지 (화염): #{heat_warm_color}#3초 동안 60까지## \n대미지 (폭발): #{heat_warm_color}#30## \n반경 (화염 지대): #{skill_color}#3.75m## \n반경 (폭발): #{skill_color}#3m## \n지속 시간 (화염 지대): #{skill_color}#10초## \n기폭: #{skill_color}#충격 시 폭발## \n- #{skill_color}#50%## 확률로 적들을 #{heat_warm_color}#점화##시켜 대부분의 적들을 패닉 상태로 만듭니다.\n\n부서지는 병과 인화성 액체와 불붙은 천으로 이루어져 있습니다. 간단하고, 저렴하지만, 매우 효과적입니다. 이걸로 전부 불태워 버리십시오.",
 		--Incendiary
-		["bm_grenade_fir_com_desc"] = "대미지 (화염 지대): #{heat_warm_color}#12초당 1440까지##\n대미지 (화염): #{heat_warm_color}#3초 동안 60씩## \n범위: #{skill_color}#3.75m## \n지속 시간 (화염 지대): #{skill_color}#12초## \n기폭: #{skill_color}#2.5초## \n- #{skill_color}#50%## 확률로 적들을 #{heat_warm_color}#점화##시켜 대부분의 적들을 패닉 상태로 만듭니다.\n\n자연적으로 발화하는 인을 담은 수류탄입니다. 벽과 모퉁이을 이용해서 적에게 던지기 적합합니다.",
+		["bm_grenade_fir_com_desc"] = "대미지 (화염 지대): #{heat_warm_color}#12초당 1440까지##\n대미지 (화염): #{heat_warm_color}#3초 동안 120까지## \n대미지 (폭발): #{heat_warm_color}#30## \n반경 (화염 지대): #{skill_color}#3.75m## \n반경 (폭발): #{skill_color}#4.5m## \n지속 시간 (화염 지대): #{skill_color}#12초## \n기폭: #{skill_color}#2.5초## \n- #{skill_color}#50%## 확률로 적들을 #{heat_warm_color}#점화##시켜 대부분의 적들을 패닉 상태로 만듭니다.\n\n자연적으로 발화하는 인을 담은 수류탄입니다. 벽과 모퉁이을 이용해서 적에게 던지기 적합합니다.",
 		--Concussion
 		["bm_concussion_desc"] = "범위: #{skill_color}#10m## \n- 최대 #{skill_color}#4초## 동안 적을 스턴시킵니다.\n- #{skill_color}#7초## 동안 적의 명중률이 #{skill_color}#50%##만큼 감소합니다. \n- #{important_1}#타이탄 실드, 타이탄 도저 및 캡틴은 스턴 효과에 면역입니다.## \n\n이 조그맣고 짜릿한 녀석은 적들을 깜짝 놀래켜서, 그들을 처리할 조금의 순간을 벌어줍니다.",
 		--Gas
@@ -4532,15 +4532,19 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		--["menu_mutator_grenade_mayhem_sosa_cosplay_toggle"] = "척탄병의 파편 유탄 언더베럴 포함",
 		["mutator_grenade_mayhem_desc"] = "브라보 이외에 적들도 이제 파편 수류탄을 던질 수 있습니다.",
 		["mutator_grenade_mayhem_longdesc"] = "브라보 이외에 적들도 이제 파편 수류탄을 던질 수 있습니다.\n\n참고: 화염방사기를 사용하는 적들은 파편 수류탄 대신 화염병을 사용하고, 클로커는 최루탄을 사용합니다.",		
-		--[[
-		["mutator_captain_replace"] = "캡틴 스위처",
-		["menu_mutator_captain_replace"] = "캡틴",
+
+		["mutator_captain_replace"] = "영원한 계절",
+		["menu_mutator_captain_replace_1"] = "캡틴 (1일차)",
+		["menu_mutator_captain_replace_2"] = "캡틴 (2일차)",
+		["menu_mutator_captain_replace_3"] = "캡틴 (3일차)",
+		["menu_mutator_captain_replace_no_captain_override"] = "바꾸지 않음",
 		["menu_mutator_captain_replace_winter"] = "윈터스",
 		["menu_mutator_captain_replace_autumn"] = "어텀",
 		["menu_mutator_captain_replace_spring"] = "스프링",
 		["menu_mutator_captain_replace_summer"] = "서머스",
 		["menu_mutator_captain_replace_hvh"] = "지옥 타이탄 도저",
-		--]]		
+		["mutator_captain_replace_desc"] = "하이스트에 나타날 수 있는 캡틴을 변경할 수 있습니다.",
+		["mutator_captain_replace_longdesc"] = "하이스트에 나타날 수 있는 캡틴을 변경할 수 있습니다.\n\n참고: 해당 뮤테이터는 스크립트된 캡틴 엔카운터를 바꿀 수 없습니다.",	
 		
 		["mutator_spawn_mult"] = "증폭된 대응",
 		["mutator_spawn_mult_desc"] = "적 스폰량이 증가합니다.",
@@ -4803,8 +4807,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 
 			--Shotgun CQB
 			["menu_shotgun_cqb_beta_sc"] = "산탄총 CQB",
-			["menu_shotgun_cqb_beta_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#산탄총과 화염방사기##의 조준 속도와 전력 질주 속도가 #{skill_color}#7.5%##만큼 빨라집니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#산탄총과 화염방사기##의 장전속도가 #{skill_color}#25%##만큼 빨라집니다.",
-			["menu_shotgun_cqb_per_pellet_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#산탄총과 화염방사기##의 조준 속도와 전력 질주 속도가 #{skill_color}#7.5%##만큼 빨라집니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#산탄총과 화염방사기##의 장전속도가 #{skill_color}#25%##만큼 빨라집니다.",
+			["menu_shotgun_cqb_beta_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#산탄총과 화염방사기##의 조준 속도와 전력 질주 후 사격 속도가 #{skill_color}#7.5%##만큼 빨라집니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#산탄총과 화염방사기##의 장전속도가 #{skill_color}#25%##만큼 빨라집니다.",
+			["menu_shotgun_cqb_per_pellet_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#산탄총과 화염방사기##의 조준 속도와 전력 질주 후 사격 속도가 #{skill_color}#7.5%##만큼 빨라집니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#산탄총과 화염방사기##의 장전속도가 #{skill_color}#25%##만큼 빨라집니다.",
 
 			--Shotgun Impact
 			["menu_shotgun_impact_beta_sc"] = "산탄총 타격",
@@ -4934,7 +4938,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 			--[[  COMBAT ENGINEER SUBTREE   ]]--
 			--Rifleman
 			["menu_rifleman_sc"] = "라이플맨",
-			["menu_rifleman_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#소총##으로 조준하는 동안 소총의 명중률과 사거리가 #{skill_color}#15%##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#소총##으로 조준하는 동안 소총의 명중률과 사거리가 추가로 #{skill_color}#15%##만큼 더 증가합니다.",			
+			["menu_rifleman_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#소총##으로 조준하는 동안 소총의 명중률과 사거리가 #{skill_color}#$skill_value_b1##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#소총##으로 조준하는 동안 소총의 명중률과 사거리가 추가로 #{skill_color}#$skill_value_p1##만큼 더 증가합니다.\n\n#{skill_color}#소총##의 조준 속도 및 전력 질주 후 사격 속도가 #{skill_color}#$skill_value_p2##만큼 더 빨라집니다.",			
 			
 			--Sharpshooter--
 			["menu_discipline_sc"] = "명사수",
@@ -5010,53 +5014,53 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 			--[[   SILENT KILLER SUBTREE   ]]--
 			--Second Wind
 			["menu_scavenger_beta_sc"] = "새로운 활력",
-			["menu_scavenger_beta_desc_sc"] = "베이직: #{owned}#$basic##\n방탄복이 부서지면 #{skill_color}#3##초 동안 이동속도가 #{skill_color}#10%##만큼 빨라집니다.\n\n에이스: #{owned}#$pro##\n방탄복이 완전히 부서진 상태로 첫 번째 공격을 가하면 근처에 있는 적이 비틀거리게 됩니다.\n\n이 효과는 방탄복이 재생된 후 #{skill_color}#3##초 동안 지속됩니다.",
+			["menu_scavenger_beta_desc_sc"] = "베이직: #{owned}#$basic##\n방탄복이 부서지면 #{skill_color}#$skill_value_b2##초 동안 이동속도가 #{skill_color}#$skill_value_b1##만큼 빨라집니다.\n\n에이스: #{owned}#$pro##\n방탄복이 완전히 부서진 상태로 첫 번째 공격을 가하면 근처에 있는 적이 비틀거리게 됩니다.\n\n이 효과는 방탄복이 재생된 후 #{skill_color}#$skill_value_p1##초 동안 지속됩니다.",
 			
 			--Optical Illusions--
 			["menu_optic_illusions_sc"] = "착시 현상",
-			["menu_optic_illusions_desc_sc"] = "베이직: #{owned}#$basic##\n무기 교체 속도가 #{skill_color}#15%##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n모든 무기의 기동성이 #{skill_color}#2##만큼 증가합니다.",
+			["menu_optic_illusions_desc_sc"] = "베이직: #{owned}#$basic##\n무기 교체 속도가 #{skill_color}#$skill_value_b1##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n모든 무기의 기동성이 #{skill_color}#$skill_value_p1##만큼 증가합니다.",
 
 			--The Professional--
 			["menu_silence_expert_beta_sc"] = "프로페셔널",
-			["menu_silence_expert_beta_desc_sc"] = "베이직: #{owned}#$basic##\n조준 속도와 전력 질주 후 발사가 #{skill_color}#5%##만큼 빨라집니다.\n\n에이스: #{owned}#$pro##\n조준 속도와 전력 질주 후 발사가 추가로 #{skill_color}#10%##만큼 더 빨라집니다.\n\n특수 및 엘리트 적을 비폭발 원거리 무기로 죽이면 #{skill_color}#추가 탄약 상자를 떨굽니다.##",
+			["menu_silence_expert_beta_desc_sc"] = "베이직: #{owned}#$basic##\n조준 속도와 전력 질주 후 발사가 #{skill_color}#$skill_value_b1##만큼 빨라집니다.\n\n에이스: #{owned}#$pro##\n조준 속도와 전력 질주 후 발사가 추가로 #{skill_color}#$skill_value_p1##만큼 더 빨라집니다.\n\n특수 및 엘리트 적을 비폭발 원거리 무기로 죽이면 #{skill_color}#추가 탄약 상자를 떨굽니다.##",
 
 			--Unseen Strike, formally Dire Need--
 			["menu_backstab_beta_sc"] = "기습 공격",
-			["menu_backstab_beta_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#3##초 동안 피해를 입지 않는다면, 피해를 입을 때까지 치명타 확률을 #{skill_color}#15%##만큼 얻습니다.\n\n치명타 피해가 추가로 #{skill_color}#50%##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n기습 공격의 치명타 확률이 피해를 입은 후 #{skill_color}#4##초 동안 지속됩니다.",
+			["menu_backstab_beta_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#$skill_value_b1##초 동안 피해를 입지 않는다면, 피해를 입을 때까지 치명타 확률을 #{skill_color}#$skill_value_b2##만큼 얻습니다.\n\n치명타 피해가 추가로 #{skill_color}#50%##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n기습 공격의 치명타 확률이 피해를 입은 후 #{skill_color}#$skill_value_p1##초 동안 지속됩니다.",
 
 			--Cleaner--
 			["menu_hitman_beta_sc"] = "청소부",
-			["menu_hitman_beta_desc_sc"] = "베이직: #{owned}#$basic##\n특수 및 엘리트 적에게 #{skill_color}#10%##만큼 피해를 더 가합니다.\n\n#{risk}#참고:## #{important_1}#발사기에는## #{risk}#적용되지 않습니다.##\n\n에이스: #{owned}#$pro##\n특수 및 엘리트 적에게 추가로 #{skill_color}#15%##만큼 더 가합니다.\n\n헤드샷으로 적을 죽이면 회피 미터가 회피의 #{skill_color}#12.5%##만큼 채워집니다.\n\n적을 뒤에서 죽이면 회피 미터가 회피의 #{skill_color}#75%##만큼 채워집니다. 또한 헤드샷 킬을 통해 주어지는 회피와 중첩이 가능합니다.\n\n#{risk}#참고:## #{important_1}#폭발물, 불 또는 지속 피해 효과로 죽이면## #{risk}#회피가 채워지지 않습니다.##",
+			["menu_hitman_beta_desc_sc"] = "베이직: #{owned}#$basic##\n특수 및 엘리트 적에게 #{skill_color}#$skill_value_b1##만큼 피해를 더 가합니다.\n\n#{risk}#참고:## #{important_1}#발사기에는## #{risk}#적용되지 않습니다.##\n\n에이스: #{owned}#$pro##\n특수 및 엘리트 적에게 추가로 #{skill_color}#$skill_value_p1##만큼 더 가합니다.\n\n헤드샷으로 적을 죽이면 회피 미터가 회피의 #{skill_color}#$skill_value_p2##만큼 채워집니다.\n\n적을 뒤에서 죽이면 회피 미터가 회피의 #{skill_color}#$skill_value_p3##만큼 채워집니다. 또한 헤드샷 킬을 통해 주어지는 회피와 중첩이 가능합니다.\n\n#{risk}#참고:## #{important_1}#폭발물, 불 또는 지속 피해 효과로 죽이면## #{risk}#회피가 채워지지 않습니다.##",
 
 			--Low Blow--
 			["menu_unseen_strike_beta_sc"] = "로 블로",
-			["menu_unseen_strike_beta_desc_sc"] = "베이직: #{owned}#$basic##\n착용감이 #{risk}#30##에서 #{risk}#2##씩 낮아질 수록 최대 #{skill_color}#30%##까지 치명타 확률을 #{skill_color}#3%##씩 얻습니다.\n\n치명타 피해가 추가로 #{skill_color}#50%##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n착용감이 #{risk}#30##에서 #{risk}#1##씩 낮아질 수록 최대 #{skill_color}#30%##까지 치명타 확률을 #{skill_color}#3%##씩 얻습니다.\n\n적의 뒤에서 총이나 근접 공격으로 공격할 때 치명타 확률이 추가로 #{skill_color}#50%##만큼 증가합니다.",
+			["menu_unseen_strike_beta_desc_sc"] = "베이직: #{owned}#$basic##\n착용감이 #{risk}#$skill_value_b3##에서 #{risk}#$skill_value_b2##씩 낮아질 수록 최대 #{skill_color}#$skill_value_b4##까지 치명타 확률을 #{skill_color}#$skill_value_b1##씩 얻습니다.\n\n치명타 피해가 추가로 #{skill_color}#50%##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n착용감이 #{risk}#$skill_value_p3##에서 #{risk}#$skill_value_p2##씩 낮아질 수록 최대 #{skill_color}#$skill_value_p4##까지 치명타 확률을 #{skill_color}#$skill_value_p1##씩 얻습니다.\n\n적의 뒤에서 총이나 근접 공격으로 공격할 때 치명타 확률이 추가로 #{skill_color}#$skill_value_p5##만큼 증가합니다.",
 
 		--[[   FUGITIVE   ]]--
 			--[[   GUNSLINGER SUBTREE   ]]--
 			--Equilibrium--
 			["menu_equilibrium_beta_sc"] = "이퀼리브리엄",
-			["menu_equilibrium_beta_desc_sc"] = "베이직: #{owned}#$basic##\n당신과 당신의 동료들의 #{skill_color}#권총##의 안정성이 #{skill_color}#2##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#권총##의 뽑고 넣는 시간이 #{skill_color}#100%##만큼 빨라집니다.",
+			["menu_equilibrium_beta_desc_sc"] = "베이직: #{owned}#$basic##\n당신과 당신의 동료들의 #{skill_color}#권총##의 안정성이 #{skill_color}#$skill_value_b1##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#권총##의 뽑고 넣는 시간이 #{skill_color}#$skill_value_p1##만큼 빨라집니다.",
 
 			--Gun Nut--
 			["menu_dance_instructor_sc"] = "총기광",
-			["menu_dance_instructor_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#권총##의 지향 사격 명중률을 #{skill_color}#20%##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#권총##의 발사 속도가 #{skill_color}#15%##만큼 빨라집니다.\n\n이제 #{skill_color}#권총##은 #{skill_color}#방탄복을 관통할 수 있습니다.##",
+			["menu_dance_instructor_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#권총##의 지향 사격 명중률을 #{skill_color}#$skill_value_b1##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#권총##의 발사 속도가 #{skill_color}#$skill_value_p1##만큼 빨라집니다.\n\n이제 #{skill_color}#권총##은 방탄복을 관통하여 #{skill_color}#$skill_value_p2##의 피해를 가할 수 있습니다.",
 
 			--Over Pressurized/Gunfighter--
 			["menu_gun_fighter_sc"] = "총잡이",
-			["menu_gun_fighter_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#권총##의 장전 속도가 #{skill_color}#5%##만큼 빨라집니다.\n\n#{skill_color}#권총##의 명중률에 대한 이동 패널티가 #{skill_color}#40%##만큼 감소합니다.\n\n명중률에 대한 이동 패널티는 안정성에 의해 결정됩니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#권총##의 장전 속도가 추가로 #{skill_color}#25%##만큼 빨라집니다.",
+			["menu_gun_fighter_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#권총##의 장전 속도가 #{skill_color}#$skill_value_b1##만큼 빨라집니다.\n\n#{skill_color}#권총##의 명중률에 대한 이동 패널티가 #{skill_color}#$skill_value_p1##만큼 감소합니다.\n\n명중률에 대한 이동 패널티는 안정성에 의해 결정됩니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#권총##의 장전 속도가 추가로 #{skill_color}#$skill_value_p1##만큼 빨라집니다.",
 
 			--Akimbo--
 			["menu_akimbo_skill_sc"] = "아킴보",
-			["menu_akimbo_skill_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#아킴보##의 안정성이 #{skill_color}#10##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#아킴보##의 명중률이 #{skill_color}#10%##만큼 증가합니다.",
+			["menu_akimbo_skill_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#아킴보##의 안정성이 #{skill_color}#$skill_value_b1##만큼 증가합니다.\n\n에이스: #{owned}#$pro##\n#{skill_color}#아킴보##의 명중률이 #{skill_color}#$skill_value_p1##만큼 증가합니다.",
 
 			--Desperado--
 			["menu_expert_handling_sc"] = "데스페라도",
-			["menu_expert_handling_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#권총##으로 헤드샷 할 시 #{skill_color}#4##초 동안 무기의 명중률과 사거리를 #{skill_color}#8%##만큼 증가시킵니다.\n\n이 효과는 #{skill_color}#5##번 중첩될 수 있으며 각 중첩의 지속 시간은 #{skill_color}#권총##으로 헤드샷 할 시 다시 되돌려집니다.\n\n에이스: #{owned}#$pro##\n명중률 및 사거리 증가 지속 시간이 추가로 #{skill_color}#4##초 증가합니다.",
+			["menu_expert_handling_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#권총##으로 헤드샷 할 시 #{skill_color}#$skill_value_b2##초 동안 무기의 명중률과 사거리를 #{skill_color}#$skill_value_b1##만큼 증가시킵니다.\n\n이 효과는 #{skill_color}#$skill_value_b3##번 중첩될 수 있으며 각 중첩의 지속 시간은 헤드샷 할 시 다시 되돌려집니다.\n\n에이스: #{owned}#$pro##\n명중률 및 사거리 증가 지속 시간이 추가로 #{skill_color}#$skill_value_p1##초 증가합니다.",
 
 			--Trigger Happy--
 			["menu_trigger_happy_beta_sc"] = "난사광",
-			["menu_trigger_happy_beta_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#권총##으로 헤드샷 할 시 #{skill_color}#4##초 동안 대미지가 #{skill_color}#5%##만큼 증가됩니다.\n\n이 효과는 #{skill_color}#5##번 중첩될 수 있으며 각 중첩의 지속 시간은 헤드샷 할 시 다시 되돌려집니다.\n\n에이스: #{owned}#$pro##\n대미지 증가 부스트 지속 시간이 추가로 #{skill_color}#4##초 증가하고 최대 중첩 수가 #{skill_color}#5##회 더 증가합니다.",
+			["menu_trigger_happy_beta_desc_sc"] = "베이직: #{owned}#$basic##\n#{skill_color}#권총##으로 헤드샷 할 시 #{skill_color}#$skill_value_b2##초 동안 대미지가 #{skill_color}#$skill_value_b1##만큼 증가됩니다.\n\n이 효과는 #{skill_color}#$skill_value_b3##번 중첩될 수 있으며 각 중첩의 지속 시간은 헤드샷 할 시 다시 되돌려집니다.\n\n에이스: #{owned}#$pro##\n대미지 증가 부스트 지속 시간이 추가로 #{skill_color}#$skill_value_p1##초 증가하고 최대 중첩 수가 #{skill_color}#$skill_value_p2##회 더 증가합니다.",
 
 			--[[   REVENANT SUBTREE  ]]--
 			--Running From Death--
@@ -5284,7 +5288,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Perk_Decks", function(
 		["menu_deck12_1_desc_sc"] = "체력이 낮을수록 회피 미터가 더 빨리 채워집니다.\n\n체력이 ##100%##보다 낮을 때, 회피 미터가 초당 회피의 최대 ##10%##씩 채워집니다.\n\n회피 포인트가 ##5##만큼 증가합니다.",
 		["menu_deck12_3_desc_sc"] = "체력이 낮을수록 적을 죽일 때마다 회피 미터가 채워집니다.\n\n체력이 ##100%##보다 낮을 때, 적을 죽일 때마다 회피 미터가 회피의 최대 ##50%##만큼 채워집니다.",
 		["menu_deck12_5_desc_sc"] = "체력이 낮을수록 받는 피해가 줄어듭니다. 체력이 ##100%##보다 낮을 때, 받는 피해가 최대 ##20%## 감소합니다.\n\n시체 가방을 싸는 시간과 인질을 상호작용 하는 속도가 ##75%##만큼 빨라집니다.",
-		["menu_deck12_7_desc_sc"] = "체력이 낮을수록 근접 공격으로 적을 죽일 때마다 회피 미터가 더 효과적으로 채워집니다.\n\n체력이 ##100%##보다 낮을 때, 근접 공격으로 적을 죽일 때마다 회피 미터가 최대 ##125%##만큼 채워지며 다음 회피의 유예 시간이 ##300%##만큼, 최대 ##0.9##초만큼 증가합니다.\n\n회피 포인트가 추가로 ##5##만큼 더 증가합니다.",
+		["menu_deck12_7_desc_sc"] = "체력이 낮을수록 근접 공격으로 적을 죽일 때마다 회피 미터가 더 효과적으로 채워집니다.\n\n체력이 ##100%##보다 낮을 때, 근접 공격으로 적을 죽일 때마다 회피 미터가 최대 ##50%##만큼 채워지며 뱀 문신(3번 카드)의 덱 효과가 누적되고, 다음 회피의 유예 시간이 ##150%##만큼, 최대 ##0.9##초만큼 증가합니다.\n\n회피 포인트가 추가로 ##5##만큼 더 증가합니다.",
 		["menu_deck12_9_desc_sc"] = "얻을 수 있는 최대 굴절량이 #{skill_color}#80%##만큼 증가합니다.\n\n체력이 0이 되었을 때, 다운되는 대신 체력 ##1##과 방탄량이 ##50##만큼 회복된 상태로 생존합니다.\n\n#{risk}#참고: 이 효과는 클로커 킥이나 테이저 전기 충격에 의해 쓰러지는 경우에는 적용되지 않으며 되돌려지지 않습니다.##\n\n덱 완성 보너스: PAYDAY 카드에서 높은 등급의 아이템을 얻을 확률이 #{skill_color}#10%## 상승합니다.",
 		["menu_yakuza_deflection_add"] = "(야쿠자 특성 덱 효과로 의해 부스트 받았습니다)",
 

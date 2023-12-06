@@ -297,7 +297,7 @@ function GroupAITweakData:_init_chatter_data()
 		group_min = 0,
 		queue = "d02"
 	}
-	self.enemy_chatter.ecm = {
+	self.enemy_chatter.jammer = {
 		radius = 1000,
 		max_nr = 20,
 		duration = {2, 4},
@@ -15716,10 +15716,13 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}			
 	end
 	
+	--Reserved for mutator
+	self.enemy_spawn_groups.Fake_Captain = {}
+	
 	--New Winters
 	if difficulty_index <= 5 then
 		self.enemy_spawn_groups.Cap_Winters = {
-			amount = {5, 5},
+			amount = 5,
 			force = true,
 			spawn = {
 				{
@@ -15742,7 +15745,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}	
 	elseif difficulty_index == 6 then
 		self.enemy_spawn_groups.Cap_Winters = {
-			amount = {6, 6},
+			amount = 6,
 			force = true,
 			spawn = {
 				{
@@ -15765,7 +15768,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}
 	elseif difficulty_index == 7 then
 		self.enemy_spawn_groups.Cap_Winters = {
-			amount = {8, 8},
+			amount = 8,
 			force = true,
 			spawn = {
 				{
@@ -15796,7 +15799,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}
 	else
 		self.enemy_spawn_groups.Cap_Winters = {
-			amount = {10, 10},
+			amount = 10,
 			force = true,
 			spawn = {
 				{
@@ -15830,7 +15833,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	--Captain Spring
 	if difficulty_index <= 5 then
 		self.enemy_spawn_groups.Cap_Spring = {
-			amount = {1, 1},
+			amount = 1,
 			force = true,
 			spawn = {
 				{
@@ -15845,7 +15848,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}	
 	elseif difficulty_index == 6 then
 		self.enemy_spawn_groups.Cap_Spring = {
-			amount = {3, 3},
+			amount = 3,
 			force = true,
 			spawn = {
 				{
@@ -15868,7 +15871,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}
 	elseif difficulty_index == 7 then	
 		self.enemy_spawn_groups.Cap_Spring = {
-			amount = {5, 5},
+			amount = 5,
 			force = true,
 			spawn = {
 				{
@@ -15899,7 +15902,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}
 	else
 		self.enemy_spawn_groups.Cap_Spring = {
-			amount = {7, 7},
+			amount = 7,
 			force = true,
 			spawn = {
 				{
@@ -15933,7 +15936,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	--HVH boss
 	if difficulty_index <= 5 then
 		self.enemy_spawn_groups.HVH_Boss = {
-			amount = {1, 1},
+			amount = 1,
 			force = true,
 			spawn = {
 				{
@@ -15948,7 +15951,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}	
 	elseif difficulty_index == 6 then
 		self.enemy_spawn_groups.HVH_Boss = {
-			amount = {3, 3},
+			amount = 3,
 			force = true,
 			spawn = {
 				{
@@ -15971,7 +15974,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}
 	elseif difficulty_index == 7 then
 		self.enemy_spawn_groups.HVH_Boss = {
-			amount = {5, 5},
+			amount = 5,
 			force = true,
 			spawn = {
 				{
@@ -16002,7 +16005,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}	
 	else
 		self.enemy_spawn_groups.HVH_Boss = {
-			amount = {7, 7},
+			amount = 7,
 			force = true,
 			spawn = {
 				{
@@ -16036,7 +16039,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	--Captain Autumn
 	if difficulty_index <= 5 then
 		self.enemy_spawn_groups.Cap_Autumn = {
-			amount = {1, 1},
+			amount = 1,
 			force = true,
 			spawn = {
 				{
@@ -16051,7 +16054,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}
 	elseif difficulty_index == 6 then
 		self.enemy_spawn_groups.Cap_Autumn = {
-			amount = {3, 3},
+			amount = 3,
 			force = true,
 			spawn = {
 				{
@@ -16074,7 +16077,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}	
 	elseif difficulty_index == 7 then
 		self.enemy_spawn_groups.Cap_Autumn = {
-			amount = {4, 4},
+			amount = 4,
 			force = true,
 			spawn = {
 				{
@@ -16097,7 +16100,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 		}	
 	else
 		self.enemy_spawn_groups.Cap_Autumn = {
-			amount = {5, 5},
+			amount = 5,
 			force = true,
 			spawn = {
 				{
@@ -16122,7 +16125,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 	
 	--Captain Summers
 	self.enemy_spawn_groups.Cap_Summers = {
-		amount = {4, 4},
+		amount = 4,
 		force = true,
 		spawn = {
 			{
@@ -18804,7 +18807,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 
 	--Skirmish Captains, uses the DS spawngroups
 	self.enemy_spawn_groups.SKM_Cap_Winters_W9 = {
-			amount = {10, 10},
+			amount = 10,
 			force = true,
 			spawn = {
 				{
@@ -18834,7 +18837,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 			}
 		}								
 		self.enemy_spawn_groups.SKM_Cap_Spring_W9 = {
-			amount = {7, 7},
+			amount = 7,
 			force = true,
 			spawn = {
 				{
@@ -18864,7 +18867,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 			}
 		}
 		self.enemy_spawn_groups.SKM_HVH_Boss_W9 = {
-			amount = {7, 7},
+			amount = 7,
 			force = true,
 			spawn = {
 				{
@@ -18894,7 +18897,7 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 			}
 		}
 		self.enemy_spawn_groups.SKM_Cap_Autumn_W9 = {
-			amount = {5, 5},
+			amount = 5,
 			force = true,
 			spawn = {
 				{
@@ -19936,7 +19939,9 @@ function GroupAITweakData:_init_task_data(difficulty_index, difficulty)
 	--Add the relevant captain to the assault groups, if able to.
 	local captain_type = restoration.captain_spawns[job]
 	if captain_type and not table.contains(restoration.disable_natural_captain, job) then
-		self.besiege.assault.groups[captain_type.spawn_group] = {0, 0.2, 0.5}
+		self.besiege.assault.groups[captain_type.spawn_group] = {0, 0.2, 0.3}
+	else
+		self.besiege.assault.groups.Fake_Captain = {0,0,0}
 	end		
 	
 	if difficulty_index <= 7 then
@@ -20331,6 +20336,11 @@ function GroupAITweakData:_init_task_data(difficulty_index, difficulty)
 		},
 		Cap_Autumn = {
 			cooldown = captain_cooldown / 2,
+			min_diff = captain_min_diff,
+			sustain_only = true
+		},
+		Fake_Captain = {
+			cooldown = captain_cooldown,
 			min_diff = captain_min_diff,
 			sustain_only = true
 		},
