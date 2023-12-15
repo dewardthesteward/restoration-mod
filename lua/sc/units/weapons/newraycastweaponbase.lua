@@ -942,6 +942,12 @@ function NewRaycastWeaponBase:_update_stats_values(disallow_replenish, ammo_data
 			if stats.trail_effect then
 				self._trail_effect_pls = stats.trail_effect
 			end
+			if stats.trail_effect_npc then
+				self._trail_effect_npc = stats.trail_effect_npc
+			end
+			if stats.trail_effect_ignore then
+				self._trail_effect_ignore = stats.trail_effect_ignore
+			end
 			if stats.should_reload_immediately then
 				self._should_reload_immediately = stats.should_reload_immediately
 			end
@@ -1061,12 +1067,13 @@ function NewRaycastWeaponBase:_update_stats_values(disallow_replenish, ammo_data
 				self._trail_effect_table.effect = Idstring("_dmc/effects/sterwers_trail" .. ((self:is_npc() and "_npc") or ""))
 			end
 		elseif self._trail_effect_pls then
-			self._trail_effect_table.effect = Idstring(self._trail_effect_pls)
+			self._trail_effect_table.effect = Idstring(self._trail_effect_pls .. (((self:is_npc() and self._trail_effect_npc) and "_npc") or ""))
+			ignore_tracer = self._trail_effect_ignore
 		elseif self._terminator then
 			self._trail_effect_table.effect = Idstring("_dmc/effects/sterwers_trail_t" .. ((self:is_npc() and "_npc") or ""))
 			ignore_tracer = true
 		elseif self._plasma_b then
-			self._trail_effect_table.effect = Idstring("_dmc/effects/plasma_b_trail")
+			self._trail_effect_table.effect = Idstring("_dmc/effects/plasma_b_trail" .. ((self:is_npc() and "_npc") or ""))
 			ignore_tracer = true
 		elseif self._nato then
 			self._trail_effect_table.effect = Idstring("_dmc/effects/nato_trail")
@@ -1978,4 +1985,88 @@ end
 
 function NewRaycastWeaponBase:extra_collisions()
 	return self._extra_collisions
+end
+
+function NewRaycastWeaponBase:_set_parts_enabled(enabled)
+	if self._parts then
+		local anim_groups = nil
+		local empty_s = Idstring("")
+
+		for part_id, data in pairs(self._parts) do
+			if alive(data.unit) then
+				if not enabled and (not data.unit:base() or (data.unit:base().GADGET_TYPE ~= "second_sight" and data.unit:base().GADGET_TYPE ~= "simple_anim")) then
+					anim_groups = data.unit:anim_groups()
+					for _, anim in ipairs(anim_groups) do
+						if anim ~= empty_s then
+							data.unit:anim_play_to(anim, 0)
+							data.unit:anim_stop()
+						end
+					end
+				end
+
+				data.unit:set_enabled(enabled)
+
+				if data.unit:digital_gui() then
+					data.unit:digital_gui():set_visible(enabled)
+				end
+
+				if data.unit:digital_gui_upper() then
+					data.unit:digital_gui_upper():set_visible(enabled)
+				end
+
+				if data.unit:digital_gui_thd() then
+					data.unit:digital_gui_thd():set_visible(enabled)
+				end
+			end
+		end
+	end
+end
+
+function NewRaycastWeaponBase:_set_parts_visible(visible)
+	if self._parts then
+		local empty_s = Idstring("")
+		local anim_groups, is_visible = nil
+		local is_player = self._setup.user_unit == managers.player:player_unit()
+		local steelsight_swap_state = false
+
+		if is_player then
+			steelsight_swap_state = self._setup.user_unit:camera() and alive(self._setup.user_unit:camera():camera_unit()) and self._setup.user_unit:camera():camera_unit():base():get_steelsight_swap_state() or false
+		end
+
+		for part_id, data in pairs(self._parts) do
+			local unit = data.unit or data.link_to_unit
+
+			if alive(unit) then
+				is_visible = visible and self:_is_part_visible(part_id)
+				is_visible = is_visible and (self._parts[part_id].steelsight_visible == nil or self._parts[part_id].steelsight_visible == steelsight_swap_state)
+
+				unit:set_visible(is_visible)
+
+				if not visible and (not unit:base() or (unit:base().GADGET_TYPE ~= "second_sight" and unit:base().GADGET_TYPE ~= "simple_anim")) then
+					anim_groups = unit:anim_groups()
+
+					for _, anim in ipairs(anim_groups) do
+						if anim ~= empty_s then
+							unit:anim_play_to(anim, 0)
+							unit:anim_stop()
+						end
+					end
+				end
+
+				if unit:digital_gui() then
+					unit:digital_gui():set_visible(visible)
+				end
+
+				if unit:digital_gui_upper() then
+					unit:digital_gui_upper():set_visible(visible)
+				end
+
+				if unit:digital_gui_thd() then
+					unit:digital_gui_thd():set_visible(visible)
+				end
+			end
+		end
+	end
+
+	self:_chk_charm_upd_state()
 end

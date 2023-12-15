@@ -35,7 +35,9 @@ end
 function MutatorCaptainReplacer:modify_value(id, value)
 	if id == "HUDAssaultCorner:NewCaptainIcon" then
 		local new_icon = self:get_captain_override()
-			if new_icon == "winter" then
+			if new_icon == "captain_random" then
+				new_icon = "guis/textures/pd2/hud_buff_generic"
+			elseif new_icon == "winter" then
 				new_icon = "guis/textures/pd2/hud_buff_shield"
 			elseif new_icon == "spring" then
 				new_icon = "guis/textures/pd2/hud_buff_skull"
@@ -506,6 +508,21 @@ function MutatorCaptainReplacer:setup()
 		}
 	}
 	
+	if new_captain == "captain_random" then
+		new_captain = math.random()
+	if new_captain < 0.24 then
+		new_captain = "winter"
+	elseif new_captain >= 0.24 and new_captain < 0.48 then
+		new_captain = "spring"
+	elseif new_captain >= 0.48 and new_captain < 0.72 then
+		new_captain = "summer"
+	elseif new_captain >= 0.72 and new_captain < 0.96 then
+		new_captain = "autumn"
+	else
+		new_captain = "hvh"
+	end
+	end
+	
 	if new_captain == "winter" then
 		new_captain = winter_preset
 	elseif new_captain == "spring" then
@@ -557,6 +574,11 @@ function MutatorCaptainReplacer:setup_options_gui(node)
 		{
 			value = "no_captain_override",
 			text_id = "menu_mutator_captain_replace_no_captain_override",
+			_meta = "option"
+		},
+		{
+			value = "captain_random",
+			text_id = "menu_mutator_captain_replace_captain_random",
 			_meta = "option"
 		},
 		{
