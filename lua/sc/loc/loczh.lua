@@ -1111,7 +1111,10 @@ Hooks:Add("LocalizationManagerPostInit", "ResMod_english_Localization", function
         ["heist_skm_watchdogs_stage2_briefing"] = "劫持Mia Calienté是个真正的活，朋友。她已经在幕后主使黑水在特区的行动好几年了。就在不久之前，黑水接管了码头的一个仓库作为额外的分配点。我们的目标正在那里清点从船上刚掠夺不久的货。我们将突入这里，抓住这小崽子作为人质。黑水的人无法接受失去她，他们将会愿意去花钱赎人，没准在上述条件下我们还能要价更高，伙计们你们觉得呢？",
 		
 		--Side Jobs
-		["menu_challenge_menu_challenge_moon_6_obj"] = "Complete the Slaughterhouse job on the OVERKILL difficulty or above without killing Captain Spring."
+		["menu_challenge_menu_challenge_moon_6_obj"] = "Complete the Slaughterhouse job on the OVERKILL difficulty or above without killing Captain Spring.",
+		
+		--Generic Captain Text
+		["hud_assault_vip"] = "KILL CAPTAIN TO END ASSAULT"
 		
     })
 
@@ -4513,6 +4516,12 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
         ["mutator_medicdozers_desc"] = "在任意难度下生成医疗熊。",
         ["mutator_medicdozers_longdesc"] = "每当有一只熊生成时，这只熊都有50%的几率被替换为医疗熊。\n\n提示：如果启用了\"半自动喷子熊\"的突变，则黑熊只有33.3%的几率被替换为医疗熊。",
 
+		--Alternative arsenal
+		["mutator_enemy_damage_longdesc"] = "Players will take different damage than normal from being hit by enemies.",
+
+		--Because of Training
+		["mutator_enemy_health_longdesc"] = "Enemies will spawn with different health than normal, making them easier or harder to kill.",
+
         ["mutator_notitans"] = "资金不足",
         ["mutator_notitans_desc"] = "取消生成泰坦单位。",
         ["mutator_notitans_longdesc"] = "不会有泰坦敌人单位生成。",
@@ -4639,7 +4648,10 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		["mutator_goldfarbdozers"] = "Double Firepower",
 		["mutator_goldfarbdozers_desc"] = "All Bulldozers that spawn will always deploy in pairs.",
 		["mutator_goldfarbdozers_longdesc"] = "All Bulldozers that spawn will always deploy in pairs.",
-
+		
+		["mutator_spoocsquad"] = "Sneaky Squad",
+		["mutator_spoocsquad_desc"] = "Cloakers tend to spawn in groups.",
+		["mutator_spoocsquad_longdesc"] = "Cloakers tend to spawn in groups.",
         -- Crime spree modifier changes
         ["cn_crime_spree_brief"] = "\"罪无止境\"是一系列随机选取并需要连续完成的劫案组合。你完成的每次一次劫案都会为你增加罪无止境等级与奖励。每过20级或26级，你都需要选择一次附加难度因子；每过100级都会增加劫案的基础难度(如枪林弹雨到祸乱横行)，这会使劫案更难完成。等级600之后，玩家的无敌帧将会逐渐减少，Bravo临界反应部队将会开始生成。\n\n##如果你想邀请你的好友一起玩，请先确保他们开始了罪无止境以一起获得等级和奖励##",
         ["menu_cs_next_modifier_forced"] = "",
@@ -4668,6 +4680,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
         ["menu_cs_modifier_cloaker_tear_gas"] = "所有人质救援队的单位都有额外15%的概率被替换为支援兵。",
         ["menu_cs_modifier_dozer_lmg"] = "每当有一只绿熊或黑熊被生成时，它都有概率被替换为一只骷髅熊。",
 		["menu_cs_modifier_dozerpairs"] = "Bulldozers will now always spawn in pairs.",
+		["menu_cs_modifier_spoocsquad"] = "Cloakers now tend to spawn in groups.",
 
         ["bm_menu_skill"] = "小队加成",
 

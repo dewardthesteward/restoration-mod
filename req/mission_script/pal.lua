@@ -8,6 +8,10 @@ local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 	else
 		ponr_value = 60
 	end
+	
+	if Global.game_settings and Global.game_settings.single_player then
+		ponr_value = ponr_value * 2 
+	end
 
 if Global.game_settings and Global.game_settings.one_down and difficulty_index >= 5 then	
 	titan_shield = "units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"
@@ -29,6 +33,28 @@ return {
 	[102410] = {
 		on_executed = {
             {id = 100096, delay = 0}
+		}
+	},
+	--SWAT Van that crashes through Wilson's wall no longer deploys turret on higher diffs
+	--Disables the turret
+	[102821] = {
+		values = {
+			enabled = false
+		}
+	},
+	[101965] = {
+		values = {
+			enabled = false
+		}
+	},
+	--Forces the reinforcments to spawn instead
+	[102819] = {
+		values = {
+			difficulty_overkill = "true",
+			difficulty_overkill_145 = "true",
+			difficulty_easy_wish = "true",
+			difficulty_overkill_290 = "true",
+			difficulty_sm_wish = "true"
 		}
 	},
 	--Replace some Rooftop SWATs with Titan Snipers on Overkill-DS PJ

@@ -3097,7 +3097,7 @@ function CharacterTweakData:_init_phalanx_vip(presets)
 	self.phalanx_vip.damage.fire_pool_damage_mul = 0.05
 	self.phalanx_vip.damage.bullet_damage_mul = 0.25
 	self.phalanx_vip.damage.fire_damage_mul = 0.25
-	if self:get_ai_group_type() == "russia" then
+	if self:get_ai_group_type() == "russia" or self:get_ai_group_type() == "federales" then
 		self.phalanx_vip.spawn_sound_event = "cpw_a01"
 		self.phalanx_vip.spawn_sound_event_2 = "cloaker_spawn"
 	else
@@ -3318,7 +3318,7 @@ function CharacterTweakData:_init_summers(presets)
 	self.summers.deathguard = true
 	self.summers.chatter = presets.enemy_chatter.summers
 	self.summers.announce_incomming = "incomming_captain"
-	if self:get_ai_group_type() == "russia" then
+	if self:get_ai_group_type() == "russia" or self:get_ai_group_type() == "federales" then
 		self.summers.spawn_sound_event = "cloaker_spawn"
 	else
 		self.summers.spawn_sound_event = "cpa_a02_01"
@@ -17625,7 +17625,21 @@ function CharacterTweakData:_set_sm_wish()
 	self:_set_characters_melee_preset("2.5", "2")
 	self.fbi.can_shoot_while_dodging = true
 	self.swat.can_shoot_while_dodging = true
-	self.hrt.can_shoot_while_dodging = true		
+	self.hrt.can_shoot_while_dodging = true
+
+	--Bosses that use Machine Guns have pushback abilities applied
+	--The Commissar
+	self.mobster_boss.dt_suppress = {
+		range = 500
+	}
+	--Overkill MC Boss
+	self.biker_boss.dt_suppress = {
+		range = 500
+	}
+	--Gabriel
+	self.deep_boss.dt_suppress = {
+		range = 500
+	}
 	
 	--Tankier Dozer Armor
 	self.tank_armor_damage_mul = 0.5
