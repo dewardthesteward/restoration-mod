@@ -1,6 +1,8 @@
 local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 local difficulty_index = tweak_data:difficulty_to_index(difficulty)
+local shadow_fucked_me_hard = Global.game_settings and Global.game_settings.one_down
 
+	--Setting up the murkies for epic three way fight
 	if difficulty_index <= 2 or difficulty_index == 3 then
 		specialenemy_1 = "units/pd2_mod_sharks/characters/ene_murky_fbi_tank_r870/ene_murky_fbi_tank_r870"
 		specialenemy_2 = "units/pd2_mod_sharks/characters/ene_swat_heavy_1/ene_swat_heavy_1"
@@ -59,20 +61,12 @@ local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 		ponr_value = 600		
 	end
 	
-	if Global.game_settings and Global.game_settings.one_down then
-	--Captain Winters Encounter on DSPJ
+	if shadow_fucked_me_hard then
+	--Captain Winters Encounter on DSPJ (probably the only scripted captain encounter in vanilla heists)
 	if difficulty_index == 8 then
 		specialenemy_1 = "units/pd2_dlc_vip/characters/ene_vip_1/ene_vip_1"
 		specialenemy_2 = "units/pd2_dlc_vip/characters/ene_phalanx_1/ene_phalanx_1"
 		specialenemy_3 = "units/pd2_dlc_vip/characters/ene_vip_2_assault/ene_vip_2_assault"
-		shield = "units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"
-		tank = "units/pd2_mod_sharks/characters/ene_murky_fbi_tank_m249/ene_murky_fbi_tank_m249"
-		taser = "units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"
-		swat_1 = "units/pd2_mod_sharks/characters/ene_zeal_city_1/ene_zeal_city_1"
-		swat_2 = "units/pd2_mod_sharks/characters/ene_zeal_city_2/ene_zeal_city_2"
-		swat_3 = "units/pd2_mod_sharks/characters/ene_zeal_city_3/ene_zeal_city_3"
-		swat_4 = "units/pd2_mod_sharks/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy"
-		swat_5 = "units/pd2_mod_sharks/characters/ene_zeal_swat_heavy_r870/ene_zeal_swat_heavy_r870"
 	end
 end
 
@@ -81,7 +75,16 @@ return {
 	[103031] = {
 			ponr = ponr_value
 	},
-	--Three Way Fight feat. Murkywater
+	--fixes one of the ai_hunt SOs not having taser access
+	[100675] = {
+		pre_func = function (self)
+			if not self._values.SO_access_original then
+				self._values.SO_access_original = self._values.SO_access
+				self._values.SO_access = managers.navigation:convert_access_filter_to_number({"cop", "swat", "tank", "shield", "taser"})
+			end
+		end
+	},
+	--Three Way Fight feat. Murkywater, make Akan's mercs shit their pants and fight Murkies
 	--1st Van (left one)
 	[100776] = {
 		values = {
@@ -160,9 +163,6 @@ return {
 		values = {
 			enemy = taser,
 			team = "mobster1"
-		},
-		on_executed = {
-			{ id = 100660, delay = 0 }
 		}
 	},
 	[100549] = {

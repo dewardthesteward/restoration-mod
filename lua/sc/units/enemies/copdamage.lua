@@ -8,6 +8,14 @@ local table_contains = table.contains
 local enemies_visor = {
 	ids_func("units/payday2/characters/ene_city_guard_3/ene_city_guard_3"),
 	ids_func("units/payday2/characters/ene_city_guard_3/ene_city_guard_3_husk"),
+	ids_func("units/payday2/characters/ene_swat_heavy_1_sc/ene_swat_heavy_1_sc"),
+	ids_func("units/payday2/characters/ene_swat_heavy_1_sc/ene_swat_heavy_1_sc_husk"),
+	ids_func("units/payday2/characters/ene_fbi_heavy_1_sc/ene_fbi_heavy_1_sc"),
+	ids_func("units/payday2/characters/ene_fbi_heavy_1_sc/ene_fbi_heavy_1_sc_husk"),
+	ids_func("units/payday2/characters/ene_swat_heavy_r870_sc/ene_swat_heavy_r870_sc"),    
+	ids_func("units/payday2/characters/ene_swat_heavy_r870_sc/ene_swat_heavy_r870_sc_husk"),    
+	ids_func("units/payday2/characters/ene_city_heavy_g36_sc/ene_city_heavy_g36_sc"),
+	ids_func("units/payday2/characters/ene_city_heavy_g36_sc/ene_city_heavy_g36_sc_husk"),
 	ids_func("units/pd2_mod_halloween/characters/ene_swat_heavy_1_sc/ene_swat_heavy_1_sc"),
 	ids_func("units/pd2_mod_halloween/characters/ene_swat_heavy_1_sc/ene_swat_heavy_1_sc_husk"),
 	ids_func("units/pd2_mod_halloween/characters/ene_swat_heavy_r870_sc/ene_swat_heavy_r870_sc"),
@@ -24,6 +32,10 @@ local enemies_visor = {
 	ids_func("units/pd2_mod_halloween/characters/ene_zeal_tazer/ene_zeal_tazer_husk"),                 	
 	ids_func("units/pd2_mod_halloween/characters/ene_city_heavy_g36/ene_city_heavy_g36"),
 	ids_func("units/pd2_mod_halloween/characters/ene_city_heavy_g36/ene_city_heavy_g36_husk"),                 	
+	ids_func("units/payday2/characters/ene_shield_2_sc/ene_shield_2_sc"),
+	ids_func("units/payday2/characters/ene_shield_2_sc/ene_shield_2_sc_husk"),
+	ids_func("units/payday2/characters/ene_tazer_1_sc/ene_tazer_1_sc"),
+	ids_func("units/payday2/characters/ene_tazer_1_sc/ene_tazer_1_sc_husk"),     
 	ids_func("units/pd2_dlc_bex/characters/ene_tazer_1/ene_tazer_1"),
 	ids_func("units/pd2_dlc_bex/characters/ene_tazer_1/ene_tazer_1_husk"),                 
 	ids_func("units/pd2_dlc_bex/characters/ene_zeal_swat_heavy_sc/ene_zeal_swat_heavy_sc"),
@@ -88,7 +100,12 @@ local enemies_visor = {
 	ids_func("units/pd2_mod_nypd/characters/ene_nypd_heavy_r870/ene_nypd_heavy_r870_husk"),                 	
 }
 
-local enemies_plink = {	  
+local enemies_plink = {
+	ids_func("units/payday2/characters/ene_fbi_heavy_r870_sc/ene_fbi_heavy_r870_sc"),
+	ids_func("units/payday2/characters/ene_fbi_heavy_r870_sc/ene_fbi_heavy_r870_sc_husk"),
+	ids_func("units/payday2/characters/ene_city_heavy_r870_sc/ene_city_heavy_r870_sc"),
+	ids_func("units/payday2/characters/ene_city_heavy_r870_sc/ene_city_heavy_r870_sc_husk"),
+	  
 	ids_func("units/pd2_mod_lapd/characters/ene_fbi_heavy_r870_sc/ene_fbi_heavy_r870_sc"),
 	ids_func("units/pd2_mod_lapd/characters/ene_fbi_heavy_r870_sc/ene_fbi_heavy_r870_sc_husk"),                     
 	ids_func("units/pd2_mod_lapd/characters/ene_city_heavy_r870_sc/ene_city_heavy_r870_sc"),
@@ -143,6 +160,8 @@ local enemies_plink = {
 }
 
 local grenadier_smash = {
+	ids_func("units/payday2/characters/ene_grenadier_1/ene_grenadier_1"),
+	ids_func("units/payday2/characters/ene_grenadier_1/ene_grenadier_1_husk"),
 	ids_func("units/pd2_mod_reapers/characters/ene_titan_taser/ene_titan_taser"),
 	ids_func("units/pd2_mod_reapers/characters/ene_titan_taser/ene_titan_taser_husk"),
 	ids_func("units/pd2_dlc_gitgud/characters/ene_grenadier_1/ene_grenadier_1"),
@@ -183,9 +202,10 @@ local limbs = {
 
 local damage_type_mult = {
 	machine_gun = 0.6,
+	heavy_pistol = 0.6,
 	pistol = 0.7,
 	assault_rifle = 0.7,
-	heavy_pistol = 0.8,
+	handcannon = 0.8,
 	sniper = 0.8
 }
 
@@ -198,6 +218,8 @@ local head_hitboxes = {
     [Idstring("altyn_visor"):key()] = true,
     [Idstring("glass_visor"):key()] = true
 }
+
+local is_pro = Global.game_settings and Global.game_settings.one_down
 
 Hooks:PostHook(CopDamage, "init", "res_init", function(self, unit)
 	self._player_damage_ratio = 0 --Damage dealt to this enemy by players that contributed to the kill.
@@ -337,6 +359,10 @@ function CopDamage:damage_fire(attack_data)
 	local hit_pos = attack_data.col_ray.hit_position
 	local is_player = attack_data.attacker_unit == managers.player:player_unit()
 	local damage_clamp = self._char_tweak.DAMAGE_CLAMP_FIRE
+
+	if allow_ff then
+		damage = damage * 0.5
+	end
 
 	if is_player then
 		if self._char_tweak.priority_shout then
@@ -490,7 +516,6 @@ function CopDamage:damage_fire(attack_data)
 				self._unit:damage():run_sequence_simple("grenadier_glass_break")
 			elseif self._head_body_name then
 				local body = self._unit:body(self._head_body_name)
-
 
 				if self._unit:damage() and self._unit:damage():has_sequence("spawn_helmet")  then
 					self._unit:damage():run_sequence_simple("spawn_helmet")
@@ -946,8 +971,13 @@ function CopDamage:damage_bullet(attack_data)
 		end		
 	end	
 
-	if damage_type_mult[damage_type] and limbs[hit_body:name():key()] then
-		damage = damage * damage_type_mult[damage_type]
+	if limbs[hit_body:name():key()] then
+		if damage_type_mult[damage_type] then
+			damage = damage * damage_type_mult[damage_type]
+		end
+		if is_pro then
+			damage = damage * 0.75
+		end
 	end
 
 	if not self._damage_reduction_multiplier and head then
@@ -1077,7 +1107,6 @@ function CopDamage:damage_bullet(attack_data)
 				if table_contains(grenadier_smash, self._unit:name()) then
 					self._unit:damage():run_sequence_simple("grenadier_glass_break")
 				else
-
 					if self._unit:damage() and self._unit:damage():has_sequence("spawn_helmet")  then
 						self._unit:damage():run_sequence_simple("spawn_helmet")
 					end
@@ -1312,7 +1341,6 @@ function CopDamage:sync_damage_bullet(attacker_unit, damage_percent, i_body, hit
 			if table_contains(grenadier_smash, self._unit:name()) then
 				self._unit:damage():run_sequence_simple("grenadier_glass_break")
 			else
-
 				if self._unit:damage() and self._unit:damage():has_sequence("spawn_helmet")  then
 					self._unit:damage():run_sequence_simple("spawn_helmet")
 				end
@@ -1461,7 +1489,7 @@ function CopDamage:damage_melee(attack_data)
 	local is_gangster = CopDamage.is_gangster(self._unit:base()._tweak_table)
 	local is_cop = not is_civlian and not is_gangster
 	local hit_body = attack_data and attack_data.col_ray and attack_data.col_ray.body
-	local head = self._head_body_name and not self._unit:in_slot(16) and not self._char_tweak.ignore_headshot and attack_data.col_ray.body and attack_data.col_ray.body:name() == self._ids_head_body_name or head_hitboxes[hit_body:name():key()]
+	local head = hit_body and self._head_body_name and not self._unit:in_slot(16) and not self._char_tweak.ignore_headshot and (hit_body:name() == self._ids_head_body_name or head_hitboxes[hit_body:name():key()])
 	local headshot_multiplier = attack_data.headshot_multiplier or 1
 	local damage = attack_data.damage
 	local damage_effect = attack_data.damage_effect or attack_data.damage
@@ -1606,7 +1634,6 @@ function CopDamage:damage_melee(attack_data)
 				if table_contains(grenadier_smash, self._unit:name()) then
 					self._unit:damage():run_sequence_simple("grenadier_glass_break")
 				else
-
 					if self._unit:damage() and self._unit:damage():has_sequence("spawn_helmet")  then
 						self._unit:damage():run_sequence_simple("spawn_helmet")
 					end
@@ -1637,7 +1664,7 @@ function CopDamage:damage_melee(attack_data)
 		damage_effect = math.clamp(damage_effect, self._HEALTH_INIT_PRECENT, self._HEALTH_INIT)
 		damage_effect_percent = math.ceil(damage_effect / self._HEALTH_INIT_PRECENT)
 		damage_effect_percent = math.clamp(damage_effect_percent, 1, self._HEALTH_GRANULARITY)
-		local result_type = attack_data.shield_knock and self._char_tweak.damage.shield_knocked and "shield_knock" or attack_data.variant == "counter_tased" and "counter_tased" or attack_data.variant == "taser_tased" and self._char_tweak.damage.can_be_tased and "taser_tased" or attack_data.variant == "counter_spooc" and "expl_hurt" or self:get_damage_type(damage_effect_percent, "melee") or "fire_hurt"
+		local result_type = attack_data.shield_knock and self._char_tweak.damage.shield_knocked and "shield_knock" or attack_data.variant == "counter_tased" and "counter_tased" or attack_data.variant == "taser_tased" and self._char_tweak.can_be_tased ~= false and "taser_tased" or attack_data.variant == "counter_spooc" and "expl_hurt" or self:get_damage_type(damage_effect_percent, "melee") or "fire_hurt"
 		result = {
 			type = result_type,
 			variant = attack_data.variant
@@ -1798,8 +1825,6 @@ function CopDamage:sync_damage_melee(attacker_unit, damage_percent, damage_effec
 			if table_contains(grenadier_smash, self._unit:name()) then
 				self._unit:damage():run_sequence_simple("grenadier_glass_break")
 			else
-
-
 				if self._unit:damage() and self._unit:damage():has_sequence("spawn_helmet")  then
 					self._unit:damage():run_sequence_simple("spawn_helmet")
 				end
@@ -1907,6 +1932,11 @@ function CopDamage:die(attack_data)
 		self._unit:contour():remove("medic_show", false)
 		self._unit:contour():remove("medic_buff", false)
 	end
+	
+	if self._unit:base() then
+		self._unit:base():disable_lpf_buff(true)
+		self._unit:base():disable_asu_laser(true)
+	end
 
 	if self._unit:base()._tweak_table == "spooc" then
 		self._unit:damage():run_sequence_simple("kill_spook_lights")
@@ -1929,7 +1959,7 @@ function CopDamage:die(attack_data)
 		boom_boom = managers.modifiers:modify_value("CopDamage:CanBoomBoom", boom_boom)
 		boom_boom = managers.mutators:modify_value("CopDamage:CanBoomBoom", boom_boom)
 		if boom_boom then
-			MutatorExplodingEnemies._detonate(MutatorExplodingEnemies, self, attack_data, true, 60, 500)
+			self:kamikaze_bag_explode()
 		end
 	end
 	
@@ -2047,6 +2077,7 @@ function CopDamage:sync_damage_stun(attacker_unit, damage_percent, i_attack_vari
 	self:_create_stun_exit_clbk()
 end
 
+
 function CopDamage:damage_explosion(attack_data)
 	if self._dead or self._invulnerable then
 		return
@@ -2090,6 +2121,9 @@ function CopDamage:damage_explosion(attack_data)
 	local result = nil
 	local damage = attack_data.damage
 
+	if allow_ff then
+		damage = damage * 0.5
+	end
 		
 	--Use a different damage resistance when being hit by a rocket	
 	if alive(weap_unit) then
@@ -2160,7 +2194,7 @@ function CopDamage:damage_explosion(attack_data)
 	else
 		attack_data.damage = damage
 
-		local result_type = attack_data.variant == "stun" and "hurt_sick" or self:get_damage_type(damage_percent, "explosion")
+		local result_type = (allow_ff and "dmg_rcv") or (attack_data.variant == "stun" and "hurt_sick") or self:get_damage_type(damage_percent, "explosion")
 
 		result = {
 			type = result_type,
@@ -2196,7 +2230,6 @@ function CopDamage:damage_explosion(attack_data)
 				self._unit:damage():run_sequence_simple("grenadier_glass_break")
 			elseif self._head_body_name then
 				local body = self._unit:body(self._head_body_name)
-
 
 				if self._unit:damage() and self._unit:damage():has_sequence("spawn_helmet")  then
 					self._unit:damage():run_sequence_simple("spawn_helmet")
@@ -2343,7 +2376,6 @@ function CopDamage:sync_damage_explosion(attacker_unit, damage_percent, i_attack
 		if table_contains(grenadier_smash, self._unit:name()) then
 			self._unit:damage():run_sequence_simple("grenadier_glass_break")	
 		else
-
 			if self._unit:damage() and self._unit:damage():has_sequence("spawn_helmet")  then
 				self._unit:damage():run_sequence_simple("spawn_helmet")
 			end
@@ -3257,7 +3289,7 @@ function CopDamage:bag_explode()
 		effect_name = "effects/payday2/particles/explosions/grenade_incendiary_explosion_sc"
 	}
 
-	EnvironmentFire.spawn(position, rotation, data, math.UP, nil, 0, 1)			
+	EnvironmentFire.spawn(position, rotation, data, math.UP, nil, nil, 0, 1)			
 end
 
 function CopDamage:taser_bag_explode()    
@@ -3336,6 +3368,51 @@ function CopDamage:grenadier_bag_explode()
 	managers.network:session():send_to_peers_synched("sync_explosion_to_client", nil, pos, normal, ply_damage, range, curve_pow)		
 end
 
+function CopDamage:kamikaze_bag_explode()    
+	local pos = alive(self._unit) and (self._unit:get_object(Idstring("Spine2")):position() or self._unit:position())
+
+	if not pos then
+		return
+	end
+
+	local range = 400
+	local damage = 500
+	local ply_damage = 250
+	local normal = math.UP
+	local slot_mask = managers.slot:get_mask("explosion_targets")
+	local curve_pow = 4
+	local custom_params = {
+		camera_shake_max_mul = 4,
+		effect = "effects/payday2/particles/explosions/grenade_explosion",
+		sound_event = "grenade_explode",
+		feedback_range = range * 2
+	}
+	local tweak_entry = {
+		damage = damage,
+		player_damage = ply_damage,
+		curve_pow = curve_pow,
+		range = range
+	}
+	
+	managers.explosion:give_local_player_dmg(pos, range, ply_damage)
+	managers.explosion:play_sound_and_effects(pos, normal, range, custom_params)	
+	
+	local damage_params = {
+		no_raycast_check_characters = true,
+		hit_pos = pos,
+		range = range,
+		collision_slotmask = managers.slot:get_mask("explosion_targets"),
+		curve_pow = curve_pow,
+		damage = damage,
+		player_damage = ply_damage,
+		ignore_unit = alive(self._unit) and self._unit or nil
+	}
+
+	managers.explosion:detect_and_give_dmg(damage_params)
+	managers.network:session():send_to_peers_synched("element_explode_on_client", pos, normal, damage, range, curve_pow)
+	
+end
+
 --Added stuff for CG22 mutator
 function CopDamage:_apply_damage_reduction(damage)
 	local damage_reduction = self._unit:movement():team().damage_reduction or 0
@@ -3362,4 +3439,31 @@ end
 
 function CopDamage:can_attach_projectiles()
 	return not self._char_tweak.cannot_attach_projectiles
+end
+
+function CopDamage:check_medic_heal()
+	if self._unit:anim_data().act then
+		return false
+	end
+
+	local medic = managers.enemy:get_nearby_medic(self._unit)
+	
+	if medic and medic.anim_data then
+		if medic:anim_data().hurt or medic:anim_data().heavy_hurt then
+			return false
+		end
+	end
+
+	return medic and medic:character_damage():heal_unit(self._unit)
+end
+
+--Doing this to get rid of unused CrimeSpree stuff just in case
+function CopDamage:do_medic_heal()
+	self._healed = true
+	self._health = self._HEALTH_INIT
+	self._health_ratio = 1
+
+	self:_update_debug_ws()
+	
+	return true
 end

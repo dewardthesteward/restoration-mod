@@ -853,7 +853,7 @@ end
 
 function PlayerStandard:_check_action_primary_attack(t, input, params)
 	local new_action, action_wanted = nil
-	action_wanted = (not params or params.action_wanted == nil or params.action_wanted) and (input.btn_primary_attack_state or input.btn_primary_attack_release or  self:is_shooting_count() or self:_is_charging_weapon() or input.real_input_pressed or self._queue_fire or self._spin_up_shoot)
+	action_wanted = (not params or params.action_wanted == nil or params.action_wanted) and (input.btn_primary_attack_state or input.btn_primary_attack_release or self:is_shooting_count() or self:_is_charging_weapon() or input.real_input_pressed or self._queue_fire or self._spin_up_shoot)
 
 	if action_wanted then
 		local action_forbidden = nil
@@ -888,8 +888,8 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 				local queue_inputs = restoration.Options:GetValue("OTHER/WeaponHandling/QueuedShooting")
 				local queue_window = restoration.Options:GetValue("OTHER/WeaponHandling/QueuedShootingWindow") or 0.5
 				local queue_exlude = restoration.Options:GetValue("OTHER/WeaponHandling/QueuedShootingExclude") or 0.6
-				local queue_mid_burst = restoration.Options:GetValue("OTHER/WeaponHandling/QueuedShootingMidBurst")
-			
+				local queue_burst_exclude = restoration.Options:GetValue("OTHER/WeaponHandling/QueuedShootingBurstExclude") or 0.3
+				local queue_mid_burst = weap_base._burst_delay and queue_burst_exclude and queue_burst_exclude > weap_base._burst_delay and restoration.Options:GetValue("OTHER/WeaponHandling/QueuedShootingMidBurst")
 				if queue_inputs and weap_base:in_burst_mode() then
 					if queue_mid_burst and input.real_input_pressed then
 						self._queue_burst = true
@@ -911,7 +911,7 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 					self._queue_fire = nil
 
 					local manual_reloads = restoration.Options:GetValue("OTHER/WeaponHandling/ManualReloads")
-					if params and params.no_reload or self:_is_using_bipod() or is_pro or manual_reloads then
+					if params and params.no_reload or self:_is_using_bipod() --[[or is_pro]] or manual_reloads then
 						if input.btn_primary_attack_press then
 							weap_base:dryfire()
 						end
@@ -1148,8 +1148,10 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 								end
 							end
 						end
-
-						local recoil_multiplier = (weap_base:recoil() + weap_base:recoil_addend()) * weap_base:recoil_multiplier()
+						local srm = weap_tweak_data.recoil_values and weap_tweak_data.recoil_values.srm
+						local shots_fired = srm and math.max(weap_base._shots_fired - 1 - (srm[3] or 0), 0)  or 0
+						local shots_fired_mult = srm and math.round(100000 * math.clamp( 1 - (shots_fired * srm[1]) , srm[2][1], srm[2][2])) / 100000
+						local recoil_multiplier = (weap_base:recoil() + weap_base:recoil_addend()) * weap_base:recoil_multiplier() * (shots_fired_mult or 1)
 						local kick_tweak_data = weap_tweak_data.kick[fire_mode] or weap_tweak_data.kick
 						local always_standing = weap_tweak_data.always_use_standing
 						local up, down, left, right = unpack(kick_tweak_data[always_standing and "standing" or self._state_data.in_steelsight and "steelsight" or self._state_data.ducking and "crouching" or "standing"])
@@ -2404,16 +2406,18 @@ end
 
 --Updates burst fire and minigun spinup.
 Hooks:PreHook(PlayerStandard, "update", "ResWeaponUpdate", function(self, t, dt)
-	self:_update_burst_fire(t)
-	self:_update_slide_locks()
-	self:_shooting_move_speed_timer(t, dt)
-	self:_last_shot_t(t, dt)
+	if alive(self._equipped_unit) then
+		self:_update_burst_fire(t)
+		self:_update_slide_locks()
+		self:_shooting_move_speed_timer(t, dt)
+		self:_last_shot_t(t, dt)
+	end
 	self:_update_js_t(t, dt)
 	self:_update_d_scope_t(t, dt)
 	self:_update_spread_stun_t(t, dt)
 	self:_update_drain_stamina(t, dt)
 
-	local weapon = self._equipped_unit and self._equipped_unit:base()
+	local weapon = alive(self._equipped_unit) and self._equipped_unit:base()
 	if weapon:weapon_tweak_data().ads_spool then
 		weapon:update_spin()
 	end
@@ -2492,7 +2496,7 @@ function PlayerStandard:_update_drain_stamina(t, dt)
 end
 
 function PlayerStandard:_last_shot_t(t, dt)
-	local weapon = self._equipped_unit and self._equipped_unit:base()
+	local weapon = alive(self._equipped_unit) and self._equipped_unit:base()
 	local fire_mode = weapon and weapon:fire_mode()
 	if weapon then
 		if self._shooting and fire_mode == "auto" then
@@ -2512,7 +2516,7 @@ end
 
 
 function PlayerStandard:_shooting_move_speed_timer(t, dt)
-	local weapon = self._equipped_unit and self._equipped_unit:base()
+	local weapon = alive(self._equipped_unit) and self._equipped_unit:base()
 	if not weapon then
 		return
 	end

@@ -102,6 +102,8 @@
 	
 	<!-- Border Crossing-->
 	<mission			path="levels/instances/unique/mex/mex_vault/world/world" force="true" unload="true"/>
+	<mission			path="levels/instances/unique/mex/mex_pump/world/world" force="true" unload="true"/>
+	<mission			path="levels/instances/unique/mex/mex_tanker/world/world" force="true" unload="true"/>
 
 	<!-- Remove "editor_only" stuff that smh show up in usual game -->
 	<continent			path="levels/narratives/jiu/chas/world/world" force="true" unload="true"/> <!-- ~~Dragon~~ Dragan Heist -->
@@ -138,12 +140,25 @@
 	<mission			path="levels/instances/unique/fex/fex_security_room_left/world/world" force="true" /> 
 	<mission			path="levels/instances/unique/fex/fex_security_room_right/world/world" force="true" />
 	
+	<!--Boiling Point edit-->
 	<cover_data			path="levels/narratives/elephant/mad/cover_data" force="true" unload="true"/>
 	<nav_data			path="levels/narratives/elephant/mad/nav_manager_data" force="true" unload="true"/>
 	<mission			path="levels/narratives/elephant/mad/world/world" force="true" unload="true"/>
 	<continent			path="levels/narratives/elephant/mad/world/world" force="true" unload="true"/>
 	<continent			path="levels/narratives/elephant/mad/art2/art2" force="true" unload="true"/>
 	<continent			path="levels/narratives/elephant/mad/collision/collision" force="true" unload="true"/>
+	<!--proper textures for Boiling Point (and more authentic) by Psyhowithdrill-->
+	<texture path="units/pd2_dlc_mad/characters/civ_male_scientist_01/scientist_01_body_df" force="true"/>
+	<texture path="units/pd2_dlc_mad/characters/civ_male_scientist_02/scientist_02_body_df" force="true"/>
+	<texture path="units/pd2_dlc_mad/equipment/mad_interactable_door_keycard/screen_df" force="true"/>
+	<texture path="units/pd2_dlc_mad/props/mad_prop_interactable_tablet_stand/mad_prop_interactable_tablet_stand_df" force="true"/>
+	<texture path="units/pd2_dlc_mad/props/mad_prop_keycard/keycard_df" force="true"/>
+	<texture path="units/pd2_dlc_mad/props/mad_prop_medical_ctscanner/mad_prop_medical_ctscanner_df" force="true"/>
+	<texture path="units/pd2_dlc_mad/props/mad_prop_medical_glovebox/mad_prop_medical_glovebox_df" force="true"/>
+	<texture path="units/pd2_dlc_mad/props/mad_prop_medical_set/mad_prop_medical_carm_df" force="true"/>
+	<texture path="units/pd2_dlc_mad/props/mad_prop_medical_set/mad_prop_medical_trolley_df" force="true"/>
+	<texture path="units/pd2_dlc_mad/props/mad_prop_military_laptop/mad_prop_military_laptop_screen_login_df" force="true"/>
+	<texture path="units/pd2_dlc_mad/props/mad_prop_sign_electricity/mad_prop_sign_electricity_df" force="true"/>
 	
 	<mission			path="levels/narratives/elephant/born/world/world" force="true" unload="true"/> <!--adds a bikerdozer to the bunker, removes swat turret.-->	
 	<continent			path="levels/narratives/elephant/born/world/world" force="true" unload="true"/> <!--fixes cars clipping into ground-->
@@ -1256,7 +1271,9 @@
 	<material_config path="units/pd2_mod_omnia/characters/ene_acc_omnia_buff/ene_acc_omnia_buff" force="false"/>
 	
 	<effect path="effects/pd2_mod_omnia/particles/character/overkillpack/mega_alien_eyes" load="true"/>
-	<!--<effect path="effects/pd2_mod_omnia/particles/character/shadow_cloaker/smoke_trail/smoke_distorted" load = "true"/>-->
+	<effect path="effects/pd2_mod_omnia/particles/character/overkillpack/mega_rad_mutant_smoke_puff_no_random" load="true"/>
+	<effect path="effects/pd2_mod_omnia/particles/character/shadow_cloaker/smoke_trail/smoke_distorted_green" load = "true"/>
+	<effect path="effects/pd2_mod_omnia/particles/character/shadow_cloaker/smoke_trail/smoke_distorted_purple" load = "true"/>
 	
 	<!--Loading Screen Tips-->
 	<texture			path="guis/textures/loading/hints/grenadier_load" force="false"/>	
@@ -2090,19 +2107,7 @@
 	<animation			path="anims/shared/rifle/hostile/hos_std_supprised_fwd" force="true"/>
 	<animation			path="anims/shared/rifle/hostile/hos_std_to_crh" force="true"/>
 	<animation			path="anims/shared/rifle/hostile/hos_sup_idle" force="true"/>
-	
-	<!--Money Thrower Death Animations-->
-	<animation			path="anims/shared/rifle/generic/death_money_var1" load="true"/>
-	<animation			path="anims/shared/rifle/generic/death_money_var2" load="true"/>
-	<animation			path="anims/shared/rifle/generic/death_money_var3" load="true"/>
-	<animation			path="anims/shared/rifle/generic/death_money_var4" load="true"/>
-	<animation			path="anims/shared/rifle/generic/death_money_var5" load="true"/>
-	<animation			path="anims/shared/rifle/generic/death_money_var6" load="true"/>
-	<animation			path="anims/shared/rifle/generic/death_money_var7" load="true"/>
-	<animation			path="anims/shared/rifle/generic/death_money_var8" load="true"/>
-	<animation			path="anims/shared/rifle/generic/death_money_var9" load="true"/>
-	<animation			path="anims/shared/rifle/generic/death_money_var10" load="true"/>
-	
+		
 	<!--LOD Vet Cop-->		
 	<object				path="units/payday2/characters/ene_veteran_lod_1/ene_veteran_lod_1" force="false"/>
 	<cooked_physics		path="units/payday2/characters/ene_veteran_lod_1/ene_veteran_lod_1" force="false"/>

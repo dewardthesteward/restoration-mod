@@ -31,6 +31,7 @@ function CopActionHurt:init(action_desc, common_data)
 	local crouching = self._ext_anim.crouch or self._ext_anim.crouching or self._ext_anim.hurt and self._machine:get_parameter(self._machine:segment_state(Idstring("base")), "crh") > 0
 	local fire_variant = "fire"
 	local redir_res = nil
+	local play_fire_death = nil
 	local action_type = action_desc.hurt_type
 
 	if action_type == "knock_down" then
@@ -78,9 +79,9 @@ function CopActionHurt:init(action_desc, common_data)
 		end
 
 		local dir_str = nil
-		local fwd_dot = action_desc.direction_vec:dot(common_data.fwd)
+		local fwd_dot = action_desc.direction_vec and action_desc.direction_vec:dot(common_data.fwd)
 
-		if fwd_dot < 0 then
+		if fwd_dot and fwd_dot < 0 then
 			local hit_pos = action_desc.hit_pos
 			local hit_vec = (hit_pos - common_data.pos):with_z(0):normalized()
 
@@ -216,7 +217,7 @@ function CopActionHurt:init(action_desc, common_data)
 
 			return
 		end
-	elseif action_type == "death" and action_desc.variant == "fire" then
+	elseif action_type == "death" and (action_desc.variant == "fire" or action_desc.variant == "fire_bullet")then
 		local variant = 1
 		local weapon_unit = action_desc.weapon_unit
 		local base_ext = alive(weapon_unit) and weapon_unit:base()
@@ -266,23 +267,65 @@ function CopActionHurt:init(action_desc, common_data)
 		if self._ext_anim.run or self._ext_anim.sprint or self._ext_anim.ragdoll or action_desc.variant == "bleed" then
 			self:force_ragdoll()
 		else
+			local variant = 1
+			local weapon_unit = action_desc.weapon_unit
+			local base_ext = alive(weapon_unit) and weapon_unit:base()
+			local td = nil
+	
+			if base_ext then
+				td = base_ext.weapon_tweak_data and base_ext:weapon_tweak_data() or base_ext.projectile_entry and base_ext:projectile_entry() and tweak_data.projectiles[base_ext:projectile_entry()] or base_ext.get_name_id and tweak_data.weapon[base_ext:get_name_id()]
+
+				if td then
+					fire_variant = td.fire_variant or fire_variant
+				end
+			end
+
 			self:_prepare_ragdoll()
 
-			redir_res = self._ext_movement:play_redirect("death_poison")
+			if td and td.manticore then
+				local variant_count = CopActionHurt.fire_death_anim_variants[fire_variant] or 5
 
-			if not redir_res then
-				debug_pause("[CopActionHurt:init] death_poison redirect failed in", self._machine:segment_state(Idstring("base")))
+	
+				if variant_count > 1 then
+					variant = self:_pseudorandom(variant_count)
+				end
 
-				return
+				redir_res = self._ext_movement:play_redirect("death_" .. fire_variant)
+	
+				if not redir_res then
+					debug_pause("[CopActionHurt:init] death_fire redirect failed in", self._machine:segment_state(Idstring("base")))
+	
+					return
+				end
+				
+				play_fire_death = true
+	
+				for i = 1, variant_count do
+					local state_value = 0
+	
+					if i == variant then
+						state_value = 1
+					end
+	
+					self._machine:set_parameter(redir_res, "var" .. tostring(i), state_value)
+				end
+			else
+				redir_res = self._ext_movement:play_redirect("death_poison")
+	
+				if not redir_res then
+					debug_pause("[CopActionHurt:init] death_poison redirect failed in", self._machine:segment_state(Idstring("base")))
+	
+					return
+				end
+	
+				local variant = CopActionHurt.forced_death_var or self.poison_death_anim_variants[is_female and "female" or "male"] or 1
+	
+				if not CopActionHurt.forced_death_var and variant > 1 then
+					variant = self:_pseudorandom(variant)
+				end
+	
+				self._machine:set_parameter(redir_res, "var" .. tostring(variant), 1)
 			end
-
-			local variant = CopActionHurt.forced_death_var or self.poison_death_anim_variants[is_female and "female" or "male"] or 1
-
-			if not CopActionHurt.forced_death_var and variant > 1 then
-				variant = self:_pseudorandom(variant)
-			end
-
-			self._machine:set_parameter(redir_res, "var" .. tostring(variant), 1)
 		end
 	elseif action_type == "death" and not crouching and (self._ext_anim.run or self._ext_anim.sprint) and self._ext_anim.move_fwd and not common_data.char_tweak.no_run_death_anim then
 		self:_prepare_ragdoll()
@@ -563,7 +606,7 @@ function CopActionHurt:init(action_desc, common_data)
 	end
 
 	if not self._unit:base().nick_name then
-		if action_desc.variant == "fire" then
+		if action_desc.variant == "fire" or action_desc.variant == "fire_bullet" or play_fire_death then
 			local base_ext = self._unit:base()
 
 			if action_desc.hurt_type == "fire_hurt" then
@@ -684,63 +727,6 @@ Hooks:OverrideFunction(CopActionHurt, "_upd_sick", function (self, t)
 	end
 end)
 
--- Prevent hurt and knockdown animations stacking, once one plays it needs to finish for another one to trigger
-CopActionHurt.hurt_blocks = {
-	heavy_hurt = true,
-	hurt = true,
-	hurt_sick = true,
-	knock_down = true,
-	poison_hurt = true,
-	shield_knock = true,
-	stagger = true
-}
-
-Hooks:OverrideFunction(CopActionHurt, "chk_block", function (self, action_type, t)
-	if self._hurt_type == "death" then
-		return true
-	elseif self.hurt_blocks[action_type] and not self._ext_anim.hurt_exit then
-		return true
-	elseif action_type == "turn" then
-		return true
-	elseif action_type == "death" then
-		return false
-	end
-
-	return CopActionAct.chk_block(self, action_type, t)
-end)
-
--- Fix pseudo random number generator having very low entropy
-function CopActionHurt:_pseudorandom(a, b)
-	if CopActionHurt._host_peer == nil then
-		CopActionHurt._host_peer = Network:is_client() and managers.network:session():peer(1) or false
-	end
-
-	local ht = managers.game_play_central:get_heist_timer()
-	if CopActionHurt._host_peer then
-		ht = ht + Network:qos(CopActionHurt._host_peer:rpc()).ping / 1000
-	end
-
-	-- Switch seed 4 times a second, switching too much would make the PRNG depend on client ping too much
-	ht = math.round(ht * 4)
-
-	-- Adapted from https://stackoverflow.com/a/35377265
-	ht = ht * 3266489917 + 374761393;
-	ht = bit.bor(bit.lshift(ht, 17), bit.rshift(ht, 15))
-	ht = ht + self._unit:id() * 3266489917;
-	ht = ht * 668265263;
-	ht = bit.bxor(ht, bit.rshift(ht, 15)) * 2246822519;
-	ht = bit.bxor(ht, bit.rshift(ht, 13)) * 3266489917;
-	ht = bit.bxor(ht, bit.rshift(ht, 16));
-
-	local val = bit.band(ht, 0xffffff) / 0x1000000
-	if a and b then
-		return math.floor(math.lerp(a, b + 1, val))
-	elseif a then
-		return math.floor(math.lerp(1, a + 1, val))
-	else
-		return val
-	end
-end
 
 function CopActionHurt:_upd_bleedout(t)
 	if self._floor_normal then

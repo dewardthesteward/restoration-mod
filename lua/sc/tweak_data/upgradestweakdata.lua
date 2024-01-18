@@ -400,7 +400,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 	--Explosives hurt--
 	self.explosive_bullet.curve_pow = 0.0005
 	self.explosive_bullet.player_dmg_mul = 0.5
-	self.explosive_bullet.range = 150
+	self.explosive_bullet.range = 200
 	self.explosive_bullet.feedback_range = self.explosive_bullet.range
 	self.explosive_bullet.camera_shake_max_mul = 4
 
@@ -1701,7 +1701,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 					skill_value_b3 = tostring(self.values.player.detection_risk_add_crit_chance[1][4]), -- concealment tresholder for crit chance
 					skill_value_b4 = tostring(self.values.player.detection_risk_add_crit_chance[1][5] * 100).."%", -- Max possible crit chance
 					skill_value_p1 = tostring(self.values.player.detection_risk_add_crit_chance[1][1] * 100).."%", -- Crit chance boost
-					skill_value_p2 = tostring(self.values.player.detection_risk_add_crit_chance[1][2]),
+					skill_value_p2 = tostring(self.values.player.detection_risk_add_crit_chance[2][2]),
 					skill_value_p3 = tostring(self.values.player.detection_risk_add_crit_chance[1][4]),
 					skill_value_p4 = tostring(self.values.player.detection_risk_add_crit_chance[1][5] * 100).."%",
 					skill_value_p5 = tostring(self.values.player.backstab_crits[1] * 100).."%" -- Additional crit chance if you attack from behind
@@ -1731,7 +1731,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 					self.skill_descs.dance_instructor = {
 					skill_value_b1 = tostring((1 - self.values.pistol.hip_fire_spread_multiplier[1]) * 100).."%", -- Reduce hipfire spread
 					skill_value_p1 = tostring(self.values.pistol.fire_rate_multiplier[1] % 1 * 100).."%", -- RoF bonus
-					skill_value_p2 = tostring(self.values.pistol.ap_bullets[1] * 100) -- AP boost
+					skill_value_p2 = tostring(self.values.pistol.ap_bullets[1] * 100).."%" -- AP boost
 					}
 
 			--Gunfighter
@@ -2091,6 +2091,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 			taser_tased = false,
 			poison = false,
 			fire = false,
+			fire_bullet = false,
 			projectile = false,
 			swat_van = false,
 			sentry_gun = false,
@@ -2156,7 +2157,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		tick_time = 1,
 		total_ticks = 3,
 		max_stacks = 5,
-		stacking_cooldown = 0.75,
+		stacking_cooldown = 0.7,
 		add_stack_sources = {
 			bullet = true,
 			explosion = true,
@@ -2165,6 +2166,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 			poison = false,
 			bleed = false,
 			fire = false,
+			fire_bullet = true,
 			projectile = true,
 			swat_van = true,
 			sentry_gun = false,
@@ -2203,6 +2205,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 			taser_tased = false,
 			poison = false,
 			fire = false,
+			fire_bullet = false,
 			projectile = false,
 			swat_van = false,
 			sentry_gun = false,
@@ -2516,19 +2519,19 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 	--Hacker
 	self.values.player.pocket_ecm_jammer_base = {
 		{
-			cooldown_drain = 2.5,
-			duration = 10,
+			cooldown_drain = 1.5,
+			duration = 7,
 			affects_cameras = true,
 			affects_pagers = true,
-			feedback_interval = 1.2,
-			feedback_range = 1500
+			feedback_interval = 2,
+			feedback_range = 800
 		}
 	}	
 	self.values.player.pocket_ecm_heal_on_kill = {
-		0.5
+		0.6
 	}	
 	self.values.team.pocket_ecm_heal_on_kill = {
-		0.25
+		0.3
 	}	
 	
 	--Leech
@@ -2551,8 +2554,8 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 	self.values.player.copr_speed_up_on_kill = {
 		1
 	}	
-	self.copr_ability_cooldown = 40
-	self.copr_risen_cooldown_add = 30
+	self.copr_ability_cooldown = 45
+	self.copr_risen_cooldown_add = 45
 
 	--Copycat
 	local health_boost = 0.05

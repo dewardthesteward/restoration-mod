@@ -190,9 +190,15 @@ tweak_data.assault_rifle = {
 		swap_bonus = 1.1,
 		ads_move_speed_mult = 1.11111 --raised to 0.5
 	}
-	tweak_data.dmr = {
+	tweak_data.dmr_l = {
 		hipfire_spread_mult = 1.7391304,
+		moving_spread_mult = 1.2,
+		shake_mul = 1.05
+	}
+	tweak_data.dmr_h = {
+		hipfire_spread_mult = 1.9565217,
 		moving_spread_mult = 1.5,
+		ads_stationary_spread_mult = 0.8,
 		ads_move_speed_mult = 0.888889, --lowered to 0.4
 		shake_mul = 1.1
 	}
@@ -270,8 +276,9 @@ for i, proj_id in ipairs(poison_40mm) do
 	tweak_data.projectiles[proj_id].player_damage = 0
 	tweak_data.projectiles[proj_id].curve_pow = 0
 	tweak_data.projectiles[proj_id].range = 0
+	tweak_data.projectiles[proj_id].manticore = true
 	tweak_data.projectiles[proj_id].poison_gas_range = 600
-	tweak_data.projectiles[proj_id].poison_gas_duration = 10
+	tweak_data.projectiles[proj_id].poison_gas_duration = 8
 	tweak_data.projectiles[proj_id].poison_gas_fade_time = 0.1
 	tweak_data.projectiles[proj_id].poison_gas_tick_time = 0.3
 	tweak_data.projectiles[proj_id].poison_gas_dot_data_name = "proj_launcher_cloud"
@@ -298,8 +305,9 @@ tweak_data.projectiles.launcher_poison_arbiter.damage = 0
 tweak_data.projectiles.launcher_poison_arbiter.player_damage = 0
 tweak_data.projectiles.launcher_poison_arbiter.curve_pow = 0
 tweak_data.projectiles.launcher_poison_arbiter.range = 0
+tweak_data.projectiles.launcher_poison_arbiter.manticore = true
 tweak_data.projectiles.launcher_poison_arbiter.poison_gas_range = 600
-tweak_data.projectiles.launcher_poison_arbiter.poison_gas_duration = 8
+tweak_data.projectiles.launcher_poison_arbiter.poison_gas_duration = 6
 tweak_data.projectiles.launcher_poison_arbiter.poison_gas_fade_time = 0.1
 tweak_data.projectiles.launcher_poison_arbiter.poison_gas_tick_time = 0.3
 tweak_data.projectiles.launcher_poison_arbiter.poison_gas_dot_data_name = "proj_launcher_arbiter_cloud"
@@ -353,8 +361,9 @@ tweak_data.projectiles.launcher_poison_osipr = {
 	player_damage = 0,
 	curve_pow = 0,
 	range = 0,
+	manticore = true,
 	poison_gas_range = 600,
-	poison_gas_duration = 8,
+	poison_gas_duration = 6,
 	poison_gas_fade_time = 0.1,
 	poison_gas_tick_time = 0.3,
 	poison_gas_dot_data_name = "proj_launcher_arbiter_cloud"
@@ -377,8 +386,9 @@ tweak_data.projectiles.launcher_poison.damage = 0
 tweak_data.projectiles.launcher_poison.player_damage = 0
 tweak_data.projectiles.launcher_poison.curve_pow = 0
 tweak_data.projectiles.launcher_poison.range = 0
+tweak_data.projectiles.launcher_poison.manticore = true
 tweak_data.projectiles.launcher_poison.poison_gas_range = 600
-tweak_data.projectiles.launcher_poison.poison_gas_duration = 6
+tweak_data.projectiles.launcher_poison.poison_gas_duration = 4
 tweak_data.projectiles.launcher_poison.poison_gas_fade_time = 0.1
 tweak_data.projectiles.launcher_poison.poison_gas_tick_time = 0.3
 tweak_data.projectiles.launcher_poison.poison_gas_dot_data_name = "proj_launcher_3gl_cloud"
@@ -389,8 +399,9 @@ tweak_data.projectiles.launcher_poison_ms3gl_conversion.damage = 0
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.player_damage = 0
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.curve_pow = 0
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.range = 0
+tweak_data.projectiles.launcher_poison_ms3gl_conversion.manticore = true
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.poison_gas_range = 600
-tweak_data.projectiles.launcher_poison_ms3gl_conversion.poison_gas_duration = 6
+tweak_data.projectiles.launcher_poison_ms3gl_conversion.poison_gas_duration = 4
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.poison_gas_fade_time = 0.1
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.poison_gas_tick_time = 0.3
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.poison_gas_dot_data_name = "proj_launcher_3gl_cloud"
@@ -540,6 +551,7 @@ tweak_data.projectiles.poison_gas_grenade.player_damage = 0
 tweak_data.projectiles.poison_gas_grenade.curve_pow = 0
 tweak_data.projectiles.poison_gas_grenade.range = 0
 tweak_data.projectiles.poison_gas_grenade.name_id = "bm_poison_gas_grenade"
+tweak_data.projectiles.poison_gas_grenade.manticore = true
 tweak_data.projectiles.poison_gas_grenade.poison_gas_range = 600
 tweak_data.projectiles.poison_gas_grenade.poison_gas_duration = 12
 tweak_data.projectiles.poison_gas_grenade.poison_gas_fade_time = 0.1
@@ -904,19 +916,19 @@ tweak_data.casino = {
 		15000,
 		15000
 	},
-	prefer_cost = 5000,
-	prefer_chance = 0.1,
+	prefer_cost = 500000,
+	prefer_chance = 0.2,
 	secure_card_cost = {
-		10000,
-		20000,
-		30000
+		1000000,
+		3300000,
+		6500000
 	},
 	secure_card_level = {
 		0,
 		0,
 		0
 	},
-	infamous_cost = 100000,
+	infamous_cost = 3000000,
 	infamous_chance = 3
 }	
 

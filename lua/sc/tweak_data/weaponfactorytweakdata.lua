@@ -1537,8 +1537,8 @@ local grips = {
 				custom_stats = {
 					ads_speed_mult = 1.15,
 					hip_mult = 3,
-					ammo_pickup_max_mul = per_pellet and 0.33 or 0.7,
-					ammo_pickup_min_mul = per_pellet and 0.33 or 0.7,
+					ammo_pickup_max_mul = per_pellet and 0.5 or 0.7,
+					ammo_pickup_min_mul = per_pellet and 0.5 or 0.7,
 					ignore_statistic = true,
 					block_b_storm = true,
 					rays = 1,
@@ -1558,8 +1558,8 @@ local grips = {
 				custom_stats = {
 					ads_speed_mult = 1.15,
 					hip_mult = 3,
-					ammo_pickup_max_mul = per_pellet and 0.33 or 0.7,
-					ammo_pickup_min_mul = per_pellet and 0.33 or 0.7,
+					ammo_pickup_max_mul = per_pellet and 0.5 or 0.7,
+					ammo_pickup_min_mul = per_pellet and 0.5 or 0.7,
 					ignore_statistic = true,
 					block_b_storm = true,
 					rays = 1,
@@ -1580,8 +1580,8 @@ local grips = {
 				custom_stats = {
 					ads_speed_mult = 1.15,
 					hip_mult = 3,
-					ammo_pickup_max_mul = per_pellet and 0.33 or 0.7,
-					ammo_pickup_min_mul = per_pellet and 0.33 or 0.7,
+					ammo_pickup_max_mul = per_pellet and 0.5 or 0.7,
+					ammo_pickup_min_mul = per_pellet and 0.5 or 0.7,
 					ignore_statistic = true,
 					block_b_storm = true,
 					rays = 1,
@@ -1601,8 +1601,8 @@ local grips = {
 				custom_stats = {
 					ads_speed_mult = 1.15,
 					hip_mult = 3,
-					ammo_pickup_max_mul = per_pellet and 0.33 or 0.7,
-					ammo_pickup_min_mul = per_pellet and 0.33 or 0.7,
+					ammo_pickup_max_mul = per_pellet and 0.5 or 0.7,
+					ammo_pickup_min_mul = per_pellet and 0.5 or 0.7,
 					ignore_statistic = true,
 					rays = 1,
 					block_b_storm = true,	
@@ -3948,6 +3948,11 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_m4", "resmod_m4", function(self)
 		}
 	}
 	--CAR-4 Override Tables
+	self.wpn_fps_ass_m4.override.wpn_fps_upg_i_og_rof = {
+		custom_stats = {
+			rof_mult = 0.8
+		}
+	}
 	--[[
 	self.wpn_fps_ass_m4.override.wpn_fps_upg_m4_s_standard_vanilla = {
 		unit = "units/payday2/weapons/wpn_fps_ass_m16_pts/wpn_fps_m16_s_solid",
@@ -3961,6 +3966,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_m4", "resmod_m4", function(self)
 	table.insert(self.wpn_fps_ass_m4.uses_parts, "wpn_fps_ass_m16_s_fixed")
 	table.insert(self.wpn_fps_ass_m4.uses_parts, "wpn_fps_m4_uupg_fg_rail_m4a1")
 	table.insert(self.wpn_fps_ass_m4.uses_parts, "wpn_fps_upg_i_m16a2")
+	table.insert(self.wpn_fps_ass_m4.uses_parts, "wpn_fps_upg_i_og_rof")
 	
 	--Faster/Slower ROF mods (Unused)
 	--[[
@@ -4084,6 +4090,11 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_amcar", "resmod_amcar", function(s
 	}
 
 	--AMCAR Override Tables
+	self.wpn_fps_ass_amcar.override.wpn_fps_upg_i_og_rof = {
+		custom_stats = {
+			rof_mult = 0.68125
+		}
+	}
 	--[[
 	self.wpn_fps_ass_amcar.override.wpn_fps_upg_m4_s_standard_vanilla = {
 		unit = "units/payday2/weapons/wpn_fps_ass_m16_pts/wpn_fps_m16_s_solid",
@@ -4139,6 +4150,8 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_amcar", "resmod_amcar", function(s
 	table.insert(self.wpn_fps_ass_amcar.uses_parts, "wpn_fps_m4_upper_reciever_edge")
 	table.insert(self.wpn_fps_ass_amcar.uses_parts, "wpn_fps_upg_ass_m4_upper_reciever_ballos")
 	table.insert(self.wpn_fps_ass_amcar.uses_parts, "wpn_fps_upg_ass_m4_upper_reciever_core")
+
+	table.insert(self.wpn_fps_ass_amcar.uses_parts, "wpn_fps_upg_i_og_rof")
 	
 	self.wpn_fps_ass_amcar_npc.default_blueprint = deep_clone(self.wpn_fps_ass_amcar.default_blueprint)	
 	self.wpn_fps_ass_amcar_npc.uses_parts = deep_clone(self.wpn_fps_ass_amcar.uses_parts)	
@@ -5263,7 +5276,6 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_akmsu", "resmod_akmsu", function(s
 	}
 
 	--table.insert(self.wpn_fps_smg_akmsu.uses_parts, "wpn_upg_ak_s_nostock")
-	--table.insert(self.wpn_fps_smg_akmsu_npc.uses_parts, "wpn_upg_ak_s_nostock")	
 
 	table.insert(self.wpn_fps_smg_akmsu.uses_parts, "wpn_lmg_rpk_m_ban")
 	table.insert(self.wpn_fps_smg_akmsu.uses_parts, "wpn_fps_snp_victor_s_mod0")
@@ -5721,6 +5733,8 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_g36", "resmod_g36", function(self)
 	table.insert(self.wpn_fps_ass_g36.uses_parts, "wpn_fps_snp_victor_s_mod0")
 	table.insert(self.wpn_fps_ass_g36.uses_parts, "wpn_fps_upg_m4_s_ubr")
 	table.insert(self.wpn_fps_ass_g36.uses_parts, "wpn_fps_snp_tti_s_vltor")
+
+	table.insert(self.wpn_fps_ass_g36.uses_parts, "wpn_fps_upg_i_m8a1")
 
 	self.wpn_fps_ass_g36_npc.uses_parts = deep_clone(self.wpn_fps_ass_g36.uses_parts)
 
@@ -8945,6 +8959,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_g3", "resmod_g3", function(self)
 	table.insert(self.wpn_fps_ass_g3.uses_parts, "wpn_fps_upg_o_northtac_reddot")
 	table.insert(self.wpn_fps_ass_g3.uses_parts, "wpn_fps_upg_o_schmidt")
 	table.insert(self.wpn_fps_ass_g3.uses_parts, "wpn_fps_upg_o_schmidt_magnified")
+	table.insert(self.wpn_fps_ass_g3.uses_parts, "wpn_fps_upg_i_g3sg1")
 
 	self.wpn_fps_ass_g3_npc.adds = deep_clone(self.wpn_fps_ass_g3.adds)
 	self.wpn_fps_ass_g3_npc.uses_parts = deep_clone(self.wpn_fps_ass_g3.uses_parts)
@@ -9883,6 +9898,7 @@ function WeaponFactoryTweakData:create_bonuses(tweak_data, weapon_skins)
 			if tweak_data.weapon[ weapon_id ] and tweak_data.weapon[ weapon_id ].categories then
 
 				if table.contains( tweak_data.weapon[ weapon_id ].categories , "snp") or 
+					table.contains( tweak_data.weapon[ weapon_id ].categories , "dmr_h") or 
 					table.contains( tweak_data.weapon[ weapon_id ].categories , "shotgun") or 
 					table.contains( tweak_data.weapon[ weapon_id ].categories , "grenade_launcher") then
 					self[ factory_id ].override = self[ factory_id ].override or {}
@@ -11590,7 +11606,10 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_vhs", "resmod_vhs", function(self)
 	self.parts.wpn_fps_ass_vhs_b_sniper.supported = true
 	self.parts.wpn_fps_ass_vhs_b_sniper.stats = deep_clone(barrels.long_b3_stats)
 	self.parts.wpn_fps_ass_vhs_b_sniper.custom_stats = deep_clone(barrels.long_b3_stats)
-	
+
+	table.insert(self.wpn_fps_ass_vhs.uses_parts, "wpn_fps_upg_i_swordfish")
+	self.wpn_fps_ass_vhs_npc.uses_parts = deep_clone(self.wpn_fps_ass_vhs.uses_parts)
+
 end)
 
 --LEO
@@ -13214,8 +13233,8 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_plainsrider", "resmod_plainsrider"
 		alt_desc = "bm_bow_exp_sc_desc",
 		launcher_grenade = "west_arrow_exp",
 		block_b_storm = true,
-		ammo_pickup_max_mul = 0.7,
-		ammo_pickup_min_mul = 0.7
+		ammo_pickup_max_mul = 0.8,
+		ammo_pickup_min_mul = 0.8
 	}
 	
 	--Poisoned Arrows
@@ -13792,8 +13811,8 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_hunter", "resmod_hunter", function
 		alt_desc = "bm_xbow_exp_sc_desc",
 		launcher_grenade = "crossbow_arrow_exp",
 		block_b_storm = true,
-		ammo_pickup_max_mul = 0.7,
-		ammo_pickup_min_mul = 0.7
+		ammo_pickup_max_mul = 0.85,
+		ammo_pickup_min_mul = 0.85
 	}
 
 end)
@@ -13913,8 +13932,8 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_arblast", "resmod_arblast", functi
 		alt_desc = "bm_xbow_exp_sc_desc",
 		launcher_grenade = "arblast_arrow_exp",
 		block_b_storm = true,
-		ammo_pickup_max_mul = 0.7,
-		ammo_pickup_min_mul = 0.7
+		ammo_pickup_max_mul = 0.85,
+		ammo_pickup_min_mul = 0.85
 	}
 
 end)
@@ -13944,8 +13963,8 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_frankish", "resmod_frankish", func
 		alt_desc = "bm_xbow_exp_sc_desc",
 		launcher_grenade = "frankish_arrow_exp",
 		block_b_storm = true,
-		ammo_pickup_max_mul = 0.7,
-		ammo_pickup_min_mul = 0.7
+		ammo_pickup_max_mul = 0.85,
+		ammo_pickup_min_mul = 0.85
 	}
 	table.insert(self.wpn_fps_bow_frankish.uses_parts, "avelyn" )
 
@@ -13964,8 +13983,8 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_long", "resmod_long", function(sel
 		alt_desc = "bm_bow_exp_sc_desc",
 		launcher_grenade = "long_arrow_exp",
 		block_b_storm = true,
-		ammo_pickup_max_mul = 0.7,
-		ammo_pickup_min_mul = 0.7
+		ammo_pickup_max_mul = 0.85,
+		ammo_pickup_min_mul = 0.85
 	}
 	
 	--Poison Arrow
@@ -14919,7 +14938,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_schakal", "resmod_schakal", functi
 		}
 		for _, remove_id in ipairs(attachment_list) do
 			if part_id == remove_id then
-				self.wpn_fps_smg_schakal.uses_parts[i] = "wpn_fps_upg_vg_ass_smg_stubby_vanilla"
+				self.wpn_fps_smg_schakal.uses_parts[i] = "wpn_fps_upg_vg_ass_smg_verticalgrip_vanilla"
 			end
 		end
 	end	
@@ -16265,8 +16284,8 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_ecp", "resmod_ecp", function(self)
 		alt_desc = "bm_airbow_exp_sc_desc",
 		launcher_grenade = "ecp_arrow_exp",
 		block_b_storm = true,
-		ammo_pickup_max_mul = 0.7,
-		ammo_pickup_min_mul = 0.7
+		ammo_pickup_max_mul = 0.85,
+		ammo_pickup_min_mul = 0.85
 	}
 	
 	--Poison Arrow
@@ -17157,8 +17176,8 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_elastic", "resmod_elastic", functi
 		alt_desc = "bm_bow_exp_sc_desc",
 		launcher_grenade = "elastic_arrow_exp",
 		block_b_storm = true,
-		ammo_pickup_max_mul = 0.7,
-		ammo_pickup_min_mul = 0.7
+		ammo_pickup_max_mul = 0.85,
+		ammo_pickup_min_mul = 0.85
 	}
 	
 	--Poison Arrows
@@ -19475,16 +19494,16 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_ultima", "resmod_ultima", function
 		30,
 		40	
 	}
-	self.parts.wpn_fps_sho_ultima_ns_comp.desc_id = "bm_wp_ns_ultima_desc_sc"
-	self.parts.wpn_fps_sho_ultima_ns_comp.has_description = true
 	self.parts.wpn_fps_sho_ultima_ns_comp.supported = true
 	self.parts.wpn_fps_sho_ultima_ns_comp.stats = {
 		value = 5,
-		spread_multi = {1.75, 1.75}
+		spread = -4,
+		recoil = 10,
+		concealment = -1
 	}
 	self.parts.wpn_fps_sho_ultima_ns_comp.custom_stats = {
-		falloff_start_mult = 1,
-		falloff_end_mult = 1
+		falloff_start_mult = 0.8,
+		falloff_end_mult = 0.8
 	}
 	
 	--Flak Frame Null Stock
@@ -22160,7 +22179,83 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		},
 		internal_part = true,
 		dlc = "sc"
-	}	
+	}
+
+	self.parts.wpn_fps_upg_i_g3sg1 = {
+		pcs = {},
+		type = "custom",
+		sub_type = "singlefire",
+		name_id = "bm_wp_upg_i_g3sg1",
+		a_obj = "a_body",
+		has_description = true,
+		custom_stats = {
+			alt_desc = "bm_g3_sg1_sc_desc",
+			rof_mult = 0.5,
+			armor_piercing_override = 1,
+			can_shoot_through_wall = true,
+			can_shoot_through_shield = true,
+			ignore_rof_mult_anims = true,
+			ads_speed_mult = 1.263157,
+			hip_mult = 1.666666,
+			damage_min_mult = 1.25,
+			sms = 0.7,
+			alt_ammo_pickup_min_mul = 0.875,
+			alt_ammo_pickup_max_mul = 0.875,
+			ammo_pickup_min_mul = 0.875,
+			ammo_pickup_max_mul = 0.875,
+			falloff_start_mult = 1.30,
+			falloff_end_mult = 1.30
+		},
+		perks = { "fire_mode_single" },
+		alt_icon = "guis/textures/pd2/blackmarket/icons/mods/wpn_fps_upg_i_singlefire",
+		unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		third_unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		supported = true,
+		stats = {
+			value = 8,
+			spread = 6,
+			concealment = -4
+		},
+		override = {
+			wpn_fps_ass_g3_b_long = {
+				unit = "units/pd2_dlc_gage_assault/weapons/wpn_fps_ass_g3_pts/wpn_fps_ass_g3_b_sniper",
+				third_unit = "units/pd2_dlc_gage_assault/weapons/wpn_fps_ass_g3_pts/wpn_third_ass_g3_b_sniper"
+			}
+		},
+		forbids = {},
+		adds = { "wpn_fps_ass_g3sg1_sounds" },
+		internal_part = true,
+		dlc = "sc"
+	}
+	for k, used_part_id in ipairs(self.wpn_fps_ass_g3.uses_parts) do
+		if not table.contains(self.wpn_fps_ass_g3.default_blueprint, used_part_id) then
+			if self.parts[used_part_id] and self.parts[used_part_id].type then
+				if self.parts[used_part_id].type == "barrel" or
+				(self.parts[used_part_id].stats and self.parts[used_part_id].stats.damage) then
+					table.insert(self.parts.wpn_fps_upg_i_g3sg1.forbids, used_part_id)
+				end
+			end
+		end
+	end
+
+	self.parts.wpn_fps_ass_g3sg1_sounds = {
+		third_unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		a_obj = "a_body",
+		type = "ammo",
+		name_id = "bm_g3sg1_sounds",
+		unit = "units/pd2_dlc_old/weapons/wpn_fps_ass_ching/wpn_fps_ass_ching",
+		internal_part = true,
+		no_cull = true,
+		stats = {
+			value = 5
+		},
+		custom_stats = {
+			sounds = {
+				fire_single2 = "ching_fire"
+			}
+		}
+	}
+
 	
 	self.parts.wpn_fps_upg_i_93r = {
 		pcs = {},
@@ -22185,6 +22280,82 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		dlc = "sc"
 	}	
 
+	self.parts.wpn_fps_upg_i_m8a1 = {
+		pcs = {},
+		type = "custom",
+		sub_type = "autofire",
+		name_id = "bm_wp_upg_i_m8a1",
+		a_obj = "a_body",
+		has_description = true,
+		custom_stats = {
+			lock_burst = true,
+			m8a1_burst = true,
+			rof_mult = 1.33333333,
+			falloff_start_mult = 0.9,
+			falloff_end_mult = 1
+		},
+		alt_icon = "guis/textures/pd2/blackmarket/icons/mods/wpn_fps_upg_i_autofire",
+		unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		third_unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		supported = true,
+		stats = {
+			value = 8,
+			concealment = -1,
+			extra_ammo = 2
+		},
+		forbids = {},
+		internal_part = true,
+		dlc = "sc"
+	}
+
+	for k, used_part_id in ipairs(self.wpn_fps_ass_g36.uses_parts) do
+		if self.parts[used_part_id] and self.parts[used_part_id].type then
+			if self.parts[used_part_id].type == "magazine" then
+				if self.parts[used_part_id].stats and self.parts[used_part_id].stats.extra_ammo then
+					table.insert(self.parts.wpn_fps_upg_i_m8a1.forbids, used_part_id)
+				end
+			end
+		end
+	end
+
+	self.parts.wpn_fps_upg_i_swordfish = {
+		pcs = {},
+		type = "custom",
+		sub_type = "autofire",
+		name_id = "bm_wp_upg_i_swordfish",
+		a_obj = "a_body",
+		has_description = true,
+		custom_stats = {
+			lock_burst = true,
+			swordfish_burst = true,
+			rof_mult = 1.29411764,
+			falloff_start_mult = 0.8,
+			falloff_end_mult = 1
+		},
+		alt_icon = "guis/textures/pd2/blackmarket/icons/mods/wpn_fps_upg_i_autofire",
+		unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		third_unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		supported = true,
+		stats = {
+			value = 10,
+			concealment = -4,
+			recoil = 6,
+			extra_ammo = 5
+		},
+		forbids = {},
+		internal_part = true,
+		dlc = "sc"
+	}
+	for k, used_part_id in ipairs(self.wpn_fps_ass_vhs.uses_parts) do
+		if self.parts[used_part_id] and self.parts[used_part_id].type then
+			if self.parts[used_part_id].type == "magazine" then
+				if self.parts[used_part_id].stats and self.parts[used_part_id].stats.extra_ammo then
+					table.insert(self.parts.wpn_fps_upg_i_swordfish.forbids, used_part_id)
+				end
+			end
+		end
+	end
+
 	self.parts.wpn_fps_upg_i_tekna = {
 		pcs = {},
 		type = "custom",
@@ -22195,7 +22366,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		custom_stats = {
 			lock_burst = true,
 			tekna_burst = true,
-			rof_mult = 2.1153846,
+			rof_mult = 2.0408163,
 			alt_desc = "bm_wally_desc",
 		},
 		alt_icon = "guis/textures/pd2/blackmarket/icons/mods/wpn_fps_upg_i_autofire",
@@ -22209,7 +22380,46 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		},
 		internal_part = true,
 		dlc = "sc"
-	}	
+	}
+
+	self.parts.wpn_fps_upg_i_og_rof = {
+		pcs = {},
+		type = "custom",
+		sub_type = "autofire",
+		name_id = "bm_wp_upg_i_og_rof",
+		a_obj = "a_body",
+		has_description = true,
+		custom_stats = {
+		},
+		alt_icon = "guis/textures/pd2/blackmarket/icons/mods/wpn_fps_upg_i_autofire",
+		unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		third_unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		supported = true,
+		stats = {
+			value = 1,
+			spread = 2,
+			recoil = 2
+		},
+		forbids = {},
+		internal_part = true,
+		dlc = "sc"
+	}
+
+	attachment_list = {
+		"wpn_fps_ass_m4",
+		"wpn_fps_ass_amcar"
+	}
+	for i, factory_id in ipairs(attachment_list) do
+		for k, used_part_id in ipairs(self[factory_id].uses_parts) do
+			if self.parts[used_part_id] and self.parts[used_part_id].type then
+				if self.parts[used_part_id].type == "exclusive_set" then
+					if self.parts[used_part_id].custom_stats and self.parts[used_part_id].custom_stats.rof_mult then
+						table.insert(self.parts.wpn_fps_upg_i_og_rof.forbids, used_part_id)
+					end
+				end
+			end
+		end
+	end
 
 	--B3 Kit (M16A2 kit)
 	self.parts.wpn_fps_upg_i_m16a2 = {
@@ -24828,8 +25038,31 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			end
 
 			self.wpn_fps_shot_cp2077_guts_npc.uses_parts = deep_clone(self.wpn_fps_shot_cp2077_guts.uses_parts)
-
 		end --Rebecca Cyberpunk
+
+		if self.parts.wpn_fps_pis_rc_auto9_receiver then
+			self.parts.wpn_fps_pis_rc_auto9_receiver.perks = nil
+			self.parts.wpn_fps_pis_rc_auto9_cartoon = {
+				pcs = {},
+				a_obj = "a_body",
+				type = "ammo",
+				name_id = "bm_wp_rc_auto9_cartoon",
+				has_description = true,
+				unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+				internal_part = true,
+				no_cull = true,
+				supported = true,
+				stats = {
+					value = 0
+				},
+				custom_stats = {
+					trail_effect = "_dmc/effects/plasma_b_trail",
+				}
+			}
+
+			table.insert( self.wpn_fps_pis_rc_auto9.uses_parts, "wpn_fps_pis_rc_auto9_cartoon")
+			self.wpn_fps_pis_rc_auto9_npc.uses_parts = deep_clone(self.wpn_fps_pis_rc_auto9.uses_parts)
+		end
 
 	--[[ GAMBYT'S MODS ]]
 
@@ -28846,145 +29079,186 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 
 		if self.parts.wpn_fps_ass_g3_body_hk33 then --Tangerine's Pack of Exclusive Sets
 
-			self.parts.wpn_fps_ass_g3_body_hk33.supported = true
-			self.parts.wpn_fps_ass_g3_body_hk33.keep_damage = true
-			self.parts.wpn_fps_ass_g3_body_hk33.stats = {
-				value = 8,
-				spread = -3,
-				recoil = 28,
-				concealment = 2,
-				damage = -36,
-				extra_ammo = 10,
-				total_ammo_mod = 300
-			}
-			self.parts.wpn_fps_ass_g3_body_hk33.custom_stats = {
-				ads_speed_mult = 0.78947,
-				rof_mult = 1.25,
-				armor_piercing_override = 0,
-				armor_piercing_add_override = 0,
-				falloff_start_mult = 0.7272727,
-				falloff_end_mult = 0.9333333,
-				damage_min_mult = 1.04166666,
-				alt_ammo_pickup_min_mul = 3.23,
-				alt_ammo_pickup_max_mul = 3.23,
-				ammo_pickup_min_mul = 3.23,
-				ammo_pickup_max_mul = 3.23
-			}
-			self.parts.wpn_fps_ass_g3_body_hk33.forbids = {
-				"wpn_fps_ass_g3_m_psg",
-				"wpn_fps_ass_g3_b_sniper"
-			}
-			
-			self.parts.wpn_fps_ass_g3_body_hk33.override = {
-				wpn_fps_ass_g3_body_upper = {
-					unit = "units/mods/weapons/wpn_fps_ass_g3_hk33/wpn_fps_ass_g3_body_upper_hk33",
-					third_unit = "units/mods/weapons/wpn_third_ass_g3_hk33/wpn_third_ass_g3_body_upper_hk33"
-				},
-				wpn_fps_ass_g3_body_lower = {
-					unit = "units/mods/weapons/wpn_fps_ass_g3_hk33/wpn_fps_ass_g3_body_lower_hk33",
-					third_unit = "units/mods/weapons/wpn_third_ass_g3_hk33/wpn_third_ass_g3_body_lower_hk33"
-				},
-				wpn_fps_ass_g3_m_mag = {
-					unit = "units/mods/weapons/wpn_fps_ass_g3_hk33/wpn_fps_ass_g3_m_hk33_old",
-					third_unit = "units/mods/weapons/wpn_third_ass_g3_hk33/wpn_third_ass_g3_m_hk33"
-				},
-				wpn_fps_ass_g3_fg_bipod = {
-					unit = "units/mods/weapons/wpn_fps_ass_g3_hk33/wpn_fps_ass_g3_fg_hk33_old",
-					third_unit = "units/mods/weapons/wpn_third_ass_g3_hk33/wpn_third_ass_g3_fg_hk33",
-					parent = "exclusive_set",
-					a_obj = "a_fg_hk33"
-				},
-				wpn_fps_smg_mp5_s_adjust = {
-					unit = "units/mods/weapons/wpn_fps_ass_g3_hk33/wpn_fps_ass_g3_s_hk33",
-					third_unit = "units/payday2/weapons/wpn_third_smg_mp5_pts/wpn_third_smg_mp5_s_adjust"
-				},
-				wpn_fps_smg_mp5_s_adjusted = {
-					unit = "units/mods/weapons/wpn_fps_ass_g3_hk33/wpn_fps_ass_g3_s_hk33",
-					third_unit = "units/payday2/weapons/wpn_third_smg_mp5_pts/wpn_third_smg_mp5_s_adjust"
+			--HK33
+				self.parts.wpn_fps_ass_g3_body_hk33.supported = true
+				self.parts.wpn_fps_ass_g3_body_hk33.keep_damage = true
+				self.parts.wpn_fps_ass_g3_body_hk33.stats = {
+					value = 8,
+					spread = -3,
+					recoil = 28,
+					concealment = 2,
+					damage = -36,
+					extra_ammo = 10,
+					total_ammo_mod = 300
 				}
-			}
-	
-			for i, part_id in pairs(self.wpn_fps_ass_g3.uses_parts) do
-				if self.parts[part_id] and self.parts[part_id].type then
-					if self.parts[part_id].type == "foregrip" then
-						self.parts.wpn_fps_ass_g3_body_hk33.override[part_id] = self.parts.wpn_fps_ass_g3_body_hk33.override[part_id] or {}
-						self.parts.wpn_fps_ass_g3_body_hk33.override[part_id].parent = "exclusive_set"
-						self.parts.wpn_fps_ass_g3_body_hk33.override[part_id].a_obj = "a_fg_hk33"
+				self.parts.wpn_fps_ass_g3_body_hk33.custom_stats = {
+					alt_desc = "bm_wp_wpn_fps_ass_g3_body_hk33_desc",
+					ads_speed_mult = 0.78947,
+					rof_mult = 1.25,
+					armor_piercing_override = 0,
+					armor_piercing_add_override = 0,
+					falloff_start_mult = 0.7272727,
+					falloff_end_mult = 0.9333333,
+					damage_min_mult = 1.04166666,
+					alt_ammo_pickup_min_mul = 3.23,
+					alt_ammo_pickup_max_mul = 3.23,
+					ammo_pickup_min_mul = 3.23,
+					ammo_pickup_max_mul = 3.23
+				}
+				self.parts.wpn_fps_ass_g3_body_hk33.forbids = {
+					"wpn_fps_ass_g3_m_psg",
+					"wpn_fps_ass_g3_b_sniper"
+				}
+				self.parts.wpn_fps_ass_g3_body_hk33.override = {
+					wpn_fps_ass_g3_body_upper = {
+						unit = "units/mods/weapons/wpn_fps_ass_g3_hk33/wpn_fps_ass_g3_body_upper_hk33",
+						third_unit = "units/mods/weapons/wpn_third_ass_g3_hk33/wpn_third_ass_g3_body_upper_hk33"
+					},
+					wpn_fps_ass_g3_body_lower = {
+						unit = "units/mods/weapons/wpn_fps_ass_g3_hk33/wpn_fps_ass_g3_body_lower_hk33",
+						third_unit = "units/mods/weapons/wpn_third_ass_g3_hk33/wpn_third_ass_g3_body_lower_hk33"
+					},
+					wpn_fps_ass_g3_m_mag = {
+						unit = "units/mods/weapons/wpn_fps_ass_g3_hk33/wpn_fps_ass_g3_m_hk33_old",
+						third_unit = "units/mods/weapons/wpn_third_ass_g3_hk33/wpn_third_ass_g3_m_hk33"
+					},
+					wpn_fps_ass_g3_fg_bipod = {
+						unit = "units/mods/weapons/wpn_fps_ass_g3_hk33/wpn_fps_ass_g3_fg_hk33_old",
+						third_unit = "units/mods/weapons/wpn_third_ass_g3_hk33/wpn_third_ass_g3_fg_hk33",
+						parent = "exclusive_set",
+						a_obj = "a_fg_hk33"
+					},
+					wpn_fps_smg_mp5_s_adjust = {
+						unit = "units/mods/weapons/wpn_fps_ass_g3_hk33/wpn_fps_ass_g3_s_hk33",
+						third_unit = "units/payday2/weapons/wpn_third_smg_mp5_pts/wpn_third_smg_mp5_s_adjust"
+					},
+					wpn_fps_smg_mp5_s_adjusted = {
+						unit = "units/mods/weapons/wpn_fps_ass_g3_hk33/wpn_fps_ass_g3_s_hk33",
+						third_unit = "units/payday2/weapons/wpn_third_smg_mp5_pts/wpn_third_smg_mp5_s_adjust"
+					}
+				}
+		
+				for i, part_id in pairs(self.wpn_fps_ass_g3.uses_parts) do
+					if self.parts[part_id] and self.parts[part_id].type then
+						if self.parts[part_id].type == "foregrip" then
+							self.parts.wpn_fps_ass_g3_body_hk33.override[part_id] = self.parts.wpn_fps_ass_g3_body_hk33.override[part_id] or {}
+							self.parts.wpn_fps_ass_g3_body_hk33.override[part_id].parent = "exclusive_set"
+							self.parts.wpn_fps_ass_g3_body_hk33.override[part_id].a_obj = "a_fg_hk33"
+						end
 					end
 				end
-			end
 
-			self.parts.wpn_fps_ass_galil_body_intermediate.supported = true
-			self.parts.wpn_fps_ass_galil_body_intermediate.keep_damage = true
-			self.parts.wpn_fps_ass_galil_body_intermediate.stats = {
-				value = 5,
-				damage = -15,
-				spread = -1,
-				recoil = 10,
-				concealment = 1,
-				extra_ammo = 10,
-				total_ammo_mod = 100
-			}
-			self.parts.wpn_fps_ass_galil_body_intermediate.custom_stats = {
-				ads_speed_mult = 0.842105,
-				damage_min_mult = 0.625,
-				falloff_start_mult = 0.72,
-				armor_piercing_override = 0,
-				armor_piercing_add_override = 0,
-				alt_ammo_pickup_min_mul = 1.78,
-				alt_ammo_pickup_max_mul = 1.78,
-				ammo_pickup_min_mul = 1.78,
-				ammo_pickup_max_mul = 1.78
-			}
-			self.parts.wpn_fps_ass_galil_body_intermediate.override = {
-				wpn_fps_ass_galil_body_standard = { unit = "units/mods/weapons/wpn_fps_ass_galil_intermediate/wpn_fps_ass_galil_body_intermediate_new" },
-				wpn_fps_ass_galil_m_standard = {
-					unit = "units/mods/weapons/wpn_fps_ass_galil_intermediate/wpn_fps_ass_galil_m_intermediate_new",
-					third_unit = "units/mods/weapons/wpn_third_ass_galil_intermediate/wpn_third_ass_galil_m_intermediate_new"
-				},
-				wpn_fps_ass_galil_fg_sar = { 
-					unit = "units/mods/weapons/wpn_fps_ass_galil_intermediate/wpn_fps_ass_galil_fg_intermediate",
-					third_unit = "units/mods/weapons/wpn_third_ass_galil_intermediate/wpn_third_ass_galil_fg_intermediate"
+			--Galil 5.56
+				self.parts.wpn_fps_ass_galil_body_intermediate.supported = true
+				self.parts.wpn_fps_ass_galil_body_intermediate.keep_damage = true
+				self.parts.wpn_fps_ass_galil_body_intermediate.stats = {
+					value = 5,
+					damage = -15,
+					spread = -1,
+					recoil = 10,
+					concealment = 1,
+					extra_ammo = 10,
+					total_ammo_mod = 100
 				}
-			}
-			self.parts.wpn_fps_ass_galil_body_intermediate.forbids = {
-				"wpn_upg_ak_g_standard",
-				"wpn_fps_ass_galil_fg_sniper"
-			}
-			self.parts.wpn_fps_ass_galil_body_intermediate.adds = {
-				"wpn_fps_ass_galil_body_intermediate_sound"
-			}
-
-
-			self.parts.wpn_fps_smg_shepheard_body_ar45.supported = true
-			self.parts.wpn_fps_smg_shepheard_body_ar45.keep_damage = true
-			self.parts.wpn_fps_smg_shepheard_body_ar45.stats = {
-				value = 7,
-				damage = 6,
-				recoil = -6,
-				concealment = -2,
-				total_ammo_mod = -41
-			}
-			self.parts.wpn_fps_smg_shepheard_body_ar45.custom_stats = {
-				rof_mult = 0.88235294,
-				ads_speed_mult = 1.111111,
-				damage_min_mult = 1.2,
-				alt_ammo_pickup_min_mul = 0.7674,
-				alt_ammo_pickup_max_mul = 0.7674,
-				ammo_pickup_min_mul = 0.7674,
-				ammo_pickup_max_mul = 0.7674
-			}
-			self.parts.wpn_fps_smg_shepheard_body_ar45.stance_mod = {
-				wpn_fps_smg_shepheard = {
-					translation = Vector3(-0.005, -1.8, 0.285)
+				self.parts.wpn_fps_ass_galil_body_intermediate.custom_stats = {
+					alt_desc = "bm_galil_556_sc_desc",
+					ads_speed_mult = 0.842105,
+					damage_min_mult = 0.625,
+					falloff_start_mult = 0.72,
+					armor_piercing_override = 0,
+					armor_piercing_add_override = 0,
+					alt_ammo_pickup_min_mul = 1.78,
+					alt_ammo_pickup_max_mul = 1.78,
+					ammo_pickup_min_mul = 1.78,
+					ammo_pickup_max_mul = 1.78
 				}
-			}
-			self.parts.wpn_fps_smg_shepheard_body_ar45.override.wpn_fps_smg_shepheard_o_standard.stance_mod = {
-				wpn_fps_smg_shepheard = {
-					translation = Vector3(0, -13, -0.28)
+				self.parts.wpn_fps_ass_galil_body_intermediate.override = {
+					wpn_fps_ass_galil_body_standard = { unit = "units/mods/weapons/wpn_fps_ass_galil_intermediate/wpn_fps_ass_galil_body_intermediate_new" },
+					wpn_fps_ass_galil_m_standard = {
+						unit = "units/mods/weapons/wpn_fps_ass_galil_intermediate/wpn_fps_ass_galil_m_intermediate_new",
+						third_unit = "units/mods/weapons/wpn_third_ass_galil_intermediate/wpn_third_ass_galil_m_intermediate_new"
+					},
+					wpn_fps_ass_galil_fg_sar = { 
+						unit = "units/mods/weapons/wpn_fps_ass_galil_intermediate/wpn_fps_ass_galil_fg_intermediate",
+						third_unit = "units/mods/weapons/wpn_third_ass_galil_intermediate/wpn_third_ass_galil_fg_intermediate"
+					}
 				}
-			}
+				self.parts.wpn_fps_ass_galil_body_intermediate.forbids = {
+					"wpn_upg_ak_g_standard",
+					"wpn_fps_ass_galil_fg_sniper"
+				}
+				self.parts.wpn_fps_ass_galil_body_intermediate.adds = {
+					"wpn_fps_ass_galil_body_intermediate_sound"
+				}
 
+
+			--AR-45
+				self.parts.wpn_fps_smg_shepheard_body_ar45.supported = true
+				self.parts.wpn_fps_smg_shepheard_body_ar45.keep_damage = true
+				self.parts.wpn_fps_smg_shepheard_body_ar45.stats = {
+					value = 7,
+					damage = 6,
+					recoil = -6,
+					concealment = -2,
+					total_ammo_mod = -41
+				}
+				self.parts.wpn_fps_smg_shepheard_body_ar45.custom_stats = {
+					rof_mult = 0.88235294,
+					ads_speed_mult = 1.111111,
+					damage_min_mult = 1.2,
+					alt_ammo_pickup_min_mul = 0.7674,
+					alt_ammo_pickup_max_mul = 0.7674,
+					ammo_pickup_min_mul = 0.7674,
+					ammo_pickup_max_mul = 0.7674
+				}
+				self.parts.wpn_fps_smg_shepheard_body_ar45.stance_mod = {
+					wpn_fps_smg_shepheard = {
+						translation = Vector3(-0.005, -1.8, 0.285)
+					}
+				}
+				self.parts.wpn_fps_smg_shepheard_body_ar45.override.wpn_fps_smg_shepheard_o_standard.stance_mod = {
+					wpn_fps_smg_shepheard = {
+						translation = Vector3(0, -13, -0.28)
+					}
+				}
+
+			--DD AMCAR
+				self.parts.wpn_fps_ass_amcar_body_ddm4.supported = true
+				self.parts.wpn_fps_ass_amcar_body_ddm4.keep_damage = true
+				self.parts.wpn_fps_ass_amcar_body_ddm4.stats = {
+					value = 8,
+					damage = 25,
+					total_ammo_mod = -112,
+					recoil = -18,
+					spread = -3,
+					concealment = -2
+				}
+				self.parts.wpn_fps_ass_amcar_body_ddm4.custom_stats = {
+					rof_mult = 0.625,
+					damage_min_mult = 0.44444,
+					alt_ammo_pickup_min_mul = 0.3402,
+					alt_ammo_pickup_max_mul = 0.3402,
+					ammo_pickup_min_mul = 0.3402,
+					ammo_pickup_max_mul = 0.3402
+				}
+				self.parts.wpn_fps_ass_amcar_body_ddm4.forbids = { "wpn_fps_upg_i_m16a2" }
+				self.parts.wpn_fps_ass_amcar_body_ddm4.override = self.parts.wpn_fps_ass_amcar_body_ddm4.override or {}
+
+			--Two Tone CAR-4
+				self.parts.wpn_fps_ass_m4_body_tantone.supported = true
+				self.parts.wpn_fps_ass_m4_body_tantone.stats = { 
+					value = 8,
+					recoil = -4,
+					spread = -3,
+					concealment = -2
+				}
+				self.parts.wpn_fps_ass_m4_body_tantone.custom_stats = {
+					rof_mult = 1.13333,
+					falloff_start_mult = 0.736842,
+					falloff_end_mult = 0.8064516
+				}
+				self.parts.wpn_fps_ass_m4_body_tantone.forbids = { "wpn_fps_upg_i_m16a2" }
+				self.parts.wpn_fps_ass_m4_body_tantone.override = self.parts.wpn_fps_ass_m4_body_tantone.override or {}
 		end
 
 
@@ -34586,6 +34860,56 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.parts[part_id].custom_stats.ads_speed_mult = self.parts[part_id].custom_stats.ads_speed_mult or 1
 			if zoom >= 0 and self.parts[part_id].custom_stats.ads_speed_mult == 1 then
 				self.parts[part_id].custom_stats.ads_speed_mult = self.parts[part_id].custom_stats.ads_speed_mult + (zoom * 0.005)
+			end
+		end
+	end
+
+	if self.parts.wpn_fps_ass_amcar_body_ddm4 then
+		for k, used_part_id in ipairs(self.wpn_fps_ass_amcar.uses_parts) do
+			if self.parts[used_part_id] and self.parts[used_part_id].type then
+				if not table.contains(self.wpn_fps_ass_amcar.default_blueprint, used_part_id) and not table.contains(self.parts.wpn_fps_ass_amcar_body_ddm4.forbids, used_part_id) then
+					if self.parts[used_part_id].type == "foregrip" or
+					self.parts[used_part_id].type == "barrel" then
+						table.insert(self.parts.wpn_fps_ass_amcar_body_ddm4.forbids, used_part_id)
+					elseif self.parts[used_part_id].type == "magazine" then
+						if self.parts[used_part_id].stats and (self.parts[used_part_id].stats.extra_ammo and self.parts[used_part_id].stats.extra_ammo > 0) or
+						self.parts[used_part_id].custom_stats and self.parts[used_part_id].custom_stats.damage_min_mult then
+							table.insert(self.parts.wpn_fps_ass_amcar_body_ddm4.forbids, used_part_id)
+						end
+					end
+				end
+				if not self.parts.wpn_fps_ass_amcar_body_ddm4.override[used_part_id] then
+					if self.parts[used_part_id].type == "lower_reciever" then
+						self.parts.wpn_fps_ass_amcar_body_ddm4.override[used_part_id] = {
+							adds = {},
+							override = {},
+							unit = "units/mods/weapons/wpn_fps_ass_amcar_ddm4/wpn_fps_ass_amcar_ddm4_lower",
+							third_unit = "units/mods/weapons/wpn_third_ass_amcar_ddm4/wpn_third_ass_amcar_ddm4_lower"
+						}
+					end
+				end
+			end
+		end
+	end	
+	if self.parts.wpn_fps_ass_m4_body_tantone then
+		for k, used_part_id in ipairs(self.wpn_fps_ass_m4.uses_parts) do
+			if self.parts[used_part_id] and self.parts[used_part_id].type then
+				if not table.contains(self.wpn_fps_ass_m4.default_blueprint, used_part_id) and not table.contains(self.parts.wpn_fps_ass_m4_body_tantone.forbids, used_part_id) then
+					if self.parts[used_part_id].type == "upper_reciever" or
+					self.parts[used_part_id].type == "foregrip" or
+					self.parts[used_part_id].type == "barrel" then
+						table.insert(self.parts.wpn_fps_ass_m4_body_tantone.forbids, used_part_id)
+					end
+				end
+				if not self.parts.wpn_fps_ass_m4_body_tantone.override[used_part_id] then
+					if self.parts[used_part_id].type == "lower_reciever" then
+						self.parts.wpn_fps_ass_m4_body_tantone.override[used_part_id] = {
+							adds = {},
+							override = {},
+							unit = "units/mods/weapons/wpn_fps_ass_m4_tantone/wpn_fps_ass_m4_tantone_lower"
+						}
+					end
+				end
 			end
 		end
 	end
