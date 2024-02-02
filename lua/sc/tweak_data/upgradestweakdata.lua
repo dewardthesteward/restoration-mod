@@ -210,7 +210,8 @@ Hooks:PostHook(UpgradesTweakData, "init", "ResLevelTableInit", function(self, tw
 					"pitchfork",
 					"shrew",
 					"x_shrew",
-					"basset"
+					"basset",
+					"x_basset"
 				}
 			},
 		l28 = {
@@ -2520,11 +2521,11 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 	self.values.player.pocket_ecm_jammer_base = {
 		{
 			cooldown_drain = 1.5,
-			duration = 7,
+			duration = 8.1,
 			affects_cameras = true,
 			affects_pagers = true,
 			feedback_interval = 2,
-			feedback_range = 800
+			feedback_range = 1000
 		}
 	}	
 	self.values.player.pocket_ecm_heal_on_kill = {

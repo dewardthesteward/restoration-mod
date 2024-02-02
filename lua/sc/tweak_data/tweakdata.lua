@@ -68,6 +68,7 @@ tweak_data.grenade_launcher = {
 	}
 	tweak_data.rocket_launcher = {
 		ads_move_speed_mult = 0.4, --lowered to 0.2
+		shake_mul = 0
 	}
 
 tweak_data.shotgun = {
@@ -79,10 +80,13 @@ tweak_data.shotgun = {
 		hipfire_spread_mult = 0.25,
 	}
 	tweak_data.shotgun_light = {
-		hipfire_spread_mult = 1.25,
+		hipfire_spread_mult = 1.35,
 		--ads_multishot_spread_mult = 4,
 		moving_spread_mult = 1.5
 	}
+		tweak_data.shotgun_light_semi = {
+			hipfire_spread_mult = 0.7407
+		}
 	tweak_data.shotgun_heavy = {
 		hipfire_spread_mult = 0.45,
 		--ads_multishot_spread_mult = 0.9
@@ -92,7 +96,7 @@ tweak_data.shotgun = {
 		--ads_multishot_spread_mult = 1
 	}
 		tweak_data.shotgun_smasher = {
-			shake_mul = 5
+			shake_mul = 4
 		}
 	tweak_data.shotgun_pistol = {
 		ads_move_speed_mult = 1.6,
@@ -127,15 +131,16 @@ tweak_data.smg = {
 	}
 		tweak_data.lmg_moving = {
 			ads_moving_recoil = 0.8695652,
-			shake_mul = 0.6667
+			shake_mul = 0.6667,
+			hipfire_spread_mult = 0.6667
 		}
 		tweak_data.rambo = {
-			hipfire_spread_mult = 0.5
+			hipfire_spread_mult = 0.4167
 		}
 		tweak_data.wolf_brigade = {
 			ads_moving_recoil = 0.8695652,
 			moving_spread_mult = 0.2,
-			hipfire_spread_mult = 0.5,
+			hipfire_spread_mult = 0.4167,
 			shake_mul = 0.6667
 		}
 	tweak_data.minigun = {
@@ -276,7 +281,7 @@ for i, proj_id in ipairs(poison_40mm) do
 	tweak_data.projectiles[proj_id].player_damage = 0
 	tweak_data.projectiles[proj_id].curve_pow = 0
 	tweak_data.projectiles[proj_id].range = 0
-	tweak_data.projectiles[proj_id].manticore = true
+	--tweak_data.projectiles[proj_id].manticore = true
 	tweak_data.projectiles[proj_id].poison_gas_range = 600
 	tweak_data.projectiles[proj_id].poison_gas_duration = 8
 	tweak_data.projectiles[proj_id].poison_gas_fade_time = 0.1
@@ -305,7 +310,7 @@ tweak_data.projectiles.launcher_poison_arbiter.damage = 0
 tweak_data.projectiles.launcher_poison_arbiter.player_damage = 0
 tweak_data.projectiles.launcher_poison_arbiter.curve_pow = 0
 tweak_data.projectiles.launcher_poison_arbiter.range = 0
-tweak_data.projectiles.launcher_poison_arbiter.manticore = true
+--tweak_data.projectiles.launcher_poison_arbiter.manticore = true
 tweak_data.projectiles.launcher_poison_arbiter.poison_gas_range = 600
 tweak_data.projectiles.launcher_poison_arbiter.poison_gas_duration = 6
 tweak_data.projectiles.launcher_poison_arbiter.poison_gas_fade_time = 0.1
@@ -361,7 +366,7 @@ tweak_data.projectiles.launcher_poison_osipr = {
 	player_damage = 0,
 	curve_pow = 0,
 	range = 0,
-	manticore = true,
+	--manticore = true,
 	poison_gas_range = 600,
 	poison_gas_duration = 6,
 	poison_gas_fade_time = 0.1,
@@ -386,7 +391,7 @@ tweak_data.projectiles.launcher_poison.damage = 0
 tweak_data.projectiles.launcher_poison.player_damage = 0
 tweak_data.projectiles.launcher_poison.curve_pow = 0
 tweak_data.projectiles.launcher_poison.range = 0
-tweak_data.projectiles.launcher_poison.manticore = true
+--tweak_data.projectiles.launcher_poison.manticore = true
 tweak_data.projectiles.launcher_poison.poison_gas_range = 600
 tweak_data.projectiles.launcher_poison.poison_gas_duration = 4
 tweak_data.projectiles.launcher_poison.poison_gas_fade_time = 0.1
@@ -399,7 +404,7 @@ tweak_data.projectiles.launcher_poison_ms3gl_conversion.damage = 0
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.player_damage = 0
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.curve_pow = 0
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.range = 0
-tweak_data.projectiles.launcher_poison_ms3gl_conversion.manticore = true
+--tweak_data.projectiles.launcher_poison_ms3gl_conversion.manticore = true
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.poison_gas_range = 600
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.poison_gas_duration = 4
 tweak_data.projectiles.launcher_poison_ms3gl_conversion.poison_gas_fade_time = 0.1
@@ -551,7 +556,7 @@ tweak_data.projectiles.poison_gas_grenade.player_damage = 0
 tweak_data.projectiles.poison_gas_grenade.curve_pow = 0
 tweak_data.projectiles.poison_gas_grenade.range = 0
 tweak_data.projectiles.poison_gas_grenade.name_id = "bm_poison_gas_grenade"
-tweak_data.projectiles.poison_gas_grenade.manticore = true
+--tweak_data.projectiles.poison_gas_grenade.manticore = true
 tweak_data.projectiles.poison_gas_grenade.poison_gas_range = 600
 tweak_data.projectiles.poison_gas_grenade.poison_gas_duration = 12
 tweak_data.projectiles.poison_gas_grenade.poison_gas_fade_time = 0.1

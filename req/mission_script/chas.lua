@@ -1,8 +1,9 @@
 local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 local difficulty_index = tweak_data:difficulty_to_index(difficulty)
-local shadow_fucked_me_hard = Global.game_settings and Global.game_settings.one_down
+local pro_job = Global.game_settings and Global.game_settings.one_down
 local chance_dozer_var = math.rand(1)
 local chance_dozer = 75
+local hunt_projob = false
 --set up the table for the randomizer
 local dozer_table = {
 	dozer_green = "units/payday2/characters/ene_bulldozer_1_sc/ene_bulldozer_1_sc",
@@ -14,8 +15,9 @@ local dozer_table = {
 	dozer_titan = "units/pd2_dlc_vip/characters/ene_vip_2_assault/ene_vip_2_assault"
 }
 
---If we're in Pro Job, then do this shit below
-if shadow_fucked_me_hard then
+--If we're in Pro Job, then do this stuff below
+if pro_job then
+		hunt_projob = true
 	--DSPJ has 100% of spawning the scripted dozer
 	if difficulty_index == 8 then
 		chance_dozer = 100
@@ -55,9 +57,10 @@ end
 	
 
 return {
-	--Pro Job PONR 
+	--Pro Job PONR
 	[100818] = {
-		ponr = ponr_value
+		ponr = ponr_value,
+		hunt = hunt_projob
 	},
 	--Should fix enemies getting stuck
 	[101088] = {
@@ -146,7 +149,23 @@ return {
 		on_executed = {
 			{id = 101278, delay = 0}
 		}
-	},	
+	},
+	--Allow plant c4 when escape sequence is started (At least this works when player picked up c4 before escape trigger)
+	[102146] = {
+		values = {
+			enabled = false
+		}
+	},
+	[100821] = {
+		values = {
+			trigger_times = 1
+		}
+	},
+	[102127] = {
+		values = {
+			trigger_times = 1
+		}
+	},
 	--Always comment that all c4 are placed (why it's chance based to begin with, Overkill...)
 	[103810] = {
 		values = {
@@ -165,11 +184,12 @@ return {
             chance = chance_dozer
 		}
 	},
-	--Dozer gets randomized + repositioned to the boat loot drop point (honestly, better spot than vanilla)
+	--Dozer gets randomized + repositioned to the boat loot drop point
 	[102870] = {
 		values = {
             enemy = dozer,
-			position = Vector3(-4574, 5314, -400)
+			position = Vector3(-4627, 5521, -400),
+			rotation = Rotation(140, 0, -0)
 		}
 	},
 	[101190] = {

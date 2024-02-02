@@ -1,5 +1,11 @@
 local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 local difficulty_index = tweak_data:difficulty_to_index(difficulty)
+local pro_job = Global.game_settings and Global.game_settings.one_down
+local hunt_projob = false
+
+	if pro_job then
+		hunt_projob = true
+	end	
 
 	if difficulty_index <= 5 then
 		ponr_value = 600	
@@ -151,8 +157,9 @@ return {
 			}
 		}
 	},
-	-- Disable parts reinforce when drill is done
+	-- Disable parts reinforce when drill is done+Pro Job Hunt (Endless Assault)
 	[101829] = {
+		hunt = hunt_projob,
 		reinforce = {
 			{
 				name = "parts_car"

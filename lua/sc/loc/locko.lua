@@ -1218,6 +1218,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_wp_upg_i_b93o_desc"] = "#{important_1}#추가 반동을 대가로## 3점사를 #{skill_color}#자동 발사 설정으로 교체합니다.##",
 
 		--2006M Hailstorm
+		["bm_w_hailstorm_2006m"] = "Hailstorm-9",
+		["bm_w_hailstorm_rsh12"] = "Hailstorm-12",		
 		["bm_wp_upg_i_iw_hailstorm"] = "헬스톰 킷",
 		["bm_wp_upg_i_iw_hailstorm_desc"] = "후지와라 중공업에서 제조된 프로토타입 무기 키트.\n\n이 무기를 특수 #{skill_color}#삼중 챔버 스택 탄약을 사용하도록 개조합니다.##",
 		["bm_wp_upg_i_iw_hailstorm_no_pen_desc"] = "후지와라 중공업에서 제조된 프로토타입 무기 키트.\n\n이 무기를 특수 #{skill_color}#삼중 챔버 스택 탄약을 사용하도록 개조하는## 대신 #{important_1}#방탄복을 관통해 주는 피해가 50%정도 감소하고 실드을 뚫을 수 없습니다.##",
@@ -1572,6 +1574,10 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_erma_sc_desc"] = "제 2차 세계 대전동안 보병의 손에 널리 사용되었던 상당히 안정적인 기관단총으로, 그저 탄창을 손잡이로 사용하지 마십시오.",	
 
 		--CUSTOM SMGs
+		["bm_w_m7caseless"] = "Misriah Armory M7 기관단총",
+		["bm_w_m7caseless_supp"] = "Misriah Armory M7S 기관단총",
+		["bm_w_x_m7caseless"] = "듀얼 M7 기관단총",
+		["bm_w_x_m7caseless_supp"] = "듀얼 M7S 기관단총",		
 		--AR57
 		["bm_w_alpha57_prim"] = "FSS Hurricane 기관단총",
 		["bm_w_alpha57_prim_desc"] = "FSS Hurricane 기관단총은 사거리와 저지력을 희생한 대신 탄약 용량을 늘리고 안정성을 높였습니다.\n\n#{skill_color}#방탄복을 관통해 대미지의 75%를 가하고 캡틴이 아닌 적에게 주는 헤드샷 피해량을 66%만큼 더 가합니다.##",		
@@ -1682,6 +1688,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		--REBECCA CYBERPUNK
 		["bm_w_rebecca_desc"] = "이건 약간 예측할 수 없지만 피비린내 나는 혼란을 가져올거야.",		
 		--Widowmaker TX
+		["bm_w_m200_iw"] = "Widowmaker",
 		["bm_wp_wpn_fps_shot_wmtx_mag_ext"] = "확장 탄창",
 		["bm_wp_wpn_fps_upg_wmtx_gastube_burst"] = "점사 시스템",
 		["bm_wp_wpn_fps_upg_wmtx_gastube_burst_desc"] = "##{skill_color}#2발 점사## 전환을 추가합니다.",		
@@ -1690,7 +1697,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_s552_sc_desc"] = "다른 5.56mm탄을 사용하는 소형 소총에 대한 훌륭한 대안용 소총, 국토감시부에서 선호하는 소총이기도 합니다. 또한 더 나은 사거리를 제공하는 특수 스위스제 5.56mm탄을 사용합니다.",				
 		--M733/AMCAR
 		["bm_amcar_sc_desc"] = "세계에서 가장 많이 생산된 .223탄을 사용하는 소총이자, 훌륭한 다목적 소총입니다.",
-		["bm_wp_upg_i_og_rof"] = "발사 속도 제한기",
+		["bm_wp_upg_i_patriot"] = "더 패트리엇",
+		["bm_wp_upg_i_patriot_desc"] = "#{important_1}#[편집됨]##을 위해 개발된 돌격 권총입니다.\n\n드럼 탄창 내부의 피더 메커니즘은 #{important_1}#[편집됨]## 모양을 형성합니다.",		
+		["bm_wp_upg_i_og_rof"] = "발사 속도 리미터",
 		["bm_wp_upg_i_og_rof_desc"] = "이 무기의 터무니없이 낮은 발사 속도를 복원합니다. 관심이 있다면...",
 		--G36
 		["bm_g36_sc_desc"] = "'최고의 플라스틱 소총' 상을 위한 또 다른 최고 순위 경쟁자.",
@@ -1884,6 +1893,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		--AWP
 		["bm_w_awp"] = "Amaroq 900 저격소총",
 		["bm_awp_sc_desc"] = "뛰어난 사거리와 명중률로 유명한 저격 소총입니다. 원래 모델이 헛간에서 세 사람에 의해 만들어졌다고 누가 생각했을까요?\n\n#{skill_color}#방탄복과 여러 적, 방패 및 얇은 벽을 관통할 수 있습니다.##",		
+		["bm_awp_cs_dragon"] = "AWP | 용의 설화",
+		["bm_awp_cs"] = "AWP",
 		["bm_wp_upg_bazooka_desc"] = "높은 위험과 높은 보상을 제공하는 이 악명 높은 소총은 시그니처 보고서와 원샷 원킬 정책으로 알아볼 수 있습니다.\n\n#{skill_color}#캡틴이 아닌 적에게 주는 헤드샷 피해량을 50%만큼 더 가합니다.##\n\n#{skill_color}#타이탄 실드를 관통할 수 있게 합니다.##",
 		["bm_wp_upg_bazooka"] = "용의 비설화 개조 세트",
 		["bm_bazooka_sc_desc"] = "높은 위험과 높은 보상을 제공하는 이 악명 높은 소총은 시그니처 보고서와 원샷 원킬 정책으로 알아볼 수 있습니다.\n\n#{skill_color}#캡틴이 아닌 적에게 주는 헤드샷 피해량을 50%만큼 더 가합니다.##\n\n#{skill_color}#방탄복, 여러 적, 방패, 타이탄 실드 및 얇은 벽을 관통할 수 있습니다.##",		
@@ -1943,7 +1954,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_wp_hmcar_hd_kit"] = "32비트 8K HD 킷",
 		["bm_wp_hmcar_hd_kit_desc"] = "응용 프로그램이 충돌했습니다: C++ 예외\nIDirect3D9::CreateTexture 호출이 실패했기 때문에 텍스처를 로드할 수 없습니다.\nDirect3D가 호출을 완료하는 데 충분한 메모리를 할당하지 못했습니다.\n\n\n\n\n\n\n ",
 		
-		--Light Crossbow		
+		--Light Crossbow
+		["bm_w_frankish_avelyn"] = "Avelyn",
 		["bm_wp_avelyn"] = "애블린 키트",
 		["bm_wp_avelyn_desc"] = "#{skill_color}#연발 쇠뇌## 킷.\n방아쇠를 당기면 #{skill_color}#3##개의 화살을 한 번에 일제 사격할 수 있습니다.",
 		["bm_wp_avelyn_override_desc"] = "매우 희귀한 속사 가능한 쇠뇌입니다.\n정교한 메커니즘을 통해 #{skill_color}#3##개의 화살을 연속으로 발사합니다.\n\n#{skill_color}#방탄복을 관통할 수 있습니다.##",
@@ -2741,6 +2753,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_x_m1911"] = "프라이스 & 맥태비시",
 					--Crosskill Guard
 					["bm_w_shrew"] = "Crosskill Guard",
+					["bm_w_shrew_joshua"] = "어둠 속에서 반짝이는 빛",
 					["bm_w_x_shrew"] = "베리 & 폴",
 					--USP 
 					["bm_w_usp"] = "Interceptor-45",
@@ -2752,6 +2765,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_x_type54"] = "아킴보 CC-33",
 					--Broomstick--
 					["bm_w_c96"] = "Broomstick",
+					["bm_w_c96_dl44"] = "DL-44",
 					["bm_wp_c96_nozzle"] = "블라스테크 DL-44 머즐",
 					--Sub2000
 					["bm_w_sub2000"] = "Cavity .40",
@@ -2829,13 +2843,19 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					--Signature SMG
 					["bm_w_shepheard"] = "Signature PC9",
 					--Compact-5/MP5
-					["bm_w_mp5"] = "Compact-5",	
+					["bm_w_mp5"] = "Compact-5",
+					["bm_w_mp5sd"] = "Compact-5SD",	
+					["bm_w_mp5k"] = "Compact-5K",
+					["bm_w_mp5k_pdw"] = "Compact-5K PDW",					
 					["bm_w_x_mp5"] = "아킴보 Compact-5s",
 					["bm_wp_mp5_fg_mp5sd"] = "SPOOC 포어그립",
 					--Swedish K
 					["bm_w_m45"] = "Swedish K",
 					--Pachett/Sterling
-					["bm_w_sterling"] = "Patchette L2A1",
+					["bm_w_sterling"] = "Patchette L2A3",
+					["bm_w_sterling_sd"] = "Patchette L34A1",
+					["bm_w_sterling_pistol"] = "Patchette Mk. VII",
+					["bm_w_sterling_e11"] = "E-11",
 					["bm_wp_sterling_b_e11"] = "블라스테크 E-11 총열",
 					--Uzi
 					["bm_w_uzi"] = "Uzi",
@@ -2876,6 +2896,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_wp_par_b_short"] = "컴페드 총열",
 					--Buzzsaw/Mg42
 					["bm_w_mg42"] = "Buzzsaw-42",
+					["bm_w_mg42_dlt19"] = "DLT-19",
 					--Versteckt-51/HK51B
 					["bm_w_hk51b"] = "Versteckt-51B",
 					--Microgun
@@ -2885,7 +2906,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 
 				--[[ SHOTGUNS ]]
 					--Grimm
-					["bm_w_basset"] = "Grimm 12G",	
+					["bm_w_basset"] = "Grimm 12G",
+					["bm_w_x_basset"] = "Brothers Grimm 12G",
 					--Saiga
 					["bm_w_saiga"] = "IZHMA 12G",
 					--AA12
@@ -2940,7 +2962,11 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					--M733/AMCAR
 					["bm_w_amcar"] = "AM-CAR",
 					--G36
-					["bm_w_g36"] = "JP36",
+					["bm_w_g36"] = "JP-36KV",
+					["bm_w_g36_k"] = "JP-36K",
+					["bm_w_g36_c"] = "JP-36C",
+					["bm_w_g36_v"] = "JP-36V",
+					["bm_w_g36_long"] = "JP-36",
 					--VHS/Lion's Roar
 					["bm_w_vhs"] = "Lion's Roar",
 					["bm_wp_vhs_b_sniper"] = "하이퍼 총열",
@@ -2954,15 +2980,21 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_famas"] = "Clarion 5.56",
 					--M4/CAR-4
 					["bm_w_m4"] = "CAR-4",
+					["bm_w_m4_mk12"] = "CAR-12 SPR",
 					["bm_wp_upg_ass_m4_b_beowulf"] = "울프 총열",
 					["bm_wp_upg_s_fixed"] = "CAR 고정형 개머리판",
 					--AK5
 					["bm_w_ak5"] = "Ak 5",
+					["bm_w_ak5b"] = "Ak 5B",
+					["bm_w_ak5c"] = "Ak 5C",
+					["bm_w_ak5_fnc"] = "VF Carabine",					
 					--Union 5.56
 					["bm_w_corgi"] = "Union 5.56",
 					["bm_wp_corgi_b_short"] = "MSG 총열",
 					--UAR
 					["bm_w_aug"] = "UAR A2",
+					["bm_w_aug_a3"] = "UAR A3",
+					["bm_w_aug_f90"] = "Raptor 90",					
 					["bm_wp_upg_b_hbar"] = "중총열",	
 					--AK17
 					["bm_w_ak12"] = "AK-17",
@@ -2972,6 +3004,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_hajk"] = "CR 805B",
 					--AMR-16
 					["bm_w_m16"] = "AMR-16",
+					["bm_w_m16a1"] = "AMR-16A1",
 					--Queen's Wrath
 					["bm_w_l85a2"] = "Queen's Wrath",
 					--AK 7.62
@@ -3003,24 +3036,40 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				--[[ DMRs ]]
 					--Little Friend
 					["bm_w_contraband"] = "Bigger Friend 7.62",
+					["bm_w_contraband_m16"] = "Little Friend 5.56",
+					["bm_w_contraband_mpx"] = "OMNIA PC9 9mm",					
 					--FAL
-					["bm_w_fal"] = "Falcon 58",		
+					["bm_w_fal"] = "Falcon 58",
+					["bm_w_fal_l1a1"] = "Falcon SLR",
+					["bm_w_fal_sa58"] = "Falcon 58 OSW",
+					["bm_w_fal_idf"] = "Falcon RMT",					
 					--ASS VAL
 					["bm_w_asval"] = "Valkyria",
 					--Galil
 					["bm_w_galil"] = "Gecko 7.62",
+					["bm_w_galil_galatz"] = "Gekkota 7.62",
+					["bm_w_galil_mar"] = "Micro Gecko 7.62",
+					["bm_w_galil_556"] = "Gecko 5.56",
+					["bm_w_galil_mar_556"] = "Micro Gecko 5.56",					
 					--SCAR
-					["bm_w_scar"] = "Eagle Heavy",			
+					["bm_w_scar"] = "Eagle Heavy",
+					["bm_w_scar_l"] = "Eagle Light",
 					--Galant--
 					["bm_w_ching"] = "M1 Galant",
 					--M308
 					["bm_w_m14"] = "M308",
 					--G3
 					["bm_w_g3"] = "Gewehr-3",
+					["bm_w_g3_sg1"] = "Gewehr-S1",
+					["bm_w_g3_msg"] = "Gewehr-90",
+					["bm_w_g3_psg"] = "Präzision Gewehr-1",
+					["bm_w_g3_hk33"] = "SG-33",
+					["bm_w_g3_hk33_fo3"] = "R91",					
 					["bm_wp_g3_b_sniper"] = "매크로 총열",
 					["bm_wp_g3_b_short"] = "마이크로 총열",
 					--KS12
 					["bm_w_shak12"] = "KS-12 Urban",
+					["bm_w_shak12_vks"] = "KSV-12 Urban",
 					--HCAR
 					["bm_w_hcar"] = "Akron HC",
 
@@ -3131,13 +3180,16 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				["bm_w_x_m1911"] = "아킴보 Crosskill A1",
 				["bm_w_x_sparrow"] = "아킴보 Sparrow",
 				["bm_w_scar"] = "VF-7S",
+				["bm_w_scar_l"] = "VF-6M",
 				["bm_w_scarl"] = "VF-6M",
 				["bm_w_schakal"] = "AMP 45",		
 				["bm_w_tecci"] = "SG 416C",
 				["bm_w_l85a2"] = "L-95",
 				["bm_w_x_judge"] = "아킴보 Judges",
 				["bm_w_vhs"] = "HVH-2",
-				["bm_w_contraband"] = "SG 417D",				
+				["bm_w_contraband"] = "SG 417D GL",
+				["bm_w_contraband_m16"] = "AMR-16 GL",
+				["bm_w_contraband_mpx"] = "OMNIA PC9 GL",				
 	
 			})
 		elseif weapon_names == 3 then
@@ -3230,6 +3282,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 						["bm_wp_sub2000_fg_suppressed"] = "소음기가 장착된 쿼드 레일 총열덮개",	
 						--C96
 						["bm_w_c96"] = "마우저 C96",
+						["bm_w_c96_dl44"] = "블라스테크 DL-44",
 						["bm_wp_c96_b_long"] = "카빈 총열",
 						["bm_wp_c96_nozzle"] = "DL-44 머즐",
 						["bm_wp_c96_sight"] = "슈미트 앤 벤더 1-8x24 PM 숄트 닷 조준기",
@@ -3250,6 +3303,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 						["bm_w_x_m1911"] = "아킴보 1911A1",
 						--Crosskill Guard
 						["bm_w_shrew"] = "콜트 디펜더",
+						["bm_w_shrew_joshua"] = "어둠 속에서 반짝이는 빛",
 						["bm_w_x_shrew"] = "아킴보 디펜더",
 						--Interceptor
 						["bm_w_usp"] = "H&K USP 택티컬",
@@ -3363,6 +3417,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 						["bm_wp_scorpion_b_suppressed"] = "스콜피온 소음기",
 						--MP5
 						["bm_w_mp5"] = "H&K MP5A2",
+						["bm_w_mp5sd"] = "H&K MP5SD",	
+						["bm_w_mp5k"] = "H&K MP5K",	
+						["bm_w_mp5k_pdw"] = "H&K MP5K PDW",						
 						["bm_w_x_mp5"] = "아킴보 MP5A2",
 						["bm_mp5_sc_desc"] = "G3 모델 중 막내.\n빠르게 발사되고 정확하며 다루기 쉬운 이 기관단총에게 무엇을 더 바랄 수 있습니까?",
 						["bm_wp_mp5_fg_m5k"] = "MP5k 삼중 레일 키트",
@@ -3386,15 +3443,18 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 						["bm_wp_uzi_fg_rail"] = "FAB 방어용 우지 삼중 레일 시스템",
 						["bm_wp_uzi_b_suppressed"] = "2단계 소음기",
 						--Pachette
-						["bm_w_sterling"] = "스텔링 L2A1",
+						["bm_w_sterling"] = "스텔링 L2A3",
+						["bm_w_sterling_sd"] = "스텔링 L34A1",
+						["bm_w_sterling_pistol"] = "스텔링 Mk. VII",						
+						["bm_w_sterling_e11"] = "블라스테크 E-11",
 						["bm_wp_sterling_b_suppressed"] = "L34A1 총열",
 						["bm_wp_sterling_b_e11"] = "블라스테크 E-11 총열",
-						["bm_wp_sterling_m_short"] = "15발 L2A1 탄창",
-						["bm_wp_sterling_m_long"] = "34발 L2A1 탄창",
+						["bm_wp_sterling_m_short"] = "15발 탄창",
+						["bm_wp_sterling_m_long"] = "34발 탄창",
 						--
 						["bm_w_mac10"] = "잉그램 M10",
 						["bm_w_x_mac10"] = "아킴보 M10",
-						["bm_wp_mac10_m_extended"] = "30발 M10 탄창",
+						["bm_wp_mac10_m_extended"] = "30발 탄창",
 						["bm_wp_mac10_body_ris"] = "MAC 레일 시스템", --I'm getting nothing but airsoft results so generic name
 						["bm_wp_mac10_s_skel"] = "로우 마운트 스켈레톤 개머리판",
 						--Thompson
@@ -3409,8 +3469,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 						["bm_w_schakal"] = "H&K UMP-45",
 						["bm_wp_schakal_b_civil"] = "USC 총열",
 						["bm_wp_schakal_ns_silencer"] = "젬테크 QD UMP 소음기",
-						["bm_wp_schakal_m_short"] = "15발 UMP 탄창",
-						["bm_wp_schakal_m_long"] = "45발 UMP 탄창",
+						["bm_wp_schakal_m_short"] = "15발 탄창",
+						["bm_wp_schakal_m_long"] = "45발 탄창",
 						--M45
 						["bm_w_m45"] = "칼 구스타프 M/45 기관단총",
 						["bm_wp_smg_m45_m_extended"] = "50발 M/45 탄창",
@@ -3453,6 +3513,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 						["bm_wp_hk21_g_ergo"] = "HK21 에르고 손잡이",
 						--MG42
 						["bm_w_mg42"] = "마우저 42년식 기관총",
+						["bm_w_mg42_dlt19"] = "블라스테크 DLT-19",
 						["bm_wp_mg42_b_mg34"] = "34년식 기관총 총열",
 						["bm_wp_mg42_b_vg38"] = "블라스테크 DLT-19 총열",
 						--Versteckt-51/HK51B
@@ -3478,23 +3539,24 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					--[[SHOTGUNS]]
 						--Saiga
 						["bm_w_basset"] = "스파이크 X1S 사이가",
-						["bm_w_basset_m_extended"] = "10발 AGP 암즈 사이가 탄창",
+						["bm_w_x_basset"] = "아킴보 스파이크 X1S 사이가",
+						["bm_w_basset_m_extended"] = "10발 AGP 암즈 탄창",
 						["bm_w_saiga"] = "칼라시니코프 사이가-12K",
 						["bm_wp_saiga_fg_lowerrail"] = "울티막 AK 모듈식 레일 포엔드 시스템",
-						["bm_wp_saiga_m_20rnd"] = "20발 MD 암즈 사이가 드럼탄창",
+						["bm_wp_saiga_m_20rnd"] = "20발 MD 암즈 드럼탄창",
 						["bm_wp_saiga_fg_holy"] = "퍼글리스틱 레일 시스템",
 						--AA12
 						["bm_w_aa12"] = "MPS 자동 돌격 산탄총-12 CQB",
-						["bm_wp_aa12_barrel_long"] = "표준 AA12 총열",
-						["bm_wp_aa12_mag_drum"] = "20발 AA-12 드럼탄창",
+						["bm_wp_aa12_barrel_long"] = "표준 총열",
+						["bm_wp_aa12_mag_drum"] = "20발 드럼탄창",
 						--Six12
 						["bm_w_rota"] = "크라이 프리시전 식스12",
 						--M1014
 						["bm_w_benelli"] = "베넬리 M4 슈퍼 90",
-						["bm_wp_ben_b_long"] = "긴 M4 총열",
-						["bm_wp_ben_b_short"] = "NFA M4 총열",
-						["bm_wp_ben_s_collapsed"] = "순납형 M4 개머리판",
-						["bm_wp_ben_fg_standard"] = "M4 택티컬 개머리판",
+						["bm_wp_ben_b_long"] = "긴 총열",
+						["bm_wp_ben_b_short"] = "NFA 총열",
+						["bm_wp_ben_s_collapsed"] = "순납형 개머리판",
+						["bm_wp_ben_fg_standard"] = "택티컬 개머리판",
 						--SPAS-12
 						["bm_w_spas12"] = "프란치 SPAS-12",
 						["bm_wp_spas12_b_long"] = "8발 튜브",
@@ -3570,8 +3632,12 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 						["bm_wp_vhs_b_sniper"] = "저격용 총열",
 						["bm_wp_vhs_b_silenced"] = "소음기 총열",
 						--JP36
-						["bm_w_g36"] = "H&K G36K",
-						["bm_wp_g36_fg_c"] = "G36c 총열덮개",
+						["bm_w_g36"] = "H&K G36KV",
+						["bm_w_g36_k"] = "H&K G36K",
+						["bm_w_g36_c"] = "H&K G36C",
+						["bm_w_g36_v"] = "H&K G36V",
+						["bm_w_g36_long"] = "H&K G36",
+						["bm_wp_g36_fg_c"] = "G36C 총열덮개",
 						["bm_wp_g36_fg_ksk"] = "(주)나이츠 암머먼트 RAS 총열덮개",
 						["bm_wp_g36_s_kv"] = "G36KV 개머리판",
 						["bm_wp_g36_s_sl8"] = "SL8 개머리판",
@@ -3590,6 +3656,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 						
 						--AUG
 						["bm_w_aug"] = "슈타이어 AUG A2",
+						["bm_w_aug_a3"] = "슈타이어 AUG A3",
+						["bm_w_aug_f90"] = "탈레스 F90",						
 						["bm_wp_aug_fg_a3"] = "A3 레일",
 						["bm_wp_aug_body_f90"] = "탈레스 F90 킷",
 						--Boatgun
@@ -3598,12 +3666,16 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 						["bm_w_ak12"] = "칼라시니코프 AK-12",
 						--Ak5
 						["bm_w_ak5"] = "보포스 Ak 5",
-						["bm_wp_ak5_fg_ak5c"] = "Ak 5c 총열덮개",
+						["bm_w_ak5b"] = "보포스 Ak 5B",
+						["bm_w_ak5c"] = "보포스 Ak 5C",
+						["bm_w_ak5_fnc"] = "FN FNC",
+						["bm_wp_ak5_fg_ak5c"] = "Ak 5C 총열덮개",
 						["bm_wp_ak5_fg_fnc"] = "FN FNC 총열덮개",
-						["bm_wp_ak5_s_ak5b"] = "Ak 5b 개머리판",
-						["bm_wp_ak5_s_ak5c"] = "Ak 5c 개머리판",
+						["bm_wp_ak5_s_ak5b"] = "Ak 5B 개머리판",
+						["bm_wp_ak5_s_ak5c"] = "Ak 5C 개머리판",
 						--CAR-4
 						["bm_w_m4"] = "콜트 M4A1",
+						["bm_w_m4_mk12"] = "Mk 12 SPR",
 						--AK74
 						["bm_w_ak74"] = "칼라시니코프 AKS-74",						 
 						--805
@@ -3616,6 +3688,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 
 						--M16
 						["bm_w_m16"] = "콜트 M16A4",
+						["bm_w_m16a1"] = "콜트 M16A1",
 						["bm_wp_m16_fg_railed"] = "다니엘 디펜스 라이트 레일",
 						["bm_wp_m16_fg_vietnam"] = "M16A1 총열덮개",
 						--["bm_wp_m16_s_solid"] = "M16 개머리판",
@@ -3640,6 +3713,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					--[[DMRs]]
 						--417
 						["bm_w_contraband"] = "M203 유탄발사기를 단 H&K HK417",
+						["bm_w_contraband_m16"] = "M203 유탄발사기를 단 콜트 M16A1",
+						["bm_w_contraband_mpx"] = "M203 유탄발사기를 단 SIG MPX",
 						["bm_m203_weapon_sc_desc_pc"] = "스카페이스의 개인용 \"리틀 프렌드\" M16-16의 큰 자매.\n\n#{skill_color}#방탄복을 관통해 피해의 20%를 가하고 어러 적을 관통할 수 있으며## #{skill_color}#$BTN_BIPOD## 키를 누르면 장착된 유탄 발사기로 전환됩니다.",
 						["bm_m203_weapon_sc_desc"] = "스카페이스의 개인용 \"리틀 프렌드\" M16-16의 큰 자매.\n\n#{skill_color}#방탄복을 관통해 피해의 20%를 가하고 어러 적을 관통할 수 있으며## #{skill_color}#$BTN_BIPOD## 키를 길게 누르면 장착된 유탄 발사기로 전환됩니다.",
 						--VMP
@@ -3648,10 +3723,14 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 						
 						--SCAR
 						["bm_w_scar"] = "FN Mk.17",
+						["bm_w_scar_l"] = "FN Mk.16",
 						["bm_wp_scar_fg_railext"] = "PWS SCAR 확장 레일",
 						["bm_wp_scar_s_sniper"] = "Mk.20 개머리판",
 						--FAL
 						["bm_w_fal"] = "FN FAL",
+						["bm_w_fal_l1a1"] = "FAL L1A1",
+						["bm_w_fal_sa58"] = "DSA SA58 OSW",
+						["bm_w_fal_idf"] = "IWI 로마트",						
 						["bm_wp_fal_body_standard"] = "DSA SA58 총열덮개",
 						["bm_wp_fal_fg_wood"] = "목재 FAL 총열덮개",
 						["bm_wp_fal_fg_04"] = "DSA 프리플롯 총열덮개",
@@ -3663,6 +3742,10 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 						["bm_wp_upg_vintage_fal_sc"] = "20발 탄창",
 						--Galil
 						["bm_w_galil"] = "IWI 갈릴 ARM",
+						["bm_w_galil_galatz"] = "IWI 갈라츠",
+						["bm_w_galil_mar"] = "IWI 마이크로 갈릴",
+						["bm_w_galil_556"] = "IWI 갈릴 ARM",
+						["bm_w_galil_mar_556"] = "IWI 마이크로 갈릴",						
 						["bm_wp_galil_fg_sniper"] = "IWI 갈라츠 총열덮개",
 						["bm_wp_galil_fg_sar"] = "IWI 갈릴 SAR 총열덮개",
 						["bm_wp_galil_fg_mar"] = "IWI 갈릴 MAR 총열덮개",
@@ -3679,6 +3762,11 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 
 						--Raifu
 						["bm_w_g3"] = "H&K G3A3",
+						["bm_w_g3_hk33"] = "H&K HK33",
+						["bm_w_g3_sg1"] = "H&K G3SG1",
+						["bm_w_g3_msg"] = "H&K MSG90",
+						["bm_w_g3_psg"] = "H&K PSG-1",
+						["bm_w_g3_fo3"] = "R91",						
 						["bm_g3_sc_desc"] = "MP5 및 HK21의 언니, 이 소총의 명중률은 저격수보다 뛰어납니다.\n\n#{skill_color}#방탄복을 관통해 피해의 50%를 가하고 어러 적 및 얇은 벽을 관통할 수 있습니다.##",
 						["bm_g3_ap25_sc_desc"] = "MP5 및 HK21의 언니, 이 소총의 명중률은 저격수보다 뛰어납니다.\n\n#{skill_color}#방탄복을 관통해 피해의 75%를 가하고 어러 적 및 얇은 벽을 관통할 수 있습니다.",	
 						["bm_g3_sg1_sc_desc"] = "MP5 및 HK21의 언니, 이 소총의 명중률은 저격수보다 뛰어납니다.\n\n#{skill_color}#방탄복, 적, 방패, 얇은 벽을 관통할 수 있습니다.##",						
@@ -4082,10 +4170,14 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 			--SEISHOU ACADEMY
 				--MIDDLE SCHOOLERS
 					["bm_w_m16"] = "Ichiroku",
+					["bm_w_m16a1"] = "Ichiroku",
 						["bm_m16_sc_desc"] = "\"I won't lose!\"\n\nA middleschooler attending #{stats_positive}#Seishou Academy.##\nThe energetic and foul-mouthed figurehead of the school.",
 					["bm_w_m4"] = "Em-Four",
+					["bm_w_m4_mk12"] = "Em-Four",
 						["bm_m4_sc_desc"] = "\"Don't underestimate a service rifle!\"\n\nA middleschooler attending #{stats_positive}#Seishou Academy.##\nVice-president of the middleschool student council.",
 					["bm_w_aug"] = "AUG",
+					["bm_w_aug_a3"] = "AUG",
+					["bm_w_aug_f90"] = "AUG",					
 						["bm_aug_sc_desc"] = "#{stats_negative}#\"RUN AWAY! PLEAD FOR YOUR LIFE!\"##\n\nA middleschooler attending #{stats_positive}#Seishou Academy.##\nPresident of the middleschool student council.",
 					["bm_wp_ak5_fg_fnc"] = "Funco Kit",
 						["bm_wp_ak5_fg_fnc_desc"] = "\"To respond to its master's wishes is a tool's joy.\"\n\nA middleschooler attending #{stats_positive}#Seishou Academy.##\nGives off a heavy \"main protagonist\" aura.",
@@ -4098,8 +4190,16 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 	
 				--HIGH SCHOOLERS
 					["bm_w_fal"] = "Faru",
+					["bm_w_fal_l1a1"] = "Faru",
+					["bm_w_fal_sa58"] = "Faru",
+					["bm_w_fal_idf"] = "Faru",					
 						["bm_fal_sc_desc"] = "\"Your big sis arrived-!\"\n\nFunco's older sister.\nNot to be confused with Funco's other sister, L1A1.",
 					["bm_w_m14"] = "Ichiyon",
+					["bm_w_g3_sg1"] = "Jiisuri",
+					["bm_w_g3_msg"] = "Jiisuri",
+					["bm_w_g3_psg"] = "Jiisuri",
+					["bm_w_g3_hk33"] = "HK33",
+					["bm_w_g3_hk33_fo3"] = "R91",					
 						["bm_m14_sc_desc"] = "\"What are those westerners doin' copying AKs!? Buncha traitors!\"\n\nA highschooler attending #{stats_positive}#Seishou Academy.##\nEasy-going and chalk-full of puns. Currently going through a fashion-sense crisis.",
 					["bm_w_g3"] = "Jiisuri",
 						["bm_g3_sc_desc"] = "\"Let's settle this!\"\n\nA highschooler attending #{stats_positive}#Seishou Academy.##\nElegant but a bit of a klutz. The eldest of her many sisters and DMC's #{stat_maxed}#raifu.##",
@@ -4111,6 +4211,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 
 				--ELEMENTARY
 					["bm_w_mp5"] = "Empi",
+					["bm_w_mp5sd"] = "MP5SD",	
+					["bm_w_mp5k"] = "MP5K",	
+					["bm_w_mp5k_pdw"] = "MP5K",					
 						["bm_mp5_sc_desc"] = "\"If that's your hobby...\"\n\nAn elementary schooler attending #{stats_positive}#Seishou Academy.##\nOne of Jiisuri's many younger siblings and the student council president of the elementary division.",
 					["bm_w_schakal"] = "UMP",
 						["bm_schakal_sc_desc"] = "An elementary schooler attending #{stats_positive}#Seishou Academy.##\nCousin to the G3 family; she's currently living together with them as she attends school. She often gets into fights with MP5K.",						
@@ -4158,6 +4261,11 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 		if my_wife then
 			LocalizationManager:add_localized_strings({	
 				["bm_w_g3"] = "Jiisuri",
+				["bm_w_g3_sg1"] = "Jiisuri",
+				["bm_w_g3_msg"] = "Jiisuri",
+				["bm_w_g3_psg"] = "Jiisuri",
+				["bm_w_g3_hk33"] = "HK33",
+				["bm_w_g3_hk33_fo3"] = "R91",				
 					["bm_g3_sc_desc"] = "\"Let's settle this!\"\n\nA highschooler attending #{stats_positive}#Seishou Academy.##\nElegant but a bit of a klutz. The eldest of her many sisters and DMC's #{stat_maxed}#raifu.##",
 					["bm_g3_ap25_sc_desc"] = "\"Let's settle this!\"\n\nA highschooler attending #{stats_positive}#Seishou Academy.##\nElegant but a bit of a klutz. The eldest of her many sisters and DMC's #{stat_maxed}#raifu.##",
 					["bm_menu_jiisuri_stock"] = "Pantyhose",						
@@ -4360,7 +4468,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		["loading_gameplay_res_5"] = "클로커는 혼자 있는 하이스터 혹은 하이스터를 가로막을 때 쉽게 반격합니다.",
 		["loading_gameplay_res_6"] = "클로커는 당신을 차면서 직접적인 체력 피해를 가합니다. 이는 굴절 또는 반격 스킬로 감소시킬 수 있습니다.",
 		["loading_gameplay_res_7"] = "그린 불도저는 높은 피해량을 가하며, 종종 한 발로도 가장 단단한 방탄복을 부술 수도 있습니다.",
-		["loading_gameplay_res_8"] = "사이가/블랙 불도저는 피해량과 높은 연사력을 교환했으며, 인상적인 드럼 탄창을 장착했습니다 또한 다른 불도저보다 빠르게 달려오지만 체력은 훨씬 낮습니다.",
+		["loading_gameplay_res_8"] = "사이가/블랙 불도저는 피해량과 높은 연사력을 교환했으며, 인상적인 드럼 탄창을 장착했습니다. 또한 다른 불도저보다 빠르게 달려오지만 체력은 훨씬 낮고 폭발 피해를 받으면 기절할 수도 있습니다.",
 		["loading_gameplay_res_9"] = "경기관총 도저/스컬도저는 근거리에서 밀쳐내고 탄 벨트가 비워질 때까지 사격하는 강력한 제압 사격을 가합니다. 이들의 상단 장갑은 일반 도저보다 더 많은 피해를 견뎌낼 수 있지만, 타이탄 도저만큼 느리게 움직입니다.",
 		["loading_gameplay_res_10"] = "베넬리 샷거너 도저는 미니건 도저를 대체하며, 그린 도저와 블랙 도저를 부정하게 결합한 높은 연사력과 높은 피해량을 가합니다.",
 		["loading_gameplay_res_11"] = "목표 우선순위가 중요합니다. 모든 유형의 불도저는 경무장 SWAT보다 더 주의할 가치가 있습니다.",
@@ -4627,7 +4735,12 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		["menu_mutator_captain_replace_summer"] = "서머스",
 		["menu_mutator_captain_replace_hvh"] = "지옥 타이탄 도저",
 		["mutator_captain_replace_desc"] = "하이스트 도중에 생성되는 캡틴을 변경합니다.",
-		["mutator_captain_replace_longdesc"] = "하이스트에 생성되는 캡틴 대신 선택된 캡틴이 생성됩니다.\n\n참고: 스크립트로 생성되는 캡틴 엔카운터는 바뀌지 않습니다.",	
+		["mutator_captain_replace_longdesc"] = "하이스트에 생성되는 캡틴 대신 선택된 캡틴이 생성됩니다.\n\n참고: 스크립트로 생성되는 캡틴 엔카운터는 바뀌지 않습니다.",
+
+		["mutator_no_outlines"] = "전문가 리얼리즘",
+		["mutator_no_outlines_desc"] = "NO OUTLINES PLACEHOLDER.",
+		["mutator_no_outlines_longdesc"] = "NO OUTLINES PLACEHOLDER.",
+		["menu_mutator_no_outlines_enemies_toggle"] = "Disable Enemy Outlines",
 		
 		["mutator_spawn_mult"] = "증폭된 대응",
 		["mutator_spawn_mult_desc"] = "적 스폰량이 증가합니다.",
@@ -5303,9 +5416,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Perk_Decks", function(
 		["menu_deck9_1_sc"] = "말 없는",
 		["menu_deck9_1_desc_sc"] = "##18##미터 내에 3명 이상의 적에게 둘러싸여 있을 때 적에게 받는 피해가 ##5%## 감소합니다.",
 		["menu_deck9_3_desc_sc"] = "적을 죽이면 방탄력이 #{skill_color}#20##만큼 재생됩니다.\n\n이 효과는 매 #{important_1}#5##초마다 한 번만 발생하고, 재사용 대기시간 중 적을 죽일수록 #{skill_color}#0.5##초씩 감소하며, 근접 무기로 적을 죽이면 추가로 #{skill_color}#1.5##초씩 감소합니다.\n\n적을 죽여 바로 적용이 가능한 특성 효과가 트리거되면 쿨다운이 다시 시작됩니다.\n\n회피 포인트를 #{skill_color}#5##만큼 얻습니다.",
-		["menu_deck9_5_desc_sc"] = "근접 무기로 적을 죽이면 체력이 ##2%##만큼 회복됩니다.\n\n이 효과는 긴장 (3번째 카드)과 재사용 대기시간을 공유합니다.\n\n인벤토리에 시체가방을 ##1##개를 추가로 가집니다.",
-		["menu_deck9_7_desc_sc"] = "##18##미터 내에 있는 적을 죽이면 방탄복이 ##15##만큼 재생되고, 근접 무기로 적을 죽이면 방탄복이 ##30##만큼 재생됩니다.\n\n이 효과는 긴장 (3번째 카드)과 재사용 대기시간을 공유합니다.\n\n추가로 회피 포인트를 ##5##만큼 얻습니다.",
-		["menu_deck9_9_desc_sc"] = "##18##미터 내에 있는 적을 죽이면 ##25%## 확률로 ##12##미터 반경에 있는 주변 적들에게 패닉을 퍼뜨리며, 근접 무기로 적을 죽이면 확률이 두 배로 증가합니다.\n\n패닉은 적들을 통제할 수 없는 공포로 몰아넣습니다.\n\n이 효과는 긴장 (3번째 카드)과 재사용 대기시간을 공유합니다.\n\n덱 완성 보너스: PAYDAY 도중 높은 등급의 아이템을 얻을 확률이 ##10%##만큼 상승합니다.",
+		["menu_deck9_5_desc_sc"] = "근접 무기로 적을 죽이면 체력이 ##2%##만큼 회복됩니다.\n\n이 특성 효과는 발동되지 않아도 긴장(3번째 카드)과 재사용 대기시간을 공유합니다.\n\n인벤토리에 시체가방을 ##1##개를 추가로 가집니다.",
+		["menu_deck9_7_desc_sc"] = "##18##미터 내에 있는 적을 죽이면 방탄복이 ##15##만큼 재생되고, 근접 무기로 적을 죽이면 방탄복이 ##30##만큼 재생됩니다.\n\n이 특성 효과는 발동되지 않아도 긴장(3번째 카드)과 재사용 대기시간을 공유합니다.\n\n추가로 회피 포인트를 ##5##만큼 얻습니다.",
+		["menu_deck9_9_desc_sc"] = "##18##미터 내에 있는 적을 죽이면 ##25%## 확률로 ##12##미터 반경에 있는 주변 적들에게 패닉을 퍼뜨리며, 근접 무기로 적을 죽이면 확률이 두 배로 증가합니다.\n\n패닉은 적들을 통제할 수 없는 공포로 몰아넣습니다.\n\n이 특성 효과는 발동되지 않아도 긴장(3번째 카드)과 재사용 대기시간을 공유합니다.\n\n덱 완성 보너스: PAYDAY 도중 높은 등급의 아이템을 얻을 확률이 ##10%##만큼 상승합니다.",
 
 		--Grinder--		
 		["menu_deck11_1_desc_sc"] = "적에게 피해를 가하면 #{skill_color}#3##초 동안 매 초마다 체력이 #{skill_color}#2##씩 회복합니다. 이 효과는 최대 #{skill_color}#5##회까지 중첩됩니다.\n#{risk}방편복##을 착용한 동안에만 #{important_1}#0.75##초마다 중첩을 얻을 수 있습니다.\n방편복의 방탄력을 #{important_1}#30##만큼 잃지만 기동성을 #{skill_color}#8##만큼 얻습니다.\n\n#{risk}#참고: 센트리 건이나 지속 피해 효과로 적에게 피해를 가해도 중첩을 부여되지 않습니다.##",
@@ -5381,7 +5494,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Perk_Decks", function(
 		["menu_yakuza_deflection_add"] = "(야쿠자 특성 덱 효과로 의해 부스트 받았습니다)",
 
 		--Hacker--
-		["menu_deck21_1_desc_sc"] = "투척 무기 대신 사용할 수 있는 #{skill_color}#휴대용 ECM 장치##를 잠금 해제합니다.\n\n휴대용 ECM의 지속 시간은 #{skill_color}#7##초입니다.\n\n알람이 울리기 전에 활성화하면 재밍 효과가 발생하여 모든 전자 장치와 페이저를 비활성화합니다.\n\n알람이 발생한 뒤에는 활성화하면 #{skill_color}#8##미터 반경을 가진 피드백 효과가 발생합니다. #{skill_color}#첫 번째## 피드백 루프는 #{skill_color}#100%##의 확률로 대부분의 적을 스턴시키고, 이후 #{skill_color}#2##초마다 #{skill_color}#60%##의 확률로 스턴시킵니다.\n\n휴대용 ECM 재머는 #{important_1}#80##초의 재사용 대기시간이 있으며, 적을 처치할 때마다 재사용 대기시간이 #{skill_color}#1.5##초씩 단축됩니다.",
+		["menu_deck21_1_desc_sc"] = "투척 무기 대신 사용할 수 있는 #{skill_color}#휴대용 ECM 장치##를 잠금 해제합니다.\n\n휴대용 ECM의 지속 시간은 #{skill_color}#8##초입니다.\n\n알람이 울리기 전에 활성화하면 재밍 효과가 발생하여 모든 전자 장치와 페이저를 비활성화합니다.\n\n알람이 발생한 뒤에는 활성화하면 #{skill_color}#10##미터 반경을 가진 피드백 효과가 발생합니다. #{skill_color}#첫 번째## 피드백 루프는 #{skill_color}#100%##의 확률로 대부분의 적을 스턴시키고, 이후 #{skill_color}#2##초마다 #{skill_color}#60%##의 확률로 스턴시킵니다.\n\n휴대용 ECM 재머는 #{important_1}#80##초의 재사용 대기시간이 있으며, 적을 처치할 때마다 재사용 대기시간이 #{skill_color}#1.5##초씩 단축됩니다.",
 		["menu_deck21_3_desc_sc"] = "회피 포인트가 ##5##만큼 증가합니다.",
 		["menu_deck21_5_desc_sc"] = "피드백 효과가 활성화된 상태에서 적을 죽이면 체력이 ##6##만큼 회복됩니다.",
 		["menu_deck21_7_desc_sc"] = "모든 방탄복의 회복 시간이 ##10%##만큼 감소합니다.\n\n회피 포인트가 ##10##만큼 추가로 증가합니다.",
@@ -5480,7 +5593,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Perk_Decks", function(
 			--Tag Team
 			["menu_deck20_mrwi_desc"] = "투척 무기 대신 사용할 수 있는 #{skill_color}#기체 디스펜서##를 잠금 해제합니다.\n\n기체 디스펜서를 활성화하려면 #{skill_color}#18##미터 내에 있는 동료를 보고 투척 무기 사용 키를 눌러 태그로 지정해야 합니다.\n\n당신이나 태그로 지정된 유닛이 적을 죽일 때마다 #{skill_color}#4##만큼 체력을 회복하고 태그로 지정된 유닛의 체력을 #{skill_color}#2##만큼 회복합니다.\n\n효과는 #{skill_color}#11##초 동안 지속되며 재사용 대기시간은 #{important_1}#80##초입니다.\n\n카메라 루프 지속 시간이 #{skill_color}#20##초로 증가합니다.",
 			--Hacker
-			["menu_deck21_mrwi_desc"] = "투척 무기 대신 사용할 수 있는 #{skill_color}#휴대용 ECM 장치##를 잠금 해제합니다.\n\n휴대용 ECM의 지속 시간은 #{skill_color}#7##초입니다.\n\n알람이 울리기 전에 활성화하면 재밍 효과가 발생하여 모든 전자 장치와 페이저를 비활성화합니다.\n\n알람이 발생한 뒤에는 활성화하면 #{skill_color}#8##미터 반경을 가진 피드백 효과가 발생합니다. #{skill_color}#첫 번째## 피드백 루프는 #{skill_color}#100%##의 확률로 대부분의 적을 스턴시키고, 이후 #{skill_color}#2##초마다 #{skill_color}#60%##의 확률로 스턴시킵니다.\n\n휴대용 ECM 재머는 #{important_1}#80##초의 재사용 대기시간이 있으며, 적을 처치할 때마다 재사용 대기시간이 #{skill_color}#1.5##초씩 단축됩니다.",
+			["menu_deck21_mrwi_desc"] = "투척 무기 대신 사용할 수 있는 #{skill_color}#휴대용 ECM 장치##를 잠금 해제합니다.\n\n휴대용 ECM의 지속 시간은 #{skill_color}#8##초입니다.\n\n알람이 울리기 전에 활성화하면 재밍 효과가 발생하여 모든 전자 장치와 페이저를 비활성화합니다.\n\n알람이 발생한 뒤에는 활성화하면 #{skill_color}#10##미터 반경을 가진 피드백 효과가 발생합니다. #{skill_color}#첫 번째## 피드백 루프는 #{skill_color}#100%##의 확률로 대부분의 적을 스턴시키고, 이후 #{skill_color}#2##초마다 #{skill_color}#60%##의 확률로 스턴시킵니다.\n\n휴대용 ECM 재머는 #{important_1}#80##초의 재사용 대기시간이 있으며, 적을 처치할 때마다 재사용 대기시간이 #{skill_color}#1.5##초씩 단축됩니다.",
 			--Leech
 			["menu_deck22_mrwi_desc"] = "투척 무기 대신 사용할 수 있는 #{skill_color}#리치 약병##을 잠금 해제합니다.\n\n약병을 사용하면 최대 체력의 #{skill_color}#2.5%##를 회복하고 #{important_1}#6##초 동안 #{risk}#방탄력을 비활성화합니다.##\n\n활성화되어 있는 동안, 체력이 #{skill_color}#10%## 단위로 분할되며 피해를 받으면 하나의 단위가 제거됩니다. 적 #{skill_color}#3##명을 죽이면 체력의 한 분할을 회복하고 #{skill_color}#1##초 동안 피해를 차단합니다.\n\n리치 약병의 재사용 대기시간은 #{important_1}#40##초입니다.\n\n시체 가방을 싸는 시간과 인질을 상호작용 하는 속도가 #{skill_color}#75%##만큼 빨라집니다.",
 

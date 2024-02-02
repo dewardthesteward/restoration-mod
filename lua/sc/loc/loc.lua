@@ -1193,9 +1193,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_wp_upg_a_custom_desc"] = "Fires #{important_1}#6## larger, heavier pellets that deal #{skill_color}#increased## damage.",
 		["bm_wp_upg_a_custom_4_desc"] = "Fires #{important_1}#4## larger, heavier pellets that deal #{skill_color}#increased## damage.",
 		["bm_wp_upg_a_dragons_breath_auto_desc_sc"] = "Fires magnesium shards that have up to a #{skill_color}#15%## chance to #{heat_warm_color}#set enemies on fire##, dealing #{heat_warm_color}#90## damage over #{skill_color}#2## seconds.\n\n#{risk}#Chance is reduced over range and can only stun enemies before damage falloff starts.##", --NOT IN USE
-		["bm_wp_upg_a_dragons_breath_semi_desc_sc"] = "Fires magnesium shards that have up to a #{skill_color}#40%## chance to #{heat_warm_color}#set enemies on fire##, dealing #{heat_warm_color}#120## damage over #{skill_color}#2## seconds.\n\n#{risk}#Chance is reduced over range and can only stun enemies before damage falloff starts.",
-		["bm_wp_upg_a_dragons_breath_pump_desc_sc"] = "Fires magnesium shards that have up to a #{skill_color}#60%## chance to #{heat_warm_color}#set enemies on fire##, dealing #{heat_warm_color}#180## damage over #{skill_color}#2## seconds.\n\n#{risk}#Chance is reduced over range and can only stun enemies before damage falloff starts.",
-		["bm_wp_upg_a_dragons_breath_heavy_desc_sc"] = "Fires magnesium shards that have up to an #{skill_color}#80%## chance to #{heat_warm_color}#set enemies on fire##, dealing #{heat_warm_color}#240## damage over #{skill_color}#2## seconds.\n\n#{risk}#Chance is reduced over range and can only stun enemies before damage falloff starts.",
+		["bm_wp_upg_a_dragons_breath_semi_desc_sc"] = "Fires magnesium shards that have up to a #{skill_color}#40%## chance to #{heat_warm_color}#set enemies on fire##, dealing #{heat_warm_color}#120## damage over #{skill_color}#2## seconds.\n\n#{risk}#Chance is reduced over range and can only stun enemies before damage falloff starts.##",
+		["bm_wp_upg_a_dragons_breath_pump_desc_sc"] = "Fires magnesium shards that have up to a #{skill_color}#60%## chance to #{heat_warm_color}#set enemies on fire##, dealing #{heat_warm_color}#180## damage over #{skill_color}#2## seconds.\n\n#{risk}#Chance is reduced over range and can only stun enemies before damage falloff starts.##",
+		["bm_wp_upg_a_dragons_breath_heavy_desc_sc"] = "Fires magnesium shards that have up to an #{skill_color}#80%## chance to #{heat_warm_color}#set enemies on fire##, dealing #{heat_warm_color}#240## damage over #{skill_color}#2## seconds.\n\n#{risk}#Chance is reduced over range and can only stun enemies before damage falloff starts.##",
 		["bm_wp_upg_a_rip"] = "Tombstone Buckshot",
 		["bm_wp_upg_a_rip_auto_desc_sc"] = "Fires #{stats_positive}#poison laced## buckshot, potentially stunning enemies and dealing #{stats_positive}#60## poison damage over #{skill_color}#2## seconds.\n\n#{risk}#Duration diminishes over range.##",
 		["bm_wp_upg_a_rip_semi_desc_sc"] = "Fires #{stats_positive}#poison laced## buckshot, potentially stunning enemies and dealing #{stats_positive}#120## poison damage over #{skill_color}#4## seconds.\n\n#{risk}#Duration diminishes over range.##",
@@ -2054,6 +2054,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				["bm_wp_upg_i_b93o"] = "Bernetti OVERKILL Kit",
 				["bm_wp_upg_i_b93o_desc"] = "Trade burst-fire for a #{skill_color}#full-auto## setting, at the cost of #{important_1}#extra kick.##",
 				--2006M Hailstorm
+				["bm_w_hailstorm_2006m"] = "Hailstorm-9",
+				["bm_w_hailstorm_rsh12"] = "Hailstorm-12",
 				["bm_wp_upg_i_iw_hailstorm"] = "Hailstorm Kit",
 				["bm_wp_upg_i_iw_hailstorm_desc"] = "A prototype weapon kit manufactured by Fujiwara Heavy Industries.\n\nModifies this weapon to chamber special #{skill_color}#triple-stacked munitions.##",
 				["bm_wp_upg_i_iw_hailstorm_no_pen_desc"] = "A prototype weapon kit manufactured by Fujiwara Heavy Industries.\n\nModifies this weapon to chamber special #{skill_color}#triple-stacked munitions## but #{important_1}#damage though armor is reduced by 50% and can no longer pierce shields.##",
@@ -2091,6 +2093,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["halo_scope"] = "Smart-Linked Scope",
 					["halo_scope_2_desc"] = "Enable interfacing between your mask and the mounted #{skill_color}#Smart-Link## scope.\n#{risk}#2x magnification.##",
 					--M200 WIDOWMAKER
+					["bm_w_m200_iw"] = "Widowmaker",
 					["bm_wp_upg_i_iw_widowmaker"] = "Widowmaker Kit",
 					["bm_wp_upg_i_iw_widowmaker_desc"] = "A prototype weapon kit manufactured by Kendall Ballistics.\n\nModifies this weapon to chamber special #{skill_color}#double-stacked munitions.##",
 					--NV4
@@ -2235,6 +2238,10 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				--MP40
 				["bm_erma_sc_desc"] = "A fairly reliable SMG that saw widespread use in the hands of infantrymen during WWII, just don't use the magazine as a grip.",
 				--CUSTOM SMGs
+					["bm_w_m7caseless"] = "Misriah Armory M7 SMG",
+					["bm_w_m7caseless_supp"] = "Misriah Armory M7S SMG",
+					["bm_w_x_m7caseless"] = "Dual M7 SMGs",
+					["bm_w_x_m7caseless_supp"] = "Dual M7S SMGs",
 					--AR57
 					["bm_w_alpha57_prim_desc"] = "The FSS Hurricane sacrifices range and stopping power for increased ammo capacity and enhanced stabililty.\n\n#{skill_color}#Deals 75% of its damage through body armor and headshots deal 66% more damage to non-captain enemies.##",
 					--LWRC
@@ -2341,6 +2348,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				["bm_s552_sc_desc"] = "An elegant alternative to other compact 5.56mm rifles, the preferred choice among DHS. Uses special Swiss-made 5.6mm rounds that offer better range.",
 				--M733/AMCAR
 				["bm_amcar_sc_desc"] = "The most mass produced .223 rifle the world has ever seen. A great all-purpose rifle.",
+				["bm_wp_upg_i_patriot"] = "The Patriot",
+				["bm_wp_upg_i_patriot_desc"] = "An assault pistol developed for #{important_1}#[REDACTED]##.\n\nThe feeder mechanism inside the drum magazine forms an #{important_1}#[REDACTED]## shape.",
 				["bm_wp_upg_i_og_rof"] = "Rate Limiter",
 				["bm_wp_upg_i_og_rof_desc"] = "Restores the weapon's absurdly low fire rate if that's what you're interested in...",
 				--G36
@@ -2499,6 +2508,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				["bm_wp_scout_m_extended"] = "Standoff Speed Magazine",
 				--AWP
 				["bm_awp_sc_desc"] = "A sniper known for it's exceptional range and accuracy. Who would've thought the original models were built by three guys in a shed?\n\n#{skill_color}#Can pierce body armor, multiple enemies, shields and thin walls.##",	
+				["bm_awp_cs_dragon"] = "AWP | Dragon Lore",
+				["bm_awp_cs"] = "AWP",
 				["bm_wp_upg_bazooka"] = "Dragon Lore-less Exclusive Set",
 				["bm_wp_upg_bazooka_desc"] = "High risk and high reward, this infamous rifle is recognizable by its signature report and one-shot, one-kill policy.\n\n#{skill_color}#Headshots deal 50% more damage to non-captain enemies.##\n#{skill_color}#Allows for piercing titan-shields.##",
 				["bm_bazooka_sc_desc"] = "High risk and high reward, this infamous rifle is recognizable by its signature report and one-shot, one-kill policy.\n\n#{skill_color}#Headshots deal 50% more damage to non-captain enemies.##\n#{skill_color}#Can pierce multiple enemies, their body armor, shields, titan-shields and thin walls.##",
@@ -2550,6 +2561,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				["bm_fast_motor_sc_desc"] = "Increases Rotations Per Minute by 15%.",
 				["bm_slow_motor_sc_desc"] = "Decreases Rotations Per Minute by 15%.",
 				--Light Crossbow		
+				["bm_w_frankish_avelyn"] = "Avelyn",
 				["bm_wp_avelyn"] = "Avelyn Kit",
 				["bm_wp_avelyn_desc"] = "A #{skill_color}#repeating crossbow## kit.\nAllows for firing a volley of #{skill_color}#3## bolts with a single trigger pull.",
 				["bm_wp_avelyn_override_desc"] = "An extremely rare rapid-firing crossbow.\nFires #{skill_color}#three## successive bolts by means of an elaborate mechanism.\n\n#{skill_color}#Can pierce body armor.##",
@@ -2643,6 +2655,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_x_m1911"] = "Price & MacTavish",
 					--Crosskill Guard
 					["bm_w_shrew"] = "Crosskill Guard",
+					["bm_w_shrew_joshua"] = "A Light Shining in Darkness",
 					["bm_w_x_shrew"] = "Barry & Paul",
 					--USP 
 					["bm_w_usp"] = "Interceptor-45",
@@ -2654,6 +2667,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_x_type54"] = "Akimbo CC-33s",
 					--Broomstick--
 					["bm_w_c96"] = "Broomstick",
+					["bm_w_c96_dl44"] = "DL-44",
 					["bm_wp_c96_nozzle"] = "BlasTech DL-44 Muzzle",
 					--Sub2000
 					["bm_w_sub2000"] = "Cavity .40",
@@ -2733,12 +2747,18 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_shepheard"] = "FIK PC9",
 					--Compact-5/MP5
 					["bm_w_mp5"] = "Compact-5",	
+					["bm_w_mp5sd"] = "Compact-5SD",	
+					["bm_w_mp5k"] = "Compact-5K",
+					["bm_w_mp5k_pdw"] = "Compact-5K PDW",
 					["bm_w_x_mp5"] = "Akimbo Compact-5s",
 					["bm_wp_mp5_fg_mp5sd"] = "SPOOC Foregrip",
 					--Swedish K
 					["bm_w_m45"] = "Swedish K",
 					--Pachett/Sterling
-					["bm_w_sterling"] = "Patchette L2A1",
+					["bm_w_sterling"] = "Patchette L2A3",
+					["bm_w_sterling_sd"] = "Patchette L34A1",
+					["bm_w_sterling_pistol"] = "Patchette Mk. VII",
+					["bm_w_sterling_e11"] = "E-11",
 					["bm_wp_sterling_b_e11"] = "BlasTech E-11 Barrel",
 					--Uzi
 					["bm_w_uzi"] = "Uzi",
@@ -2779,16 +2799,18 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_wp_par_b_short"] = "Comped Barrel",
 					--Buzzsaw/Mg42
 					["bm_w_mg42"] = "Buzzsaw-42",
+					["bm_w_mg42_dlt19"] = "DLT-19",
 					--Versteckt-51/HK51B
 					["bm_w_hk51b"] = "Versteckt-51B",
 					--Microgun
 					["bm_wp_wpn_fps_lmg_shuno_body_red"] = "Red Body",
-					--CUSTOM SMGs
+					--CUSTOM MGs
 						["bm_w_sig_xm250"] = "FIK MG277",
 
 				--[[ SHOTGUNS ]]
 					--Grimm
-					["bm_w_basset"] = "Grimm 12G",	
+					["bm_w_basset"] = "Grimm 12G",
+					["bm_w_x_basset"] = "Brothers Grimm 12G",
 					--Saiga
 					["bm_w_saiga"] = "IZHMA 12G",
 					--AA12
@@ -2843,7 +2865,11 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					--M733/AMCAR
 					["bm_w_amcar"] = "AM-CAR",
 					--G36
-					["bm_w_g36"] = "JP36",
+					["bm_w_g36"] = "JP-36KV",
+					["bm_w_g36_k"] = "JP-36K",
+					["bm_w_g36_c"] = "JP-36C",
+					["bm_w_g36_v"] = "JP-36V",
+					["bm_w_g36_long"] = "JP-36",
 					--VHS/Lion's Roar
 					["bm_w_vhs"] = "Lion's Roar",
 					["bm_wp_vhs_b_sniper"] = "Hyper Barrel",
@@ -2857,15 +2883,21 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_famas"] = "Clarion 5.56",
 					--M4/CAR-4
 					["bm_w_m4"] = "CAR-4",
+					["bm_w_m4_mk12"] = "CAR-12 SPR",
 					["bm_wp_upg_ass_m4_b_beowulf"] = "Wolf Barrel",
 					["bm_wp_upg_s_fixed"] = "CAR Fixed Stock",
 					--AK5
 					["bm_w_ak5"] = "Ak 5",
+					["bm_w_ak5b"] = "Ak 5B",
+					["bm_w_ak5c"] = "Ak 5C",
+					["bm_w_ak5_fnc"] = "VF Carabine",
 					--Union 5.56
 					["bm_w_corgi"] = "Union 5.56",
 					["bm_wp_corgi_b_short"] = "MSG Barrel",
 					--UAR
 					["bm_w_aug"] = "UAR A2",
+					["bm_w_aug_a3"] = "UAR A3",
+					["bm_w_aug_f90"] = "Raptor 90",
 					["bm_wp_upg_b_hbar"] = "Heavy Barrel",	
 					--AK17
 					["bm_w_ak12"] = "AK-17",
@@ -2875,6 +2907,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_hajk"] = "CR 805B",
 					--AMR-16
 					["bm_w_m16"] = "AMR-16",
+					["bm_w_m16a1"] = "AMR-16A1",
 					--Queen's Wrath
 					["bm_w_l85a2"] = "Queen's Wrath",
 					--AK 7.62
@@ -2912,24 +2945,40 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				--[[ DMRs ]]
 					--Little Friend
 					["bm_w_contraband"] = "Bigger Friend 7.62",
+					["bm_w_contraband_m16"] = "Little Friend 5.56",
+					["bm_w_contraband_mpx"] = "OMNIA PC9 9mm",
 					--FAL
 					["bm_w_fal"] = "Falcon 58",
+					["bm_w_fal_l1a1"] = "Falcon SLR",
+					["bm_w_fal_sa58"] = "Falcon 58 OSW",
+					["bm_w_fal_idf"] = "Falcon RMT",
 					--ASS VAL
 					["bm_w_asval"] = "Valkyria",
 					--Galil
 					["bm_w_galil"] = "Gecko 7.62",
+					["bm_w_galil_galatz"] = "Gekkota 7.62",
+					["bm_w_galil_mar"] = "Micro Gecko 7.62",
+					["bm_w_galil_556"] = "Gecko 5.56",
+					["bm_w_galil_mar_556"] = "Micro Gecko 5.56",
 					--SCAR
 					["bm_w_scar"] = "Eagle Heavy",
+					["bm_w_scar_l"] = "Eagle Light",
 					--Galant--
 					["bm_w_ching"] = "M1 Galant",
 					--M308
 					["bm_w_m14"] = "M308",
 					--G3
 					["bm_w_g3"] = "Gewehr-3",
+					["bm_w_g3_sg1"] = "Gewehr-S1",
+					["bm_w_g3_msg"] = "Gewehr-90",
+					["bm_w_g3_psg"] = "Präzision Gewehr-1",
+					["bm_w_g3_hk33"] = "SG-33",
+					["bm_w_g3_hk33_fo3"] = "R91",
 					["bm_wp_g3_b_sniper"] = "Macro Barrel",
 					["bm_wp_g3_b_short"] = "Micro Barrel",
 					--KS12
 					["bm_w_shak12"] = "KS-12 Urban",
+					["bm_w_shak12_vks"] = "KSV-12 Urban",
 					--HCAR
 					["bm_w_hcar"] = "Akron HC",
 					
@@ -3040,12 +3089,15 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				["bm_w_x_sparrow"] = "Akimbo Sparrows",
 				["bm_w_x_judge"] = "Akimbo Judges",
 				["bm_w_scar"] = "VF-7S",
+				["bm_w_scar_l"] = "VF-6M",
 				["bm_w_scarl"] = "VF-6M",
 				["bm_w_schakal"] = "AMP 45",
 				["bm_w_tecci"] = "SG 416C",
 				["bm_w_l85a2"] = "L-95",
 				["bm_w_vhs"] = "HVH-2",
-				["bm_w_contraband"] = "SG 417D"
+				["bm_w_contraband"] = "SG 417D GL",
+				["bm_w_contraband_m16"] = "AMR-16 GL",
+				["bm_w_contraband_mpx"] = "OMNIA PC9 GL",
 	
 			})
 		elseif weapon_names == 3 then --DMCWO Reelnames
@@ -3140,6 +3192,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_wp_sub2000_fg_suppressed"] = "Quad Rail Handguard w/Suppressor",
 					--C96
 					["bm_w_c96"] = "Mauser C96",
+					["bm_w_c96_dl44"] = "BlasTech DL-44",
 					["bm_wp_c96_b_long"] = "Carbine Barrel",
 					["bm_wp_c96_nozzle"] = "DL-44 Muzzle",
 					["bm_wp_c96_sight"] = "Schmidt & Bender 1-8x24 PM Short Dot",
@@ -3160,6 +3213,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_x_m1911"] = "Akimbo 1911A1s",
 					--Crosskill Guard
 					["bm_w_shrew"] = "Colt Defender",
+					["bm_w_shrew_joshua"] = "A Light Shining in Darkness",
 					["bm_w_x_shrew"] = "Akimbo Defenders",
 					--Interceptor
 					["bm_w_usp"] = "H&K USP Tactical",
@@ -3272,6 +3326,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_wp_scorpion_b_suppressed"] = "Skorpion Suppressor",
 					--MP5
 					["bm_w_mp5"] = "H&K MP5A2",
+					["bm_w_mp5sd"] = "H&K MP5SD",	
+					["bm_w_mp5k"] = "H&K MP5K",	
+					["bm_w_mp5k_pdw"] = "H&K MP5K PDW",
 					["bm_w_x_mp5"] = "Akimbo MP5A2s",
 					["bm_mp5_sc_desc"] = "The little sister to the G3.\nFast-firing, accurate and easy to handle, what more could you want out of an SMG?",
 					["bm_wp_mp5_fg_m5k"] = "MP5k Tri-Rail Kit",
@@ -3296,15 +3353,18 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_wp_uzi_fg_rail"] = "FAB Defense Uzi Tri-Rail System",
 					["bm_wp_uzi_b_suppressed"] = "Two-Stage Suppressor",
 					--Pachette
-					["bm_w_sterling"] = "Sterling L2A1",
+					["bm_w_sterling"] = "Sterling L2A3",
+					["bm_w_sterling_sd"] = "Sterling L34A1",
+					["bm_w_sterling_pistol"] = "Sterling Mk. VII",
+					["bm_w_sterling_e11"] = "BlasTech E-11",
 					["bm_wp_sterling_b_suppressed"] = "L34A1 Barrel",
 					["bm_wp_sterling_b_e11"] = "BlasTech E-11 Barrel",
-					["bm_wp_sterling_m_short"] = "15rnd L2A1 Magazine",
-					["bm_wp_sterling_m_long"] = "34rnd L2A1 Magazine",
+					["bm_wp_sterling_m_short"] = "15rnd Magazine",
+					["bm_wp_sterling_m_long"] = "34rnd Magazine",
 					--
 					["bm_w_mac10"] = "Ingram M10",
 					["bm_w_x_mac10"] = "Akimbo M10s",
-					["bm_wp_mac10_m_extended"] = "30rnd M10 Magazine",
+					["bm_wp_mac10_m_extended"] = "30rnd Magazine",
 					["bm_wp_mac10_body_ris"] = "MAC Rail System", --I'm getting nothing but airsoft results so generic name
 					["bm_wp_mac10_s_skel"] = "Low Mount Skeleton Stock",
 					--Thompson
@@ -3319,8 +3379,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_schakal"] = "H&K UMP-45",
 					["bm_wp_schakal_b_civil"] = "USC Barrel",
 					["bm_wp_schakal_ns_silencer"] = "GemTech QD UMP Suppressor",
-					["bm_wp_schakal_m_short"] = "15rnd UMP Magazine",
-					["bm_wp_schakal_m_long"] = "45rnd UMP Magazine",
+					["bm_wp_schakal_m_short"] = "15rnd Magazine",
+					["bm_wp_schakal_m_long"] = "45rnd Magazine",
 					--M45
 					["bm_w_m45"] = "Carl Gustaf Kpist M/45",
 					["bm_wp_smg_m45_m_extended"] = "50rnd M/45 Magazine",
@@ -3363,6 +3423,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_wp_hk21_g_ergo"] = "HK21 Ergo Grip",
 					--MG42
 					["bm_w_mg42"] = "Mauser Maschinengewehr 42",
+					["bm_w_mg42_dlt19"] = "BlasTech DLT-19",
 					["bm_wp_mg42_b_mg34"] = "Maschinengewehr 34 Barrel",
 					["bm_wp_mg42_b_vg38"] = "BlasTech DLT-19 Barrel",
 					--Versteckt-51/HK51B
@@ -3390,23 +3451,24 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				--[[SHOTGUNS]]
 					--Saiga
 					["bm_w_basset"] = "Spike X1S Saiga",
-					["bm_w_basset_m_extended"] = "10rnd AGP Arms Saiga Magazine",
+					["bm_w_x_basset"] = "Akimbo Spike X1S Saiga",
+					["bm_w_basset_m_extended"] = "10rnd AGP Arms Magazine",
 					["bm_w_saiga"] = "Kalashnikov Concern Saiga-12K",
 					["bm_wp_saiga_fg_lowerrail"] = "Ultimak AK Modular Rail Forend System",
-					["bm_wp_saiga_m_20rnd"] = "20rnd MD Arms Saiga Drum",
+					["bm_wp_saiga_m_20rnd"] = "20rnd MD Arms Drum",
 					["bm_wp_saiga_fg_holy"] = "Fuglystick Rail System",
 					--AA12
 					["bm_w_aa12"] = "MPS Auto Assault-12 CQB",
-					["bm_wp_aa12_barrel_long"] = "Standard AA-12 Barrel",
-					["bm_wp_aa12_mag_drum"] = "20rnd AA-12 Drum",
+					["bm_wp_aa12_barrel_long"] = "Standard Barrel",
+					["bm_wp_aa12_mag_drum"] = "20rnd Drum",
 					--Six12
 					["bm_w_rota"] = "Crye Precision SIX12",
 					--M1014
 					["bm_w_benelli"] = "Benelli M4 Super 90",
-					["bm_wp_ben_b_long"] = "Long M4 Barrel",
-					["bm_wp_ben_b_short"] = "NFA M4 Barrel",
-					["bm_wp_ben_s_collapsed"] = "Collapsed M4 Stock",
-					["bm_wp_ben_fg_standard"] = "M4 Tactical Stock",
+					["bm_wp_ben_b_long"] = "Long Barrel",
+					["bm_wp_ben_b_short"] = "NFA Barrel",
+					["bm_wp_ben_s_collapsed"] = "Collapsed Stock",
+					["bm_wp_ben_fg_standard"] = "Tactical Stock",
 					--SPAS-12
 					["bm_w_spas12"] = "Franchi SPAS-12",
 					["bm_wp_spas12_b_long"] = "8rnd Tube",
@@ -3481,8 +3543,12 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_wp_vhs_b_sniper"] = "Sniper Barrel",
 					["bm_wp_vhs_b_silenced"] = "Suppressed Barrel",
 					--JP36
-					["bm_w_g36"] = "H&K G36K",
-					["bm_wp_g36_fg_c"] = "G36c Handguard",
+					["bm_w_g36"] = "H&K G36KV",
+					["bm_w_g36_k"] = "H&K G36K",
+					["bm_w_g36_c"] = "H&K G36C",
+					["bm_w_g36_v"] = "H&K G36V",
+					["bm_w_g36_long"] = "H&K G36",
+					["bm_wp_g36_fg_c"] = "G36C Handguard",
 					["bm_wp_g36_fg_ksk"] = "Knights Armament Co. RAS Handguard",
 					["bm_wp_g36_s_kv"] = "G36KV Stock",
 					["bm_wp_g36_s_sl8"] = "SL8 Stock",
@@ -3501,6 +3567,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 
 					--AUG
 					["bm_w_aug"] = "Steyr AUG A2",
+					["bm_w_aug_a3"] = "Steyr AUG A3",
+					["bm_w_aug_f90"] = "Thales F90",
 					["bm_wp_aug_fg_a3"] = "A3 Rail",
 					["bm_wp_aug_body_f90"] = "Thales F90 Kit",
 					--Boatgun
@@ -3508,13 +3576,17 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					--AK12
 					["bm_w_ak12"] = "Kalashnikov Concern AK-12",
 					--Ak5
-					 ["bm_w_ak5"] = "Bofors Ak 5",
-					 ["bm_wp_ak5_fg_ak5c"] = "Ak 5c Handguard",
-					 ["bm_wp_ak5_fg_fnc"] = "FN FNC Handguard",
-					 ["bm_wp_ak5_s_ak5b"] = "Ak 5b Stock",
-					 ["bm_wp_ak5_s_ak5c"] = "Ak 5c Stock",
+					["bm_w_ak5"] = "Bofors Ak 5",
+					["bm_w_ak5b"] = "Bofors Ak 5B",
+					["bm_w_ak5c"] = "Bofors Ak 5C",
+					["bm_w_ak5_fnc"] = "FN FNC",
+					["bm_wp_ak5_fg_ak5c"] = "Ak 5C Handguard",
+					["bm_wp_ak5_fg_fnc"] = "FN FNC Handguard",
+					["bm_wp_ak5_s_ak5b"] = "Ak 5B Stock",
+					["bm_wp_ak5_s_ak5c"] = "Ak 5C Stock",
 					--CAR-4
 					["bm_w_m4"] = "Colt M4A1",
+					["bm_w_m4_mk12"] = "Mk 12 SPR",
 					--AK74
 					["bm_w_ak74"] = "Kalashnikov Concern AKS-74",
 					--805
@@ -3527,6 +3599,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 
 					--M16
 					["bm_w_m16"] = "Colt M16A4",
+					["bm_w_m16a1"] = "Colt M16A1",
 					["bm_wp_m16_fg_railed"] = "Daniel Defense Lite Rail",
 					["bm_wp_m16_fg_vietnam"] = "M16A1 Handguard",
 					--["bm_wp_m16_s_solid"] = "M16 Stock",
@@ -3551,6 +3624,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				--[[DMRs]]
 					--417
 					["bm_w_contraband"] = "H&K HK417 w/ M203",
+					["bm_w_contraband_m16"] = "Colt M16A1 w/ M203",
+					["bm_w_contraband_mpx"] = "SIG MPX w/ M203",
 					["bm_m203_weapon_sc_desc_pc"] = "The big sister to Scarface's personal \"Little Friend\" M16.\n\n#{skill_color}#Deals 25% of its damage through body armor and can pierce enemies.##\nPressing #{skill_color}#$BTN_BIPOD## switches to the undermounted grenade launcher.",
 					["bm_m203_weapon_sc_desc"] = "The big sister to Scarface's personal \"Little Friend\" M16.\n\n#{skill_color}#Deals 25% of its damage through body armor and can pierce enemies.##\nHolding #{skill_color}#$BTN_BIPOD## switches to the undermounted grenade launcher.",
 						--VMP
@@ -3559,10 +3634,14 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 				
 					--SCAR
 					["bm_w_scar"] = "FN Mk.17",
+					["bm_w_scar_l"] = "FN Mk.16",
 					["bm_wp_scar_fg_railext"] = "PWS SCAR Rail Extension",
 					["bm_wp_scar_s_sniper"] = "Mk.20 Stock",
 					--FAL
 					["bm_w_fal"] = "FN FAL",
+					["bm_w_fal_l1a1"] = "FAL L1A1",
+					["bm_w_fal_sa58"] = "DSA SA58 OSW",
+					["bm_w_fal_idf"] = "IWI Romat",
 					["bm_wp_fal_body_standard"] = "DSA SA58 Handguard",
 					["bm_wp_fal_fg_wood"] = "Wooden FAL Handguard",
 					["bm_wp_fal_fg_04"] = "DSA Freefloat Handguard",
@@ -3574,6 +3653,10 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_wp_upg_vintage_fal_sc"] = "20rnd Magazine",
 					--Galil
 					["bm_w_galil"] = "IWI Galil ARM",
+					["bm_w_galil_galatz"] = "IWI Galatz",
+					["bm_w_galil_mar"] = "IWI Micro Galil",
+					["bm_w_galil_556"] = "IWI Galil ARM",
+					["bm_w_galil_mar_556"] = "IWI Micro Galil",
 					["bm_wp_galil_fg_sniper"] = "IWI Galatz Handguard",
 					["bm_wp_galil_fg_sar"] = "IWI Galil SAR Handguard",
 					["bm_wp_galil_fg_mar"] = "IWI Galil MAR Handguard",
@@ -3590,6 +3673,11 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 
 					--Raifu
 					["bm_w_g3"] = "H&K G3A3",
+					["bm_w_g3_hk33"] = "H&K HK33",
+					["bm_w_g3_sg1"] = "H&K G3SG1",
+					["bm_w_g3_msg"] = "H&K MSG90",
+					["bm_w_g3_psg"] = "H&K PSG-1",
+					["bm_w_g3_fo3"] = "R91",
 					["bm_g3_sc_desc"] = "Acting as the big sister to the MP5 and HK21, this rifle's accuracy rivals that of snipers.\n\n#{skill_color}#Deals 50% of its damage through body armor and can pierce enemies and thin walls.##",
 					["bm_g3_ap25_sc_desc"] = "Acting as the big sister to the MP5 and HK21, this rifle's accuracy rivals that of snipers.\n\n#{skill_color}#Deals 75% of its damage through body armor and can pierce enemies.##",	
 					["bm_g3_sg1_sc_desc"] = "Acting as the big sister to the MP5 and HK21, this rifle's accuracy rivals that of snipers.\n\n#{skill_color}#Can pierce body armor, enemies, shields and thin walls.##",
@@ -3993,10 +4081,14 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 			--SEISHOU ACADEMY
 				--MIDDLE SCHOOLERS
 					["bm_w_m16"] = "Ichiroku",
+					["bm_w_m16a1"] = "Ichiroku",
 						["bm_m16_sc_desc"] = "\"I won't lose!\"\n\nA middleschooler attending #{stats_positive}#Seishou Academy.##\nThe energetic and foul-mouthed figurehead of the school.",
 					["bm_w_m4"] = "Em-Four",
+					["bm_w_m4_mk12"] = "Em-Four",
 						["bm_m4_sc_desc"] = "\"Don't underestimate a service rifle!\"\n\nA middleschooler attending #{stats_positive}#Seishou Academy.##\nVice-president of the middleschool student council.",
 					["bm_w_aug"] = "AUG",
+					["bm_w_aug_a3"] = "AUG",
+					["bm_w_aug_f90"] = "AUG",
 						["bm_aug_sc_desc"] = "#{stats_negative}#\"RUN AWAY! PLEAD FOR YOUR LIFE!\"##\n\nA middleschooler attending #{stats_positive}#Seishou Academy.##\nPresident of the middleschool student council.",
 					["bm_wp_ak5_fg_fnc"] = "Funco Kit",
 						["bm_wp_ak5_fg_fnc_desc"] = "\"To respond to its master's wishes is a tool's joy.\"\n\nA middleschooler attending #{stats_positive}#Seishou Academy.##\nGives off a heavy \"main protagonist\" aura.",
@@ -4009,11 +4101,19 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 	
 				--HIGH SCHOOLERS
 					["bm_w_fal"] = "Faru",
+					["bm_w_fal_l1a1"] = "Faru",
+					["bm_w_fal_sa58"] = "Faru",
+					["bm_w_fal_idf"] = "Faru",
 						["bm_fal_sc_desc"] = "\"Your big sis arrived-!\"\n\nFunco's older sister.\nNot to be confused with Funco's other sister, L1A1.",
 						["bm_fal_ap25_sc_desc"] = "\"Your big sis arrived-!\"\n\nFunco's older sister.\nNot to be confused with Funco's other sister, L1A1.",
 					["bm_w_m14"] = "Ichiyon",
 						["bm_m14_sc_desc"] = "\"What are those westerners doin' copying AKs!? Buncha traitors!\"\n\nA highschooler attending #{stats_positive}#Seishou Academy.##\nEasy-going and chalk-full of puns. Currently going through a fashion-sense crisis.",
 					["bm_w_g3"] = "Jiisuri",
+					["bm_w_g3_sg1"] = "Jiisuri",
+					["bm_w_g3_msg"] = "Jiisuri",
+					["bm_w_g3_psg"] = "Jiisuri",
+					["bm_w_g3_hk33"] = "HK33",
+					["bm_w_g3_hk33_fo3"] = "R91",
 						["bm_g3_sc_desc"] = "\"Let's settle this!\"\n\nA highschooler attending #{stats_positive}#Seishou Academy.##\nElegant but a bit of a klutz. The eldest of her many sisters and DMC's #{stat_maxed}#raifu.##",
 						["bm_g3_ap25_sc_desc"] = "\"Let's settle this!\"\n\nA highschooler attending #{stats_positive}#Seishou Academy.##\nElegant but a bit of a klutz. The eldest of her many sisters and DMC's #{stat_maxed}#raifu.##",
 						["bm_g3_sg1_sc_desc"] = "\"Let's settle this!\"\n\nA highschooler attending #{stats_positive}#Seishou Academy.##\nElegant but a bit of a klutz. The eldest of her many sisters and DMC's #{stat_maxed}#raifu.##",
@@ -4023,6 +4123,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 
 				--ELEMENTARY
 					["bm_w_mp5"] = "Empi",
+					["bm_w_mp5sd"] = "MP5SD",	
+					["bm_w_mp5k"] = "MP5K",	
+					["bm_w_mp5k_pdw"] = "MP5K",
 						["bm_mp5_sc_desc"] = "\"If that's your hobby...\"\n\nAn elementary schooler attending #{stats_positive}#Seishou Academy.##\nOne of Jiisuri's many younger siblings and the student council president of the elementary division.",
 					["bm_w_schakal"] = "UMP",
 						["bm_schakal_sc_desc"] = "An elementary schooler attending #{stats_positive}#Seishou Academy.##\nCousin to the G3 family; she's currently living together with them as she attends school. She often gets into fights with MP5K.",
@@ -4070,6 +4173,11 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 		if my_wife then
 			LocalizationManager:add_localized_strings({	
 				["bm_w_g3"] = "Jiisuri",
+				["bm_w_g3_sg1"] = "Jiisuri",
+				["bm_w_g3_msg"] = "Jiisuri",
+				["bm_w_g3_psg"] = "Jiisuri",
+				["bm_w_g3_hk33"] = "HK33",
+				["bm_w_g3_hk33_fo3"] = "R91",
 					["bm_g3_sc_desc"] = "\"Let's settle this!\"\n\nA highschooler attending #{stats_positive}#Seishou Academy.##\nElegant but a bit of a klutz. The eldest of her many sisters and DMC's #{stat_maxed}#raifu.##",
 					["bm_g3_ap25_sc_desc"] = "\"Let's settle this!\"\n\nA highschooler attending #{stats_positive}#Seishou Academy.##\nElegant but a bit of a klutz. The eldest of her many sisters and DMC's #{stat_maxed}#raifu.##",
 					["bm_menu_jiisuri_stock"] = "Pantyhose",
@@ -4274,7 +4382,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		["loading_gameplay_res_5"] = "Cloakers can easily counter lone or cut off heisters.",
 		["loading_gameplay_res_6"] = "Cloakers deal direct health damage when they kick you. This can be reduced with Deflection or the Counter Strike skill.",
 		["loading_gameplay_res_7"] = "Green Bulldozers deal high amounts of damage and can often break even the heaviest of armors with a single shot.",
-		["loading_gameplay_res_8"] = "Saiga/Black Bulldozers trade damage for high rate of fire and boast an impressive drum magazine. They also run faster than other dozers but have much less health.",
+		["loading_gameplay_res_8"] = "Saiga/Black Bulldozers trade damage for high rate of fire and boast an impressive drum magazine. They also run faster than other dozers but have much less health and can be stunned with explosives.",
 		["loading_gameplay_res_9"] = "LMG Dozers/Skulldozers lay down heavy suppressive fire that knockbacks on close range and will fire until their belts are empty. Their top armor can take up more damage than regular dozer but move as slow as Titandozers.",
 		["loading_gameplay_res_10"] = "Benelli Shotgunner Dozers replace Minigun Dozers, high rate of fire and good damage. An unholy union of Green and Black dozers.",
 		["loading_gameplay_res_11"] = "Target priority is important. A Bulldozer of any type is worth more attention than a Light SWAT.",
@@ -4541,6 +4649,11 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		["menu_mutator_captain_replace_hvh"] = "HHHTDFH",
 		["mutator_captain_replace_desc"] = "Changes the Captain that spawns during a heist.",
 		["mutator_captain_replace_longdesc"] = "The Captain that will spawn during a heist will instead be the selected Captain.\n\nNote: Scripted Captain Encounters will be unchanged.",
+		
+		["mutator_no_outlines"] = "Expert Realism",
+		["mutator_no_outlines_desc"] = "NO OUTLINES PLACEHOLDER.",
+		["mutator_no_outlines_longdesc"] = "NO OUTLINES PLACEHOLDER.",
+		["menu_mutator_no_outlines_enemies_toggle"] = "Disable Enemy Outlines",
 		
 
 		["mutator_spawn_mult"] = "Amplified Response",
@@ -5208,9 +5321,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Perk_Decks", function(
 		["menu_deck9_1_sc"] = "No Talk",
 		["menu_deck9_1_desc_sc"] = "When you are surrounded by three or more enemies within ##18## meters, you take ##5%## less damage from enemies.",
 		["menu_deck9_3_desc_sc"] = "Killing an enemy regenerates #{skill_color}#20## armor.\n\nThis cannot occur more than once every #{important_1}#5## seconds. Each kill during cooldown reduces it by #{skill_color}#0.5## seconds; melee kills reduce it by an additional #{skill_color}#1.5## seconds.\n\nIf a kill clears an active cooldown it will trigger the applicable perks and restart the cooldown.\n\nYou gain #{skill_color}#5## dodge points.",
-		["menu_deck9_5_desc_sc"] = "Killing an enemy with a melee weapon regenerates ##2%## health.\n\nThis shares its cooldown with Tension (Card 3).\n\nYou carry ##1## additional body bag in your inventory.",
-		["menu_deck9_7_desc_sc"] = "Killing an enemy within ##18## meters regenerates ##15## armor; melee kills double the amount.\n\nThis shares its cooldown with Tension (Card 3).\n\nYour dodge is increased by an additional ##5## points.",
-		["menu_deck9_9_desc_sc"] = "Killing an enemy within ##18## meters has a ##25%## chance to spread panic among your enemies in a ##12## meter radius around you; melee kills double the chance.\n\nPanic will make enemies go into short bursts of uncontrollable fear.\n\nThis shares its cooldown with Tension (Card 3).\n\nDeck Completion Bonus: Your chance of getting a higher quality item during a PAYDAY is increased by ##10%.##",
+		["menu_deck9_5_desc_sc"] = "Killing an enemy with a melee weapon regenerates ##2%## health.\n\nThis perk shares its cooldown with Tension (Card 3) even if this perk was not triggered.\n\nYou carry ##1## additional body bag in your inventory.",
+		["menu_deck9_7_desc_sc"] = "Killing an enemy within ##18## meters regenerates ##15## armor; melee kills double the amount.\n\nThis perk shares its cooldown with Tension (Card 3) even if this perk was not triggered.\n\nYour dodge is increased by an additional ##5## points.",
+		["menu_deck9_9_desc_sc"] = "Killing an enemy within ##18## meters has a ##25%## chance to spread panic among your enemies in a ##12## meter radius around you; melee kills double the chance.\n\nPanic will make enemies go into short bursts of uncontrollable fear.\n\nThis perk shares its cooldown with Tension (Card 3) even if this perk was not triggered.\n\nDeck Completion Bonus: Your chance of getting a higher quality item during a PAYDAY is increased by ##10%.##",
 
 		--Grinder--
 		["menu_deck11_1_desc_sc"] = "Damaging an enemy heals #{skill_color}#2## health every second for #{skill_color}#3##; stacks up to #{skill_color}#5## times.\nYou can only gain a stack every #{important_1}#0.75## seconds and only while wearing the #{risk}#Flak Jacket.##\nYour Flak Jacket loses #{important_1}#30## armor but gains #{skill_color}#8## mobility.\n\n#{risk}#NOTE: Damaging enemies with sentries or damage over time effects will not grant stacks.##",
@@ -5286,7 +5399,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Perk_Decks", function(
 		["menu_yakuza_deflection_add"] = "(Boosted by Yakuza)",
 
 		--Hacker--
-		["menu_deck21_1_desc_sc"] = "Unlocks the #{skill_color}#Pocket ECM Device## for use in place of a throwable.\n\nThe Pocket ECM has a #{skill_color}#7## second duration.\n\nActivating it before the alarm is raised will trigger the jamming effect, disabling all electronics and pagers.\n\nActivating it after the alarm is raised will trigger its feedback effect with a radius of #{skill_color}#8## meters. The #{skill_color}#first## feedback loop has a #{skill_color}#100%## chance to stun most enemies, with every #{skill_color}#2## seconds afterwards having a #{skill_color}#60%## chance to stun.\n\nThe Pocket ECM has an #{important_1}#80## second cooldown timer; each kill you perform will shorten the cooldown timer by #{skill_color}#1.5## seconds.",
+		["menu_deck21_1_desc_sc"] = "Unlocks the #{skill_color}#Pocket ECM Device## for use in place of a throwable.\n\nThe Pocket ECM has an #{skill_color}#8## second duration.\n\nActivating it before the alarm is raised will trigger the jamming effect, disabling all electronics and pagers.\n\nActivating it after the alarm is raised will trigger its feedback effect with a radius of #{skill_color}#10## meters. The #{skill_color}#first## feedback loop has a #{skill_color}#100%## chance to stun most enemies, with every #{skill_color}#2## seconds afterwards having a #{skill_color}#60%## chance to stun.\n\nThe Pocket ECM has an #{important_1}#80## second cooldown timer; each kill you perform will shorten the cooldown timer by #{skill_color}#1.5## seconds.",
 		["menu_deck21_3_desc_sc"] = "Your dodge is increased by ##5## points.",
 		["menu_deck21_5_desc_sc"] = "Killing an enemy while the feedback effect is active will regenerate ##6## health.",
 		["menu_deck21_7_desc_sc"] = "Your armor recovery rate is increased by ##10%.##\n\nYour dodge is increased by an additional ##5## points.",
@@ -5386,7 +5499,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Perk_Decks", function(
 			--Tag Team
 			["menu_deck20_mrwi_desc"] = "Unlocks the #{skill_color}#Gas Dispenser## for use in place of a throwable.\n\nTo activate the Gas Dispenser you need to directly look at another allied unit within #{skill_color}#18## meters and press the throwable key to tag them.\n\nKills you or the tagged unit make heal you for #{skill_color}#4## health and the tagged unit for #{skill_color}#2## health.\n\nThe effect lasts for #{skill_color}#11## seconds  and has a cooldown of #{important_1}#80## seconds.\n\nYour camera loop duration is increased by #{skill_color}#20## seconds.",
 			--Hacker
-			["menu_deck21_mrwi_desc"] = "Unlocks the #{skill_color}#Pocket ECM Device## for use in place of a throwable.\n\nThe Pocket ECM has a #{skill_color}#7## second duration.\n\nActivating it before the alarm is raised will trigger the jamming effect, disabling all electronics and pagers.\n\nActivating it after the alarm is raised will trigger its feedback effect with a radius of #{skill_color}#8## meters. The #{skill_color}#first## feedback loop has a #{skill_color}#100%## chance to stun most enemies, with every #{skill_color}#2## seconds afterwards having a #{skill_color}#60%## chance to stun.\n\nThe Pocket ECM has an #{important_1}#80## second cooldown timer; each kill you perform will shorten the cooldown timer by #{skill_color}#1.5## seconds.",
+			["menu_deck21_mrwi_desc"] = "Unlocks the #{skill_color}#Pocket ECM Device## for use in place of a throwable.\n\nThe Pocket ECM has an #{skill_color}#8## second duration.\n\nActivating it before the alarm is raised will trigger the jamming effect, disabling all electronics and pagers.\n\nActivating it after the alarm is raised will trigger its feedback effect with a radius of #{skill_color}#10## meters. The #{skill_color}#first## feedback loop has a #{skill_color}#100%## chance to stun most enemies, with every #{skill_color}#2## seconds afterwards having a #{skill_color}#60%## chance to stun.\n\nThe Pocket ECM has an #{important_1}#80## second cooldown timer; each kill you perform will shorten the cooldown timer by #{skill_color}#1.5## seconds.",
 			--Leech
 			["menu_deck22_mrwi_desc"] = "Unlocks the #{skill_color}#Ampule## for use in place of a throwable.\n\nActivating the Ampule it will restore #{skill_color}#2.5%## of your maximum health and #{risk}#disable your armor## for #{important_1}#6## seconds.\n\nWhile active, your health is divided into segments of #{skill_color}#10%## with damage removing one segment. Killing #{skill_color}#3## enemies will restore a segment of your health and block damage for #{skill_color}#1## second.\n\nThe Ampule has a #{important_1}#40## second cooldown.\n\nYou bag corpses and interact with hostages #{skill_color}#75%## faster.",
 
